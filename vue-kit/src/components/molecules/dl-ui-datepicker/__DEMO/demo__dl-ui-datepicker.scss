@@ -1,0 +1,56 @@
+@import '../mixins/datepicker';
+@import '../../../atoms/dl-ui-input/mixins/input';
+
+$config: (
+  'overlay::background': $color-surface-02,
+  'overlay::width': 320px,
+  'overlay::border': 3px dotted $color-status-danger-03,
+  'overlay::border-radius': 8px,
+  'overlay::header::margin': 8px,
+  'overlay::header::padding': 8px,
+  'overlay::header::border-bottom': none,
+  'overlay::header::color': rgb(66, 0, 0),
+  'overlay::body::margin': 8px,
+  'overlay::body::padding': 8px,
+  'overlay::footer::margin': 8px,
+  'overlay::footer::padding': 8px,
+  'overlay::footer::color': $color-status-success-03,
+  'navigation::icons::size': 20px,
+  'item::today::background': $color-status-info-02k,
+  'item::today::color': $color-surface-02,
+  'item::hover::background': $color-status-info-03,
+  'item::hover::color': $color-action-primary-contrast,
+  'item::active::background': rgb(240, 116, 137),
+  'item::active::color': $color-action-primary-contrast,
+  'item::active::hover::background': $color-base-02,
+  'item::active::hover::color': $color-action-primary-contrast,
+  'item::disabled::color': darkgray
+);
+
+.demo__dl-ui-datepicker {
+  &__wrapper {
+    display: block;
+    width: 350px;
+  }
+}
+
+$configInput: (
+  'background': rgb(248, 195, 239),
+  'height': 3rem,
+  'border': 3px solid rgb(122, 52, 52),
+  'color': rgb(58, 58, 58),
+  'help::color': rgb(241, 110, 220),
+  'icon::color': rgb(67, 67, 90),
+  'icon::size': 20px,
+  'label::size': 1rem,
+  'focus::border': 3px solid $color-action-tertiary-default,
+  'focus::icon': $color-status-info-02k
+);
+
+.custom-datepicker {
+  @include datepicker-style-config($config);
+
+  & .dl-ui-input {
+    @include input-style-config($configInput);
+  }
+}

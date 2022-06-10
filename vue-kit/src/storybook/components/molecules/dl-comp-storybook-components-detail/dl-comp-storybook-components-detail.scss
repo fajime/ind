@@ -1,0 +1,204 @@
+@import '@/storybook/sass/typography';
+@import '~@/components/molecules/dl-ui-tabs/mixins/tabs';
+
+.dl-comp-storybook-components-detail {
+  .dl-comp-kit-demo-section-divider {
+    border: none;
+  }
+
+  &__tabs {
+    $default: (
+    );
+
+    .dl-ui-tabs__content {
+      min-height: calc(100vh - 350px);
+    }
+
+    .dl-ui-tab__content {
+      h4 {
+        font-family: Roboto-bold, sans-serif;
+        font-weight: bold;
+        padding: 16px 0;
+      }
+    }
+
+    @include tabs-style-config($default);
+  }
+
+  &__content {
+    padding: 48px;
+  }
+
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 960px;
+  }
+
+  &__list {
+    &--block {
+      width: 100%;
+    }
+
+    padding-left: 48px;
+
+    &__title {
+      font-weight: bold;
+      color: $color-base-highlight-03k;
+      padding: 32px 0;
+      width: 100%;
+    }
+
+    &__item {
+      &__title {
+        font-weight: bold;
+        color: $color-base-highlight-02;
+        font-size: 20px;
+      }
+
+      &__color {
+        display: flex;
+      }
+    }
+  }
+
+  &__sample {
+    padding: 16px 0;
+
+    &__frame {
+      width: 96px;
+      height: 96px;
+      margin-right: 1px;
+    }
+
+    &--small > &__frame {
+      width: 80px;
+      height: 80px;
+      margin-right: 0;
+    }
+
+    &--circle > &__frame {
+      border-radius: 9999px;
+    }
+
+    &__info {
+      padding: 4px 0;
+      color: $color-base-highlight-02;
+
+      &__name {
+        padding: 4px 0;
+      }
+
+      &__var,
+      &__color,
+      &__name {
+        font-weight: bold;
+      }
+    }
+
+    &--strong > &__info {
+      color: black;
+    }
+  }
+
+  &__title {
+    color: $color-action-primary-default;
+    font-size: $h3-font-size;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  &__swatch {
+    background-color: $color-surface-03;
+    padding: 2rem;
+
+    &-description {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+
+      @include font-body-medium-regular();
+    }
+
+    &-title {
+      margin-bottom: 1rem;
+      color: $color-action-primary-default;
+
+      @include font-body-large-bold();
+    }
+
+    &-category {
+      margin-bottom: 1rem;
+    }
+
+    &-chart {
+      display: flex;
+    }
+
+    &-chart-item {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+      &:first-of-type {
+        &-chart-item-preview {
+          border-radius: 4px 0 0 4px;
+        }
+      }
+
+      &:last-of-type {
+        &-chart-item-preview {
+          border-radius: 0 4px 4px 0;
+        }
+      }
+    }
+
+    &-chart-item-preview {
+      height: 92px;
+      width: 92px;
+      margin-bottom: 16px;
+
+      &.primary-500,
+      &.neutral-500,
+      &.primary-800,
+      &.neutral-800 {
+        border-radius: 100%;
+      }
+    }
+
+    &-chart-item-name,
+    &-chart-item-value {
+      color: $color-action-primary-hover;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    &-chart-item-name {
+      text-transform: capitalize;
+    }
+
+    &-chart-item-value {
+      text-transform: uppercase;
+    }
+
+    &-group {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-item {
+        flex: 1 1 50%;
+
+        @media screen and (min-width: 900px) {
+          &:nth-child(odd) {
+            padding-right: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dl-comp-kit-demo-section-body {
+  > pre > code {
+    max-width: 70vw;
+  }
+}

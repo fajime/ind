@@ -1,0 +1,47 @@
+@import '~highlight.js/styles/an-old-hope.css';
+
+.dl-comp-storybook-table {
+  width: 100%;
+  border: 1px solid $color-surface-05;
+  border-radius: 4px;
+
+  > table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td {
+      padding: 40px;
+      color: $color-action-tertiary-default;
+      border-right: 1px solid $color-surface-05;
+      border-bottom: 1px solid $color-surface-05;
+
+      @include font-body-medium-light();
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child {
+      td {
+        border: none;
+      }
+    }
+  }
+
+  &__icon {
+    width: 16px;
+    height: 24px;
+  }
+
+  &__name {
+    color: $color-action-tertiary-default;
+
+    @include font-body-medium-bold();
+  }
+
+  &__version {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,69 @@
+<div class="dl-comp-storybook-card" v-if="comp">
+  <div class="dl-comp-storybook-components-header__header">
+    <h6>{{ comp.title }}</h6>
+  </div>
+
+  <div class="dl-comp-storybook-components-header__body">
+    <template v-if="comp.multiple">
+      <div
+        :class="`dl-comp-storybook-components__${mComp.className}`"
+        :key="`dl-comp-storybook-multiple-${index}-mcomp-${mCompIndex}`"
+        v-for="( mComp, mCompIndex) in comp.multiple"
+      >
+        <component :is="mComp.name" v-bind="{...mComp.props}">
+          <template v-if="mComp.slots.length > 0">
+            <div
+              :key="`dl-comp-storybook-multiple-slots-${mCompSlotIndex}`"
+              :slot="slot.name"
+              v-for="(slot, mCompSlotIndex) in mComp.slots"
+            >
+              {{ slot.content }}
+            </div>
+          </template>
+          <template v-if="mComp.text"> {{ mComp.text }} </template>
+        </component>
+        <template v-if="mComp.span && mComp.span.position === 'after'">
+          <span :class="`dl-comp-storybook-components__${mComp.className}-${mComp.span.className}`"> {{ mComp.span.text }} </span>
+        </template>
+      </div>
+    </template>
+    <div :class="`dl-comp-storybook-components__${comp.className}`" v-else-if="comp.components">
+      <component :is="comp.name" v-bind="{...comp.props}">
+        <template v-if="comp.components.length > 0">
+          <component
+            :is="nCom.name"
+            :key="`dl-comp-storybook-components-${nComIndex}`"
+            v-bind="{...nCom.props}"
+            v-for="(nCom, nComIndex) in comp.components"
+          >
+            {{ nCom.content }}
+          </component>
+        </template>
+      </component>
+    </div>
+    <template v-else-if="comp.name === 'image'">
+      <img
+        :class="`dl-comp-storybook-components__${comp.className}`"
+        :src="require(`@/storybook/assets/img/${comp.imageName}`)"
+        alt="image"
+      />
+    </template>
+    <div :class="`dl-comp-storybook-components__${comp.className}`" v-else>
+      <component :is="comp.name" v-bind="{...comp.props}">
+        <template v-if="comp.slots.length > 0">
+          <div :key="`dl-comp-storybook-name-slots-${indexSlot}`" :slot="slot.name" v-for="(slot, indexSlot) in comp.slots">
+            {{ slot.content }}
+          </div>
+        </template>
+        <template v-if="comp.text"> {{ comp.text }} </template>
+      </component>
+      <template v-if="comp.span && comp.span.position === 'after'">
+        <span :class="`dl-comp-storybook-components__${comp.className}-${comp.span.className}`"> {{ comp.span.text }} </span>
+      </template>
+    </div>
+  </div>
+  <div class="dl-comp-storybook-components-header__action">
+    <h6 />
+    <a @click.prevent="goToComponent(comp.path)" href="#" />
+  </div>
+</div>

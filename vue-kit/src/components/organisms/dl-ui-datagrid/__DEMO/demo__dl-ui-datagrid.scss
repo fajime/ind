@@ -1,0 +1,13 @@
+@import '../mixins/datagrid';
+
+$config: ();
+
+.demo__dl-ui-datagrid {
+  &__wrapper {
+    // empty
+  }
+}
+
+.custom-datagrid {
+  @include datagrid-style-config($config);
+}

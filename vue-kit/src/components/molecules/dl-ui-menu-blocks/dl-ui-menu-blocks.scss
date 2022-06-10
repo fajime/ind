@@ -1,0 +1,7 @@
+@import 'mixins/menu-blocks';
+
+.dl-ui-menu-blocks {
+  $default: ();
+
+  @include menu-blocks-style-config($default);
+}

@@ -1,0 +1,25 @@
+<div class="demo">
+  <!-- <header class="demo__title">
+    <h1>Prueba aquí tu componente</h1>
+  </header> -->
+  <div class="demo__content">
+    <div class="dl-comp-kit-development">
+      <!-- INSERTA AQUÍ TU COMPONENTE -->
+
+      <div class="calendar-container">
+        <dl-ui-calendar
+          :eventSrc="calEvents"
+          :locale="calLocale"
+          :options="calOptions"
+          @dateClick="handleDateClick"
+          @dateSelect="handleDateSelect"
+          @eventClick="handleEventClick"
+          @eventDidMount="handleEventMounted"
+          @eventsSet="handleEvents"
+        ></dl-ui-calendar>
+      </div>
+
+      <dlUiTree :config="config"> </dlUiTree>
+    </div>
+  </div>
+</div>

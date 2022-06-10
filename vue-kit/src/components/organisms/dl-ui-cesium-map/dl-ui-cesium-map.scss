@@ -1,0 +1,74 @@
+@import '~cesium/Build/Cesium/Widgets/widgets.css';
+
+.dl-ui-cesium-map {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  /* stylelint-disable-next-line selector-id-pattern */
+  #loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    color: $color-base-contrast;
+    background-color: $color-action-tertiary-hover;
+    z-index: 5;
+
+    @include font-body-large-regular();
+
+    h1 {
+      text-align: center;
+      position: relative;
+      top: 50%;
+      margin-top: -0.5em;
+    }
+  }
+
+  .top_left_corner {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 1;
+    color: $color-base-contrast;
+  }
+
+  .bottom_right_corner {
+    position: absolute;
+    right: 1%;
+    bottom: 35px;
+    z-index: 1;
+    color: $color-base-contrast;
+  }
+
+  .corner_content {
+    background: rgba(42, 42, 42, 0.8);
+    padding: 4px;
+    border: 1px solid      $color-base-02;
+    border-radius: 4px;
+    width: fit-content;
+
+    &:not(:nth-last-child(2)) {
+      margin-bottom: 5px;
+    }
+  }
+
+  .slot {
+    padding: 0 4px;
+
+    &--left {
+      text-align: left;
+      margin-top: 5px;
+
+      &:empty {
+        margin: 0;
+      }
+    }
+
+    &--right {
+      text-align: right;
+    }
+  }
+}

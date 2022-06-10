@@ -1,0 +1,13 @@
+<div :class="containerClass" class="dl-ui-radio">
+  <div @click="onClick($event)" class="dl-ui-radio__container">
+    <div :aria-checked="checked" class="dl-ui-radio__box" ref="box" role="radio">
+      <div class="hidden-accessible">
+        <input :checked="checked" :id="randomId" :value="modelValue" @focus="onFocus($event)" ref="input" type="radio" v-bind="$attrs" />
+      </div>
+      <div class="dl-ui-radio__icon"></div>
+    </div>
+  </div>
+  <label :for="randomId" class="dl-ui-radio__label" v-if="hasLabelSlot">
+    <slot></slot>
+  </label>
+</div>

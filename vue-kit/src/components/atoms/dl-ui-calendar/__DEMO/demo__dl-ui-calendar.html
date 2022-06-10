@@ -1,0 +1,15 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-calendar">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @dateClick="notifyComponentEvent('dateClick', $event)"
+      @dateSelect="notifyComponentEvent('dateSelect', $event)"
+      @eventClick="notifyComponentEvent('eventClick', $event)"
+      @eventDidMount="notifyComponentEvent('eventDidMount', $event)"
+      @eventsSet="notifyComponentEvent('eventsSet', $event)"
+      v-bind="generatedProps"
+    >
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

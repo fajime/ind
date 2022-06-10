@@ -1,0 +1,12 @@
+@import '../mixins/dialog';
+
+$custom: (
+  'width': 444px,
+  'z-index': 500,
+  'backdrop::background': rgba(orange, 0.5),
+  'header::color': red
+);
+
+.custom-dialog {
+  @include dialog-style-config($custom);
+}

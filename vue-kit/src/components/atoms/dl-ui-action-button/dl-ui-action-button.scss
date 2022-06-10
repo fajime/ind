@@ -1,0 +1,129 @@
+@import 'mixins/action-button';
+
+.dl-ui-action-button {
+  $size-extraSmall: (
+    'height': 22px,
+    'width': 22px,
+    'icon::height': $icon-height-small,
+    'icon::width': $icon-width-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-small: (
+    'height': 28px,
+    'width': 28px,
+    'icon::height': $icon-height-small,
+    'icon::width': $icon-width-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-medium: (
+    'height': 32px,
+    'width': 32px,
+    'icon::height': $icon-height-small,
+    'icon::width': $icon-width-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-large: (
+    'height': 40px,
+    'width': 40px,
+    'icon::height': $icon-height-small,
+    'icon::width': $icon-width-small,
+    'icon::padding': $icon-padding-small
+  );
+
+  $type-primary: (
+    'background': $color-action-primary-focus,
+    'border': 1px solid $color-action-primary-focus,
+    'color': $color-action-primary-default,
+    'hover::background': $color-action-primary-focus,
+    'hover::border': 1px solid $color-action-primary-focus,
+    'hover::color': $color-action-primary-hover,
+    'active::background': $color-action-primary-focus          ,
+    'active::border': 1px solid $color-action-primary-focus,
+    'active::color': $color-action-primary-active,
+    'loading::background': $color-action-primary-focus,
+    'loading::border':1px solid $color-action-primary-focus,
+    'loading::color': $color-action-primary-active,
+    'focus::background': $color-action-primary-focus,
+    'focus::color':$color-action-primary-active,
+    'focus::border': 1px solid $color-action-primary-active,
+    'disabled::background': transparent,
+    'disabled::color': $color-action-primary-disabled,
+    'disabled::border': 1px solid transparent
+  );
+
+  $type-secondary: (
+    'background': transparent,
+    'border': 1px solid $color-action-secondary-focus,
+    'color': $color-action-secondary-default,
+    'hover::background': transparent,
+    'hover::border': 1px solid $color-action-secondary-hover,
+    'hover::color': $color-action-secondary-hover,
+    'active::background': transparent,
+    'active::border': 1px solid $color-action-secondary-active,
+    'active::color': $color-action-secondary-active,
+    'loading::background': transparent,
+    'loading::border':1px solid $color-action-secondary-active,
+    'loading::color': $color-action-secondary-active,
+    'focus::background': $color-action-secondary-focus,
+    'focus::color':$color-action-secondary-active,
+    'focus::border': 1px solid $color-action-secondary-active,
+    'disabled::background': transparent,
+    'disabled::color': $color-action-secondary-disabled,
+    'disabled::border': 1px solid transparent
+  );
+
+  $type-tertiary: (
+    'background': transparent,
+    'border': 1px solid transparent,
+    'color': $color-action-tertiary-default,
+    'hover::background': transparent,
+    'hover::border': 1px solid transparent,
+    'hover::color': $color-action-tertiary-hover,
+    'active::background': transparent,
+    'active::border': 1px solid transparent,
+    'active::color': $color-action-tertiary-active,
+    'loading::background': transparent,
+    'loading::border':1px solid transparent,
+    'loading::color': $color-action-tertiary-active,
+    'focus::background': transparent,
+    'focus::color':$color-action-tertiary-active,
+    'focus::border': 1px solid $color-action-tertiary-active,
+    'disabled::background': transparent,
+    'disabled::color': $color-action-tertiary-disabled,
+    'disabled::border': 1px solid transparent
+  );
+
+  $sizes: (
+    'extra-small': $size-extraSmall,
+    'small': $size-small,
+    'medium': $size-medium,
+    'large': $size-large
+  );
+  $types: (
+    'primary': $type-primary,
+    'secondary': $type-secondary,
+    'tertiary': $type-tertiary
+  );
+
+  @include action-button-style-config(map-merge($type-primary, $size-medium));
+
+  // generate all button styles dynamically
+  @each $typeName, $typeValue in $types {
+    @each $sizeName, $sizeValue in $sizes {
+      &--#{$typeName}-#{$sizeName} {
+        @include action-button-style-config(map-merge($typeValue, $sizeValue));
+
+        @if $sizeName == 'extra-small' or $sizeName == 'small' {
+          @include font-button-small();
+        }
+
+        @else if $sizeName == 'large' {
+          @include font-button-large();
+        }
+      }
+    }
+    &--#{$typeName} {
+      @include action-button-style-config(map-merge($typeValue, $size-medium));
+    }
+  }
+}

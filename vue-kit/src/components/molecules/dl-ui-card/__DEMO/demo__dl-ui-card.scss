@@ -1,0 +1,23 @@
+@import '../mixins/card';
+
+$config: (
+  'background': $color-surface-02,
+  'padding': 1rem,
+  'border': 2px dotted $color-surface-03,
+  'border-radius': 3px,
+  'box-shadow': 5px 10px $color-surface-04,
+  'cursor': pointer,
+  'color': $color-surface-01k,
+  'body::color': $color-surface-01k
+);
+
+.demo__dl-ui-card {
+  &__wrapper {
+    width: 100%;
+    margin: 1rem;
+  }
+}
+
+.custom-card {
+  @include card-style-config($config);
+}

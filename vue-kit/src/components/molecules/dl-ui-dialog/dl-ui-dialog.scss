@@ -1,0 +1,8 @@
+@import 'mixins/dialog';
+
+.dl-ui-dialog {
+  $default: (
+  );
+
+  @include dialog-style-config($default);
+}

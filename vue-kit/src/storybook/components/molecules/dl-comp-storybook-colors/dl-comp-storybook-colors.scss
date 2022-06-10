@@ -1,0 +1,287 @@
+@import '@/storybook/sass/typography';
+@import '~@/components/molecules/dl-ui-tabs/mixins/tabs';
+
+$primary-colors: (
+  'default': $color-action-primary-default,
+  'hover': $color-action-primary-hover,
+  'active': $color-action-primary-active,
+  'focus': $color-action-primary-focus,
+  'disabled': $color-action-primary-disabled,
+  'contrast': $color-action-primary-contrast);
+
+$secondary-colors: (
+  'default': $color-action-secondary-default,
+  'hover': $color-action-secondary-hover,
+  'active': $color-action-secondary-active,
+  'focus': $color-action-secondary-focus,
+  'disabled': $color-action-secondary-disabled,
+  'contrast': $color-action-secondary-contrast);
+
+$tertiary-colors: (
+  'default': $color-action-tertiary-default,
+  'hover': $color-action-tertiary-hover,
+  'active': $color-action-tertiary-active,
+  'focus': $color-action-tertiary-focus,
+  'disabled': $color-action-tertiary-disabled,
+  'contrast': $color-action-tertiary-contrast);
+
+$status-success-colors: (
+  '01': $color-status-success-01,
+  '02k': $color-status-success-02k,
+  '03': $color-status-success-03
+);
+
+$status-warning-colors: (
+  '01': $color-status-warning-01,
+  '02k': $color-status-warning-02k,
+  '03': $color-status-warning-03
+);
+$status-danger-colors: (
+  '01': $color-status-danger-01,
+  '02k': $color-status-danger-02k,
+  '03': $color-status-danger-03
+);
+
+$status-info-colors: (
+  '01': $color-status-info-01,
+  '02k': $color-status-info-02k,
+  '03': $color-status-info-03
+);
+$emphasis-colors: (
+  '01': $color-emphasis-01,
+  '02': $color-emphasis-02,
+  '03k': $color-emphasis-03k,
+  '04': $color-emphasis-04,
+  '05': $color-emphasis-05
+);
+$base-colors: (
+  '01': $color-base-01,
+  '02': $color-base-02,
+  '03k': $color-base-03k,
+  'contrast': $color-base-contrast,
+);
+$base-highlight-colors: (
+  '01': $color-base-highlight-01,
+  '02': $color-base-highlight-02,
+  '03k': $color-base-highlight-03k
+);
+
+$surface-colors: (
+  '01k': $color-surface-01k,
+  '02': $color-surface-02,
+  '03': $color-surface-03,
+  '04': $color-surface-04,
+  '05': $color-surface-05,
+  '06': $color-surface-06,
+  'contrast': $color-surface-contrast,
+);
+
+@mixin colors($name, $colors-map) {
+  @each $value, $color in $colors-map {
+    .#{$name}-#{$value} {
+      background-color: $color;
+    }
+  }
+}
+
+.dl-comp-storybook-colors {
+  @include colors('action-primary', $primary-colors);
+  @include colors('action-secondary', $secondary-colors);
+  @include colors('action-tertiary', $tertiary-colors);
+  @include colors('status-success', $status-success-colors);
+  @include colors('status-danger', $status-danger-colors);
+  @include colors('status-warning', $status-warning-colors);
+  @include colors('status-info', $status-info-colors);
+  @include colors('emphasis', $emphasis-colors);
+  @include colors('base', $base-colors);
+  @include colors('base-highlight', $base-highlight-colors);
+  @include colors('surface', $surface-colors);
+
+  &__description {
+    padding: 48px;
+  }
+
+  &__tabs {
+    $default: (
+      'background::content': $color-surface-02
+    );
+
+    .dl-ui-tabs__content {
+      min-height: calc(100vh - 350px);
+    }
+
+    @include tabs-style-config($default);
+  }
+
+  &__content {
+    padding: 88px 96px;
+    overflow: visible;
+  }
+
+  &__box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 960px;
+  }
+
+  &__list {
+    &--block {
+      width: 100%;
+    }
+
+    padding-left: 48px;
+
+    &__title {
+      font-weight: bold;
+      color: $color-base-highlight-03k;
+      padding: 32px 0;
+      width: 100%;
+    }
+
+    &__item {
+      &__title {
+        font-weight: bold;
+        color: $color-base-highlight-02;
+        font-size: 20px;
+      }
+
+      &__color {
+        display: flex;
+      }
+    }
+  }
+
+  &__sample {
+    padding: 16px 0;
+
+    &__frame {
+      width: 96px;
+      height: 96px;
+      margin-right: 1px;
+    }
+
+    &--small > &__frame {
+      width: 80px;
+      height: 80px;
+      margin-right: 0;
+    }
+
+    &--circle > &__frame {
+      border-radius: 9999px;
+    }
+
+    &__info {
+      padding: 4px 0;
+      color: $color-base-highlight-02;
+
+      &__name {
+        padding: 4px 0;
+      }
+
+      &__var,
+      &__color,
+      &__name {
+        font-weight: bold;
+      }
+    }
+
+    &--strong > &__info {
+      color: black;
+    }
+  }
+
+  &__title {
+    color: $color-action-primary-default;
+    font-size: $h3-font-size;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  &__swatch {
+    background-color: $color-surface-03;
+    padding: 2rem;
+
+    &-description {
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+
+      @include font-body-medium-regular();
+    }
+
+    &-title {
+      margin-bottom: 1rem;
+      color: $color-action-primary-default;
+
+      @include font-body-large-bold();
+    }
+
+    &-category {
+      margin-bottom: 1rem;
+    }
+
+    &-chart {
+      display: flex;
+    }
+
+    &-chart-item {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+
+      &:first-of-type {
+        &-chart-item-preview {
+          border-radius: 4px 0 0 4px;
+        }
+      }
+
+      &:last-of-type {
+        &-chart-item-preview {
+          border-radius: 0 4px 4px 0;
+        }
+      }
+    }
+
+    &-chart-item-preview {
+      height: 92px;
+      width: 92px;
+      margin-bottom: 16px;
+
+      &.primary-500,
+      &.neutral-500,
+      &.primary-800,
+      &.neutral-800 {
+        border-radius: 100%;
+      }
+    }
+
+    &-chart-item-name,
+    &-chart-item-value {
+      color: $color-action-primary-hover;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    &-chart-item-name {
+      text-transform: capitalize;
+    }
+
+    &-chart-item-value {
+      text-transform: uppercase;
+    }
+
+    &-group {
+      display: flex;
+      flex-wrap: wrap;
+
+      &-item {
+        flex: 1 1 50%;
+
+        @media screen and (min-width: 900px) {
+          &:nth-child(odd) {
+            padding-right: 24px;
+          }
+        }
+      }
+    }
+  }
+}

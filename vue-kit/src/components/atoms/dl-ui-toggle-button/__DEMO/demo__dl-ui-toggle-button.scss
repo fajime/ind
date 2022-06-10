@@ -1,0 +1,31 @@
+@import '../mixins/toggle-button';
+
+$config: (
+  'height': 3rem,
+  'font-size': 2rem,
+  'font-family': $body-medium-regular-font-family,
+  'outline': 1px red,
+  'padding': 0.2rem,
+  'border': 2px $color-action-tertiary-default,
+  'border-radius': 0.2rem,
+  'background': $color-action-primary-hover,
+  'color': $color-action-secondary-contrast,
+  'box-shadow': 2px 2px $color-action-tertiary-hover,
+  'hover::background': $color-action-tertiary-default,
+  'hover::border': 2px $color-action-tertiary-hover,
+  'hover::color': $color-action-tertiary-contrast,
+  'active::background': $color-action-secondary-default,
+  'active::border': 5px $color-action-tertiary-default,
+  'active::color': $color-action-tertiary-default,
+  'disable::opacity': 0.1
+);
+
+.demo__dl-ui-toggle-button {
+  &__wrapper {
+    // empty
+  }
+}
+
+.custom-toggle-button {
+  @include toggle-button-style-config($config);
+}

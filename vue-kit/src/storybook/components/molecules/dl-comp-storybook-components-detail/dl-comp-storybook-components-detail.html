@@ -1,0 +1,41 @@
+<article class="dl-comp-storybook-components-detail">
+  <!-- Tabs -->
+  <dl-ui-tabs class="dl-comp-storybook-components-detail__tabs" v-if="data">
+    <!-- Tab: Color -->
+    <dl-ui-tab
+      :key="`dl-comp-storybook-components-detail-${tabIndex}`"
+      :title="tab.title"
+      v-for="(tab, tabIndex) in data.tabs"
+      v-model:selected="tab.selected"
+    >
+      <div class="dl-comp-storybook-components-detail__content" v-if="demoComponent ">
+        <!-- use -->
+        <div v-if="tab.name === 'use' && tab.selected">
+          <component
+            :customOptions="{ showPlayground: false, showTitle: false, showDescription: true, showUse: false, showScss: false, showProperties: false, showEvents: false, showNotes: false }"
+            :is="{...demoComponent}"
+            v-if="demoComponent"
+          ></component>
+        </div>
+
+        <!-- style -->
+        <div v-if="tab.name === 'style' && tab.selected">
+          <component
+            :customOptions="{ showPlayground: false, showTitle: false, showDescription: false, showUse: false, showScss: true, showProperties: false, showEvents: false, showNotes: false }"
+            :is="{...demoComponent}"
+            v-if="demoComponent"
+          ></component>
+        </div>
+
+        <!-- code -->
+        <div v-if="tab.name === 'code' && tab.selected">
+          <component
+            :customOptions="{ showTitle: false, showDescription: false, showUse: false, showScss: false }"
+            :is="{...demoComponent}"
+            v-if="demoComponent"
+          ></component>
+        </div>
+      </div>
+    </dl-ui-tab>
+  </dl-ui-tabs>
+</article>

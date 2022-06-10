@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-select renders correctly 1`] = `
+<div
+  class="dl-ui-select"
+>
+  <!--v-if-->
+  <dl-ui-dropdown-stub
+    class="dl-ui-dropdown"
+    disabled="false"
+    error="false"
+    showclear="false"
+    tabindex="0"
+  />
+  <!--v-if-->
+</div>
+`;

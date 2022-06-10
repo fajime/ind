@@ -1,0 +1,50 @@
+.dl-ui-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100%;
+
+  &__sidebar {
+    width: 320px;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    flex: 1;
+  }
+
+  @media (max-width: 960px) {
+    &__sidebar {
+      width: 0;
+      transform: translateX(-100%);
+    }
+
+    .dl-comp-kit-demo-section {
+      &-body {
+        pre code {
+          max-width: calc(100vw - 250px);
+        }
+      }
+    }
+  }
+}
+
+.storybook-scrollpanel__content {
+  max-width: calc(100vw - 320px);
+  overflow-x: visible;
+}
+
+.dl-ui-storybook-app {
+  min-width: 950px;
+}
+
+@media (max-width: 960px) {
+  .storybook-scrollpanel__content {
+    max-width: 100vw;
+  }
+}

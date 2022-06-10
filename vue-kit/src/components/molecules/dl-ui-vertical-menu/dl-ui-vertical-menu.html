@@ -1,0 +1,29 @@
+<div :class="{ 'dl-ui-vertical-menu--hidden': !loaded}" class="dl-ui-vertical-menu">
+  <label tabindex="0" ref="label" @click="handleClick" class="dl-ui-vertical-menu__header">
+    <slot></slot>
+
+    <dl-ui-icon
+      :class="{ 'dl-ui-vertical-menu__trigger-icon--open' : item.expand }"
+      @click="handleTrigger"
+      class="dl-ui-vertical-menu__trigger-icon"
+      id="dl-ids-icon-arrows-down-single-no_circle-outlined"
+      v-if="$slots.content"
+    ></dl-ui-icon>
+  </label>
+  <div
+    :class="{ 
+      'dl-ui-vertical-menu__box--initial0': loaded === 0,
+      'dl-ui-vertical-menu__box--initial1': loaded === 1,      
+      'dl-ui-vertical-menu__content--open' : item.expand && loaded  === 2, 
+      'dl-ui-vertical-menu__box--inactive': (!item.expand && loaded === 2),
+      
+    }"
+    :style="varStyle"
+    class="dl-ui-vertical-menu__box"
+    ref="box"
+  >
+    <div class="dl-ui-vertical-menu__content" v-if="$slots.content">
+      <slot name="content">{{content}}</slot>
+    </div>
+  </div>
+</div>

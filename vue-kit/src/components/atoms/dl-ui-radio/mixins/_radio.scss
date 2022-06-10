@@ -1,0 +1,138 @@
+@mixin radio-style-config($config) {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  $size: getmapvalue($config, 'size', 20px);
+  $padding: getmapvalue($config, 'padding', 1px);
+
+  .dl-ui-radio__container {
+    visibility: hidden;
+    height: $size;
+    width: $size;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s linear;
+    border: 1px solid getmapvalue($config, 'border-color', $color-action-primary-active);
+    background-color: $color-surface-01k;
+    color: $color-action-primary-active;
+    border-radius: 50%;
+
+    .hidden-accessible {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    .dl-ui-radio__box {
+      border: 1px solid getmapvalue($config, 'border-color', $color-action-primary-active);
+      border-radius: 50%;
+      visibility: visible;
+      display: flex;
+      justify-content: inherit;
+      align-items: inherit;
+      width: 16px;
+      height: 16px;
+      position: relative;
+      transition: all 0.2s linear;
+
+      &:hover {
+        border-color: getmapvalue($config, 'item-color::hover', $color-action-primary-hover);
+        background-color: getmapvalue($config, 'background-color::hover', $color-emphasis-01);
+      }
+
+      .dl-ui-radio__icon {
+        backface-visibility: hidden;
+        transform: translateZ(0) scale(0.1);
+        border-radius: 50%;
+        visibility: hidden;
+        width: 8px;
+        height: 8px;
+        transition-duration: 0.2s;
+        background-color: getmapvalue($config, 'border-color', $color-action-primary-active);
+      }
+    }
+  }
+
+  .dl-ui-radio__label {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 0;
+    color: $color-base-03k;
+    transition: all 0.2s linear;
+
+    @include font-body-medium-regular();
+  }
+
+  &.dl-ui-radio--checked {
+    .dl-ui-radio__container {
+      .dl-ui-radio__box {
+        border-color: $color-action-primary-default;
+
+        .dl-ui-radio__icon {
+          transform: none;
+          border-radius: 50%;
+          visibility: visible;
+          background-color: getmapvalue($config, 'border-color', $color-action-primary-active);
+        }
+      }
+    }
+  }
+
+  &.dl-ui-radio--focused {
+    .dl-ui-radio__container {
+      visibility: visible;
+
+      .dl-ui-radio__box {
+        .dl-ui-radio__icon {
+          transform: none;
+          border-radius: 50%;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &.dl-ui-radio--disabled {
+    cursor: default !important;
+
+    .dl-ui-radio__container {
+      cursor: inherit;
+      background-color: $color-surface-03;
+      border: 1px solid getmapvalue($config, 'border-color', $color-action-primary-disabled);
+
+      .dl-ui-radio__box {
+        border: getmapvalue($config, 'disable::border', 1px solid $color-action-primary-disabled);
+        pointer-events: none;
+
+        .dl-ui-radio__icon {
+          fill: transparent;
+        }
+      }
+    }
+
+    .dl-ui-radio__label {
+      color: $color-base-01;
+      cursor: inherit;
+      pointer-events: none;
+    }
+  }
+
+  &.dl-ui-radio--label-left {
+    flex-direction: row-reverse;
+
+    > .dl-ui-radio__label {
+      padding-left: 0;
+      padding-right: 8px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '../mixins/rating';
+
+$config: (
+  'disable::opacity': 0.2,
+  'cancel::color': rgb(250, 167, 71),
+  'cancel::hover::color': rgb(240, 81, 81),
+  'star::size': 3rem,
+  'star::color': rgb(177, 174, 160),
+  'star::hover::color': rgb(10, 100, 14),
+  'star::active::color': rgb(177, 12, 199),
+  'star::active::hover::color': rgb(10, 100, 14),
+);
+
+.demo__dl-ui-rating {
+  &__wrapper {
+    // empty
+  }
+}
+
+.custom-rating {
+  @include rating-style-config($config);
+}

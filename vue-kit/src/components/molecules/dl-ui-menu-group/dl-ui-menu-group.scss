@@ -1,0 +1,7 @@
+@import 'mixins/menu-group';
+
+.dl-ui-menu-group {
+  $default: ();
+
+  @include menu-group-style-config($default);
+}

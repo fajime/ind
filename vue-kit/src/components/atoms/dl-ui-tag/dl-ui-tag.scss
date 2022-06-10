@@ -1,0 +1,63 @@
+@import 'mixins/tag';
+
+.dl-ui-tag {
+  $default: ();
+
+  @include tag-style-config($default);
+
+  &--info {
+    $info: (
+      'background': $color-status-info-01,
+      'text::color': $color-status-info-03,
+      'icon::color': $color-status-info-03,
+      'close::color': $color-base-03k,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include tag-style-config($info);
+  }
+
+  &--success {
+    $success: (
+      'background': $color-status-success-01,
+      'text::color': $color-base-03k,
+      'icon::color': $color-status-success-03,
+      'close::color': $color-base-03k,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include tag-style-config($success);
+  }
+
+  &--warning {
+    $warning: (
+      'background': $color-status-warning-01,
+      'text::color': $color-status-warning-03,
+      'icon::color': $color-status-warning-03,
+      'close::color': $color-base-03k,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include tag-style-config($warning);
+  }
+
+  &--danger {
+    $danger: (
+      'background': $color-status-danger-01,
+      'text::color': $color-status-danger-03,
+      'icon::color': $color-status-danger-03,
+      'close::color': $color-base-03k,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include tag-style-config($danger);
+  }
+}

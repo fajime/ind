@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-progress-circle renders correctly 1`] = `
+<div
+  class="dl-ui-progress-circle"
+>
+  <div
+    class="dl-ui-progress-circle__circle"
+  >
+    <svg
+      class="dl-ui-progress-circle__svg"
+      viewbox="0 0 10 10"
+    >
+      <circle
+        class="dl-ui-progress-circle__progress-base"
+        cx="50%"
+        cy="50%"
+        r="46%"
+      />
+      <circle
+        class="dl-ui-progress-circle__progress-fill"
+        cx="50%"
+        cy="50%"
+        r="46%"
+        style="--percent: 0;"
+      />
+    </svg>
+    <div
+      class="dl-ui-progress-circle__inner-content"
+    >
+      
+      
+    </div>
+  </div>
+</div>
+`;

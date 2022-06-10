@@ -1,0 +1,117 @@
+@mixin switch-style-config($config) {
+  $switch-width: getmapvalue($config, 'width', 32px);
+  $switch-height: getmapvalue($config, 'height', 16px);
+  $ball-margin: getmapvalue($config, 'ball::margin', 2px);
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & .dl-ui-switch__label {
+    color: getmapvalue($config, 'label::color', $color-base-03k);
+    margin-right: 8px;
+    margin-left: 0;
+    cursor: pointer;
+    transition: all 0.2s linear;
+
+    @include font-body-medium-regular();
+  }
+
+  & .dl-ui-switch__span {
+    display: flex;
+    justify-content: flex-start;
+    width: $switch-width;
+    height: $switch-height;
+    border-radius: $switch-height;
+    background-color: getmapvalue($config, 'background', $color-surface-06);
+    transition: all 0.2s linear;
+    position: relative;
+
+    &::before {
+      flex: 0 0 auto;
+      width: calc(#{$switch-height} - (#{$ball-margin} * 2));
+      height: calc(#{$switch-height} - (#{$ball-margin} * 2));
+      margin: getmapvalue($config, 'ball::margin', $ball-margin);
+      border-radius: calc(#{$switch-height} - (#{$ball-margin} * 2));
+      background-color: getmapvalue($config, 'ball::color', $color-surface-01k);
+      transition: all 0.2s linear;
+      content: '';
+    }
+
+    &:hover {
+      background-color: getmapvalue($config, 'hover::background', $color-base-highlight-02);
+    }
+
+    > input {
+      opacity: 0;
+      width: $switch-width;
+      height: $switch-height;
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
+  &.dl-ui-switch--label-right {
+    flex-direction: row-reverse;
+
+    > .dl-ui-switch__label {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+
+  &.dl-ui-switch--active {
+    > .dl-ui-switch__label {
+      color: getmapvalue($config, 'active::label::color', $color-base-03k);
+    }
+
+    > .dl-ui-switch__span {
+      background-color: $color-emphasis-03k;
+
+      &::before {
+        background-color: getmapvalue($config, 'active::ball::color', $color-surface-01k);
+        transform: translate(calc(#{$switch-width} - #{$switch-height}), 0);
+      }
+
+      &:hover {
+        background-color: getmapvalue($config, 'active::hover::background', $color-emphasis-04);
+      }
+    }
+  }
+
+  &:not(.dl-ui-switch--active).dl-ui-switch--disabled {
+    > .dl-ui-switch__label {
+      color: getmapvalue($config, 'disabled::label::color', $color-base-01);
+      pointer-events: none;
+      cursor: default;
+    }
+
+    > .dl-ui-switch__span {
+      background-color: getmapvalue($config, 'disabled::background', $color-action-primary-disabled);
+      pointer-events: none;
+      cursor: default;
+
+      &::before {
+        background-color: getmapvalue($config, 'disabled::ball::color', $color-surface-04);
+      }
+    }
+  }
+
+  &.dl-ui-switch--active.dl-ui-switch--disabled {
+    > .dl-ui-switch__label {
+      color: getmapvalue($config, 'disabled::active::label::color', $color-action-primary-disabled);
+      pointer-events: none;
+      cursor: default;
+    }
+
+    > .dl-ui-switch__span {
+      background-color: getmapvalue($config, 'disabled::active::background', $color-action-primary-disabled);
+      pointer-events: none;
+      cursor: default;
+
+      &::before {
+        background-color: getmapvalue($config, 'disabled::active::ball::color', $color-surface-04);
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<div class="dl-ui-split-button" ref="split">
+  <div class="dl-ui-split-button__buttons-container" ref="container">
+    <dl-ui-button
+      :class="{desplegableButton: show}"
+      :disabled="disabled"
+      :leftIcon="leftIcon"
+      :loading="loading"
+      class="dl-ui-split-button__button"
+    >
+      <template v-slot:default><span>{{mainText}}</span></template>
+    </dl-ui-button>
+
+    <dl-ui-action-button
+      :class="{desplegableAction: show}"
+      :icon="dropDownIcon"
+      @clicked="displayListBox($event)"
+      class="dl-ui-split-button__action-button dl-ui-action-button"
+    >
+    </dl-ui-action-button>
+  </div>
+
+  <!-- list box -->
+  <div :style="{top: inputHeight}" class="dl-ui-split-button__listbox" v-if="show">
+    <dl-ui-listbox
+      :class="customClassListbox"
+      :options="options"
+      :style="{'max-height': scrollHeight}"
+      @input="optionSelected($event)"
+      class="dl-ui-split-button__listbox"
+    ></dl-ui-listbox>
+  </div>
+</div>

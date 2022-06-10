@@ -1,0 +1,92 @@
+@mixin vertical-menu-style-config($config) {
+  $root-node: &;
+
+  width: 100%;
+  overflow: hidden;
+
+  @include font-body-small-regular();
+
+  .dl-ui-vertical-menu__header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: getmapvalue($config, 'hover::background-color', $color-emphasis-02);
+    }
+
+    .dl-ui-vertical-menu__trigger-icon {
+      display: flex;
+      height: getmapvalue($config, 'icon::arrow::size', 16px);
+      width: getmapvalue($config, 'icon::arrow::size', 16px);
+      fill: getmapvalue($config, 'icon::arrow:::color', $color-base-highlight-02);
+      padding: 2px;
+      margin-right: 16px;
+      margin-left: auto;
+      transition: all 0.2s linear;
+
+      &--open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &--active > .dl-ui-vertical-menu__header {
+    background-color: getmapvalue($config, 'active::background-color', $color-emphasis-01);
+    color: getmapvalue($config, 'active::color', $color-emphasis-04);
+  }
+
+  > .dl-ui-vertical-menu__content {
+    #{--height}: 0;
+    max-height: var(--height);
+    overflow: hidden;
+
+    &--open {
+      #{--height}: 9999px;
+    }
+  }
+
+  .dl-ui-vertical-menu__content {
+    transition: all 350ms linear;
+  }
+
+  > .dl-ui-vertical-menu__input {
+    display: none;
+  }
+
+  .dl-ui-vertical-menu__box {
+    transition: all 0.4s ease-in-out; // ease-in-out;
+    max-height: var(--vertical-menu-max-height);
+    height: auto;
+    padding: 0;
+  }
+
+  .dl-ui-vertical-menu__box--inactive {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .dl-ui-vertical-menu__box--initial0 {
+    transition: none;
+    max-height: var(--vertical-menu-max-height);
+    visibility: hidden;
+  }
+
+  .dl-ui-vertical-menu__box--initial1 {
+    transition: none;
+    max-height: 0;
+    visibility: hidden;
+  }
+
+  &--hidden {
+    visibility: hidden;
+  }
+}

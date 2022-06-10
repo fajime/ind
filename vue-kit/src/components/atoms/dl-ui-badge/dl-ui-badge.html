@@ -1,0 +1,10 @@
+<div class="dl-ui-badge" ref="root">
+  <slot></slot>
+  <div class="dl-ui-badge__wrapper" ref="wrapper">
+    <div :class="{ 'dl-ui-badge--hidden': !text }" class="dl-ui-badge__box" ref="box">
+      <div :class="`dl-ui-badge--${shapeValue}`" class="dl-ui-badge__badge" ref="badge">
+        <div v-if="shapeValue !== 'point'">{{ text }}</div>
+      </div>
+    </div>
+  </div>
+</div>

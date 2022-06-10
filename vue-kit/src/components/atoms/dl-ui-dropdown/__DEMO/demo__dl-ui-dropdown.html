@@ -1,0 +1,21 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-dropdown__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @blur="notifyComponentEvent('blur', $event)"
+      @change="notifyComponentEvent('change', $event)"
+      @click="notifyComponentEvent('click', $event)"
+      @hide="notifyComponentEvent('hide', $event)"
+      @press:enter="notifyComponentEvent('press:enter', $event)"
+      @showed="notifyComponentEvent('showed', $event)"
+      @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+      v-bind="generatedProps"
+    >
+      <div>Open</div>
+      <template #wrapper>
+        <div class="demo__dl-ui-dropdown__content">content</div>
+      </template>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

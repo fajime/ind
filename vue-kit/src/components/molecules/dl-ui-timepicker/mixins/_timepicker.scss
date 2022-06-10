@@ -1,0 +1,62 @@
+@mixin timepicker-style-config($config) {
+  position: relative;
+
+  .dl-ui-timepicker {
+    &__box {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      left: 0;
+      top: 100%;
+      width: getmapvalue($config, 'box::width', 250px);
+      height: getmapvalue($config, 'box::height', 5em);
+      border: getmapvalue($config, 'box::border', 2px solid $color-action-primary-focus);
+      background-color: getmapvalue($config, 'box::background', $color-surface-01k);
+      border-radius: getmapvalue($config, 'box::border-radius', 3px);
+      z-index: 999;
+
+      &--disabled {
+        background-color: getmapvalue($config, 'disable::background', $color-action-primary-disabled);
+        opacity: getmapvalue($config, 'disable::opacity', 0.6);
+        pointer-events: none;
+      }
+
+      &-hours,
+      &-minutes {
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        color: getmapvalue($config, 'box::hours::color', $color-action-primary-default);
+        font-weight: getmapvalue($config, 'box::horas::font-weight', bold);
+        font-size: getmapvalue($config, 'box::hours::font-size', 22px);
+      }
+
+      &-separator {
+        font-size: 1em;
+        font-weight: 600;
+        user-select: none;
+      }
+
+      &-item {
+        font-size: 0.64em;
+        user-select: none;
+
+        &-time--disabled {
+          color: getmapvalue($config, 'item::disabled::color', $color-action-primary-disabled);
+          color: $color-action-primary-disabled;
+          pointer-events: none;
+        }
+      }
+
+      &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

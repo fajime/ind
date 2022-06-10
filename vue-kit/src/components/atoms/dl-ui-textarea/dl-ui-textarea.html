@@ -1,0 +1,30 @@
+<div class="dl-ui-textarea">
+  <div :class="[containerClass,'dl-ui-textarea__container']" ref="container">
+    <div class="dl-ui-textarea__label" v-if="label">
+      <label for="randomId">{{ label }}</label>
+      <span class="dl-ui-textarea__label-required" v-if="required">*</span>
+    </div>
+    <textarea
+      :class="{'dl-ui-textarea--resizable' : resizable}"
+      :cols="cols"
+      :disabled="disabled"
+      :help="help"
+      :id="randomId"
+      :maxChar="maxChar"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      :required="required"
+      :rows="rows"
+      :value="modelValue"
+      @input="onInput"
+      ref="textArea"
+    >
+    </textarea>
+    <div class="dl-ui-textarea__help" ref="textAreaHelp">
+      <div class="dl-ui-textarea__help__wrapper">
+        <div class="dl-ui-textarea__helptext">{{ error ? errortext : help}}</div>
+      </div>
+      <div class="dl-ui-textarea__charcount">{{ countertext }}</div>
+    </div>
+  </div>
+</div>

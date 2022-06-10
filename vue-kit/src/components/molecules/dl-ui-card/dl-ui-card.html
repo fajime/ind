@@ -1,0 +1,40 @@
+<div class="dl-ui-card" ref="mainContainer">
+  <transition name="dl-ui-transition-fade">
+    <div :style="{ backgroundImage: `url(${headerImage})` }" class="dl-ui-card__header__image-box" v-if="hasHeaderImage"></div>
+  </transition>
+  <div class="dl-ui-card__header">
+    <transition name="dl-ui-transition-fade">
+      <div class="dl-ui-card__title-icon" v-if="titleIcon">
+        <dl-ui-icon :id="titleIcon" class="dl-ui-card__title-icon--icon"></dl-ui-icon>
+      </div>
+    </transition>
+    <div :class="{ 'dl-ui-card__title-alt' : !titleIcon }" class="dl-ui-card__title">{{ title }}</div>
+
+    <div class="dl-ui-card__icons">
+      <button :key="`item-${index}`" @click="executeIconButton(fn,index)" v-for="({icon, fn}, index) in actions">
+        <dl-ui-icon :id="icon" class="dl-ui-card__icons--icon"> </dl-ui-icon>
+      </button>
+    </div>
+  </div>
+  <div class="dl-ui-card__body">
+    <div class="dl-ui-card__content">
+      <slot></slot>
+    </div>
+  </div>
+  <transition name="dl-ui-transition-fade">
+    <div class="dl-ui-card__footer" v-if="hasButtons">
+      <div class="dl-ui-card__footer--buttons">
+        <dl-ui-button
+          :class="`${customClass}${size ? '-' + size :''}`"
+          :key="`item-${index}`"
+          :leftIcon="leftIcon"
+          :rightIcon="rightIcon"
+          @clicked="executeButton(fn,index)"
+          v-for="({leftIcon, rightIcon, slot, customClass,size, fn }, index) in buttonList"
+        >
+          {{slot}}
+        </dl-ui-button>
+      </div>
+    </div>
+  </transition>
+</div>

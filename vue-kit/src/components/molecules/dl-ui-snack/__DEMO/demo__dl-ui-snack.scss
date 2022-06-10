@@ -1,0 +1,24 @@
+@import '../mixins/snack';
+
+$config: (
+  'font-size': 25px,
+  'color': rgb(122, 0, 126),
+  'success::color': rgb(0, 255, 149),
+  'error::color': rgb(236, 104, 28) (255, 94, 0),
+  'warning::color': rgb(255, 250, 221),
+  'info::color': rgb(150, 176, 233),
+  'close::size': 35px
+);
+
+.custom-snack {
+  @include snack-style-config($config);
+}
+
+.demo__dl-ui-snack__content {
+  line-height: 18px;
+  font-size: 14px;
+
+  a {
+    color: blue;
+  }
+}

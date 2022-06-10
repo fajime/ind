@@ -1,0 +1,39 @@
+<div class="dl-ui-checkbox-group">
+  <div class="dl-ui-checkbox-group__parent">
+    <dl-ui-checkbox
+      :disabled="disabled"
+      :indeterminate="indeterminate"
+      @update:modelValue="changeAllValues"
+      class="dl-ui-checkbox-group__checkbox"
+      ref="checkboxParent"
+      v-model="groupValue"
+    />
+    <i
+      :class="{'dl-ui-checkbox-group__item-arrow--collapsed': collapsedAux}"
+      @click="collapsedAux = !collapsedAux"
+      class="dl-ui-checkbox-group__item-arrow"
+      v-if="collapsible"
+    />
+    <label ref="checkboxParentLabel">
+      <slot name="parent"></slot>
+    </label>
+  </div>
+  <ul :class="{'dl-ui-checkbox-group__list--collapsed': collapsible && collapsedAux}" class="dl-ui-checkbox-group__list" v-if="checkboxes">
+    <!-- Sub-list item -->
+    <li :key="checkboxObj.name" v-for="(checkboxObj, index) in checkboxes">
+      <div class="dl-ui-checkbox-group__child">
+        <dl-ui-checkbox
+          :disabled="disabled"
+          :name="checkboxObj.name"
+          @update:modelValue="checkboxClicked(checkboxObj.value, checkboxObj.name)"
+          class="dl-ui-checkbox-group__checkbox"
+          ref="checkboxChild"
+          v-model="checkboxObj.value"
+        />
+        <label ref="checkboxChildLabel">
+          <slot :name="`child-${index}`"></slot>
+        </label>
+      </div>
+    </li>
+  </ul>
+</div>

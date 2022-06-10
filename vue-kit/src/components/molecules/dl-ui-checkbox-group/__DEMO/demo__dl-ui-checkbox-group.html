@@ -1,0 +1,14 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-checkbox-group__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @group="notifyComponentEvent('group', $event)"
+      @input="notifyComponentEvent('input', $event)"
+      v-bind="generatedProps"
+    >
+      <template v-slot:parent> {{ playground.slots[0].value}} </template>
+      <template v-for="(item, index) in playground.props[0].value" v-slot:[`child-${index}`]> {{item.slot}} </template>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

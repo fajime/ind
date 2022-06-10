@@ -1,0 +1,116 @@
+/* stylelint-disable no-descending-specificity */
+@mixin toggle-button-style-config($config) {
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+  box-shadow: getmapvalue($config, 'box-shadow', none);
+  border: getmapvalue($config, 'active::border', 2px solid $color-action-secondary-default);
+  fill: getmapvalue($config, 'active::color', $color-surface-contrast);
+  display: getmapvalue($config, 'display', flex);
+  height: getmapvalue($config, 'height', 2.5rem);
+  justify-content: center;
+  align-items: center;
+  outline: getmapvalue($config, 'outline', 0);
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s linear;
+  position: relative;
+  cursor: pointer;
+  $size: getmapvalue($config, 'size', 20px);
+
+  @include font-button-medium();
+
+  .dl-ui-checkbox__icon {
+    width: getmapvalue($config, 'icon::width', 16px);
+    height: getmapvalue($config, 'icon::height', 16px);
+    padding: getmapvalue($config, 'icon::padding', 2px);
+    transition: fill 0.2s linear;
+  }
+
+  .dl-ui-toggle-button__slot {
+    padding-left: 4px;
+  }
+
+  .dl-ui-toggle-button__slot:empty {
+    padding-left: 0;
+  }
+
+  &--active {
+    background-color: getmapvalue($config, 'active::background', $color-action-primary-default);
+    border: getmapvalue($config, 'active::border', 2px solid $color-action-secondary-default);
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'active::color', $color-action-secondary-contrast);
+    }
+
+    .dl-ui-toggle-button__slot {
+      color: getmapvalue($config, 'active::color', $color-action-secondary-contrast);
+    }
+
+    &:focus {
+      border: getmapvalue($config, 'disabled::border', 2px solid $color-action-primary-hover);
+    }
+
+    &:hover {
+      background-color: getmapvalue($config, 'hover::background', $color-action-primary-hover);
+      border: getmapvalue($config, 'active::border', 2px solid $color-action-primary-hover);
+
+      .dl-ui-checkbox__icon {
+        fill: $color-action-secondary-contrast;
+      }
+
+      .dl-ui-toggle-button__slot {
+        color: $color-action-secondary-contrast;
+      }
+    }
+
+    &:disabled {
+      opacity: getmapvalue($config, 'disable::opacity', 0.5);
+      border: getmapvalue($config, 'disabled::border', 2px solid $color-action-primary-disabled);
+      background-color: getmapvalue($config, 'disabled::background', $color-action-primary-disabled);
+    }
+  }
+
+  &:not(.dl-ui-toggle-button--active) {
+    border: getmapvalue($config, 'active::border', 2px solid $color-action-secondary-default);
+    background-color: getmapvalue($config, 'hover::background', $color-action-primary-contrast);
+    color: $color-action-primary-default;
+  }
+
+  &.dl-ui-toggle-button--slot {
+    padding: getmapvalue($config, 'slot::padding', 0 16px);
+  }
+
+  &.dl-ui-toggle-button--notslot {
+    padding: getmapvalue($config, 'padding', 0 6px);
+  }
+
+  &:not(.dl-ui-toggle-button--active):focus {
+    background-color: getmapvalue($config, 'hover::background', $color-action-secondary-focus);
+  }
+
+  &:not(.dl-ui-toggle-button--active):disabled {
+    opacity: getmapvalue($config, 'disable::opacity', 0.5);
+    background-color: getmapvalue($config, 'disabled::background', $color-action-secondary-contrast);
+    border: getmapvalue($config, 'active::border', 2px solid $color-action-secondary-disabled);
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'disabled::color', $color-action-primary-disabled);
+    }
+
+    .dl-ui-toggle-button__slot {
+      color: getmapvalue($config, 'disabled::color', $color-action-primary-disabled);
+    }
+
+    pointer-events: none;
+  }
+
+  &:not(.dl-ui-toggle-button--active):hover {
+    border: getmapvalue($config, 'active::border', 2px solid $color-action-secondary-hover);
+    background-color: getmapvalue($config, 'hover::background', $color-action-secondary-contrast);
+    color: $color-action-secondary-hover;
+    fill: $color-action-secondary-hover;
+  }
+
+  > input {
+    display: none;
+  }
+}

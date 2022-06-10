@@ -1,0 +1,777 @@
+{
+  "header": {
+    "number": "04",
+    "title": "Componentes",
+    "subtitle": "",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ab tempora fugit amet molestiae molestias animi ipsam, eum quia vel optio porro architecto nihil nemo, nisi, enim doloremque eveniet nam."
+  },
+  "sections": [
+    {
+      "type": "components",
+      "class": "dl-comp-storybook-landing__section--gradient",
+      "title": "",
+      "items": [
+        {
+          "title": "Action Button",
+          "name": "dl-ui-action-button",
+          "className": "action-button",
+          "props": {
+            "class": "dl-ui-action-button",
+            "icon": "dl-ids-icon-user-single-outlined"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/action-button"
+        },
+        {
+          "title": "Breadcrumb",
+          "name": "dl-ui-breadcrumb",
+          "className": "breadcrumb",
+          "props": {
+            "class": "dl-ui-breadcrumb",
+            "homeIconConfig": {
+              "icon": "dl-ui-icon-home",
+              "to": "/"
+            },
+            "model": [
+              {
+                "to": "#",
+                "item": "Active"
+              },
+              {
+                "to": "#",
+                "item": "Inactive"
+              },
+              {
+                "to": "#",
+                "item": "Inactive"
+              }
+            ],
+            "separator": "/"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/breadcrumb"
+        },
+        {
+          "title": "Button",
+          "name": "dl-ui-button",
+          "className": "button",
+          "props": {
+            "class": "dl-ui-button"
+          },
+          "slots": [],
+          "text": "Default",
+          "path": "/storybook/storybook-components/button"
+        },
+        {
+          "title": "Checkbox",
+          "multiple": [
+            {
+              "name": "dl-ui-checkbox",
+              "className": "checkbox",
+              "props": {
+                "class": "dl-ui-checkbox",
+                "value": false,
+                "name": "unchecked"
+              },
+              "slots": [],
+              "span": {
+                "position": "after",
+                "className": "label",
+                "text": "Label"
+              }
+            },
+            {
+              "name": "dl-ui-checkbox",
+              "className": "checkbox",
+              "props": {
+                "class": "dl-ui-checkbox",
+                "value": true,
+                "name": "checked"
+              },
+              "slots": [],
+              "span": {
+                "position": "after",
+                "className": "label",
+                "text": "Label"
+              }
+            },
+            {
+              "name": "dl-ui-checkbox",
+              "className": "checkbox",
+              "props": {
+                "class": "dl-ui-checkbox",
+                "indeterminate": true,
+                "value": true,
+                "icon": "dl-ui-icon-check-mix",
+                "name": "indeterminate"
+              },
+              "slots": [],
+              "span": {
+                "position": "after",
+                "className": "label",
+                "text": "Label"
+              }
+            }
+          ],
+          "path": "/storybook/storybook-components/checkbox"
+        },
+        {
+          "title": "Chip",
+          "name": "dl-ui-chip",
+          "className": "chip",
+          "props": {
+            "class": "dl-ui-chip",
+            "icon": "dl-ui-icon-user",
+            "text": "chip-text",
+            "value": "value",
+            "stroke": true
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/chip"
+        },
+        {
+          "title": "Icon",
+          "name": "dl-ui-icon",
+          "className": "icon",
+          "props": {
+            "class": "dl-ui-icon",
+            "id": "dl-ids-icon-user-single-outlined"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/icon"
+        },
+        {
+          "title": "Icons Set",
+          "multiple": [
+            {
+              "name": "dl-ui-icon",
+              "className": "icon",
+              "props": {
+                "class": "dl-ui-icon",
+                "id": "dl-ids-icon-user-single-outlined"
+              },
+              "slots": []
+            },
+            {
+              "name": "dl-ui-icon",
+              "className": "icon",
+              "props": {
+                "class": "dl-ui-icon",
+                "id": "dl-ids-icon-alerts-circle-filled"
+              },
+              "slots": []
+            },
+            {
+              "name": "dl-ui-icon",
+              "className": "icon",
+              "props": {
+                "class": "dl-ui-icon",
+                "id": "dl-ids-icon-arrow_up_and_down-filled"
+              },
+              "slots": []
+            }
+          ],
+          "path": "/storybook/storybook-components/icons-set"
+        },
+        {
+          "title": "Input",
+          "multiple": [
+            {
+              "name": "dl-ui-input",
+              "className": "input",
+              "props": {
+                "class": "dl-ui-input",
+                "label": "Label",
+                "rightIcon": "dl-ui-icon-user",
+                "placeholder": "Placeholder",
+                "disabled": true
+              },
+              "slots": []
+            },
+            {
+              "name": "dl-ui-input",
+              "className": "input",
+              "props": {
+                "class": "dl-ui-input",
+                "label": "Label",
+                "rightIcon": "dl-ui-icon-user",
+                "placeholder": "Placeholder"
+              },
+              "slots": []
+            }
+          ],
+          "path": "/storybook/storybook-components/input"
+        },
+        {
+          "title": "Listbox",
+          "name": "dl-ui-listbox",
+          "className": "listbox",
+          "props": {
+            "class": "dl-ui-listbox",
+            "visibleItems": 3
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/listbox"
+        },
+        {
+          "title": "Multi Select",
+          "name": "dl-ui-multiselect",
+          "className": "multiselect",
+          "props": {
+            "class": "dl-ui-multiselect",
+            "label": "label",
+            "help": "help text",
+            "options": [
+              {
+                "name": "name 1",
+                "value": "value 1",
+                "leftIcon": "dl-ui-icon-user"
+              },
+              {
+                "name": "name 2",
+                "value": "value 2",
+                "disabled": true
+              }
+            ],
+            "value": [],
+            "scrollHeight": "250px"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/multiselect"
+        },
+        {
+          "title": "Number",
+          "name": "dl-ui-number",
+          "className": "number",
+          "props": {
+            "class": "dl-ui-number",
+            "label": "label",
+            "help": "help text",
+            "placeholder": "Placeholder..",
+            "min": 1,
+            "max": 100,
+            "step": 2
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/number"
+        },
+        {
+          "title": "Password",
+          "name": "dl-ui-password",
+          "className": "password",
+          "props": {
+            "class": "dl-ui-password",
+            "label": "label",
+            "help": "help text",
+            "value": "password"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/password"
+        },
+        {
+          "title": "Progress Bar",
+          "name": "dl-ui-progress-bar",
+          "className": "progress-bar",
+          "props": {
+            "class": "dl-ui-progress-bar",
+            "min": 1,
+            "max": 100,
+            "value": 60
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/progress-bar"
+        },
+        {
+          "title": "Progress Circle",
+          "name": "dl-ui-progress-circle",
+          "className": "progress",
+          "props": {
+            "class": "dl-ui-progress-circle",
+            "min": "0",
+            "max": "100",
+            "value": "50"
+          },
+          "slots": [],
+          "span": {
+            "position": "after",
+            "className": "text",
+            "text": "Por favor, espere.."
+          },
+          "path": "/storybook/storybook-components/progress-circle"
+        },
+        {
+          "title": "Radio",
+          "name": "dl-ui-radio",
+          "className": "radio",
+          "props": {
+            "class": "dl-ui-radio",
+            "value": "value",
+            "modelValue": "value"
+          },
+          "slots": [],
+          "span": {
+            "position": "after",
+            "className": "label",
+            "text": "value"
+          },
+          "path": "/storybook/storybook-components/radio"
+        },
+        {
+          "title": "Range",
+          "name": "dl-ui-range",
+          "className": "range",
+          "props": {
+            "class": "dl-ui-range",
+            "min": 0,
+            "max": 100,
+            "value": 60,
+            "step": 1
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/range"
+        },
+        {
+          "title": "Select",
+          "name": "dl-ui-select",
+          "className": "dropdown",
+          "props": {
+            "class": "dl-ui-select",
+            "value": "Default",
+            "options": [
+              {
+                "name": "Default",
+                "value": "default"
+              },
+              {
+                "name": "Hover",
+                "value": "hover"
+              }
+            ],
+            "label": "label"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/select"
+        },
+        {
+          "title": "Split Pane",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-split-panes.png",
+          "path": "/storybook/storybook-components/split-pane"
+        },
+        {
+          "title": "Switch",
+          "name": "dl-ui-switch",
+          "className": "switch",
+          "props": {
+            "class": "dl-ui-switch",
+            "value": true
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/switch"
+        },
+        {
+          "title": "Tab",
+          "name": "dl-ui-tabs",
+          "className": "tabs",
+          "props": {
+            "class": "dl-ui-tabs"
+          },
+          "components": [
+            {
+              "name": "dl-ui-tab",
+              "className": "tab",
+              "props": {
+                "title": "Tab 1",
+                "selected": true,
+                "class": "dl-ui-tab"
+              },
+              "content": "tab 1 content"
+            }
+          ],
+          "slots": [],
+          "path": "/storybook/storybook-components/tabs"
+        },
+        {
+          "title": "Textarea",
+          "name": "dl-ui-textarea",
+          "className": "textarea",
+          "props": {
+            "class": "dl-ui-textarea",
+            "resizable": true,
+            "label": "label",
+            "help": "help text",
+            "value": "value",
+            "rows": 5,
+            "cols": 30
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/textarea"
+        },
+        {
+          "title": "Toggle Button",
+          "name": "dl-ui-toggle-button",
+          "className": "toggle",
+          "props": {
+            "class": "dl-ui-toggle-button",
+            "content": "content",
+            "value": true
+          },
+          "slots": [
+            {
+              "name": "default",
+              "content": "Toggle Content"
+            }
+          ],
+          "path": "/storybook/storybook-components/toggle-button"
+        },
+        {
+          "title": "Tooltip",
+          "name": "dl-ui-tooltip",
+          "className": "tooltip",
+          "props": {
+            "class": "dl-ui-tooltip",
+            "position": "top",
+            "text": "Hover me!"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/tooltip"
+        },
+        {
+          "title": "Accordion",
+          "name": "dl-ui-accordion",
+          "className": "accordion",
+          "props": {
+            "class": "dl-ui-accordion",
+            "show": true,
+            "headerClickable": true
+          },
+          "slots": [
+            {
+              "name": "title",
+              "content": "Transporte"
+            },
+            {
+              "name": "content",
+              "content": "Content"
+            }
+          ],
+          "path": "/storybook/storybook-components/accordion"
+        },
+        {
+          "title": "Card",
+          "name": "dl-comp-storybook-card",
+          "className": "card",
+          "props": {
+            "class": "dl-comp-storybook-card"
+          },
+          "slots": [
+            {
+              "name": "default",
+              "content": "Contenido de la tarjeta"
+            },
+            {
+              "name": "title",
+              "usage": "Contenido de la parte superior"
+            }
+          ],
+          "path": "/storybook/storybook-components/card"
+        },
+        {
+          "title": "Checkbox Group",
+          "name": "dl-ui-checkbox-group",
+          "className": "checkbox-group",
+          "props": {
+            "class": "dl-ui-checkbox-group",
+            "checkboxes": [
+              {
+                "name": "Checkbox 1",
+                "value": true,
+                "label": "Checkbox 1"
+              },
+              {
+                "name": "Checkbox 2",
+                "value": true,
+                "label": "Checkbox 2"
+              },
+              {
+                "name": "Checkbox 3",
+                "value": false,
+                "label": "Checkbox 3"
+              }
+            ],
+            "collapsible": true,
+            "collapsed": false
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/checkbox-group"
+        },
+        {
+          "title": "Datepicker",
+          "name": "dl-ui-datepicker",
+          "className": "datepicker",
+          "props": {
+            "class": "dl-ui-datepicker",
+            "label": "Label",
+            "help": "Help text"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/datepicker"
+        },
+        {
+          "title": "Footer",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-footer.png",
+          "path": "/storybook/storybook-components/footer"
+        },
+        {
+          "title": "Header",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-header.png",
+          "path": "/storybook/storybook-components/header"
+        },
+        {
+          "title": "Image Viewer",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-image-viewer.png",
+          "path": "/storybook/storybook-components/image-viewer"
+        },
+        {
+          "title": "Menu Blocks",
+          "name": "dl-ui-menu-blocks",
+          "className": "menu-blocks",
+          "props": {
+            "class": "dl-ui-menu-blocks",
+            "config": [
+              {
+                "id": "id1",
+                "text": "Elemento 1 (con enlace)",
+                "icon": "dl-ui-icon-check",
+                "fn": "https://www.google.es",
+                "section": []
+              },
+              {
+                "id": "id2",
+                "text": "Elemento 2 (con traza)",
+                "icon": "dl-ids-icon-calendar-default-filled",
+                "fn": "Traza de \"Elemento 2\"",
+                "section": []
+              }
+            ]
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/menu-blocks"
+        },
+        {
+          "title": "Menu",
+          "name": "dl-ui-menu",
+          "className": "menu",
+          "props": {
+            "class": "dl-ui-menu",
+            "menu": {
+              "label": "ROOT",
+              "children": [
+                {
+                  "label": "File",
+                  "leftIcon": "dl-ids-icon-user-single-outlined"
+                },
+                {
+                  "label": "Edit",
+                  "leftIcon": "dl-ids-icon-user-single-outlined"
+                },
+                {
+                  "label": "Object",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/menu"
+        },
+        {
+          "title": "Rating",
+          "name": "dl-ui-rating",
+          "className": "rating",
+          "props": {
+            "class": "dl-ui-rating",
+            "stars": 5,
+            "value": 3,
+            "showCancel": false
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/rating"
+        },
+        {
+          "title": "Snack",
+          "name": "dl-ui-snack",
+          "className": "snack",
+          "props": {
+            "class": "dl-ui-snack",
+            "position": "relative",
+            "type": "error",
+            "show": true,
+            "text": ["A line of text", "An alternative line of text"]
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/snack"
+        },
+        {
+          "title": "Split Button",
+          "name": "dl-ui-split-button",
+          "className": "split-button",
+          "props": {
+            "class": "dl-ui-split-button",
+            "actionButtonIcon": "dl-ids-icon-arrows-down-single-no_circle-outlined"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/split-button"
+        },
+        {
+          "title": "Split Panes",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-split-panes.png",
+          "path": "/storybook/storybook-components/split-panes"
+        },
+        {
+          "title": "Stepper",
+          "name": "dl-ui-stepper",
+          "className": "stepper",
+          "props": {
+            "class": "dl-ui-stepper",
+            "startPointCompleted": false,
+            "steps": [
+              {
+                "label": "Step 1"
+              },
+              {
+                "label": "Step 2"
+              },
+              {
+                "label": "Step 3"
+              }
+            ],
+            "value": 2,
+            "mode": "dot"
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/stepper"
+        },
+        {
+          "title": "Tabs",
+          "name": "dl-ui-tabs",
+          "className": "tabs",
+          "props": {
+            "class": "dl-ui-tabs"
+          },
+          "components": [
+            {
+              "name": "dl-ui-tab",
+              "className": "tab",
+              "props": {
+                "title": "Tab 1",
+                "selected": true,
+                "class": "dl-ui-tab"
+              },
+              "content": "tab 1 content"
+            },
+            {
+              "name": "dl-ui-tab",
+              "className": "tab",
+              "props": {
+                "title": "Tab 2",
+                "selected": false,
+                "class": "dl-ui-tab"
+              },
+              "content": "tab 2 content"
+            }
+          ],
+          "slots": [],
+          "path": "/storybook/storybook-components/tabs"
+        },
+        {
+          "title": "Accordion List",
+          "name": "dl-ui-accordion-list",
+          "className": "accordion-list",
+          "props": {
+            "class": "dl-ui-accordion-list",
+            "accordions": [
+              {
+                "title": "Title 1",
+                "icon": "dl-ids-icon-user-single-outlined",
+                "slot": "Accordion 1",
+                "customClass": "dl-ui-accordion dl-ui-custom-accordion",
+                "show": true
+              },
+              {
+                "title": "Custom Title 2",
+                "icon": "dl-ids-icon-calendar-default-filled",
+                "slot": "Accordion 2",
+                "customClass": "dl-ui-accordion  dl-ui-custom-accordion",
+                "show": false
+              }
+            ]
+          },
+          "slots": [],
+          "path": "/storybook/storybook-components/accordion-list"
+        },
+        {
+          "title": "Cesium Map",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-cesium-map.png",
+          "path": "/storybook/storybook-components/cesium-map"
+        },
+        {
+          "title": "Datagrid",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-datagrid.png",
+          "path": "/storybook/storybook-components/datagrid"
+        },
+        {
+          "title": "Leaflet Map",
+          "name": "image",
+          "className": "img",
+          "imageName": "dl-ui-leaflet-map.png",
+          "path": "/storybook/storybook-components/leaflet-map"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section__documentation",
+      "title": "Documentación",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-figma",
+            "align": "right"
+          },
+          "header": "Librerías de diseño",
+          "body": "",
+          "action": {
+            "text": "Descargar",
+            "link": ""
+          }
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-angular",
+            "align": "right"
+          },
+          "header": "Librerías de desarrollo",
+          "body": "",
+          "action": {
+            "text": "Descargar",
+            "link": ""
+          }
+        }
+      ]
+    }
+  ]
+}

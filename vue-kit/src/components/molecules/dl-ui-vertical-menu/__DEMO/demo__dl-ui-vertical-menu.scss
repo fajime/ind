@@ -1,0 +1,21 @@
+@import '../mixins/vertical-menu';
+
+$config: (
+  'header::background': $color-surface-02,
+  'header::hover::background': $color-surface-03,
+  'description::color': $color-status-danger-02k,
+  'content::background': $color-surface-02,
+  'title::text::color': $color-status-info-03
+);
+
+.demo__dl-ui-vertical-menu {
+  &__wrapper {
+    width: 75%;
+  }
+}
+
+.custom-vertical-menu {
+  color: $color-surface-01k;
+
+  @include vertical-menu-style-config($config);
+}

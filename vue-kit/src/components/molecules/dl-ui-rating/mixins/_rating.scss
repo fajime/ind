@@ -1,0 +1,54 @@
+@mixin rating-style-config($config) {
+  display: flex;
+  cursor: pointer;
+  outline: none;
+
+  &--disabled {
+    opacity: getmapvalue($config, 'disable::opacity', 0.5);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--readOnly {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .dl-ui-rating__icon {
+    height: getmapvalue($config, 'star::size', 24px);
+    width: getmapvalue($config, 'star::size', 24px);
+    outline: none;
+  }
+
+  .dl-ui-rating__cancel {
+    color: getmapvalue($config, 'cancel::color', $color-status-danger-02k);
+    fill: getmapvalue($config, 'cancel::color', $color-status-danger-02k);
+    outline: none;
+
+    &:hover {
+      stroke: getmapvalue($config, 'cancel::hover::color', $color-status-danger-03);
+      fill: getmapvalue($config, 'cancel::hover::color', $color-status-danger-03);
+    }
+  }
+
+  .dl-ui-rating__star {
+    stroke: getmapvalue($config, 'star::color', $color-surface-06);
+    fill: getmapvalue($config, 'star::color', $color-surface-06);
+    outline: none;
+
+    &:hover {
+      stroke: getmapvalue($config, 'star::hover::color', $color-action-primary-hover);
+      fill: getmapvalue($config, 'star::hover::color', $color-action-primary-hover);
+    }
+
+    &--active {
+      stroke: getmapvalue($config, 'star::active::color', $color-action-primary-default);
+      fill: getmapvalue($config, 'star::active::color', $color-action-primary-default);
+
+      &:hover {
+        stroke: getmapvalue($config, 'star::active::hover::color', $color-action-primary-hover);
+        fill: getmapvalue($config, 'star::active::hover::color', $color-action-primary-hover);
+      }
+    }
+  }
+}

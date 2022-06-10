@@ -1,0 +1,14 @@
+.dl-comp-kit-demo-playground-input {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin: 4px;
+
+  &--big {
+    justify-content: flex-end;
+  }
+
+  &--switch {
+    align-items: flex-start;
+  }
+}

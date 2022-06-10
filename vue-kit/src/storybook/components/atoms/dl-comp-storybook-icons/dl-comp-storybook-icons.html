@@ -1,0 +1,35 @@
+<article class="dl-comp-storybook-icons">
+  <div class="dl-comp-storybook-icons__filters">
+    <div class="dl-comp-storybook-icons__filters__search">
+      <input placeholder="Buscar..." ref="input" type="text" v-model="search" />
+
+      <transition name="dl-ui-transition-fade">
+        <button @click="search = ''" class="dl-comp-storybook-icons__filters__search__clear-button" v-if="search">
+          <dl-ui-icon class="dl-ui-icon--small" id="dl-ids-icon-close-no-circle-outlined" />
+        </button>
+      </transition>
+
+      <button class="dl-comp-storybook-icons__filters__search__search-button">
+        <dl-ui-icon class="dl-ui-icon--small" id="dl-ids-icon-search-outlined" />
+      </button>
+    </div>
+
+    <div class="dl-comp-storybook-icons__filters__switch">
+      <span class="dl-comp-storybook-icons__filters__switch__label">Filled</span>
+      <dl-ui-switch class="dl-ui-switch" v-model="showFilled" />
+    </div>
+  </div>
+  <div class="dl-comp-storybook-icons__items">
+    <transition-group name="dl-ui-transition-slide">
+      <div :key="`dl-comp-storybook-iconography__cards-${icon.id}`" class="dl-comp-storybook-icons__icon" v-for="icon in iconsPaged">
+        <div class="dl-comp-storybook-icons__icon__title">{{ icon.label }}</div>
+        <div>
+          <dl-ui-icon :id="icon.id" class="dl-comp-storybook-iconography__cards-icon" />
+        </div>
+      </div>
+    </transition-group>
+  </div>
+  <div class="dl-comp-storybook-icons__pager">
+    <dl-comp-kit-demo-pagination :items="icons" :pageSize="pageSize" v-model="page" />
+  </div>
+</article>

@@ -1,0 +1,56 @@
+@mixin tag-style-config($config) {
+  $root-node: &;
+
+  display: flex;
+  align-items: center;
+  height: getmapvalue($config, 'height', 18px);
+  padding: getmapvalue($config, 'padding', 2px 4px);
+  border: getmapvalue($config, 'border', none);
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+  background-color: getmapvalue($config, 'background', $color-emphasis-01);
+  outline: none;
+  width: fit-content;
+  cursor: default;
+
+  @include font-body-small-regular();
+
+  &.dl-ui-tag--stroke {
+    border: 1px solid getmapvalue($config, 'text::color', $color-emphasis-03k);
+  }
+
+  &.dl-ui-tag--selectable {
+    cursor: pointer;
+  }
+
+  &.dl-ui-tag--closeButton {
+    height: getmapvalue($config, 'closeButton::height', 24px);
+  }
+
+  > .dl-ui-tag__icon {
+    width: getmapvalue($config, 'icon::width', 16px);
+    height: getmapvalue($config, 'icon::height', 16px);
+    padding: getmapvalue($config, 'icon::padding', 2px);
+    margin: getmapvalue($config, 'icon::margin', 4px);
+    fill: getmapvalue($config, 'icon::color', $color-base-03k);
+  }
+
+  > .dl-ui-tag__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: getmapvalue($config, 'close::padding', 4px);
+
+    .dl-ui-icon {
+      width: getmapvalue($config, 'icon::width', 16px);
+      height: getmapvalue($config, 'icon::height', 16px);
+      padding: getmapvalue($config, 'icon::padding', 2px);
+      fill: getmapvalue($config, 'close::color', $color-base-03k);
+      cursor: pointer;
+    }
+  }
+
+  > .dl-ui-tag__text {
+    color: getmapvalue($config, 'text::color', $color-base-03k);
+    padding: getmapvalue($config, 'text::padding', 4px);
+  }
+}

@@ -1,0 +1,23 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-leaflet-map__viewer" ref="viewerContainer">
+    <theComponent
+      :ref="setDemoRefs"
+      @circleRadiusUpdated="notifyComponentEvent('circleRadiusUpdated', $event)"
+      @click="notifyComponentEvent('click', $event)"
+      @dataload="notifyComponentEvent('dataload', $event)"
+      @entityClicked="notifyComponentEvent('entityClicked', $event)"
+      @entityNotWaiting="notifyComponentEvent('entityNotWaiting', $event)"
+      @entityWaiting="notifyComponentEvent('entityWaiting', $event)"
+      @error="notifyComponentEvent('error', $event)"
+      @geofenceClicked="notifyComponentEvent('geofenceClicked', $event)"
+      @geofenceSelected="notifyComponentEvent('geofenceSelected', $event)"
+      @geometryClicked="notifyComponentEvent('geometryClicked', $event)"
+      @pointData="notifyComponentEvent('pointData', $event)"
+      @ready="notifyComponentEvent('ready', $event);ready($event)"
+      @shapeCreating="notifyComponentEvent('shapeCreating', $event);shapeCreating($event)"
+      @shapeDeleting="notifyComponentEvent('shapeDeleting', $event);shapeDeleting($event)"
+      @shapeUpdating="notifyComponentEvent('shapeUpdating', $event);shapeUpdating($event)"
+      v-bind="generatedProps"
+    />
+  </div>
+</dl-comp-kit-demo-template>

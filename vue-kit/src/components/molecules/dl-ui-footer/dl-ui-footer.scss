@@ -1,0 +1,7 @@
+@import 'mixins/footer';
+
+.dl-ui-footer {
+  $default: ();
+
+  @include footer-style-config($default);
+}

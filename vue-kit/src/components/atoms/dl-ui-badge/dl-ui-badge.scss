@@ -1,0 +1,75 @@
+@import 'mixins/badge';
+
+.dl-ui-badge {
+
+  $type-info:(
+    'background-color': $color-status-info-02k,
+  );
+
+  $type-success: (
+    'background-color': $color-status-success-02k,
+  );
+
+  $type-warning: (
+    'background-color': $color-status-warning-02k,
+  );
+
+  $type-danger: (
+    'background-color': $color-status-danger-02k,
+  );
+
+  $size-small: (
+    'padding': 0 3px,
+    'font-size': 10px,
+    'width': 11px,
+    'height': 12px,
+    'point::width': 7px,
+    'point::height': 7px
+  );
+
+  $size-medium: (
+    'padding': 0 4px,
+    'font-size': 12px,
+    'width': 16px,
+    'height': 16px,
+    'point::width': 11px,
+    'point::height': 11px
+  );
+
+  $size-large: (
+    'padding': 0 4px,
+    'font-size': 16px,
+    'width': 24px,
+    'height': 23px,
+    'point::width': 15px,
+    'point::height': 15px,
+    'font-weight': 500
+  );
+
+  $types: (
+    'info': $type-info,
+    'success': $type-success,
+    'warning': $type-warning,
+    'danger': $type-danger
+  );
+
+  $sizes: (
+    'small': $size-small,
+    'medium': $size-medium,
+    'large': $size-large
+  );
+
+  @include badge-style-config(map-merge($type-info, $size-small));
+
+  // generate all badge styles dynamically
+  @each $typeName, $typeValue in $types {
+    @each $sizeName, $sizeValue in $sizes {
+      &--#{$typeName}-#{$sizeName} {
+        @include badge-style-config(map-merge($typeValue, $sizeValue));
+      }
+    }
+    &--#{$typeName} {
+      @include badge-style-config(map-merge($typeValue, $size-small));
+    }
+  }
+}

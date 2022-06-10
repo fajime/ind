@@ -1,0 +1,18 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-avatar-group__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @clicked="notifyComponentEvent('clicked', $event)"
+      v-bind="generatedProps"
+    >
+      <DlUiAvatar shape="circle" source="https://i.pravatar.cc/150?img=32" type="image"></DlUiAvatar>
+      <DlUiAvatar shape="circle" source="https://i.pravatar.cc/150?img=31" type="image"></DlUiAvatar>
+      <DlUiAvatar shape="circle" source="https://i.pravatar.cc/150?img=34" type="image"></DlUiAvatar>
+      <DlUiAvatar shape="circle" source="dl-ids-icon-email-outlined" type="icon"></DlUiAvatar>
+      <DlUiAvatar shape="circle" source="dl-ids-icon-user-single-outlined" type="icon"></DlUiAvatar>
+      <DlUiAvatar :key="index" :source="item" shape="circle" v-for="item,index in ['G','H','I']"></DlUiAvatar>
+      <DlUiAvatar class="avatar--none" shape="circle" source="+2"></DlUiAvatar>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

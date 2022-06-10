@@ -1,0 +1,116 @@
+@mixin button-style-config($config) {
+  $root-node: &;
+
+  display: getmapvalue($config, 'display', flex);
+  height: getmapvalue($config, 'height', 32px);
+  outline: getmapvalue($config, 'outline', 0);
+  padding: getmapvalue($config, 'padding', 0 16px);
+  border: getmapvalue($config, 'border', 0);
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+  background-color: getmapvalue($config, 'background', $color-action-primary-default);
+  color: getmapvalue($config, 'color', $color-action-primary-contrast);
+  fill: getmapvalue($config, 'color', $color-action-primary-contrast);
+  box-shadow: getmapvalue($config, 'box-shadow', none);
+  cursor: pointer;
+  // flex-wrap: wrap; to review
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s linear;
+
+  @include font-button-medium();
+
+  &:hover {
+    background-color:
+      getmapvalue(
+        $config,
+        'hover::background',
+        $color-action-primary-hover
+      );
+    color: getmapvalue($config, 'hover::color', $color-action-primary-contrast);
+    fill: getmapvalue($config, 'hover::color', $color-action-primary-contrast);
+    border: getmapvalue($config, 'hover::border', 0);
+  }
+
+  &:not(&--loading):not(&--disabled):focus {
+    background-color:
+      getmapvalue(
+        $config,
+        'focus::background',
+        $color-action-primary-default
+      );
+    color: getmapvalue($config, 'focus::color', $color-action-primary-contrast);
+    fill: getmapvalue($config, 'focus::color', $color-action-primary-contrast);
+    border: getmapvalue($config, 'focus::border', 2px solid $color-action-primary-active);
+  }
+
+  &:not(&--loading):not(&--disabled):active {
+    background-color:
+      getmapvalue(
+        $config,
+        'active::background',
+        $color-action-primary-active
+      );
+    color: getmapvalue($config, 'active::color', $color-action-primary-contrast);
+    fill: getmapvalue($config, 'active::color', $color-action-primary-contrast);
+    border: getmapvalue($config, 'focus::border', 0);
+  }
+
+  &--loading {
+    pointer-events: none;
+    background-color:
+      getmapvalue(
+        $config,
+        'loading::background',
+        $color-action-primary-active
+      );
+    color: getmapvalue($config, 'loading::color', $color-action-primary-contrast);
+    fill: getmapvalue($config, 'loading::color', $color-action-primary-contrast);
+    border: getmapvalue($config, 'loading::border', 0);
+  }
+
+  &--disabled {
+    background-color:
+      getmapvalue(
+        $config,
+        'disabled::background',
+        $color-action-primary-disabled
+      );
+    color: getmapvalue($config, 'disabled::color', $color-action-primary-contrast);
+    fill: getmapvalue($config, 'disabled::color', $color-action-primary-contrast);
+    border: getmapvalue($config, 'disabled::border', 0);
+    pointer-events: none;
+  }
+
+  &__text {
+    order: 1;
+    width: 100%;
+  }
+
+  &:not(&--icon) &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: getmapvalue($config, 'text::margin', 0);
+  }
+
+  .dl-ui-button--slot {
+    padding: getmapvalue($config, 'slot::padding', 0 6px);
+  }
+
+  .dl-ui-button--icon {
+    align-items: center;
+    width: getmapvalue($config, 'icon::width', 16px);
+    height: getmapvalue($config, 'icon::height', 16px);
+    padding: getmapvalue($config, 'icon::padding', 2px);
+    margin: getmapvalue($config, 'icon::margin', 0 0);
+  }
+
+  &-large {
+    .dl-ui-button--icon {
+      width: getmapvalue($config, 'icon::size', 24px);
+      height: getmapvalue($config, 'icon::size', 24px);
+      margin: getmapvalue($config, 'icon::margin', 0 0);
+    }
+  }
+}

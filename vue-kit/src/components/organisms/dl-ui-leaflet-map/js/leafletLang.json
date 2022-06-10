@@ -1,0 +1,138 @@
+{
+  "drawTool": {
+    "en-GB": {
+      "draw": {
+        "handlers": {
+          "circle": {
+            "tooltip": {
+              "start": "Click and drag to draw circle."
+            },
+            "radius": "Radius"
+          },
+          "polygon": {
+            "tooltip": {
+              "start": "Click to start drawing shape.",
+              "cont": "Click to continue drawing shape.",
+              "end": "Click first point to close this shape."
+            }
+          },
+          "polyline": {
+            "error": "Oh no! you can't cross the lines!!",
+            "tooltip": {
+              "start": "Click to start drawing line.",
+              "cont": "Click to continue drawing line.",
+              "end": "Click last point to finish line."
+            }
+          },
+          "simpleshape": {
+            "tooltip": {
+              "end": "Release mouse to finish drawing."
+            }
+          }
+        }
+      }
+    },
+    "es-ES": {
+      "draw": {
+        "handlers": {
+          "circle": {
+            "tooltip": {
+              "start": "Clica y arrastra para pintar círculos."
+            },
+            "radius": "Radio"
+          },
+          "polygon": {
+            "tooltip": {
+              "start": "Clica para empezar un polígono.",
+              "cont": "Clica para añadir vértices del polígono.",
+              "end": "Clica en el primer punto para cerrar este polígono."
+            }
+          },
+          "polyline": {
+            "error": "Oh no! No puedes cruzar líneas!",
+            "tooltip": {
+              "start": "Clica para empezar un corredor.",
+              "cont": "Clica para añadir puntos al corredor.",
+              "end": "Clica en el último punto para cerrar este corredor."
+            }
+          },
+          "simpleshape": {
+            "tooltip": {
+              "end": "Suelta el ratón para acabar el círculo."
+            }
+          }
+        }
+      }
+    }
+  },
+  "customValues": {
+    "en-GB": {
+      "error": {
+        "success": "Success!",
+        "warn": "Warning!",
+        "error": "Upps, something went wrong.",
+        "nofeatsresp": "No features in response.",
+        "getIntersections": "An error occurred while getting the features in this point.",
+        "layerincomplete": "Some layer is missing data needed for this request.",
+        "featnotfound": "Feature not found.",
+        "featnotloaded": "Feature could not be loaded.",
+        "layernotswitched": "Could not switch this layer.",
+        "entitynotfound": "Entity not found.",
+        "entitynoteditable": "Entity not editable"
+      },
+      "geoControl": {
+        "add": "Add geofence",
+        "edit": "Edit geofence",
+        "delete": "Delete geofence",
+        "circle": "Circle",
+        "polygon": "Polygon",
+        "corr": "Corridor",
+        "cancel": "Cancel",
+        "confirm": "Confirm creation",
+        "undo": "Undo",
+        "confirms": "Confirm selection",
+        "final": "Final confirmation!",
+        "nofeats": "No features here.",
+        "severalfeats": "Several features in this point.<br />Use zoom or deactivate other layers."
+      },
+      "layerControl": {
+        "wrongmodel": "Wrong custom-layer data model. Please refer to docs for a proper data model.",
+        "noactivelayers": "No active layers!"
+      }
+    },
+    "es-ES": {
+      "error": {
+        "success": "¡Éxito!",
+        "warn": "¡Cuidado!",
+        "error": "Upps, algo no ha ido bien.",
+        "nofeatsresp": "No hay elementos en la respuesta.",
+        "getIntersections": "Ocurrió un error al obtener elementos en este punto.",
+        "layerincomplete": "Alguna de las capas no tiene datos necesarios para esta petición.",
+        "featnotfound": "No se encontró la geofence.",
+        "featnotloaded": "No se pudo cargar la geofence.",
+        "layernotswitched": "No se pudo alternar esta capa.",
+        "entitynotfound": "Entidad no encontrada.",
+        "entitynoteditable": "Entidad no editable"
+      },
+      "geoControl": {
+        "add": "Añadir geofence",
+        "edit": "Editar geofence",
+        "delete": "Borrar geofence",
+        "circle": "Círculo",
+        "polygon": "Polígono",
+        "corr": "Corredor",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar creación",
+        "undo": "Deshacer",
+        "confirms": "Confirmar selección",
+        "final": "Confirmación final!",
+        "nofeats": "No hay nada aquí.",
+        "severalfeats": "Varios elementos aquí.<br />Use el zoom o desactive otras capas."
+      },
+      "layerControl": {
+        "wrongmodel": "El objeto de capas tiene un modelo de datos erróneo. Consulte la guía para ver un modelo correcto.",
+        "noactivelayers": "No hay capas activas."
+      }
+    }
+  }
+}

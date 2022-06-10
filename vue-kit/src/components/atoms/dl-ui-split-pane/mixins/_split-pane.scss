@@ -1,0 +1,29 @@
+@mixin split-pane-style-config($config) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: width 0.2s ease-out, height 0.2s ease-out;
+  background-color: getmapvalue($config, 'background', $color-surface-01k);
+
+  &__header {
+    display: block;
+    background-color: getmapvalue($config, 'header::background', $color-surface-03);
+    color: getmapvalue($config, 'header::color', $color-base-03k);
+    border-radius: getmapvalue($config, 'header::border-radius', 3px 3px 0 0);
+    position: relative;
+    height: getmapvalue($config, 'header::height', 24px);
+
+    span {
+      position: absolute;
+      top: 50%;
+      margin: 0 0 0 8px;
+      transform: translateY(-50%);
+      overflow: hidden;
+      white-space: nowrap;
+      width: calc(100% - 8px);
+    }
+
+    @include font-body-small-regular();
+  }
+}

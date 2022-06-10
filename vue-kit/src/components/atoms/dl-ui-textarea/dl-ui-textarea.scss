@@ -1,0 +1,70 @@
+@import 'mixins/textarea';
+
+.dl-ui-textarea {
+  $default: ();
+
+  @include textarea-style-config($default);
+}
+
+.dl-ui-textarea--resizable {
+  @include font-caption();
+}
+
+.dl-ui-textarea__label,
+.dl-ui-textarea__help {
+  @include font-caption();
+}
+
+.dl-ui-textarea--extra-small {
+  $extra-small: (
+    'padding': 3px 8px,
+    'label::top': -15px,
+    //'help::margin-top': 5px
+  );
+
+  @include textarea-style-config($extra-small);
+
+  textarea {
+    @include font-body-small-regular();
+  }
+}
+
+.dl-ui-textarea--small {
+  $small: (
+    'padding': 4px 8px,
+    'label::top': -16px,
+    //'help::margin-top': 6px
+  );
+
+  @include textarea-style-config($small);
+
+  textarea {
+    @include font-body-small-regular();
+  }
+}
+
+.dl-ui-textarea--medium {
+  $default: ();
+
+  @include textarea-style-config($default);
+}
+
+.dl-ui-textarea--large {
+  $large: (
+    'label::top': -28px
+  );
+
+  @include textarea-style-config($large);
+
+  textarea {
+    @include font-body-medium-regular();
+  }
+
+  .dl-ui-textarea__label {
+    @include font-body-medium-regular();
+  }
+
+  .dl-ui-textarea__help {
+    @include font-body-small-regular();
+  }
+}

@@ -1,0 +1,152 @@
+@mixin multiselect-style-config($config) {
+  position: relative;
+  width: 100%;
+
+  .dl-ui-listbox {
+    background: getmapvalue($config, 'background', $color-surface-01k);
+  }
+
+  .dl-ui-list__item--highlight {
+    color: getmapvalue($config, 'item::color', $color-base-02);
+    fill: getmapvalue($config, 'item::color', $color-base-02);
+    background: transparent;
+  }
+
+  .dl-ui-list__item--highlight:focus,
+  .dl-ui-list__item--highlight:focus:hover {
+    color: getmapvalue($config, 'focus::item::color', $color-base-02);
+    fill: getmapvalue($config, 'focus::item::color', $color-base-02);
+    background: getmapvalue($config, 'hover::item::background', $color-emphasis-01);
+  }
+
+  .dl-ui-multiselect__label {
+    padding: getmapvalue($config, 'label::padding', 8px 0);
+    color: getmapvalue($config, 'label::color', $color-base-highlight-02);
+    transition: all 0.2s linear;
+    text-align: getmapvalue($config, 'label::align', inherit);
+
+    @include font-caption();
+
+    font:
+      getmapvalue(
+        $config,
+        'label::font',
+        null
+      );
+  }
+
+  .dl-ui-multiselect__box {
+    padding: getmapvalue($config, 'padding', 0 8px);
+    padding-right: 0;
+    display: flex;
+    flex: 1 1 auto;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s linear;
+    height: 100%;
+    border: none;
+
+    &-text {
+      padding: 0;
+      box-sizing: border-box;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      color: getmapvalue($config, 'text::color', inherit);
+
+      @include font-body-medium-regular();
+    }
+
+    &-icon--right,
+    &-icon--left {
+      fill: getmapvalue($config, 'option::icon::color', $color-base-highlight-03k);
+      margin: 0 4px;
+      width: getmapvalue($config, 'icon::width', 16px);
+      height: getmapvalue($config, 'icon::height', 16px);
+      padding: getmapvalue($config, 'icon::padding', 2px);
+    }
+
+    &-icon--left {
+      margin-right: 8px;
+      margin-left: -4px;
+    }
+  }
+
+  .dl-ui-multiselect__help {
+    color: getmapvalue($config, 'help::color', $color-base-highlight-02);
+    transition: all 0.2s linear;
+    width: 100%;
+    background-color: getmapvalue($config, 'help::background', transparent);
+    margin-top: getmapvalue($config, 'help::margin-top', 4px);
+    padding: getmapvalue($config, 'help::padding', 0);
+    border-radius: 2px;
+    text-align: getmapvalue($config, 'help::align', inherit);
+
+    @include font-caption();
+
+    font: getmapvalue($config, 'help::font', null);
+  }
+
+  .dl-ui-multiselect__clear-icon {
+    fill: getmapvalue($config, 'icon::color', $color-action-secondary-default);
+    width: getmapvalue($config, 'clear-icon::width', 16px);
+    height: getmapvalue($config, 'clear-icon::height', 16px);
+    padding: getmapvalue($config, 'clear-icon::padding', 1px);
+  }
+
+  &.dl-ui-multiselect--disabled {
+    pointer-events: none;
+    cursor: initial;
+
+    .dl-ui-multiselect__label,
+    .dl-ui-multiselect__help {
+      color: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+    }
+
+    .dl-ui-dropdown__box {
+      .dl-ui-multiselect__box {
+        color: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+        border-color: getmapvalue($config, 'disable::border-color', $color-action-primary-disabled);
+
+        &__icon--right,
+        &__icon--left {
+          color: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+        }
+      }
+    }
+
+    .dl-ui-multiselect__clear-icon,
+    .dl-ui-multiselect__help {
+      color: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+      fill: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+    }
+  }
+
+  .dl-ui-dropdown__panel {
+    margin-top: 8px;
+  }
+
+  &.dl-ui-multiselect--error {
+    .dl-ui-dropdown__trigger-icon,
+    .dl-ui-multiselect__clear-icon,
+    .dl-ui-multiselect__help {
+      color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      fill: getmapvalue($config, 'error::color', $color-status-danger-02k);
+    }
+  }
+
+  .dl-ui-multiselect__clear-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .dl-ui-multiselect__clear-button:focus > .dl-ui-multiselect__clear-icon {
+    fill: $color-action-tertiary-default;
+  }
+}

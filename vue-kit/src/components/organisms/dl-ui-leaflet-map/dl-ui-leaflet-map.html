@@ -1,0 +1,41 @@
+<div class="dl-ui-leaflet-map">
+  <!-- Map container -->
+  <div :id="mapId" class="dl-ui-leaflet-map__map" ref="mapContainer"></div>
+
+  <!-- Progress bar -->
+  <div :class="{ 'dl-ui-leaflet-map__progress-bar--hidden' : progressBarPercentValue >= 100 }" class="dl-ui-leaflet-map__progress-bar">
+    <dl-ui-progress-bar :value="progressBarPercentValue" class="dl-ui-progress-bar" />
+  </div>
+
+  <!-- Snack -->
+  <dl-ui-snack @closed="snackClosed" class="dl-ui-snack" v-bind="mapSnackData" />
+
+  <!-- Left side geo tool -->
+  <dl-leaflet-geofences
+    :allowIntersection="allowIntersection"
+    :map="map"
+    :pointData="pointData"
+    class="dl-ui-leaflet-map__geotool"
+    ref="geoTool"
+    v-show="showDrawControl"
+  />
+
+  <!-- Right side tools -->
+  <div class="dl-ui-leaflet-map__tools">
+    <div class="dl-ui-leaflet-map__inner">
+      <div :class="{'is-empty': !showBaseLayerList}" class="dl-ui-col dl-ui-col--left">
+        <dl-leaflet-basemap :baseMapOptions="baseLayers" :class="{}" :map="map" ref="basemapTool" v-show="showBaseLayerList" />
+      </div>
+      <div :class="{'is-empty': !showCustomLayerList}" class="dl-ui-col dl-ui-col--center">
+        <dl-leaflet-layers :layers="customLayers" :map="map" :wfs="wfs" ref="layerTool" v-show="showCustomLayerList" />
+      </div>
+      <div class="dl-ui-col dl-ui-col--right">
+        <dl-leaflet-info :info="infoBoxData" :open="openInfoBox" v-if="showInfoBox" />
+      </div>
+    </div>
+  </div>
+  <!-- Left bottom side tool -->
+  <dl-leaflet-latlng :map="map" class="dl-ui-leaflet-map__latlngtool" ref="latlngTool" v-if="showLatlngControl" />
+  <slot></slot>
+  <dl-leaflet-iconset />
+</div>

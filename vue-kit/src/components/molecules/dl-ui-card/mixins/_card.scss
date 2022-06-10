@@ -1,0 +1,103 @@
+@import '../../../atoms/dl-ui-button/mixins/button';
+
+@mixin card-style-config($config) {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: getmapvalue($config, 'padding', 0);
+  background-color: getmapvalue($config, 'background', $color-surface-01k);
+  border: getmapvalue($config, 'border', 1px solid $color-surface-04);
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+  box-shadow: getmapvalue($config, 'box-shadow', none);
+  transition: all 0.2s linear;
+  cursor: getmapvalue($config, 'cursor', auto);
+
+  .dl-ui-card__header__image-box {
+    width: 100%;
+    height: getmapvalue($config, 'header::image::height', 102px);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  > .dl-ui-card__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: getmapvalue($config, 'header::padding', 8px);
+    border-radius: getmapvalue($config, 'header::border-radius', 3px 3px 0 0);
+    background-color: getmapvalue($config, 'header::background', $color-surface-03);
+
+    > .dl-ui-card__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: getmapvalue($config, 'title::color', $color-base-highlight-03k);
+    }
+
+    & .dl-ui-card__title-icon {
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &--icon {
+        fill: getmapvalue($config, 'fill::color', $color-base-highlight-03k);
+        width: getmapvalue($config, 'icon::size', 16px);
+        height: getmapvalue($config, 'icon::size', 16px);
+        margin: getmapvalue($config, 'icon::margin', 0 8px);
+        padding: 0;
+      }
+    }
+
+    & .dl-ui-card__icons {
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: getmapvalue($config, 'header::icon::margin-right', 8px);
+      margin-left: auto;
+
+      &--icon {
+        cursor: pointer;
+        fill: getmapvalue($config, 'fill::color', $color-base-highlight-03k);
+        width: getmapvalue($config, 'icon::size', 16px);
+        height: getmapvalue($config, 'icon::size', 16px);
+        margin: getmapvalue($config, 'icon::margin', 0 10px);
+        padding: 0;
+      }
+    }
+  }
+
+  > .dl-ui-card__body {
+    flex: 1 1 auto;
+    padding: getmapvalue($config, 'body::padding', 8px);
+    color: getmapvalue($config, 'body::color', $color-base-02);
+
+    > .dl-ui-card__subtitle {
+      flex: 1 1 auto;
+    }
+
+    > .dl-ui-card__content {
+      flex: 1 1 auto;
+    }
+  }
+
+  > .dl-ui-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .dl-ui-card__footer--buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: getmapvalue($config, 'footer::buttons::margin', 9px);
+
+      .dl-ui-button {
+        @include font-button-small();
+      }
+    }
+  }
+}

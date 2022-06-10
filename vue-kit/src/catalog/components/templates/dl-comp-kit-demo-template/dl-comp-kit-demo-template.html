@@ -1,0 +1,81 @@
+<div class="demo">
+  <header class="demo__title" v-if="showTitle()">
+    <h1>{{component.titleName}}</h1>
+  </header>
+
+  <div class="demo__content">
+    <!-- DESCRIPTION-->
+    <dl-comp-kit-demo-section v-if="showSection('Description')">
+      <div v-html="component.description"></div>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+
+    <!-- PLAYGROUND-->
+    <dl-comp-kit-demo-section title="Playground" v-if="showSection('Playground')">
+      <dl-comp-kit-demo-playground :inputs="playground" @update:modelValue="$emit('update:modelValue', $event)" ref="playground">
+        <slot></slot>
+      </dl-comp-kit-demo-playground>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+    <!-- USE-->
+    <dl-comp-kit-demo-section title="Uso" v-if="component.nameJS && showSection('Use')">
+      <dl-comp-kit-demo-use :component="component" />
+    </dl-comp-kit-demo-section>
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- PROPERTIES-->
+    <dl-comp-kit-demo-section
+      title="Propiedades"
+      v-if="component.props && Object.keys(component.props).length > 0 && showSection('Properties')"
+    >
+      <dl-comp-kit-demo-table
+        :columnKeys="['name','type','default','desc']"
+        :headers="['Nombre','Tipo','Valor por defecto','Descripción']"
+        :rows="component.props"
+        class="dl-comp-kit-demo-table--columns-4"
+      ></dl-comp-kit-demo-table>
+    </dl-comp-kit-demo-section>
+
+    <!-- ----------------------------------------------------------------- -->
+    <!-- EVENTS-->
+    <dl-comp-kit-demo-section title="Eventos" v-if="component.events && component.events.length > 0 && showSection('Events')">
+      <dl-comp-kit-demo-table
+        :columnKeys="['name','condition','payload']"
+        :headers="['Nombre','Condición de disparo','Payload']"
+        :rows="component.events"
+        class="dl-comp-kit-demo-table--columns-3"
+      ></dl-comp-kit-demo-table>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+    <!-- SLOTS-->
+    <dl-comp-kit-demo-section title="Slots" v-if="component.slots && component.slots.length > 0 && showSection('Slots')">
+      <dl-comp-kit-demo-table
+        :columnKeys="['name','usage']"
+        :headers="['Nombre','Uso']"
+        :rows="component.slots"
+        class="dl-comp-kit-demo-table--columns-2"
+      ></dl-comp-kit-demo-table>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+    <!-- CSS-->
+    <dl-comp-kit-demo-section title="SCSS" v-if="component.scss && component.scss.length > 0 && showSection('Scss')">
+      <div>
+        El componente utiliza un mixin de SCSS denominado <span class="demo__md--syntax">{{component.nameScssMixin}}</span> el cual permite
+        personalizar el aspecto del componente. Para ello es necesario generar un mapa de SCSS y pasarselo al mixin. Los parametros que
+        admite el mixin son:
+      </div>
+      <dl-comp-kit-demo-table
+        :columnKeys="['name','default', 'desc']"
+        :headers="['Nombre','Valor por defecto', 'Descripción']"
+        :rows="component.scss"
+        class="dl-comp-kit-demo-table--columns-3"
+      ></dl-comp-kit-demo-table>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+    <!-- NOTES-->
+    <dl-comp-kit-demo-section title="Notas" v-if="component.notes && showSection('Notes')">
+      <div v-highlight v-html="component.notes"></div>
+    </dl-comp-kit-demo-section>
+    <!-- ----------------------------------------------------------------- -->
+  </div>
+</div>

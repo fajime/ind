@@ -1,0 +1,7 @@
+@import 'mixins/range';
+
+.dl-ui-range {
+  $default: ();
+
+  @include range-style-config($default);
+}

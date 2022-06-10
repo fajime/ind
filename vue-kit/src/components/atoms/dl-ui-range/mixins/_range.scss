@@ -1,0 +1,315 @@
+/* stylelint-disable scss/no-global-function-names */
+/* stylelint-disable no-descending-specificity */
+@use 'sass:math';
+
+@mixin range-style-config($config) {
+  #{--progress-value}: 100vw;
+  $color-background-dark: getmapvalue($config, 'track::background', $color-surface-04);
+  $track-color: getmapvalue($config, 'track::color', $color-emphasis-03k);
+  $track-width: 100%;
+  $track-height: getmapvalue($config, 'track::height', 4px);
+  $track-shadow-size: 0;
+  $track-shadow-blur: 0;
+  $track-shadow-color: rgba(0, 0, 0, 0);
+  $track-border-width: getmapvalue($config, 'track::border-width', 0);
+  $track-border-color: getmapvalue($config, 'track::border-color', transparent);
+  $track-radius: getmapvalue($config, 'track::radius', 2px);
+
+  $thumb-color: getmapvalue($config, 'thumb::background', $color-surface-01k);
+  $thumb-radius: getmapvalue($config, 'thumb::radius', 8px);
+  $thumb-height: getmapvalue($config, 'thumb::size', 16px);
+  $thumb-width: getmapvalue($config, 'thumb::size', 16px);
+  $thumb-shadow-size: 1px;
+  $thumb-shadow-blur: 8px;
+  $thumb-shadow-color: rgba(0, 0, 0, 0.12);
+  $thumb-border-width: getmapvalue($config, 'thumb::border-width', 0);
+  $thumb-border-color: getmapvalue($config, 'thumb::border-color', $color-emphasis-03k);
+
+  $disabled-opacity: getmapvalue($config, 'disable::opacity', 1);
+  $disabled-track-color: getmapvalue($config, 'disable::track::color', $color-surface-06);
+  $disabled-color-background-dark: getmapvalue($config, 'disable::track::background', $color-surface-04);
+  $disabled-track-shadow-size: 0;
+  $disabled-track-shadow-blur: 0;
+  $disabled-track-shadow-color: rgba(0, 0, 0, 0);
+  $disabled-track-border-color: getmapvalue($config, 'disable::track::border-color', transparent);
+
+  $disabled-thumb-color: getmapvalue($config, 'disable::thumb::background', $color-surface-03);
+  $disabled-thumb-shadow-size: 0;
+  $disabled-thumb-shadow-blur: 0;
+  $disabled-thumb-shadow-color: rgba(0, 0, 0, 0);
+  $disabled-thumb-border-color: getmapvalue($config, 'disable::thumb::border-color', transparent);
+
+  $contrast: 0% !default;
+  $ie-bottom-track-color: $color-background-dark !default;
+
+  &,
+  &::-webkit-slider-runnable-track,
+  &::-webkit-slider-thumb {
+    appearance: none;
+  }
+
+  background: transparent;
+  margin: math.div($thumb-height, 2) 0;
+  width: $track-width;
+  border: none;
+  cursor: pointer;
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-runnable-track {
+      background: $color-background-dark;
+      background-repeat: no-repeat;
+      background-position: var(--progress-value) 0;
+      background-size: 100% 100%;
+      background-image: linear-gradient($track-color, $track-color);
+    }
+
+    &::-ms-fill-lower {
+      background: $color-background-dark;
+    }
+
+    &::-ms-fill-upper {
+      background: $color-background-dark;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track($track-height, $track-width);
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+
+    background: $color-background-dark;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+    background-repeat: no-repeat;
+    background-position: var(--progress-value) 0;
+    background-size: 100% 100%;
+    background-image: linear-gradient($track-color, $track-color);
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb(
+      $thumb-shadow-size,
+      $thumb-shadow-blur,
+      $thumb-shadow-color,
+      $thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+
+    appearance: none;
+    margin-top:
+      (
+        math.div(-$track-border-width * 2 + $track-height, 2) - math.div($thumb-height, 2)
+      );
+  }
+
+  &::-moz-range-track {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    @include track($track-height, $track-width);
+
+    background: $color-background-dark;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+    height: math.div($track-height, 2);
+    background-repeat: no-repeat;
+    background-position: var(--progress-value) 0;
+    background-size: 100% 100%;
+    background-image: linear-gradient($track-color, $track-color);
+  }
+
+  &::-moz-range-thumb {
+    @include thumb(
+      $thumb-shadow-size,
+      $thumb-shadow-blur,
+      $thumb-shadow-color,
+      $thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+  }
+
+  &::-ms-track {
+    @include track($track-height, $track-width);
+
+    background: transparent;
+    border-color: transparent;
+    border-width: math.div($thumb-height, 2) 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+
+    background: $ie-bottom-track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-fill-upper {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+
+    background: $color-background-dark;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-thumb {
+    @include thumb(
+      $thumb-shadow-size,
+      $thumb-shadow-blur,
+      $thumb-shadow-color,
+      $thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+
+    margin-top: math.div($track-height, 4);
+  }
+
+  &[disabled]::-moz-range-track,
+  &[disabled]::-webkit-slider-runnable-track,
+  &[disabled]::-ms-fill-lower,
+  &[disabled]::-ms-fill-upper {
+    cursor: not-allowed;
+    background: $disabled-color-background-dark;
+    background-image: linear-gradient($disabled-track-color, $disabled-track-color);
+  }
+
+  &[disabled]::-webkit-slider-runnable-track {
+    @include shadow(
+      $disabled-track-shadow-size,
+      $disabled-track-shadow-blur,
+      $disabled-track-shadow-color
+    );
+
+    background: $disabled-color-background-dark;
+    border: $track-border-width solid $disabled-track-border-color;
+    background-image:
+      linear-gradient(
+        $disabled-track-color,
+        $disabled-track-color
+      );
+  }
+
+  & [disabled]::-webkit-slider-thumb {
+    @include thumb(
+      $disabled-thumb-shadow-size,
+      $disabled-thumb-shadow-blur,
+      $disabled-thumb-shadow-color,
+      $disabled-thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+  }
+
+  &[disabled]::-moz-range-track {
+    @include shadow(
+      $disabled-track-shadow-size,
+      $disabled-track-shadow-blur,
+      $disabled-track-shadow-color
+    );
+
+    background: $disabled-color-background-dark;
+    border: $track-border-width solid $disabled-track-border-color;
+    background-image:
+      linear-gradient(
+        $disabled-track-color,
+        $disabled-track-color
+      );
+  }
+
+  &[disabled]::-moz-range-thumb {
+    @include thumb(
+      $disabled-thumb-shadow-size,
+      $disabled-thumb-shadow-blur,
+      $disabled-thumb-shadow-color,
+      $disabled-thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+  }
+
+  &[disabled]::-ms-thumb {
+    @include thumb(
+      $disabled-thumb-shadow-size,
+      $disabled-thumb-shadow-blur,
+      $disabled-thumb-shadow-color,
+      $disabled-thumb-color,
+      $thumb-border-width,
+      $thumb-border-color,
+      $thumb-radius,
+      $thumb-height,
+      $thumb-width
+    );
+  }
+}
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow:
+    $shadow-size $shadow-size $shadow-blur $shadow-color,
+    0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track($track-height, $track-width) {
+  height: $track-height;
+  transition: width 0.2s linear, height 0.2s linear;
+  width: $track-width;
+}
+
+@mixin thumb(
+  $thumb-shadow-size,
+  $thumb-shadow-blur,
+  $thumb-shadow-color,
+  $thumb-color,
+  $thumb-border-width,
+  $thumb-border-color,
+  $thumb-radius,
+  $thumb-height,
+  $thumb-width
+) {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+
+  background: $thumb-color;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  box-sizing: border-box;
+  height: $thumb-height;
+  width: $thumb-width;
+  transition: all 0.2s linear;
+}

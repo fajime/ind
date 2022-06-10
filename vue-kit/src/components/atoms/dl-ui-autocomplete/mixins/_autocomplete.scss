@@ -1,0 +1,158 @@
+@import '../../dl-ui-input/mixins/commons';
+
+@mixin autocomplete-style-config($config) {
+  position: relative;
+  width: 100%;
+  min-width: fit-content;
+
+  .dl-ui-listbox {
+    background: getmapvalue($config, 'background', $color-surface-01k);
+  }
+
+  .dl-ui-autocomplete__label {
+    // padding: 8px 0;
+    // color: getmapvalue($config, 'label::color', $color-base-highlight-02);
+    // transition: all 0.2s linear;
+
+    // @include font-caption();
+    @include input-label($config, 'dl-ui-autocomplete');
+  }
+
+  .dl-ui-autocomplete__box {
+    padding: getmapvalue($config, 'padding', 0 8px);
+    padding-right: 0;
+    display: flex;
+    flex: 1 1 auto;
+    cursor: pointer;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s linear;
+    height: 100%;
+    border: none;
+    color: getmapvalue($config, 'text::color', $color-base-02);
+
+    &-text {
+      padding: 0;
+      box-sizing: border-box;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+
+      @include font-body-medium-regular();
+
+      input {
+        width: 100%;
+        color: getmapvalue($config, 'text::color', $color-base-highlight-02);
+      }
+    }
+
+    &-icon--right,
+    &-icon--left {
+      fill: getmapvalue($config, 'icon::color', $color-base-highlight-02);
+      margin: 0 4px;
+      width: getmapvalue($config, 'icon::width', 16px);
+      height: getmapvalue($config, 'icon::height', 16px);
+      padding: getmapvalue($config, 'icon::padding', 2px);
+    }
+
+    &-icon--left {
+      margin-right: 8px;
+      margin-left: -4px;
+    }
+  }
+
+  .dl-ui-autocomplete__icon {
+    fill: getmapvalue($config, 'icon::color', $color-base-highlight-02);
+  }
+
+  .dl-ui-autocomplete__help {
+    color: getmapvalue($config, 'help::color', $color-base-highlight-02);
+    text-align: getmapvalue($config, 'help::align', inherit);
+    background-color: getmapvalue($config, 'help::background', transparent);
+    margin-top: getmapvalue($config, 'help::margin-top', 4px);
+    padding: getmapvalue($config, 'help::padding', 0);
+
+    @include input-help($config);
+
+    font: getmapvalue($config, 'help::font', null);
+  }
+
+  .dl-ui-autocomplete__clear-icon {
+    fill: getmapvalue($config, 'icon::color', $color-base-highlight-02);
+    width: getmapvalue($config, 'clear-icon::width', 16px);
+    height: getmapvalue($config, 'clear-icon::height', 16px);
+    padding: getmapvalue($config, 'clear-icon::padding', 1px);
+  }
+
+  &.dl-ui-autocomplete--disabled {
+    pointer-events: none;
+    cursor: initial;
+
+    .dl-ui-autocomplete__label,
+    .dl-ui-autocomplete__help {
+      color: getmapvalue($config, 'disable::color', $color-surface-06);
+    }
+
+    .dl-ui-autocomplete__box {
+      color: getmapvalue($config, 'disable::color', $color-surface-06);
+      border-color: getmapvalue($config, 'disable::border-color', $color-surface-06);
+
+      input::placeholder,
+      input {
+        width: 100%;
+        color: getmapvalue($config, 'disable::color', $color-action-primary-disabled);
+      }
+
+      &-icon--right,
+      &-icon--left {
+        fill: getmapvalue($config, 'disable::color', $color-surface-06);
+      }
+    }
+
+    .dl-ui-autocomplete__clear-icon,
+    .dl-ui-autocomplete__help {
+      color: getmapvalue($config, 'disable::color', $color-surface-06);
+      fill: getmapvalue($config, 'disable::color', $color-surface-06);
+    }
+  }
+
+  &.dl-ui-autocomplete--error {
+    fill: getmapvalue($config, 'error::color', $color-status-danger-02k);
+
+    .dl-ui-autocomplete__clear-icon,
+    .dl-ui-autocomplete__help {
+      color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      fill: getmapvalue($config, 'error::color', $color-status-danger-02k);
+    }
+
+    .dl-ui-autocomplete__box {
+      color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      border-color: getmapvalue($config, 'error::border-color', $color-status-danger-02k);
+
+      input::placeholder,
+      input {
+        width: 100%;
+        color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      }
+
+      &-icon--right,
+      &-icon--left {
+        fill: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      }
+    }
+  }
+
+  .dl-ui-autocomplete__clear-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .dl-ui-autocomplete__clear-button:focus > .dl-ui-autocomplete__clear-icon {
+    fill: $color-surface-contrast;
+  }
+}

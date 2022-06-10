@@ -1,0 +1,49 @@
+@import 'mixins/treebox';
+
+.dl-ui-treebox {
+
+  $default: (
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small
+  );
+
+  @include treebox-style-config($default);
+
+  &--extra-small {
+    $extraSmall: (
+      'item::height': 22px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include treebox-style-config($extraSmall);
+  }
+
+  &--small {
+    $small: (
+      'item::height': 28px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include treebox-style-config($small);
+  }
+
+  &--medium {
+    @include treebox-style-config($default);
+  }
+
+  &--large {
+    $large: (
+      'item::height': 40px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include treebox-style-config($large);
+  }
+}

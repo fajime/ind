@@ -1,0 +1,9 @@
+<div
+  :class="{'dl-ui-split-panes--horizontal': isSplitInHorizontal,
+  'dl-ui-split-panes--vertical': !isSplitInHorizontal,
+  'dl-ui-split-panes--dragging': touch.dragging}"
+  class="dl-ui-split-panes"
+  ref="container"
+>
+  <slot></slot>
+</div>

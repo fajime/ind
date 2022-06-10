@@ -1,0 +1,41 @@
+@import 'mixins/avatar';
+
+.dl-ui-avatar {
+  $default: (
+    'height': 42px,
+    'width': 42px,
+    'font-size': 18px,
+  );
+
+  @include avatar-style-config($default);
+}
+
+.dl-ui-avatar--small {
+  $small: (
+    'height': 24px,
+    'width': 24px,
+    'font-size': 14px
+  );
+
+  @include avatar-style-config($small);
+}
+
+.dl-ui-avatar--medium {
+  $medium: (
+    'height': 42px,
+    'width': 42px,
+    'font-size': 18px
+  );
+
+  @include avatar-style-config($medium);
+}
+
+.dl-ui-avatar--large {
+  $large: (
+    'height': 56px,
+    'width': 56px,
+    'font-size': 24px
+  );
+
+  @include avatar-style-config($large);
+}

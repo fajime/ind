@@ -1,0 +1,18 @@
+<article class="dl-comp-storybook-landing-actualizaciones">
+  <div class="dl-comp-storybook-landing-actualizaciones__content">
+    <div class="dl-comp-storybook-landing-actualizaciones__title--primary">{{ title }}</div>
+    <div class="layout-card-group">
+      <div class="dl-comp-storybook-table">
+        <table>
+          <tbody>
+            <tr :key="`item-${index}`" v-for="(row, index) in data">
+              <td :colspan="column.colspan" :key="ind" v-for="column,ind in row">
+                <div :class="getClasses(column)" :style="column.style" class="dl-comp-storybook-table__box">{{ column.data }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</article>

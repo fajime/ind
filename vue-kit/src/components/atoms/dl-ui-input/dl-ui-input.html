@@ -1,0 +1,27 @@
+<div class="dl-ui-input">
+  <div :class="containerClass" class="dl-ui-input__container" ref="container">
+    <div class="dl-ui-input__label" v-if="label">
+      <label for="randomId">{{ label }}</label>
+      <span class="dl-ui-input__label-required" v-if="required">*</span>
+    </div>
+    <div class="dl-ui-input__group">
+      <dl-ui-icon :id="leftIcon" class="dl-ui-icon--small dl-ui-input__iconLeft" v-if="leftIcon"></dl-ui-icon>
+      <input
+        :disabled="disabled"
+        :id="randomId"
+        :maxlength="maxLength"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
+        :value="modelValue"
+        @blur="onBlur"
+        @focus="onFocus"
+        @input="onInput"
+        ref="input"
+        type="text"
+      />
+      <dl-ui-icon :id="rightIcon" class="dl-ui-icon--small dl-ui-input__iconRight" v-if="rightIcon"></dl-ui-icon>
+    </div>
+    <div class="dl-ui-input__help" v-if="help">{{ help }}</div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div :class="{'dl-ui-treebox--focused': focused}" class="dl-ui-treebox dl-ui-listbox" ref="root">
+  <div class="dl-ui-treebox__container" ref="container">
+    <div style="overflow-x: hidden;">
+      <SwitchPanel :panelIndex="panelIndex">
+        <template #panelA>
+          <dl-ui-scrollpanel :scrollHeight="scrollHeight" :scrollTop="scrollTop">
+            <TreeView
+              :options="rootOptions"
+              :tabindex="panelIndex === 0 ? 0: 1"
+              @change="onOptionSelect0"
+              @focused="handleFocused"
+              @loaded="loaded"
+              class="dl-ui-treebox__list0"
+              ref="listview0"
+              v-model="modelValue"
+              v-slot="{option}"
+            >
+              <RowItemTree
+                :isRoot="true"
+                :multiple="multiple"
+                :option="option"
+                :selected="isSelected(option)"
+                @change="onOptionSelect0"
+                class="dl-ui-rowitem"
+              />
+            </TreeView>
+          </dl-ui-scrollpanel>
+        </template>
+        <template #panelB>
+          <dl-ui-scrollpanel :scrollHeight="scrollHeight" :scrollTop="scrollTop">
+            <TreeView
+              :options="treeOptions"
+              :tabindex="panelIndex === 1 ? 0: 1"
+              @change="onOptionSelect1"
+              @focused="handleFocused"
+              @trigger="handleTrigger1"
+              class="dl-ui-treebox__list1"
+              ref="listview1"
+              v-model="modelValue"
+              v-slot="{option}"
+            >
+              <RowItemTree :multiple="multiple" :option="option" @change="onOptionSelect1" class="dl-ui-rowitem" />
+            </TreeView>
+          </dl-ui-scrollpanel>
+        </template>
+      </SwitchPanel>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "stylelint.validate": ["css", "scss", "vue", "html"],
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
+  "vetur.validation.template": false,
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "[html,json,jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue,scss,css,html]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "i18n-ally.localesPaths": [
+    "src/catalog/lang"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
+}

@@ -1,0 +1,91 @@
+@import '../../dl-ui-input/mixins/commons';
+
+@mixin number-style-config($config) {
+  @include input-template($config, 'dl-ui-number');
+
+  .dl-ui-number__container {
+    .dl-ui-number__group {
+      input {
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+        }
+      }
+
+      .dl-ui-number__controls {
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        &-button {
+          &:nth-of-type(1) {
+            margin-top: getmapvalue($config, 'arrow::margin', 6px);
+          }
+
+          &:nth-of-type(2) {
+            margin-bottom: getmapvalue($config, 'arrow::margin', 6px);
+          }
+
+          background: transparent;
+          display: inline-flex;
+          flex: 1 1 auto;
+          justify-content: center;
+          cursor: pointer;
+          align-items: center;
+          overflow: hidden;
+          transition: all 0.2s linear;
+
+          &--disabled {
+            cursor: default;
+
+            .dl-ui-icon {
+              fill: $color-action-tertiary-disabled;
+            }
+          }
+
+          .dl-ui-icon {
+            width: 12px;
+            height: 12px;
+            padding: 0;
+
+            &:hover {
+              fill: $color-action-tertiary-hover;
+            }
+          }
+        }
+      }
+    }
+
+    /* siblings */
+    // &.dl-ui-number--focus {
+    // }
+
+    &.dl-ui-number--error {
+      .dl-ui-number__group {
+        .dl-ui-number__controls {
+          &-button {
+            &-icon {
+              fill: $color-status-danger-02k;
+            }
+          }
+        }
+      }
+    }
+
+    &.dl-ui-number--readonly,
+    &.dl-ui-number--disabled {
+      .dl-ui-number__group {
+        .dl-ui-number__controls {
+          &-button {
+            &-icon {
+              fill: $color-surface-06;
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import 'mixins/split-button';
+
+.dl-ui-split-button {
+  $default: ();
+
+  @include split-button-style-config($default);
+
+  &--small {
+    $small: (
+      'height': 28px
+    );
+
+    @include split-button-style-config($small);
+    @include font-button-small();
+  }
+
+  &--medium {
+    @include split-button-style-config($default);
+    @include font-button-medium();
+  }
+
+  &--large {
+    $large: (
+      'height': 42px,
+      'icon::size': 18px
+    );
+
+    @include split-button-style-config($large);
+    @include font-button-large();
+  }
+}

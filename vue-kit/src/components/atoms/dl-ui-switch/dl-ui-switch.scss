@@ -1,0 +1,7 @@
+@import 'mixins/switch';
+
+.dl-ui-switch {
+  $default: ();
+
+  @include switch-style-config($default);
+}

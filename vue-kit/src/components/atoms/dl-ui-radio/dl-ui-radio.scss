@@ -1,0 +1,5 @@
+@import 'mixins/radio';
+
+.dl-ui-radio {
+  @include radio-style-config(());
+}

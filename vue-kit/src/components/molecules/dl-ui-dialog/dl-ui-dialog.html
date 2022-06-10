@@ -1,0 +1,49 @@
+<div :id="randomId" class="dl-ui-dialog">
+  <div
+    :class="['dl-ui-dialog__backdrop', {'dl-ui-dialog__backdrop--modal' : modal}]"
+    v-if="modelValue"
+    v-on="{ click: (modal ? null : close)}"
+  ></div>
+  <transition name="dl-ui-transition-fade">
+    <dialog
+      :class="['dl-ui-dialog__content', {'dl-ui-dialog__content--centered' : centered},
+     {'dl-ui-dialog__content--fit-to-content' : fitToContent} ]"
+      :open="modelValue"
+      v-if="modelValue"
+    >
+      <header class="dl-ui-dialog__header">
+        <div class="dl-ui-dialog__header-left">
+          <span class="dl-ui-dialog__title">{{ title }}</span>
+        </div>
+        <div class="dl-ui-dialog__header-right" v-if="closable">
+          <dl-ui-action-button
+            @clicked="close"
+            class="dl-ui-action-button"
+            icon="dl-ids-icon-close-no-circle-outlined"
+          ></dl-ui-action-button>
+        </div>
+      </header>
+      <section class="dl-ui-dialog__body">
+        <slot name="default"></slot>
+      </section>
+      <footer class="dl-ui-dialog__footer" v-if="hasFooter">
+        <div class="dl-ui-dialog__footer--buttons">
+          <dl-ui-button
+            :class="`${customClass}${size ? '-' + size :''}`"
+            :disabled="disabled"
+            :key="`item-${index}`"
+            :leftIcon="leftIcon"
+            :loading="loading"
+            :once="once"
+            :onceTime="onceTime"
+            :rightIcon="rightIcon"
+            @clicked="executeButton(fn, index)"
+            v-for="({leftIcon, rightIcon,disabled,loading, once, onceTime, slot, customClass, size, fn}, index) in buttonList"
+          >
+            <template v-slot:default><span>{{slot}}</span></template>
+          </dl-ui-button>
+        </div>
+      </footer>
+    </dialog>
+  </transition>
+</div>

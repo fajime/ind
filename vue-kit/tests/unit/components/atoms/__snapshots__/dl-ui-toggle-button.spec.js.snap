@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-toggle-button renders correctly 1`] = `
+<button
+  class="dl-ui-toggle-button--notslot dl-ui-toggle-button"
+>
+  <!--v-if-->
+  <div
+    class="dl-ui-icon dl-ui-checkbox__icon"
+  >
+    <svg>
+      <!--v-if-->
+      <!--v-if-->
+      <use
+        xlink:href="#dl-ui-icon-check-outlined"
+      />
+    </svg>
+  </div>
+  <div
+    class="dl-ui-toggle-button__slot"
+  >
+    
+    
+  </div>
+  <input
+    id="random-id"
+    type="checkbox"
+  />
+</button>
+`;

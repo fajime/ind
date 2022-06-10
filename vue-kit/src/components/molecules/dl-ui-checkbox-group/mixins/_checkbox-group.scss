@@ -1,0 +1,71 @@
+@import '../../../atoms/dl-ui-checkbox/mixins/checkbox';
+
+@mixin checkbox-group-style-config($config, $checkboxConfig) {
+  display: flex;
+  flex-direction: column;
+
+  @include font-body-medium-regular();
+
+  .dl-ui-checkbox-group__parent,
+  .dl-ui-checkbox-group__child {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+
+    > label {
+      line-height: normal;
+      margin-left: 0.5rem;
+      margin-top: 1px;
+      cursor: pointer;
+    }
+  }
+
+  .dl-ui-checkbox-group__list {
+    margin-top: 12px;
+    margin-left: 16px;
+    opacity: 1;
+    transition: all 0.2s linear;
+    max-height: 500px;
+
+    li {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+
+    &--collapsed {
+      max-height: 0;
+      opacity: 0;
+      transition: all 0.2s linear;
+      overflow: hidden;
+    }
+  }
+
+  .dl-ui-checkbox-group__item-arrow {
+    color: getmapvalue($config, 'arrow::color', $color-base-02);
+    margin-left: 0.3rem;
+    margin-right: -0.2rem;
+    cursor: pointer;
+
+    @include font-body-small-regular();
+
+    &::before {
+      content: getmapvalue($config, 'arrow::character', '\25bc');
+      transform: getmapvalue($config, 'arrow::rotate', rotate(0deg));
+      display: inline-block;
+      transition: transform 0.2s linear;
+    }
+
+    &--collapsed {
+      &::before {
+        transform: getmapvalue($config, 'arrow::rotate::collapsed', rotate(-90deg));
+        transform-origin: 55% 50%;
+        transition: transform 0.2s linear;
+      }
+    }
+  }
+
+  .dl-ui-checkbox-group__checkbox {
+    @include checkbox-style-config($checkboxConfig);
+  }
+}

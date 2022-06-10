@@ -1,0 +1,173 @@
+@mixin header() {
+  display: flex;
+  flex-direction: column;
+  color: $color-action-primary-active;
+  margin-bottom: 0.5rem;
+
+  .icon {
+    @include config-icon(48px, 48px);
+  }
+
+  h6 {
+    margin-top: 24px;
+  }
+}
+
+@mixin config-icon($width, $height) {
+  $config-icon: (
+    'height': $height,
+    'width': $width
+  );
+
+  @include icon-style-config($config-icon);
+
+  &--right {
+    align-self: flex-end;
+  }
+
+  &--left {
+    align-self: flex-start;
+  }
+
+  &--center {
+    align-self: center;
+  }
+}
+
+@mixin preview-fonts() {
+  border: $border-style;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: $color-action-primary-default;
+}
+
+@mixin section-preview-fonts() {
+  padding: 40px;
+  border-bottom: $border-style;
+}
+
+@mixin row-cell() {
+  border-right: $border-style;
+  border-bottom: $border-style;
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+  padding: 40px;
+}
+
+@mixin font-body($size, $type) {
+  @if $size == small {
+    @if $type == light {
+      @include font-body-small-light();
+    }
+
+    @if $type == regular {
+      @include font-body-small-regular();
+    }
+
+    @if $type == bold {
+      @include font-body-small-bold();
+    }
+  }
+
+  @if $size == medium {
+    @if $type == light {
+      @include font-body-medium-light();
+    }
+
+    @if $type == regular {
+      @include font-body-medium-regular();
+    }
+
+    @if $type == bold {
+      @include font-body-medium-bold();
+    }
+  }
+
+  @if $size == large {
+    @if $type == light {
+      @include font-body-large-light();
+    }
+
+    @if type == regular {
+      @include font-body-large-regular();
+    }
+
+    @if $type == bold {
+      @include font-body-large-bold();
+    }
+  }
+}
+
+@mixin article() {
+  overflow: visible;
+  padding: 88px 96px;
+
+  &__title--primary {
+    @include font(32px);
+  }
+
+  &__title--secondary {
+    @include font(24px);
+  }
+
+  &__title--tertiary {
+    @include font(20px);
+  }
+
+  &__title--quaternary {
+    @include font(16px);
+  }
+
+  &__description {
+    margin-bottom: 48px;
+  }
+}
+
+@mixin font($size) {
+  font-family: 'Roboto Medium', sans-serif;
+  font-size: $size;
+  margin-bottom: 2rem;
+}
+
+@mixin action() {
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 33px;
+}
+
+@mixin link() {
+  a {
+    float: left;
+    position: relative;
+    padding-right: 14px;
+    font-size: 14px;
+    text-decoration: none;
+
+    &::after {
+      content: '\276F';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $color-action-tertiary-contrast;
+    }
+
+    &:empty {
+      float: right;
+      width: 32px;
+      height: 32px;
+      color: $color-action-primary-default;
+      border-radius: 100em;
+      background-color: $color-emphasis-01;
+
+      &::after {
+        right: unset;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

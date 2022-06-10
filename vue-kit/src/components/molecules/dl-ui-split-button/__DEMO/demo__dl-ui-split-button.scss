@@ -1,0 +1,24 @@
+@import '../mixins/split-button';
+
+$config: (
+  'height': 3rem,
+  'font-size': 2rem,
+  'font-family': $body-medium-regular-font-family,
+  'padding': 0.2rem,
+  'border': 2px $color-action-secondary-focus,
+  'border-radius': 1rem,
+  'background': $color-action-primary-hover,
+  'color': $color-action-secondary-contrast,
+  'box-shadow': 5px 10px $color-action-tertiary-focus,
+  'hover::background': $color-action-primary-hover,
+  'hover::border': 5px $color-action-secondary-focus,
+  'hover::color': $color-action-primary-hover,
+  'active::background': $color-action-secondary-contrast,
+  'active::border': 5px $color-action-secondary-contrast,
+  'active::color': $color-action-secondary-contrast,
+  'disable::opacity': 0.1
+);
+
+.custom-split-button {
+  @include split-button-style-config($config);
+}

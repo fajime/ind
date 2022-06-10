@@ -1,0 +1,34 @@
+<div class="dl-comp-kit-demo-pagination">
+  <ul class="dl-comp-kit-demo-pagination__list" v-if="pager.pages && pager.pages.length">
+    <li class="dl-comp-kit-demo-pagination__list-item dl-comp-kit-demo-pagination__list-item--previous">
+      <a
+        :class="['dl-comp-kit-demo-pagination__list-item-link', {'dl-comp-kit-demo-pagination__list-item-link--disabled': pager.currentPage === 1}]"
+        @click="previousPage"
+      >
+        <dl-ui-icon
+          class="dl-ui-icon dl-comp-kit-demo-pagination__list-item-link-icon--previous"
+          id="dl-ids-icon-arrows-left-single-no_circle-filled"
+        />
+      </a>
+    </li> 
+    <li :key="page" class="dl-comp-kit-demo-pagination__list-item" v-for="page in pager.pages">
+      <a
+        :class="['dl-comp-kit-demo-pagination__list-item-link', {'dl-comp-kit-demo-pagination__list-item-link--active': pager.currentPage === page}]"
+        @click="setPage(page)"
+      >
+        {{ page }}
+      </a>
+    </li> 
+    <li class="dl-comp-kit-demo-pagination__list-item dl-comp-kit-demo-pagination__list-item--next">
+      <a
+        :class="['dl-comp-kit-demo-pagination__list-item-link',{'dl-comp-kit-demo-pagination__list-item-link--disabled': pager.currentPage === pager.totalPages}]"
+        @click="nextPage"
+      >
+        <dl-ui-icon
+          class="dl-ui-icon dl-comp-kit-demo-pagination__list-item-link-icon--next"
+          id="dl-ids-icon-arrows-right-single-no_circle-filled"
+        />
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,37 @@
+@import '../mixins/stepper';
+
+$config: (
+  // 'marker::size': 60px,
+  // 'marker::stroke-width': 25,
+  // 'marker::transition-duration': 1.5s,
+  // 'marker::transition-delay': 3s,
+  // 'marker::incomplete::stroke-color': red,
+  // 'marker::incomplete::fill-color': $color-surface-01k,
+  // 'marker::active::stroke-color': lime,
+  // 'marker::active::fill-color': $color-action-primary-default,
+  // 'marker::completed::stroke-color': $color-action-primary-default,
+  // 'marker::completed::fill-color': darkgray,
+  // 'bar::height': 60px,
+  // 'bar::color': red,
+  // 'bar::border-radius': 30px
+  'marker::transition-duration': 30ms,
+  'marker::transition-delay': 10ms,
+  'bar::transition-duration': 300ms,
+  'marker::size': 60px,
+  'bar::height': 5px,
+  'bar::color': red,
+  'bar::background': orange,
+  'bar::transition-delay': 80ms,
+  'bar::transition-timing-function': linear,
+  'bar::border-radius': 5px
+);
+
+.demo__dl-ui-stepper {
+  &__wrapper {
+    width: 50%;
+  }
+}
+
+.custom-stepper {
+  @include stepper-style-config($config);
+}

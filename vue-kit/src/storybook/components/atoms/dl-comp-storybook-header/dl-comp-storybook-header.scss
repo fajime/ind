@@ -1,0 +1,54 @@
+.dl-comp-storybook-header {
+  position: relative;
+
+  &-text {
+    max-width: 1120px;
+    position: inherit;
+    z-index: 1;
+
+    h2 {
+      margin-bottom: 32px;
+      font-weight: bold;
+    }
+
+    h6 {
+      margin-bottom: 16px;
+    }
+  }
+
+  &--number {
+    padding: 136px 96px 0;
+    background: $color-emphasis-04;
+    color: $color-base-contrast;
+    padding-bottom: 72px;
+
+    > .dl-comp-storybook-header-text {
+      min-height: 175px;
+    }
+  }
+
+  &:not(&--number) {
+    padding: 72px 96px 32px;
+    color: $color-base-highlight-03k;
+
+    > .dl-comp-storybook-header-text {
+      h2 {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &-number {
+    position: absolute;
+    width: 446px;
+    height: 300px;
+    right: 32px;
+    top: 63px;
+    font-family: roboto-bold, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 388px;
+    line-height: 300px;
+    color: $color-action-primary-hover;
+  }
+}

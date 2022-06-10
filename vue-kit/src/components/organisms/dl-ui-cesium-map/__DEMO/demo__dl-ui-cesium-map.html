@@ -1,0 +1,12 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-cesium-map__viewer" ref="viewerContainer">
+    <theComponent
+      :ref="setDemoRefs"
+      @ready="notifyComponentEvent('ready', $event)"
+      @update:camera="notifyComponentEvent('update:camera', $event);ready($event)"
+      v-bind="generatedProps"
+    >
+      <template v-slot:popup_slot> Ejemplo de popup </template>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

@@ -1,0 +1,35 @@
+@import '../mixins/checkbox-group';
+
+$config: (
+  'arrow::color': $color-status-success-03,
+  'arrow::character': '\27bc',
+  'arrow::rotate': rotate(90deg),
+  'arrow::rotate::collapsed': rotate(0deg)
+);
+
+$configCheckbox: (
+  'size': 23px,
+  'background': rgb(189, 201, 255),
+  'border': 1px dotted $color-action-tertiary-default,
+  'border::radius': 50px,
+  'active::background': rgb(152, 255, 195),
+  'active::border': 2px dotted rgb(75, 255, 51),
+  'active::radius': 30px,
+  'active::color': rgb(104, 104, 104),
+  'disable::opacity': 0.1
+);
+
+.demo__dl-ui-checkbox-group {
+  &__wrapper {
+    width: 220px;
+    margin: 1rem;
+    align-self: stretch;
+    margin-top: 65px;
+  }
+}
+
+.custom-checkbox-group {
+  @include checkbox-group-style-config($config, $configCheckbox);
+
+  color: #0a8a85;
+}

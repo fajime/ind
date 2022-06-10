@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-button renders correctly 1`] = `
+<button
+  class="dl-ui-button"
+>
+  <!--v-if-->
+  <!--v-if-->
+  <div
+    class="dl-ui-button--slot"
+  >
+    
+    
+  </div>
+  <!--v-if-->
+</button>
+`;

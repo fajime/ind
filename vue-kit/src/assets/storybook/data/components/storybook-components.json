@@ -1,0 +1,32 @@
+{
+  "header": {
+    "title": "Color"
+  },
+  "sections": [
+    {
+      "type": "components-detail",
+      "data": {
+        "tabs": [
+          {
+            "title": "Uso",
+            "name": "use",
+            "selected": true,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id."
+          },
+          {
+            "title": "Estilo",
+            "name": "style",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id."
+          },
+          {
+            "title": "Código",
+            "name": "code",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id."
+          }
+        ]
+      }
+    }
+  ]
+}

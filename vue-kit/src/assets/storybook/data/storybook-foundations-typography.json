@@ -1,0 +1,200 @@
+{
+  "header": {
+    "title": "Tipografía",
+    "subtitle": "",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ab tempora fugit amet molestiae molestias animi ipsam, eum quia vel optio porro architecto nihil nemo, nisi, enim doloremque eveniet nam."
+  },
+  "sections": [
+    {
+      "type": "html",
+      "class": "dl-comp-storybook-typography__family",
+      "content": "<h4>Familia</h4><p class='sample'>Aa</p><h6>Roboto</h6><p class='description'>Roboto es una tipografía open-sourced conocida por su doble naturaleza. Tiene un esqueleto mecánico y las formas son, en su mayoría, geométricas. Al mismo tiempo, la fuente presenta curvas amables y abiertas. Mientras que algunos tipos de letra distorsionan sus formas para forzar un ritmo rígido, Roboto permite que las letras se acomoden a su anchura natural; así se consigue un ritmo de lectura más natural y cómodo. </p>"
+    },
+    {
+      "type": "table",
+      "title": "Tamaños",
+      "data": [
+        [
+          {
+            "data": "Jumbo / 96 - 100 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 96px; line-height: 100px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H1 / 60 - 64 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 60px; line-height: 64px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H2 / 48 - 52 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 48px; line-height: 52px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H3 / 34 - 38 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 34px; line-height: 38px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H4 / 24 - 28 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 24px; line-height: 28px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H5 / 20 - 24 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 20px; line-height: 24px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "H6 / 20 - 24 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-regular; font-size: 20px; line-height: 24px; font-weight: normal;"
+          }
+        ],
+        [
+          {
+            "data": "Subtitle Large / 16 - 20 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 16px; line-height: 20px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "Subtitle Small / 14 - 18 / Bold",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 14px; line-height: 18px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "Body Large / 16 - 20 / Light",
+            "style": "font-family: Roboto-light; font-size: 16px; line-height: 20px; font-weight: light;"
+          },
+          {
+            "data": "Body Large / 16 - 20 / Regular",
+            "style": "font-family: Roboto-regular; font-size: 16px; line-height: 20px; font-weight: normal;"
+          },
+          {
+            "data": "Body Large / 16 - 20 / Bold",
+            "style": "font-family: Roboto-bold; font-size: 16px; line-height: 20px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "Body Medium / 14 - 20 / Light",
+            "style": "font-family: Roboto-light; font-size: 14px; line-height: 20px; font-weight: light;"
+          },
+          {
+            "data": "Body Medium / 14-20 / Regular",
+            "style": "font-family: Roboto-regular; font-size: 14px; line-height: 20px; font-weight: normal;"
+          },
+          {
+            "data": "Body Medium / 14-20 / Bold",
+            "style": "font-family: Roboto-bold; font-size: 14px; line-height: 20px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "Body Small / 12 - 14 / Light",
+            "style": "font-family: Roboto-light; font-size: 12px; line-height: 14px; font-weight: light;"
+          },
+          {
+            "data": "Body Small / 12 - 14 / Regular",
+            "style": "font-family: Roboto-regular; font-size: 12px; line-height: 14px; font-weight: normal;"
+          },
+          {
+            "data": "Body Small / 12 - 14 / Bold",
+            "style": "font-family: Roboto-bold; font-size: 12px; line-height: 14px; font-weight: bold;"
+          }
+        ],
+        [
+          {
+            "data": "Button Large / 16 - 20 / Medium",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 16px; line-height: 20px; font-weight: 500;"
+          }
+        ],
+        [
+          {
+            "data": "Button Medium / 14 - 18 / Medium",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 14px; line-height: 18px; font-weight: 500;"
+          }
+        ],
+        [
+          {
+            "data": "Button Small / 12 - 14 / Medium",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 12px; line-height: 14px; font-weight: 500;"
+          }
+        ],
+        [
+          {
+            "data": "Link Large / 16 - 20 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-regular; font-size: 16px; line-height: 20px; font-weight: normal;"
+          }
+        ],
+        [
+          {
+            "data": "Link Medium / 14 - 18 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-bold; font-size: 14px; line-height: 18px; font-weight: 500;"
+          }
+        ],
+        [
+          {
+            "data": "Link Small / 12 - 14 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-regular; font-size: 12px; line-height: 14px; font-weight: normal;"
+          }
+        ],
+        [
+          {
+            "data": "OVERLINE / 10 - 12 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-regular; font-size: 10px; line-height: 12px; font-weight: normal;"
+          }
+        ],
+        [
+          {
+            "data": "Caption / 10 - 12 / Regular",
+            "colspan": 3,
+            "style": "font-family: Roboto-regular; font-size: 10px; line-height: 12px; font-weight: normal;"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section__documentation",
+      "title": "Recursos",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-logos",
+            "align": "right"
+          },
+          "header": "Roboto",
+          "body": "",
+          "action": {
+            "text": "Descargar tipografía",
+            "link": "https://fonts.google.com/specimen/Roboto"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<div class="dl-ui-number">
+  <div :class="containerClass" class="dl-ui-number__container" ref="container">
+    <div class="dl-ui-number__label" v-if="label">
+      <label for="randomId">{{ label }}</label>
+      <span class="dl-ui-number__label-required" v-if="required">*</span>
+    </div>
+    <div class="dl-ui-number__group">
+      <input
+        :disabled="disabled"
+        :id="randomId"
+        :max="max"
+        :min="min"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :required="required"
+        :step="step"
+        :value="modelValue"
+        @blur="onBlur"
+        @focus="onFocus"
+        @input="onInput"
+        ref="input"
+        type="number"
+      />
+      <span class="dl-ui-number__controls">
+        <button
+          :class="['dl-ui-number__controls-button', controlMaxClass]"
+          @click="stepUp"
+          @mousedown="mouseDown('up', $event)"
+          @mouseout="mouseUp('up', $event)"
+          @mouseup="mouseUp('up', $event)"
+          ref="up"
+        >
+          <dl-ui-icon class="dl-ui-number__controls-button-icon" id="dl-ids-icon-arrows-up-single-no_circle-outlined"> </dl-ui-icon>
+        </button>
+        <button
+          :class="['dl-ui-number__controls-button', controlMinClass]"
+          @click="stepDown"
+          @mousedown="mouseDown('down', $event)"
+          @mouseout="mouseUp('down', $event)"
+          @mouseup="mouseUp('down', $event)"
+          ref="down"
+        >
+          <dl-ui-icon class="dl-ui-number__controls-button-icon" id="dl-ids-icon-arrows-down-single-no_circle-outlined"> </dl-ui-icon>
+        </button>
+      </span>
+    </div>
+    <div class="dl-ui-number__help" v-if="help">{{ help }}</div>
+  </div>
+</div>

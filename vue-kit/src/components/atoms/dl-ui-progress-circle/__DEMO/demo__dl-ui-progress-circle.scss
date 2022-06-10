@@ -1,0 +1,25 @@
+@import '../mixins/progress-circle';
+
+// configuration map
+$config: (
+  'size': 430px,
+  'transition-duration': 0.3s,
+  'fill::color': transparent,
+  'background::color': yellow,
+  'background::bar::width': 30px,
+  'bar::width': 30px,
+  'bar::color': red,
+  'content::display': flex
+);
+
+.custom-progress-circle {
+  @include progress-circle-style-config($config);
+}
+
+.demo__dl-ui-progress-circle {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

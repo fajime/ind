@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-footer renders correctly 1`] = `
+<footer
+  class="dl-ui-footer"
+>
+  <div
+    class="dl-ui-footer__left"
+  >
+    
+    
+  </div>
+  <div
+    class="dl-ui-footer__right"
+  >
+    <div
+      class="dl-ui-footer__img"
+    />
+  </div>
+  <div
+    class="dl-ui-footer__right--accent"
+  />
+</footer>
+`;

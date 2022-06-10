@@ -1,0 +1,33 @@
+<div :class="{ 'dl-ui-accordion--hidden': !loaded}" class="dl-ui-accordion">
+  <input :id="randomId" class="dl-ui-accordion__input" ref="input" type="checkbox" v-model="innerShow" />
+  <label :class="{'dl-ui-accordion__header--disabled':!headerClickable}" class="dl-ui-accordion__header" for="" ref="label">
+    <dl-ui-icon :id="icon" class="dl-ui-accordion--icon" v-if="icon"></dl-ui-icon>
+
+    <div :class="{ 'dl-ui-accordion__text--open': innerShow }" class="dl-ui-accordion__text">
+      <div :class="{ 'dl-ui-accordion--highlight' : description }" class="dl-ui-accordion__text-title">{{ title }}</div>
+      <div class="dl-ui-accordion___text-description" v-if="description">{{ description }}</div>
+    </div>
+
+    <dl-ui-icon
+      :class="{ 'dl-ui-accordion__trigger-icon--open' : innerShow }"
+      class="dl-ui-accordion__trigger-icon"
+      id="dl-ids-icon-arrows-down-single-no_circle-outlined"
+    ></dl-ui-icon>
+  </label>
+  <div
+    :class="{ 
+      'dl-ui-accordion__box--initial0': loaded === 0,
+      'dl-ui-accordion__box--initial1': loaded === 1,      
+      'dl-ui-accordion__content--open' : innerShow && loaded  === 2, 
+      'dl-ui-accordion__box--inactive': (!innerShow && loaded === 2),
+      
+    }"
+    :style="varStyle"
+    class="dl-ui-accordion__box"
+    ref="box"
+  >
+    <div class="dl-ui-accordion__content">
+      <slot name="content">{{content}}</slot>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+@import 'mixins/progress-circle';
+
+.dl-ui-progress-circle {
+  $default: ();
+
+  @include progress-circle-style-config($default);
+}

@@ -1,0 +1,26 @@
+@import 'mixins/breadcrumb';
+
+.dl-ui-breadcrumb {
+  $default: ();
+
+  @include breadcrumb-style-config($default);
+}
+
+.dl-ui-breadcrumb--small {
+  $small: ('height':24px);
+
+  @include breadcrumb-style-config($small);
+  @include font-body-small-regular();
+
+  .dl-ui-breadcrumb__icon {
+    height: $icon-height-small;
+    width: $icon-width-small;
+    padding: $icon-padding-small;
+  }
+
+  .dl-ui-breadcrumb__item {
+    &--active .dl-ui-breadcrumb__item-label {
+      @include font-link-small();
+    }
+  }
+}

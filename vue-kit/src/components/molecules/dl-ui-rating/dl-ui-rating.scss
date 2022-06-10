@@ -1,0 +1,7 @@
+@import 'mixins/rating';
+
+.dl-ui-rating {
+  $default: ();
+
+  @include rating-style-config($default);
+}

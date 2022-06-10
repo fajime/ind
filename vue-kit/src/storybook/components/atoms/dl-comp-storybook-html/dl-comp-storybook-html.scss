@@ -1,0 +1,103 @@
+@import '@/storybook/sass/mixins';
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+
+$border-style: 1px solid $color-surface-06;
+
+.dl-comp-storybook-html {
+  padding-left: 96px;
+  padding-right: 96px;
+  padding-bottom: 72px;
+}
+
+.dl-comp-storybook-typography {
+  &-resources {
+    @include article();
+
+    background: $color-surface-03;
+
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 29px;
+
+      @include font-h4();
+    }
+
+    &__header {
+      @include header();
+
+      h6 {
+        color: $color-base-highlight-03k;
+      }
+    }
+
+    &__header-icon {
+      @include config-icon(48px, 48px);
+    }
+
+    &__action {
+      @include action();
+      @include link();
+
+      a {
+        color: $color-action-primary-default;
+      }
+    }
+  }
+
+  &-main,
+  &-resources {
+    padding: 72px 95px 80px 94px;
+  }
+
+  article {
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    h2 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 24px;
+
+      @include font-h2();
+    }
+
+    p {
+      color: $color-base-02;
+
+      @include font-body-medium-regular();
+    }
+  }
+
+  &__family {
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 24px;
+
+      @include font-h4();
+    }
+
+    .sample {
+      color: $color-action-tertiary-default;
+      font-family: Roboto-medium, serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 88px;
+      line-height: 90px;
+    }
+
+    h6 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 24px;
+      padding-top: 8px;
+    }
+
+    .description {
+      color: $color-base-02;
+
+      @include font-body-medium-regular();
+    }
+  }
+}

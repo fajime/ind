@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-listbox renders correctly 1`] = `
+<div
+  class="dl-ui-listbox"
+>
+  <div
+    class="dl-ui-listbox__container"
+  >
+    <div
+      class="dl-ui-scrollpanel dl-ui-scrollbar"
+      style="max-height: auto;"
+    >
+      
+      <div
+        class="dl-ui-list__items-wrapper"
+      >
+        <ul
+          class="dl-ui-list__items"
+        >
+          
+          <li
+            class="dl-ui-list__item"
+            tabindex="0"
+          >
+            
+            <div
+              class="dl-ui-rowitem dl-ui-rowitem__option dl-ui-rowitem"
+            >
+              <!--v-if-->
+              <!--v-if-->
+              <div
+                class="dl-ui-rowitem__box-text"
+              >
+                name 1
+              </div>
+              <!--v-if-->
+            </div>
+            
+          </li>
+          <li
+            class="dl-ui-list__item"
+            tabindex="0"
+          >
+            
+            <div
+              class="dl-ui-rowitem dl-ui-rowitem__option dl-ui-rowitem"
+            >
+              <!--v-if-->
+              <div
+                class="dl-ui-icon dl-ui-rowitem__option-left-icon"
+              >
+                <svg>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <use
+                    xlink:href="#dl-ids-icon-user-single-outlined"
+                  />
+                </svg>
+              </div>
+              <div
+                class="dl-ui-rowitem__box-text"
+              >
+                name 2
+              </div>
+              <!--v-if-->
+            </div>
+            
+          </li>
+          <li
+            class="dl-ui-list__item"
+            tabindex="0"
+          >
+            
+            <div
+              class="dl-ui-rowitem dl-ui-rowitem__option dl-ui-rowitem"
+            >
+              <!--v-if-->
+              <!--v-if-->
+              <div
+                class="dl-ui-rowitem__box-text"
+              >
+                name 3
+              </div>
+              <div
+                class="dl-ui-icon dl-ui-rowitem__option-right-icon"
+              >
+                <svg>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <use
+                    xlink:href="#dl-ids-icon-user-single-outlined"
+                  />
+                </svg>
+              </div>
+            </div>
+            
+          </li>
+          <li
+            class="dl-ui-list__item dl-ui-list__item--disabled"
+          >
+            
+            <div
+              class="dl-ui-rowitem dl-ui-rowitem__option dl-ui-rowitem"
+            >
+              <!--v-if-->
+              <!--v-if-->
+              <div
+                class="dl-ui-rowitem__box-text"
+              >
+                name 4
+              </div>
+              <!--v-if-->
+            </div>
+            
+          </li>
+          <li
+            class="dl-ui-list__item"
+            tabindex="0"
+          >
+            
+            <div
+              class="dl-ui-rowitem dl-ui-rowitem__option dl-ui-rowitem"
+            >
+              <!--v-if-->
+              <!--v-if-->
+              <div
+                class="dl-ui-rowitem__box-text"
+              >
+                name 5
+              </div>
+              <!--v-if-->
+            </div>
+            
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,829 @@
+{
+  "header": {
+    "title": "Color"
+  },
+  "sections": [
+    {
+      "type": "colors",
+      "data": {
+        "tabs": [
+          {
+            "title": "Indra",
+            "theme": "IDS",
+            "selected": true,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "subtitle": "Brand palette - Azul Amazónico Indra",
+                "color": "azul-amazonico-indra",
+                "size": "small"
+              },
+              {
+                "subtitle": "Neutral palette",
+                "color": "neutra-palette",
+                "size": "small"
+              },
+              {
+                "title": "Action"
+              },
+              {
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "Transporte",
+            "theme": "transports",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "Defensa",
+            "theme": "defense",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "ATM",
+            "theme": "ATM",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "Wireframe",
+            "theme": "Wireframe",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "iNM",
+            "theme": "iNM",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          },
+          {
+            "title": "SIGLE",
+            "theme": "SIGLE",
+            "selected": false,
+            "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit deleniti, maiores, sed ab maxime ipsum veritatis sapiente nostrum corporis molestiae ipsa minus veniam molestias consectetur, eveniet in? Fugiat, repellat id.",
+            "colors": [
+              {
+                "title": "Action",
+                "subtitle": "Primary",
+                "color": "primary"
+              },
+              {
+                "subtitle": "Secondary",
+                "color": "secondary"
+              },
+              {
+                "subtitle": "Terciary",
+                "color": "terciary"
+              },
+              {
+                "title": "Status"
+              },
+              {
+                "subtitle": "Success",
+                "color": "success"
+              },
+              {
+                "subtitle": "Warning",
+                "color": "warning"
+              },
+              {
+                "subtitle": "Danger",
+                "color": "danger"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "subtitle": "Info",
+                "color": "info"
+              },
+              {
+                "title": "Emphasis",
+                "color": "emphasis"
+              },
+              {
+                "title": "Base"
+              },
+              {
+                "subtitle": "Default",
+                "color": "base-default"
+              },
+              {
+                "subtitle": "Highlight",
+                "color": "base-highlight"
+              },
+              {
+                "title": "Surface",
+                "color": "surface"
+              }
+            ]
+          }
+        ],
+        "colors": {
+          "azul-amazonico-indra": [
+            {
+              "color": "#F8FEFF",
+              "name": "100"
+            },
+            {
+              "color": "#F3FDFF",
+              "name": "200"
+            },
+            {
+              "color": "#B3E7F3",
+              "name": "300"
+            },
+            {
+              "color": "#3DB5D1",
+              "name": "400"
+            },
+            {
+              "color": "#099BBA",
+              "name": "500"
+            },
+            {
+              "color": "#05738C",
+              "name": "600"
+            },
+            {
+              "color": "#0C627A",
+              "name": "700"
+            },
+            {
+              "color": "#004254",
+              "name": "800",
+              "options": [
+                "circle",
+                "strong"
+              ]
+            },
+            {
+              "color": "#001C24",
+              "name": "900"
+            }
+          ],
+          "neutra-palette": [
+            {
+              "color": "#FCFCFC",
+              "name": "100"
+            },
+            {
+              "color": "#F7F8FA",
+              "name": "200"
+            },
+            {
+              "color": "#F0F4F8",
+              "name": "300"
+            },
+            {
+              "color": "#D8E2EB",
+              "name": "400"
+            },
+            {
+              "color": "#BACCDB",
+              "name": "500",
+              "options": [
+                "circle",
+                "strong"
+              ]
+            },
+            {
+              "color": "#9DB3C7",
+              "name": "600"
+            },
+            {
+              "color": "#5F7E96",
+              "name": "700"
+            },
+            {
+              "color": "#44667F",
+              "name": "800"
+            },
+            {
+              "color": "#0A2B42",
+              "name": "900"
+            }
+          ],
+          "primary": [
+            {
+              "varColor": "color-action-primary-default",
+              "name": "Default",
+              "varInfo": "brand-800",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-action-primary-hover",
+              "name": "Hover",
+              "varInfo": "brand-600"
+            },
+            {
+              "varColor": "color-action-primary-active",
+              "name": "Active",
+              "varInfo": "brand-500"
+            },
+            {
+              "varColor": "color-action-primary-focus",
+              "name": "Focus",
+              "varInfo": "brand-200"
+            },
+            {
+              "varColor": "color-action-primary-disabled",
+              "name": "Disabled",
+              "varInfo": "brand-400"
+            },
+            {
+              "varColor": "color-action-primary-contrast",
+              "name": "Contrast",
+              "varInfo": ""
+            }
+          ],
+          "secondary": [
+            {
+              "varColor": "color-action-secondary-default",
+              "name": "Default",
+              "varInfo": "neutral-800",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-action-secondary-hover",
+              "name": "Hover",
+              "varInfo": "neutral-600"
+            },
+            {
+              "varColor": "color-action-secondary-active",
+              "name": "Active",
+              "varInfo": "neutral-500"
+            },
+            {
+              "varColor": "color-action-secondary-focus",
+              "name": "Focus",
+              "varInfo": "neutral-200"
+            },
+            {
+              "varColor": "color-action-secondary-disabled",
+              "name": "Disabled",
+              "varInfo": "neutral-300"
+            },
+            {
+              "varColor": "color-action-secondary-contrast",
+              "name": "Contrast",
+              "varInfo": ""
+            }
+          ],
+          "terciary": [
+            {
+              "varColor": "color-action-tertiary-default",
+              "name": "Default",
+              "varInfo": "neutral-800",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-action-tertiary-hover",
+              "name": "Hover",
+              "varInfo": "neutral-600"
+            },
+            {
+              "varColor": "color-action-tertiary-active",
+              "name": "Active",
+              "varInfo": "neutral-500"
+            },
+            {
+              "varColor": "color-action-tertiary-focus",
+              "name": "Focus",
+              "varInfo": "neutral-200"
+            },
+            {
+              "varColor": "color-action-tertiary-disabled",
+              "name": "Disabled",
+              "varInfo": "neutral-300"
+            },
+            {
+              "varColor": "color-action-tertiary-contrast",
+              "name": "Contrast",
+              "varInfo": ""
+            }
+          ],
+          "success": [
+            {
+              "varColor": "color-status-success-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-status-success-02k",
+              "name": "02K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-status-success-03",
+              "name": "03"
+            }
+          ],
+          "warning": [
+            {
+              "varColor": "color-status-warning-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-status-warning-02k",
+              "name": "02K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-status-warning-03",
+              "name": "03"
+            }
+          ],
+          "danger": [
+            {
+              "varColor": "color-status-danger-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-status-danger-02k",
+              "name": "02K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-status-danger-03",
+              "name": "03"
+            }
+          ],
+          "info": [
+            {
+              "varColor": "color-status-info-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-status-info-02k",
+              "name": "02K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-status-info-03",
+              "name": "03"
+            }
+          ],
+          "emphasis": [
+            {
+              "varColor": "color-emphasis-01",
+              "name": "01",
+              "varName": "brand-200"
+            },
+            {
+              "varColor": "color-emphasis-02",
+              "name": "02",
+              "varName": "brand-300"
+            },
+            {
+              "varColor": "color-emphasis-03k",
+              "name": "03K",
+              "varName": "brand-600",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-emphasis-04",
+              "name": "04",
+              "varName": "brand-700"
+            },
+            {
+              "varColor": "color-emphasis-05",
+              "name": "05",
+              "varName": "brand-800"
+            }
+          ],
+          "base-default": [
+            {
+              "varColor": "color-base-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-base-02",
+              "name": "02"
+            },
+            {
+              "varColor": "color-base-03k",
+              "name": "03K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-base-contrast",
+              "name": "Contrast "
+            }
+          ],
+          "base-highlight": [
+            {
+              "varColor": "color-base-highlight-01",
+              "name": "01"
+            },
+            {
+              "varColor": "color-base-highlight-02",
+              "name": "02"
+            },
+            {
+              "varColor": "color-base-highlight-03k",
+              "name": "03K",
+              "options": [
+                "circle"
+              ]
+            }
+          ],
+          "surface": [
+            {
+              "varColor": "color-surface-01k",
+              "name": "01K",
+              "options": [
+                "circle"
+              ]
+            },
+            {
+              "varColor": "color-surface-02",
+              "name": "02",
+              "varName": "neutral-100"
+            },
+            {
+              "varColor": "color-surface-03",
+              "name": "03",
+              "varName": "neutral-200"
+            },
+            {
+              "varColor": "color-surface-04",
+              "name": "04",
+              "varName": "neutral-300"
+            },
+            {
+              "varColor": "color-surface-05",
+              "name": "05",
+              "varName": "neutral-400"
+            },
+            {
+              "varColor": "color-surface-06",
+              "name": "06",
+              "varName": "neutral-500"
+            },
+            {
+              "varColor": "color-surface-contrast",
+              "name": "Contrast",
+              "varName": "neutral-900"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

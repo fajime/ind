@@ -1,0 +1,17 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" class="demo__dl-ui-color-picker" ref="demo">
+  <div class="demo__dl-ui-color-picker__wrapper">
+    <dl-ui-button @clicked="showColorPicker" class="dl-ui-button dl-ui-color-picker__button-box"
+      >{{ showPicker ? buttonClose : buttonOpen}}</dl-ui-button
+    >
+    <div class="demo__dl-ui-color-picker__wrapper">
+      <theComponent
+        :class="playground.style.value"
+        :ref="setDemoRefs"
+        @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+        v-bind="generatedProps"
+        v-model="playground.value.value"
+      >
+      </theComponent>
+    </div>
+  </div>
+</dl-comp-kit-demo-template>

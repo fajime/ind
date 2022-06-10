@@ -1,0 +1,18 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-icons-set__wrapper">
+    <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps"> </theComponent>
+
+    <h3>Iconos Kit iDS</h3>
+    <p>
+      <span :key="'i' + index" v-for="(icon, index) in idsicons">
+        <component :id="icon.value" :title="icon.name" is="dl-ui-icon" />
+      </span>
+    </p>
+    <h3>Iconos App</h3>
+    <p>
+      <span :key="'i' + index" v-for="(icon, index) in appicons">
+        <component :id="icon.value" :title="icon.name" is="dl-ui-icon" />
+      </span>
+    </p>
+  </div>
+</dl-comp-kit-demo-template>

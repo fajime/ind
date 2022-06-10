@@ -1,0 +1,31 @@
+{
+  "header": {
+    "title": "Iconografía",
+    "subtitle": "",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ab tempora fugit amet molestiae molestias animi ipsam, eum quia vel optio porro architecto nihil nemo, nisi, enim doloremque eveniet nam."
+  },
+  "sections": [
+    {
+      "type": "icons"
+    },
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section__documentation",
+      "title": "Recursos",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-figma",
+            "align": "right"
+          },
+          "header": "Iconografía",
+          "body": "",
+          "action": {
+            "text": "Abrir en figma",
+            "link": ""
+          }
+        }
+      ]
+    }
+  ]
+}

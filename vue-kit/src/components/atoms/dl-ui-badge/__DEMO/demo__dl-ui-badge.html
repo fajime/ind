@@ -1,0 +1,56 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-badge__wrapper">
+    <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps"></theComponent>
+
+    <hr />
+
+    <label>Ejemplos</label>
+    <div class="demo__dl-ui-badge__wrapper__flex">
+      <dl-ui-button>
+        <span style="padding: 10px; display: flex;"
+          >Emails &nbsp;<theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps"></theComponent
+        ></span>
+      </dl-ui-button>
+    </div>
+
+    <div class="demo__dl-ui-badge__wrapper__flex">
+      <theComponent :class="playground.style.value" :position="{ top : '5px', right : '2px' }" :ref="setDemoRefs" v-bind="generatedProps">
+        <DlUiIcon class="dl-ui-icon--large" id="dl-ids-icon-printer-filled"></DlUiIcon>
+      </theComponent>
+
+      <theComponent :class="playground.style.value" :position="{ top : '5px', right : '2px' }" :ref="setDemoRefs" v-bind="generatedProps">
+        <DlUiIcon class="dl-ui-icon--large" id="dl-ids-icon-printer-filled"></DlUiIcon>
+      </theComponent>
+
+      <div class="demo__dl-ui-badge-sep"></div>
+
+      <theComponent :class="playground.style.value" :position="{ angle: -45  }" :ref="setDemoRefs" v-bind="generatedProps">
+        <DlUiIcon class="dl-ui-icon--large" id="dl-ids-icon-email-outlined"></DlUiIcon>
+      </theComponent>
+
+      <div class="demo__dl-ui-badge-sep"></div>
+
+      <theComponent :class="playground.style.value" :position="{ top : '5px', right : '8px' }" :ref="setDemoRefs" v-bind="generatedProps">
+        <DlUiIcon class="dl-ui-icon--large" id="dl-ids-icon-bell-outlined"></DlUiIcon>
+      </theComponent>
+    </div>
+
+    <div class="demo__dl-ui-badge__wrapper__flex">
+      <theComponent
+        :class="playground.style.value"
+        :position="{ angle: 45  }"
+        :ref="setDemoRefs"
+        class="custom-badge"
+        v-bind="generatedProps"
+      >
+        <DlUiAvatar class="demo__dl-ui-avatar-custom" shape="circle" source="dl-ids-icon-user-single-outlined" type="icon"></DlUiAvatar>
+      </theComponent>
+
+      <div class="demo__dl-ui-badge-sep"></div>
+
+      <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps">
+        <DlUiAvatar source="dl-ids-icon-user-single-outlined" type="icon"></DlUiAvatar>
+      </theComponent>
+    </div>
+  </div>
+</dl-comp-kit-demo-template>

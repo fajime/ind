@@ -1,0 +1,111 @@
+{
+  "header": {
+    "number": "01",
+    "title": "IDS",
+    "subtitle": "Indra Design System",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae ab tempora fugit amet molestiae molestias animi ipsam, eum quia vel optio porro architecto nihil nemo, nisi, enim doloremque eveniet nam."
+  },
+  "sections": [
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section--gradient",
+      "title": "",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-design",
+            "align": "left",
+            "size": "large"
+          },
+          "header": "",
+          "body": "",
+          "action": {
+            "text": "Principios de diseño",
+            "to": "/storybook/storybook-design-principles"
+          }
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-foundations",
+            "align": "left",
+            "size": "large"
+          },
+          "header": "",
+          "body": "",
+          "action": {
+            "text": "Foundations",
+            "to": "/storybook/storybook-foundations"
+          }
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-components",
+            "align": "left",
+            "size": "large"
+          },
+          "header": "",
+          "body": "",
+          "action": {
+            "text": "Componentes",
+            "to": "/storybook/storybook-components"
+          }
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section__documentation",
+      "title": "Documentación",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-figma",
+            "align": "right"
+          },
+          "header": "Librerías de diseño",
+          "body": "",
+          "action": {
+            "text": "Descargar",
+            "link": ""
+          }
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-angular",
+            "align": "right"
+          },
+          "header": "Librerías de desarrollo",
+          "body": "",
+          "action": {
+            "text": "Descargar",
+            "link": ""
+          }
+        }
+      ]
+    },
+    {
+      "type": "updates",
+      "title": "Actualizaciones",
+      "data": [
+        {
+          "icon": "dl-ui-icon-figma",
+          "name": "Foundations",
+          "date": "18/12/2020",
+          "version": "v.0.3.1"
+        },
+        {
+          "icon": "dl-ui-icon-figma",
+          "name": "Components",
+          "date": "18/12/2020",
+          "version": "v.0.3.0"
+        },
+        {
+          "icon": "dl-ui-icon-angular",
+          "name": "Foundations",
+          "date": "18/12/2020",
+          "version": "v.0.3.0"
+        }
+      ]
+    }
+  ]
+}

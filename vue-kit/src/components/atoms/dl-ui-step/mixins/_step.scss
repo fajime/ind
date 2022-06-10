@@ -1,0 +1,234 @@
+@mixin step-style-config($config) {
+  cursor: default;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  $size: getmapvalue($config, 'size', 42px);
+  $min-width: $size;
+  $height: $size;
+
+  .dl-ui-step__content {
+    min-width: #{$min-width};
+    height: #{$height};
+    background-color: getmapvalue($config, 'marker::background', $color-surface-01k);
+    border: getmapvalue($config, 'marker::border', solid  $color-surface-06 2px);
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &.dl-ui-step__content--complete {
+      background-color: getmapvalue($config, 'marker::complete::background', $color-surface-contrast);
+    }
+
+    .dl-ui-step__marker-dot {
+      $dotsize: calc($size / 2.625); //16px para 42 por defecto
+
+      width: #{$dotsize};
+      height: #{$dotsize};
+
+      //$rprop: calc((#{$dotsize} / 2) * 100 / #{$dotsize});
+      $rprop: calc(($dotsize / 2) * 100 / $dotsize);
+
+      $stroke: getmapvalue($config, 'marker::stroke-width', 5);
+      $rout: calc($rprop - ($stroke / 2));
+      $rinn: calc($rprop - (($stroke / 2) + 6 ));
+
+      .dl-ui-step__marker-dot-outer {
+        r: #{$rout};
+        stroke-width: $stroke;
+        stroke: $color-surface-06;
+        fill: $color-surface-01k;
+      }
+
+      .dl-ui-step__marker-dot-inner {
+        r: #{$rinn};
+        visibility: hidden;
+      }
+    }
+
+    .dl-ui-step__marker-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .dl-ui-step__marker-numeric {
+      color: getmapvalue($config, 'marker::color', $color-surface-contrast);
+
+      @include font-body-small-bold;
+    }
+  }
+
+  .dl-ui-step__label {
+    margin-top: 9px;
+    color: getmapvalue($config, 'label::color', $color-base-03k);
+
+    @include font-body-small-regular;
+  }
+
+  &.dl-ui-step--disabled {
+    cursor: default;
+
+    .dl-ui-step__content {
+      border-color: getmapvalue($config, 'marker::disabled::border::color', $color-surface-05);
+    }
+
+    .dl-ui-step__label {
+      color: getmapvalue($config, 'label::disabled::color', $color-base-01);
+    }
+  }
+
+  &.dl-ui-step--current,
+  &:focus {
+    .dl-ui-step__label {
+      @include font-body-small-bold;
+    }
+  }
+
+  &.dl-ui-step--clickable {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  &.dl-ui-step-icon {
+    .dl-ui-step__content {
+      &.dl-ui-step__content--complete {
+        border: 0;
+
+        .dl-ui-step__marker-icon {
+          fill: getmapvalue($config, 'marker::complete::color', $color-emphasis-01);
+        }
+      }
+    }
+
+    &.dl-ui-step--disabled {
+      .dl-ui-step__content {
+        .dl-ui-step__marker-icon {
+          fill: getmapvalue($config, 'marker::disabled::color', $color-surface-05);
+        }
+      }
+    }
+
+    &.dl-ui-step--current {
+      .dl-ui-step__content {
+        background-color: getmapvalue($config, 'marker::current::background', $color-emphasis-01);
+        //border: getmapvalue($config, 'marker::current::border', solid $color-emphasis-03k 2px);
+        border-color: getmapvalue($config, 'marker::current::border::color', $color-emphasis-03k);
+
+        .dl-ui-step__marker-icon {
+          fill: getmapvalue($config, 'marker::current::color', $color-emphasis-05);
+        }
+      }
+    }
+
+    &:focus {
+      .dl-ui-step__content {
+        border: solid $color-surface-contrast 2px;
+      }
+
+      &:not(.dl-ui-step--complete).dl-ui-step__content {
+        //border: solid var(--color-neutral-900) 2px;
+
+        .dl-ui-step__marker-icon {
+          fill: getmapvalue($config, 'marker::focus::color', $color-surface-contrast);
+        }
+      }
+    }
+  }
+
+  &.dl-ui-step-numeric {
+    .dl-ui-step__content--complete {
+      border: 0;
+
+      .dl-ui-step__marker-numeric {
+        color: getmapvalue($config, 'marker::complete::color', $color-emphasis-01);
+      }
+    }
+
+    &.dl-ui-step--disabled {
+      .dl-ui-step__content {
+        .dl-ui-step__marker-numeric {
+          color: getmapvalue($config, 'marker::disabled::color', $color-surface-05);
+        }
+      }
+    }
+
+    &.dl-ui-step--current {
+      .dl-ui-step__content {
+        background-color: getmapvalue($config, 'marker::current::background', $color-emphasis-01);
+        //border: getmapvalue($config, 'marker::current::border', solid $color-emphasis-03k 2px);
+        border-color: getmapvalue($config, 'marker::current::border::color', $color-emphasis-03k);
+
+        .dl-ui-step__marker-numeric {
+          color: getmapvalue($config, 'marker::current::color', $color-emphasis-05);
+        }
+      }
+    }
+
+    // &:not(&--loading):not(&--disabled):focus {
+
+    &:focus {
+      .dl-ui-step__content {
+        border: solid $color-surface-contrast 2px;
+      }
+
+      &:not(.dl-ui-step--complete).dl-ui-step__content {
+        //border: solid var(--color-neutral-900) 2px;
+
+        .dl-ui-step__marker-numeric {
+          color: getmapvalue($config, 'marker::focus::color', $color-surface-contrast);
+        }
+      }
+    }
+  }
+
+  /* stylelint-disable no-descending-specificity */
+  &.dl-ui-step-dot {
+    .dl-ui-step__content {
+      background-color: inherit;
+      border: 0;
+
+      &.dl-ui-step__content--complete {
+        .dl-ui-step__marker-dot-outer {
+          stroke: $color-surface-contrast;
+          fill: $color-surface-contrast;
+        }
+      }
+    }
+
+    &.dl-ui-step--disabled {
+      .dl-ui-step__content {
+        border: 0;
+
+        .dl-ui-step__marker-dot-outer {
+          stroke: getmapvalue($config, 'marker::disabled::color', $color-surface-05);
+        }
+      }
+    }
+
+    &.dl-ui-step--current {
+      .dl-ui-step__content {
+        .dl-ui-step__marker-dot-outer {
+          stroke: getmapvalue($config, 'marker::current::border::color', $color-emphasis-03k);
+        }
+
+        .dl-ui-step__marker-dot-inner {
+          visibility: visible;
+          fill: getmapvalue($config, 'marker::current::border::color', $color-emphasis-03k);
+        }
+      }
+    }
+
+    &:focus {
+      .dl-ui-step__content {
+        .dl-ui-step__marker-dot-outer {
+          stroke: getmapvalue($config, 'marker::focus::color', $color-surface-contrast);
+        }
+      }
+    }
+  }
+}

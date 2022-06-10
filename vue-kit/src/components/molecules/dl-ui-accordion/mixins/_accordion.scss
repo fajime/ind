@@ -1,0 +1,129 @@
+@mixin accordion-style-config($config) {
+  $root-node: &;
+
+  width: 100%;
+  overflow: hidden;
+
+  @include font-body-small-regular();
+
+  .dl-ui-accordion__header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: getmapvalue($config, 'header::background', $color-surface-03);
+    border: getmapvalue($config, 'border', 1px solid $color-surface-06);
+    border-radius: getmapvalue($config, 'border-radius', 4px);
+    height: getmapvalue($config, 'header::height', 100%);
+    padding-left: getmapvalue($config, 'header::padding-left', 24px);
+
+    &:hover {
+      background-color: getmapvalue($config, 'header::hover::background', $color-surface-04);
+    }
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .dl-ui-accordion--icon {
+      align-items: center;
+      width: getmapvalue($config, 'icon::size', 24px);
+      height: getmapvalue($config, 'icon::size', 24px);
+      fill: getmapvalue($config, 'icon::color', $color-base-highlight-02);
+    }
+
+    .dl-ui-accordion__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: getmapvalue($config, 'text::margin', 9px auto 9px 19px);
+
+      .dl-ui-accordion__text-title {
+        color: getmapvalue($config, 'title::text::color', $color-base-highlight-02);
+        font-size: getmapvalue($config, 'title::text::size', 14px);
+        line-height: getmapvalue($config, 'title::text::lineheigth', 20px);
+      }
+
+      .dl-ui-accordion--highlight {
+        @include font-body-small-bold();
+      }
+
+      .dl-ui-accordion___text-description {
+        color: getmapvalue($config, 'description::color', $color-base-highlight-02);
+        margin-top: 2px;
+      }
+    }
+
+    .dl-ui-accordion__trigger-icon {
+      display: flex;
+      height: getmapvalue($config, 'icon::arrow::size', 16px);
+      width: getmapvalue($config, 'icon::arrow::size', 16px);
+      fill: getmapvalue($config, 'icon::arrow:::color', $color-base-highlight-02);
+      padding: 2px;
+      margin-right: 16px;
+      margin-left: auto;
+      transition: all 0.2s linear;
+
+      &--open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  > .dl-ui-accordion__content {
+    #{--height}: 0;
+    max-height: var(--height);
+    border-radius: 4px;
+    overflow: hidden;
+
+    &--open {
+      #{--height}: 9999px;
+    }
+  }
+
+  .dl-ui-accordion__content {
+    border-radius: 4px;
+    transition: all 0.2s linear;
+    padding: 10px 13px 19px 15px;
+    color: getmapvalue($config, 'content::color', $color-base-02);
+    border: getmapvalue($config, 'content::border', 1px solid $color-surface-06);
+    border-top: none;
+    background-color: getmapvalue($config, 'content::background', $color-surface-01k);
+
+    @include font-body-large-regular();
+  }
+
+  > .dl-ui-accordion__input {
+    display: none;
+  }
+
+  .dl-ui-accordion__box {
+    transition: all 0.2s linear;
+    max-height: var(--accordion-max-height);
+    height: auto;
+    padding: 0;
+  }
+
+  .dl-ui-accordion__box--inactive {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s linear;
+  }
+
+  .dl-ui-accordion__box--initial0 {
+    transition: none;
+    max-height: var(--accordion-max-height);
+    visibility: hidden;
+  }
+
+  .dl-ui-accordion__box--initial1 {
+    transition: none;
+    max-height: 0;
+    visibility: hidden;
+  }
+
+  &--hidden {
+    visibility: hidden;
+  }
+}

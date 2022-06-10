@@ -1,0 +1,7 @@
+@import 'mixins/accordion-list';
+
+.dl-ui-accordion-list {
+  $default: ();
+
+  @include accordion-list-style-config($default);
+}

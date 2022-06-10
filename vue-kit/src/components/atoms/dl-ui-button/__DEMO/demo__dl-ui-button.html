@@ -1,0 +1,12 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-button__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @clicked="notifyComponentEvent('clicked', $event)"
+      v-bind="generatedProps"
+    >
+      {{ playground.slots[0].value}}
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

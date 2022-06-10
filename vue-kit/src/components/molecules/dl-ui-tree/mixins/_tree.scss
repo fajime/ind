@@ -1,0 +1,63 @@
+@mixin tree-style-config($config) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include font-body-medium-regular();
+
+  .dl-ui-tree__root-node {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dl-ui-tree-node {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    &__label-content {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      color: getmapvalue($config, 'node::color', $color-base-highlight-02);
+      fill: currentColor;
+      background-color: getmapvalue($config, 'node::background', transparent);
+      cursor: pointer;
+
+      &:hover {
+        color: getmapvalue($config, 'node::hover::color', $color-base-highlight-02);
+        fill: currentColor;
+        background-color: getmapvalue($config, 'node::hover::background', $color-emphasis-01);
+      }
+    }
+
+    &--active {
+      .dl-ui-tree-node__label-content {
+        color: getmapvalue($config, 'node::hover::color', $color-base-contrast);
+        fill: currentColor;
+        background-color: getmapvalue($config, 'node::hover::background', $color-emphasis-04);
+      }
+    }
+
+    &__tab {
+      margin-left: 20px;
+      content: '';
+      background-color: pink;
+      cursor: default;
+    }
+
+    &__children-content {
+      transition: all 0.2s linear;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    &__children-content--open {
+      opacity: 1;
+      max-height: 60vh;
+    }
+  }
+}

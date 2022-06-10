@@ -1,0 +1,9 @@
+<div
+  :class="{'dl-ui-switch--label-right': labelOnRight, 'dl-ui-switch--disabled': disabled,'dl-ui-switch--active': modelValue}"
+  class="dl-ui-switch"
+>
+  <label :for="randomId" class="dl-ui-switch__label" v-if="label"> {{ label }} </label>
+  <span class="dl-ui-switch__span">
+    <input :id="randomId" type="checkbox" v-bind:checked="modelValue" v-on:input="raiseEvent($event.target.checked)" />
+  </span>
+</div>

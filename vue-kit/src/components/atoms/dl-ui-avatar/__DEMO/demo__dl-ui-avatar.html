@@ -1,0 +1,11 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" @input="handleInput" @update:modelValue="handleInput" ref="demo">
+  <div class="demo__dl-ui-avatar__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @clicked="notifyComponentEvent('clicked', $event)"
+      v-bind="generatedProps"
+    >
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

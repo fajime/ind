@@ -1,0 +1,6 @@
+/* stylelint-disable scss/operator-no-newline-after */
+@import './commons';
+
+@mixin input-style-config($config) {
+  @include input-template($config, 'dl-ui-input');
+}

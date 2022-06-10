@@ -1,0 +1,107 @@
+@mixin menu-group-style-config($config) {
+  position: absolute;
+  z-index: getmapvalue($config, 'z-index', 2);
+  background-color: getmapvalue($config, 'background', $color-surface-03);
+  padding: getmapvalue($config, 'padding', 0);
+  border: getmapvalue($config, 'border', none);
+  box-shadow: getmapvalue($config, 'box-shadow', $shadow-medium);
+  min-width: getmapvalue($config, 'min-width', 200px);
+
+  .dl-ui-menu-item {
+    position: relative;
+    cursor: pointer;
+    height: getmapvalue($config, 'item::height', 32px);
+    color: getmapvalue($config, 'item::color', $color-action-secondary-default);
+    fill: getmapvalue($config, 'item::color', $color-action-secondary-default);
+    background-color: getmapvalue($config, 'item::background', $color-surface-03);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s linear;
+
+    @include font-body-medium-regular();
+
+    &__text {
+      user-select: none;
+      margin: 0 8px;
+    }
+
+    .dl-ui-menu-item__content {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: getmapvalue($config, 'item::padding', 8px);
+
+      &--left {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: flex-start;
+        align-items: center;
+      }
+
+      &--right {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: flex-end;
+        align-items: center;
+      }
+    }
+
+    .dl-ui-menu-group {
+      position: absolute;
+      z-index: getmapvalue($config, 'z-index', 2);
+      background-color: getmapvalue($config, 'background', $color-surface-03);
+      padding: getmapvalue($config, 'padding', 0);
+      border: getmapvalue($config, 'border', none);
+      box-shadow: getmapvalue($config, 'box-shadow', $shadow-medium);
+      min-width: getmapvalue($config, 'min-width', 200px);
+      user-select: none;
+    }
+
+    &:active {
+      background-color: $color-emphasis-04;
+      color: getmapvalue($config, 'item::hover::color', $color-base-contrast);
+      fill: getmapvalue($config, 'item::hover::color', $color-base-contrast);
+    }
+
+    &:hover:not(.dl-ui-menu-item--disabled) {
+      color: getmapvalue($config, 'item::hover::color', $color-emphasis-04);
+      fill: getmapvalue($config, 'item::hover::color', $color-emphasis-04);
+      background-color: getmapvalue($config, 'item::hover::background', $color-emphasis-01);
+
+      &:active {
+        background-color: getmapvalue($config, 'item::hover::background', $color-emphasis-04);
+        color: getmapvalue($config, 'item::hover::color', $color-base-contrast);
+        fill: getmapvalue($config, 'item::hover::color', $color-base-contrast);
+      }
+    }
+
+    + .dl-ui-menu-item--disabled {
+      cursor: default;
+      color: getmapvalue($config, 'item::disabled::color', $color-action-primary-disabled);
+      fill: getmapvalue($config, 'item::disabled::color', $color-action-primary-disabled);
+      background-color: getmapvalue($config, 'item::disabled::background', transparent);
+    }
+
+    &__chevron {
+      transform: rotate(270deg);
+    }
+  }
+
+  .dl-ui-menu-item-separator {
+    height: getmapvalue($config, 'separator::height', 6px);
+    cursor: default;
+    background-color: getmapvalue($config, 'separator::background', transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .dl-ui-menu-item-separator__line {
+      height: getmapvalue($config, 'separator::line::height', 1px);
+      border-top: getmapvalue($config, 'separator::line::border', 1px solid $color-base-03k);
+    }
+  }
+}

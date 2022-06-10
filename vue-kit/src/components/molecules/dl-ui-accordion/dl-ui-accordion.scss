@@ -1,0 +1,34 @@
+@import 'mixins/accordion';
+
+.dl-ui-accordion {
+  $default: ();
+
+  @include accordion-style-config($default);
+}
+
+.dl-ui-accordion--small {
+  $small: (
+    'header::height': 38px,
+    'title::text::size': 12px,
+    'title::text::lineheigth': 14px,
+    'icon::size': 16px,
+    'text::margin': 5px auto 5px 8px,
+    'header::padding-left': 8px
+  );
+
+  @include accordion-style-config($small);
+
+  .dl-ui-accordion___text-description {
+    @include font-caption();
+  }
+}
+
+.dl-ui-accordion--large {
+  $default: ();
+
+  @include accordion-style-config($default);
+
+  .dl-ui-accordion___text-description {
+    @include font-body-small-regular();
+  }
+}

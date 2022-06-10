@@ -1,0 +1,113 @@
+@import '../../dl-ui-input/mixins/commons';
+
+@mixin textarea-style-config($config) {
+  .dl-ui-textarea__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  textarea {
+    background: getmapvalue($config, 'background', $color-surface-01k);
+    height: getmapvalue($config, 'height', 100%);
+    width: getmapvalue($config, 'width', 100%);
+    border: getmapvalue($config, 'border', 1px solid $color-surface-06);
+    color: getmapvalue($config, 'color', $color-base-highlight-02);
+    padding: getmapvalue($config, 'padding', 8px 8px);
+    margin: 8px 0 10px 0;
+    border-radius: 4px;
+    transition: all 0.2s linear;
+    transition-property: font-size, background, border, color;
+    overflow: hidden;
+    resize: none;
+
+    @include font-body-small-regular();
+
+    &::placeholder {
+      color: $color-base-highlight-01;
+    }
+  }
+
+  .dl-ui-textarea--resizable {
+    resize: both;
+  }
+
+  .dl-ui-textarea__label {
+    // position: absolute;
+    // color: getmapvalue($config, 'label::color', $color-base-highlight-02);
+    // transition: all 0.2s linear;
+    // width: max-content;
+    // top: getmapvalue($config, 'label::top', -20px);
+    @include input-label($config, 'dl-ui-textarea');
+  }
+
+  .dl-ui-textarea__help {
+    display: flex;
+    justify-content: space-between;
+    //margin-top: getmapvalue($config, 'help::margin-top', 10px);
+    color: getmapvalue($config, 'help::color', $color-base-highlight-02);
+
+    .dl-ui-textarea__help__wrapper {
+      .dl-ui-textarea__helptext {
+        text-align: left;
+        white-space: pre-wrap;
+        margin-right: 1rem;
+      }
+    }
+
+    .dl-ui-textarea__charcount {
+      text-align: right;
+    }
+  }
+
+  textarea:active,
+  textarea:focus {
+    color: getmapvalue($config, 'focus::color', $color-base-highlight-03k);
+    border: getmapvalue($config, 'focus::border', 1px solid $color-emphasis-03k);
+  }
+
+  .dl-ui-textarea--error {
+    .dl-ui-textarea__help {
+      color: $color-status-danger-02k;
+    }
+
+    .dl-ui-textarea__label {
+      color: $color-base-highlight-02;
+    }
+
+    textarea {
+      border: 1px solid $color-status-danger-02k;
+      color: $color-status-danger-02k;
+    }
+  }
+
+  .dl-ui-textarea--disabled {
+    .dl-ui-textarea__label,
+    .dl-ui-textarea__help {
+      color: $color-surface-06;
+    }
+
+    textarea {
+      background-color:
+        getmapvalue(
+          $config,
+          'disable::background',
+          $color-surface-03
+        );
+      border:
+        getmapvalue(
+          $config,
+          'disable::border',
+          1px solid $color-surface-06
+        );
+      color: getmapvalue($config, 'disable::color', $color-surface-06);
+      resize: none;
+    }
+  }
+
+  .dl-ui-textarea--readonly {
+    textarea {
+      background-color: var(--color-surface-03);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import '../dl-ui-menu-group/mixins/menu-group';
+
+.dl-ui-context-menu {
+  $default: ();
+}
+
+.dl-ui-context-menu--small {
+  $menu-group-small: (
+    'item::height': 24px,
+    'separator::height': 4px);
+
+  @include menu-group-style-config($menu-group-small);
+
+  .dl-ui-menu-item {
+    @include font-button-small();
+  }
+}
+
+.dl-ui-context-menu--medium {
+  $default: ();
+}
+
+.dl-ui-context-menu--large {
+  $menu-group-large: (
+    'item::height': 48px,
+    'separator::height': 8px);
+
+  @include menu-group-style-config($menu-group-large);
+}

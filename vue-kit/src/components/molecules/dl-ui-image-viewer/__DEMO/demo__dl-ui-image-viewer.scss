@@ -1,0 +1,24 @@
+@import '../mixins/image-viewer';
+
+$config: (
+  'background': $color-status-success-03,
+  'border': 3px dotted $color-status-warning-02k,
+  'border-radius': 20px,
+  'preview::background': $color-status-info-02k,
+  'preview::border': 1px solid $color-status-success-03,
+  'preview::border-radius': 5px,
+  'preview::region::background': rgba(129, 234, 67, 0.5),
+  'preview::region::border': $color-base-02,
+  'preview::region::border-radius': 0
+);
+
+.demo__dl-ui-image-viewer {
+  &__wrapper {
+    width: 440px;
+    height: 390px;
+  }
+}
+
+.custom-image-viewer {
+  @include image-viewer-style-config($config);
+}

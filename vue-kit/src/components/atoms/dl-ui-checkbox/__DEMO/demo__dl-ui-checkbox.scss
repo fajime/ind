@@ -1,0 +1,40 @@
+@import '../mixins/checkbox';
+
+// configuration map
+$config: (
+  'size': 50px,
+  'padding': 10px,
+  'background': rgb(177, 233, 169),
+  'border': 2px dotted rgb(63, 5, 5),
+  'border::radius': 20px,
+  'hover::background':rgb(184, 32, 32),
+  'hover::border':rgb(235, 217, 61),
+  'focus::background':rgb(135, 180, 248),
+  'focus::border':rgb(18, 95, 158),
+  'focus::border::outlined':rgb(105, 37, 105),
+  'disable::background':rgb(146, 146, 146),
+  'disable::border':rgb(105, 105, 105),
+  'checked::background': rgb(170, 178, 201),
+  'checked::border': 5px dotted rgb(72, 197, 14),
+  'checked::color': rgb(126, 42, 42),
+  'indet::background': rgb(61, 80, 138),
+  'indet::border': 5px dotted rgb(72, 133, 45),
+  'indet::color': rgb(223, 86, 86),
+  'checked::focus::background': rgb(56, 225, 255),
+  'checked::focus::outlined::border': 2px dotted rgb(83, 255, 9),
+  'checked::hover::background': rgb(196, 177, 247),
+  'checked::hover::border': 1px solid rgb(80, 112, 65),
+  'checked::hover::color': 1px solid rgb(216, 51, 51)
+);
+
+.custom-checkbox {
+  @include checkbox-style-config($config);
+}
+
+.demo__dl-ui-checkbox {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

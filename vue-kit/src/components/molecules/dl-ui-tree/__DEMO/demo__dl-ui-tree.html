@@ -1,0 +1,11 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-tree__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @itemClicked="notifyComponentEvent('itemClicked', $event)"
+      v-bind="generatedProps"
+    >
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

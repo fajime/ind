@@ -1,0 +1,21 @@
+<div class="dl-ui-cesium-map" ref="viewer">
+  <div id="loadingOverlay" ref="loadingOverlay">
+    <h1>Loading...</h1>
+  </div>
+  <popupTool :config="popupConfig" ref="popupToolWidget">
+    <slot name="popup_slot"></slot>
+  </popupTool>
+  <div class="top_left_corner">
+    <layerTool :layers="layers" :viewer="viewer" ref="layerToolWidget" v-if="layerTool && layers && layers.length" />
+    <drawTool :lang="lang.drawTool" :viewer="viewer" ref="drawToolWidget" v-if="drawTool" />
+    <div class="slot slot--left">
+      <slot name="top_left_slot"></slot>
+    </div>
+  </div>
+  <div class="bottom_right_corner">
+    <div class="slot slot--right">
+      <slot name="bottom_right_slot"></slot>
+    </div>
+  </div>
+  <slot></slot>
+</div>

@@ -1,0 +1,57 @@
+{
+  "header": {
+    "number": "02",
+    "title": "Principios de diseño",
+    "subtitle": "",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+  },
+  "sections": [
+    {
+      "type": "cards",
+      "class": "dl-comp-storybook-landing__section--gradient dl-comp-storybook-landing__section--three",
+      "title": "",
+      "items": [
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-scalability",
+            "size": "large"
+          },
+          "header": "Principio 1",
+          "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-scalability",
+            "size": "large"
+          },
+          "header": "Principio 2",
+          "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-scalability",
+            "size": "large"
+          },
+          "header": "Principio 3",
+          "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-scalability",
+            "size": "large"
+          },
+          "header": "Principio 4",
+          "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+        },
+        {
+          "icon": {
+            "type": "dl-ui-icon-storybook-scalability",
+            "size": "large"
+          },
+          "header": "Principio 5",
+          "body": "Lorem ipsum, dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna"
+        }
+      ]
+    }
+  ]
+}

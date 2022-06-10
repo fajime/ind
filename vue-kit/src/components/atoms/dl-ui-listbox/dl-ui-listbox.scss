@@ -1,0 +1,48 @@
+@import 'mixins/listbox';
+
+.dl-ui-listbox {
+  $default: (
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small
+  );
+
+  @include listbox-style-config($default);
+
+  &--extra-small {
+    $extraSmall: (
+      'item::height': 22px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include listbox-style-config($extraSmall);
+  }
+
+  &--small {
+    $small: (
+      'item::height': 28px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include listbox-style-config($small);
+  }
+
+  &--medium {
+    @include listbox-style-config($default);
+  }
+
+  &--large {
+    $large: (
+      'item::height': 40px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include listbox-style-config($large);
+  }
+}

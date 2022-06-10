@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-button renders correctly 1`] = `
+<button
+  class="dl-ui-action-button"
+>
+  <!--v-if-->
+  <div
+    class="dl-ui-icon dl-ui-action-button__icon dl-ui-action-button__icon--normal"
+  >
+    <svg>
+      <!--v-if-->
+      <!--v-if-->
+      <use
+        xlink:href="#"
+      />
+    </svg>
+  </div>
+  <div
+    class="dl-ui-icon dl-ui-action-button__icon dl-ui-action-button__icon--filled"
+  >
+    <svg>
+      <!--v-if-->
+      <!--v-if-->
+      <use
+        xlink:href="#"
+      />
+    </svg>
+  </div>
+</button>
+`;

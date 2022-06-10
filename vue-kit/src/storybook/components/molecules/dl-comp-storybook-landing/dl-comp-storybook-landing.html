@@ -1,0 +1,24 @@
+<div :class="{ 'dl-comp-storybook-landing--main': info.header.number }" class="dl-comp-storybook-landing">
+  <dl-comp-storybook-header
+    :description="info.header.description"
+    :number="info.header.number"
+    :subtitle="info.header.subtitle"
+    :title="info.header.title"
+    class="dl-comp-storybook-landing__header"
+  />
+
+  <main :class="{ 'dl-comp-storybook-landing--gradient': info.header.number }" v-if="info">
+    <component
+      :class="section.class"
+      :content="section.content"
+      :data="section.data"
+      :is="`dl-comp-storybook-${section.type}`"
+      :items="section.items"
+      :title="section.title"
+      class="dl-comp-storybook-landing__section"
+      v-for="section,index in info.sections"
+    ></component>
+
+    <br /><br /><br /><br /><br /><br /><br />
+  </main>
+</div>

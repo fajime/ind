@@ -1,0 +1,88 @@
+.dl-comp-storybook-icons {
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    min-height: 400px;
+    align-items: flex-start;
+  }
+
+  &__filters {
+    padding: 4px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    &__search {
+      border: 1px solid $color-emphasis-04;
+      overflow: hidden;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      padding-left: 8px;
+      min-width: 240px;
+
+      input {
+        flex: 1;
+      }
+
+      button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      &__clear-button {
+        padding: 4px;
+        margin-right: 4px;
+      }
+
+      &__search-button {
+        padding: 11px;
+        background-color: $color-emphasis-04;
+        fill: $color-base-contrast;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: $color-base-highlight-02;
+    fill: $color-base-highlight-02;
+    border-radius: 4px;
+    margin: 15px;
+    padding: 16px 8px;
+    border: 1px solid $color-surface-05;
+    width: 130px;
+    min-height: 92px;
+
+    &__title {
+      text-transform: capitalize;
+    }
+  }
+
+  &__pager {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// dl-ui-transition-slide
+.dl-ui-transition-slide-enter-active {
+  transition: all 0.2s 0.5s linear;
+}
+
+.dl-ui-transition-slide-leave-active {
+  transition: all 0.4s linear;
+}
+
+.dl-ui-transition-slide-enter-from,
+.dl-ui-transition-slide-leave-to {
+  opacity: 0;
+}

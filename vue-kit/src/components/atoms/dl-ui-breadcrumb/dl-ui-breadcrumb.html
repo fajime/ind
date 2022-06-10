@@ -1,0 +1,17 @@
+<nav class="dl-ui-breadcrumb" ref="root">
+  <ul class="dl-ui-breadcrumb__bar">
+    <li
+      :class="{'dl-ui-breadcrumb__item--active' : linkActive===index, 'dl-ui-breadcrumb__item--disabled' : item.disabled}"
+      :key="{index}"
+      @click="onClickItem(index)"
+      class="dl-ui-breadcrumb__item"
+      v-for="(item, index) in config"
+    >
+      <dl-ui-icon :id="item.icon" class="dl-ui-breadcrumb__icon" v-if="item.icon" />
+      <template v-else>
+        <span class="dl-ui-breadcrumb__separator">{{ separator }}</span>
+        <span class="dl-ui-breadcrumb__item-label"> {{ item.label }} </span>
+      </template>
+    </li>
+  </ul>
+</nav>

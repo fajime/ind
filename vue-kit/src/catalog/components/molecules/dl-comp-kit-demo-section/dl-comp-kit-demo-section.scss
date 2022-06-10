@@ -1,0 +1,44 @@
+.dl-comp-kit-demo-section {
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+
+  &-header {
+    flex: 1 1 auto;
+    display: flex;
+    color: $color-action-primary-default;
+  }
+
+  &-divider {
+    border: 2px solid $color-action-secondary-default;
+    width: 100%;
+    margin: 3px 0;
+  }
+
+  &-body {
+    padding-top: 0.5rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+
+    p {
+      line-height: 1.2rem;
+      padding-top: 0.2rem;
+    }
+
+    > div > ul,
+    > div > ol {
+      padding-left: 2rem;
+
+      li {
+        line-height: 1.2rem;
+        padding: 0.2rem 0;
+
+        &::before {
+          content: '• ';
+          color: $color-action-secondary-default;
+        }
+      }
+    }
+  }
+}

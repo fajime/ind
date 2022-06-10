@@ -1,0 +1,7 @@
+@import 'mixins/timepicker';
+
+.dl-ui-timepicker {
+  $default: ();
+
+  @include timepicker-style-config($default);
+}

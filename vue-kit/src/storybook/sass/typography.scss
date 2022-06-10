@@ -1,0 +1,305 @@
+// TODO: Replace all of this with SASS loops and lists. Too repetitive.
+// TODO: We have more font variants in assets. Its included already, is this okay?
+
+//  Headers
+// TODO: This is an odd one. Is it just a class?
+$header-jumbo: 96px / 100px 'Roboto Bold', sans-serif;
+// ! Headers in design don't look like 'Roboto Bold' as per Typography chart.
+$h1: 60px / 64px 'Roboto Bold', sans-serif;
+$h2: 48px / 52px 'Roboto Bold', sans-serif;
+$h3: 34px / 38px 'Roboto Bold', sans-serif;
+$h4: 24px / 28px 'Roboto Bold', sans-serif;
+$h5: 20px / 24px 'Roboto Bold', sans-serif;
+$h6: 20px / 24px 'Roboto Regular', sans-serif;
+
+//  Sub-titles
+$subtitle-large: 16px / 20px 'Roboto Bold', sans-serif;
+$subtitle-small: 14px / 18px 'Roboto Bold', sans-serif;
+
+//  Body: Large
+$body-large-thin: 16px / 20px 'Roboto Thin', sans-serif;
+$body-large-thin-italic: 16px / 20px 'Roboto Thin Italic', sans-serif;
+$body-large-light: 16px / 20px 'Roboto Light', sans-serif;
+$body-large-light-italic: 16px / 20px 'Roboto Light Italic', sans-serif;
+$body-large-regular: 16px / 20px 'Roboto Regular', sans-serif;
+$body-large-regular-italic: 16px / 20px 'Roboto Regular Italic', sans-serif;
+$body-large-medium: 16px / 20px 'Roboto Medium', sans-serif;
+$body-large-medium-italic: 16px / 20px 'Roboto Medium Italic', sans-serif;
+$body-large-bold: 16px / 20px 'Roboto Bold', sans-serif;
+$body-large-bold-italic: 16px / 20px 'Roboto Bold Italic', sans-serif;
+$body-large-black: 16px / 20px 'Roboto Black', sans-serif;
+$body-large-black-italic: 16px / 20px 'Roboto Black Italic', sans-serif;
+
+//  Body: Medium
+$body-medium-thin: 14px / 20px 'Roboto Thin', sans-serif;
+$body-medium-thin-italic: 14px / 20px 'Roboto Thin Italic', sans-serif;
+$body-medium-light: 14px / 20px 'Roboto Light', sans-serif;
+$body-medium-light-italic: 14px / 20px 'Roboto Light Italic', sans-serif;
+$body-medium-regular: 14px / 20px 'Roboto Regular', sans-serif;
+$body-medium-regular-italic: 14px / 20px 'Roboto Regular Italic', sans-serif;
+//!Repeating 'medium' keyword. Find a solution or change naming convention
+$body-medium-medium: 14px / 20px 'Roboto Medium', sans-serif;
+//!Repeating 'medium' keyword. Find a solution or change naming convention
+$body-medium-medium-italic: 14px / 20px 'Roboto Medium Italic', sans-serif;
+$body-medium-bold: 14px / 20px 'Roboto Bold', sans-serif;
+$body-medium-bold-italic: 14px / 20px 'Roboto Bold Italic', sans-serif;
+$body-medium-black: 14px / 20px 'Roboto Black', sans-serif;
+$body-medium-black-italic: 14px / 20px 'Roboto Black Italic', sans-serif;
+
+//  Body: Small
+$body-small-thin: 12px / 14px 'Roboto Thin', sans-serif;
+$body-small-thin-italic: 12px / 14px 'Roboto Thin Italic', sans-serif;
+$body-small-light: 12px / 14px 'Roboto Light', sans-serif;
+$body-small-light-italic: 12px / 14px 'Roboto Light Italic', sans-serif;
+$body-small-regular: 12px / 14px 'Roboto Regular', sans-serif;
+$body-small-regular-italic: 12px / 14px 'Roboto Regular Italic', sans-serif;
+$body-small-medium: 12px / 14px 'Roboto Medium', sans-serif;
+$body-small-medium-italic: 12px / 14px 'Roboto Medium Italic', sans-serif;
+$body-small-bold: 12px / 14px 'Roboto Bold', sans-serif;
+$body-small-bold-italic: 12px / 14px 'Roboto Bold Italic', sans-serif;
+$body-small-black: 12px / 14px 'Roboto Black', sans-serif;
+$body-small-black-italic: 12px / 14px 'Roboto Black Italic', sans-serif;
+
+//  Button text
+$button-large: 16px / 20px 'Roboto Medium', sans-serif;
+$button-medium: 14px / 18px 'Roboto Medium', sans-serif;
+$button-small: 12px / 14px 'Roboto Medium', sans-serif;
+
+//  Link text
+$link-large: 16px / 20px 'Roboto Regular', sans-serif;
+$link-medium: 14px / 18px 'Roboto Regular', sans-serif;
+$link-small: 12px / 14px 'Roboto Regular', sans-serif;
+
+//  Text: Overline
+$text-overline: 10px / 12px 'Roboto Regular', sans-serif;
+
+//  Text: Caption
+$text-caption: 10px / 12px 'Roboto Regular', sans-serif;
+
+//  Header classes
+.header-jumbo {
+  font: $header-jumbo;
+}
+
+h1,
+.h1 {
+  font: $h1;
+}
+
+h2,
+.h2 {
+  font: $h2;
+}
+
+h3,
+.h3 {
+  font: $h3;
+}
+
+h4,
+.h4 {
+  font: $h4;
+}
+
+h5,
+.h5 {
+  font: $h5;
+}
+
+h6,
+.h6 {
+  font: $h6;
+}
+
+//  Sub-title classes
+.subtitle-large {
+  font: $subtitle-large;
+}
+
+.subtitle-small {
+  font: $subtitle-small;
+}
+
+//  Body large classes
+.body-large-thin {
+  font: $body-large-thin;
+}
+
+.body-large-thin-italic {
+  font: $body-large-thin-italic;
+}
+
+.body-large-light {
+  font: $body-large-light;
+}
+
+.body-large-light-italic {
+  font: $body-large-light-italic;
+}
+
+.body-large-regular {
+  font: $body-large-regular;
+}
+
+.body-large-regular-italic {
+  font: $body-large-regular-italic;
+}
+
+.body-large-medium {
+  font: $body-large-medium;
+}
+
+.body-large-medium-italic {
+  font: $body-large-medium-italic;
+}
+
+.body-large-bold {
+  font: $body-large-bold;
+}
+
+.body-large-bold-italic {
+  font: $body-large-bold-italic;
+}
+
+.body-large-black {
+  font: $body-large-black;
+}
+
+.body-large-black-italic {
+  font: $body-large-black-italic;
+}
+
+//  Body medium classes
+.body-medium-thin {
+  font: $body-medium-thin;
+}
+
+.body-medium-thin-italic {
+  font: $body-medium-thin-italic;
+}
+
+.body-medium-light {
+  font: $body-medium-light;
+}
+
+.body-medium-light-italic {
+  font: $body-medium-light-italic;
+}
+
+.body-medium-regular {
+  font: $body-medium-regular;
+}
+
+.body-medium-regular-italic {
+  font: $body-medium-regular-italic;
+}
+
+.body-medium-medium {
+  font: $body-medium-medium;
+}
+
+.body-medium-medium-italic {
+  font: $body-medium-medium-italic;
+}
+
+.body-medium-bold {
+  font: $body-medium-bold;
+}
+
+.body-medium-bold-italic {
+  font: $body-medium-bold-italic;
+}
+
+.body-medium-black {
+  font: $body-medium-black;
+}
+
+.body-medium-black-italic {
+  font: $body-medium-black-italic;
+}
+
+//  Body small classes
+.body-small-thin {
+  font: $body-small-thin;
+}
+
+.body-small-thin-italic {
+  font: $body-small-thin-italic;
+}
+
+.body-small-light {
+  font: $body-small-light;
+}
+
+.body-small-light-italic {
+  font: $body-small-light-italic;
+}
+
+.body-small-regular {
+  font: $body-small-regular;
+}
+
+.body-small-regular-italic {
+  font: $body-small-regular-italic;
+}
+
+.body-small-medium {
+  font: $body-small-medium;
+}
+
+.body-small-medium-italic {
+  font: $body-small-medium-italic;
+}
+
+.body-small-bold {
+  font: $body-small-bold;
+}
+
+.body-small-bold-italic {
+  font: $body-small-bold-italic;
+}
+
+.body-small-black {
+  font: $body-small-black;
+}
+
+.body-small-black-italic {
+  font: $body-small-black-italic;
+}
+
+//  Button text classes
+.button-large {
+  font: $button-large;
+}
+
+.button-medium {
+  font: $button-medium;
+}
+
+.button-small {
+  font: $button-small;
+}
+
+//  Link classes
+.link-large {
+  font: $link-large;
+}
+
+.link-medium {
+  font: $link-medium;
+}
+
+.link-small {
+  font: $link-small;
+}
+
+//  Text overline class
+.text-overline {
+  font: $text-overline;
+  text-transform: uppercase;
+}
+
+//  Text caption class
+.text-caption {
+  font: $text-caption;
+}

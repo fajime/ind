@@ -1,0 +1,23 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-split-panes__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @pane-maximize="notifyComponentEvent('pane-maximize', $event)"
+      @resized="notifyComponentEvent('resized', $event)"
+      v-bind="generatedProps"
+    >
+      <dl-ui-split-pane min-size="20" size="33"> Este panel tiene un ancho mínimo de un 20%. y no tiene título </dl-ui-split-pane>
+      <dl-ui-split-pane>
+        <dl-ui-split-panes class="dl-ui-split-panes" displayType="horizontal" size="34">
+          <dl-ui-split-pane min-size="15" size="25"> Este otro panel tiene una altura mínima de un 15% y no tiene título </dl-ui-split-pane>
+          <dl-ui-split-pane size="25" title="Este es el título del panel">Este panel sí tiene títulos </dl-ui-split-pane>
+          <dl-ui-split-pane size="50">
+            Este panel arranca con un 50% d e tamaño pero se puede redimensionar a lo que se desee</dl-ui-split-pane
+          >
+        </dl-ui-split-panes>
+      </dl-ui-split-pane>
+      <dl-ui-split-pane size="33" title="Este es el título del panel">Este otro panel tambien tiene título </dl-ui-split-pane>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

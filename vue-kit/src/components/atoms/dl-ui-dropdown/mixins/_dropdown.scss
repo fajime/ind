@@ -1,0 +1,135 @@
+@mixin dropdown-style-config($config) {
+  display: flex;
+  width: 100%;
+  position: relative;
+  height: getmapvalue($config, 'height', 32px);
+
+  .dl-ui-dropdown__box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: getmapvalue($config, 'border-radius', 4px);
+    background: getmapvalue($config, 'background', $color-surface-01k);
+    height: getmapvalue($config, 'height', 32px);
+    border: getmapvalue($config, 'border', 1px solid);
+    padding: getmapvalue($config, 'padding', 0);
+
+    &-slot {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row;
+      padding: 0 8px;
+      padding-right: 0;
+      width: calc(100% - 64px);
+    }
+  }
+
+  .dl-ui-dropdown__panel {
+    margin-top: 8px;
+    position: absolute;
+    width: 100%;
+    z-index: 100000000000000;
+  }
+
+  .dl-ui-dropdown__container {
+    position: relative;
+    user-select: none;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .dl-ui-dropdown__trigger-button {
+    background: transparent;
+    display: flex;
+    align-items: center;
+  }
+
+  .dl-ui-dropdown__trigger-icon {
+    height: getmapvalue($config, 'icon::height', 16px);
+    width: getmapvalue($config, 'icon::width', 16px);
+    padding: getmapvalue($config, 'icon::padding', 2px);
+    fill: getmapvalue($config, 'trigger-icon::color', $color-base-highlight-02);
+    margin: 0 8px;
+    transition: all 0.2s linear;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--highlight {
+    .dl-ui-dropdown__box {
+      background: getmapvalue($config, 'background::highlight', $color-surface-01k);
+    }
+  }
+
+  &--empty {
+    .dl-ui-select__box {
+      color: getmapvalue($config, 'color', $color-base-highlight-02);
+    }
+
+    .dl-ui-multiselect__box {
+      color: getmapvalue($config, 'color', $color-base-highlight-02);
+    }
+  }
+
+  &--active {
+    .dl-ui-dropdown__box {
+      border: getmapvalue($config, 'border', 1px solid $color-emphasis-03k);
+      color: getmapvalue($config, 'color', $color-base-highlight-03k);
+
+      .dl-ui-dropdown__trigger-icon {
+        fill: getmapvalue($config, 'trigger-icon::color', $color-base-highlight-02);
+      }
+    }
+  }
+
+  &--error {
+    .dl-ui-dropdown__box {
+      border-color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      color: getmapvalue($config, 'error:color', $color-status-danger-02k);
+
+      .dl-ui-dropdown__trigger-icon {
+        fill: getmapvalue($config, 'error::color', $color-status-danger-02k);
+      }
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: initial;
+
+    .dl-ui-dropdown__box {
+      border-color: getmapvalue($config, 'disabled::color', $color-surface-06);
+      color: getmapvalue($config, 'disabled::color', $color-surface-06);
+      background-color: getmapvalue($config, 'disabled::background', $color-surface-03);
+
+      .dl-ui-dropdown__trigger-icon {
+        fill: getmapvalue($config, 'trigger-icon::color', $color-surface-06);
+      }
+    }
+  }
+
+  &:not(.dl-ui-dropdown--error):not(.dl-ui-dropdown--disabled) {
+    .dl-ui-dropdown__box {
+      border: getmapvalue($config, 'border', 1px solid);
+      border-color: getmapvalue($config, 'border-color', $color-surface-06);
+      color: getmapvalue($config, 'color', $color-base-highlight-03k);
+    }
+  }
+
+  .dl-ui-dropdown.overlayVisible > .dl-ui-dropdown__container > .dl-ui-dropdown__box,
+  .dl-ui-dropdown:focus > .dl-ui-dropdown__container > .dl-ui-dropdown__box {
+    border: 1px solid $color-emphasis-01;
+  }
+
+  .dl-ui-dropdown.overlayVisible > .dl-ui-dropdown__container > .dl-ui-dropdown__box > .dl-ui-dropdown__trigger-icon,
+  .dl-ui-dropdown:focus > .dl-ui-dropdown__container > .dl-ui-dropdown__box > .dl-ui-dropdown__trigger-icon {
+    fill: $color-surface-contrast;
+  }
+}

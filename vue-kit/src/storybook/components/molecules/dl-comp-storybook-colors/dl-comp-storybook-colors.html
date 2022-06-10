@@ -1,0 +1,49 @@
+<article class="dl-comp-storybook-colors">
+  <!-- Tabs -->
+  <dl-ui-tabs class="dl-comp-storybook-colors__tabs" v-if="data">
+    <!-- Tab: Color -->
+    <dl-ui-tab
+      :key="`dl-comp-storybook-colors-${tabIndex}`"
+      :selected="tab.selected"
+      :title="tab.title"
+      v-for="(tab, tabIndex) in data.tabs"
+    >
+      <div class="dl-comp-storybook-colors__box">
+        <div class="dl-comp-storybook-colors__description">{{ tab.description }}</div>
+        <div
+          :class="{ 'dl-comp-storybook-colors__list--block': colors.title}"
+          :key="ind0"
+          class="dl-comp-storybook-colors__list"
+          v-for="colors,ind0 in tab.colors"
+        >
+          <h4 class="dl-comp-storybook-colors__list__title" v-if="colors.title">{{ colors.title }}</h4>
+          <div class="dl-comp-storybook-colors__list__item">
+            <h5 class="dl-comp-storybook-colors__list__item__title">{{ colors.subtitle }}</h5>
+            <div class="dl-comp-storybook-colors__list__item__color">
+              <div
+                :class="getClassSample(color, colors)"
+                :key="index"
+                class="dl-comp-storybook-colors__sample"
+                v-for="color,index in data.colors[colors.color]"
+              >
+                <div
+                  :class="`theme-${tab.theme}`"
+                  :ref="`sample-${tabIndex}-${ind0}-${index}`"
+                  :style="getStyleSample(color)"
+                  class="dl-comp-storybook-colors__sample__frame"
+                ></div>
+                <div class="dl-comp-storybook-colors__sample__info">
+                  <div class="dl-comp-storybook-colors__sample__info__name" v-if="color.name">{{ color.name }}</div>
+                  <div class="dl-comp-storybook-colors__sample__info__var" v-if="color.var">{{ color.var }}</div>
+                  <div class="dl-comp-storybook-colors__sample__info__color">
+                    {{ getColor(color, `sample-${tabIndex}-${ind0}-${index}`) }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dl-ui-tab>
+  </dl-ui-tabs>
+</article>

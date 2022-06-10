@@ -1,0 +1,377 @@
+@mixin datepicker-style-config($config) {
+  position: relative;
+
+  .dl-ui-datepicker {
+    &__overlay {
+      z-index: 2;
+      position: absolute;
+      background-color: getmapvalue($config, 'overlay::background', $color-surface-01k);
+      width: getmapvalue($config, 'overlay::width', 296px);
+      border: getmapvalue($config, 'overlay::border', 1px solid $color-emphasis-02);
+      border-radius: getmapvalue($config, 'overlay::border-radius', 3px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: $color-base-03k;
+
+      @include font-body-medium-regular();
+
+      &-header {
+        display: flex;
+        flex: 0 0 auto;
+        height: 50px;
+        align-items: center;
+        margin: getmapvalue($config, 'overlay::header::margin', 0 8px);
+        padding: getmapvalue($config, 'overlay::header::padding', 16px 8px);
+        border-bottom: getmapvalue($config, 'overlay::header::border-bottom', 1px solid $color-emphasis-02);
+        justify-content: space-between;
+        fill: getmapvalue($config, 'overlay::header::color', $color-emphasis-03k);
+        color: getmapvalue($config, 'overlay::header::color', $color-emphasis-03k);
+
+        @include font-body-medium-bold();
+      }
+
+      &-body {
+        display: flex;
+        flex: 1 1 auto;
+        margin: getmapvalue($config, 'overlay::body::margin', 8px);
+        padding: getmapvalue($config, 'overlay::body::padding', 0);
+      }
+
+      &-footer {
+        display: flex;
+        flex: 0 0 auto;
+        opacity: 0;
+        max-height: 0;
+        align-items: center;
+        justify-content: flex-end;
+        margin: getmapvalue($config, 'overlay::footer::margin', 8px);
+        padding: getmapvalue($config, 'overlay::footer::padding', 0);
+        color: getmapvalue($config, 'overlay::footer::color', $color-emphasis-05);
+        transition: all 0.2s linear;
+        user-select: none;
+
+        &--visible {
+          opacity: 1;
+          max-height: 28px;
+        }
+      }
+    }
+
+    &__context {
+      cursor: pointer;
+      user-select: none;
+
+      @include font-body-medium-bold();
+
+      &-navigation {
+        display: flex;
+        flex: 0 0 auto;
+        width: 60px;
+        align-items: center;
+        justify-content: space-between;
+        cursor: default;
+
+        &-button {
+          flex: 0 0 auto;
+          width: 20px;
+          cursor: pointer;
+
+          > svg {
+            height: getmapvalue($config, 'navigation::icons::size', 16px);
+            width: getmapvalue($config, 'navigation::icons::size', 16px);
+          }
+        }
+      }
+    }
+
+    &__month-box {
+      display: block;
+      width: 100%;
+      user-select: none;
+
+      &-weekDays,
+      &-days {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 40px);
+        cursor: default;
+      }
+
+      &-weekDay {
+        display: flex;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        color: $color-base-03k;
+
+        @include font-body-medium-bold();
+      }
+
+      &-day {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+
+        &-inner-box {
+          display: flex;
+          width: 32px;
+          height: 32px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+          transition: all 0.2s linear;
+
+          &--today {
+            background-color: getmapvalue($config, 'item::today::background', $color-surface-04);
+            color: getmapvalue($config, 'item::today::color', $color-base-03k);
+          }
+
+          &--active {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            pointer-events: none;
+          }
+
+          &:not(&--active):hover {
+            // hover effect only in not selected days
+            background-color: getmapvalue($config, 'item::hover::background', $color-emphasis-01);
+            color: getmapvalue($config, 'item::hover::color', $color-emphasis-05);
+            cursor: pointer;
+          }
+
+          &--active-multiple {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            pointer-events: all;
+            cursor: pointer;
+
+            &:hover {
+              // hover effect only in not selected days
+              background-color: getmapvalue($config, 'item::active::hover::background', $color-emphasis-01);
+              color: getmapvalue($config, 'item::active::hover::color', $color-emphasis-05);
+            }
+          }
+
+          &--disabled {
+            color: getmapvalue($config, 'item::disabled::color', $color-base-02);
+            pointer-events: none;
+          }
+
+          &--in-range-grow-left {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::before {
+              position: absolute;
+              left: -10px;
+              width: 13px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+
+          &--in-range-grow-right {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::after {
+              position: absolute;
+              right: -10px;
+              width: 13px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+        }
+      }
+    }
+
+    &__year-box {
+      display: block;
+      width: 100%;
+      user-select: none;
+
+      &-months {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 86px);
+        grid-column-gap: 10px;
+        cursor: default;
+      }
+
+      &-month {
+        display: flex;
+        width: 75px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+
+        &-inner-box {
+          display: flex;
+          width: 70px;
+          height: 32px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+          transition: all 0.2s linear;
+
+          &--today {
+            background-color: getmapvalue($config, 'item::today::background', $color-surface-04);
+            color: getmapvalue($config, 'item::today::color', $color-base-03k);
+          }
+
+          &--active {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            cursor: pointer;
+          }
+
+          &:not(&--active):hover {
+            // hover effect only in not selected days
+            background-color: getmapvalue($config, 'item::hover::background', $color-emphasis-01);
+            color: getmapvalue($config, 'item::hover::color', $color-emphasis-05);
+            cursor: pointer;
+          }
+
+          &--disabled {
+            color: getmapvalue($config, 'item::disabled::color', $color-base-02);
+            pointer-events: none;
+          }
+
+          &--in-range-grow-left {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::before {
+              position: absolute;
+              left: -13px;
+              width: 16px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+
+          &--in-range-grow-right {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::after {
+              position: absolute;
+              right: -13px;
+              width: 16px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+        }
+      }
+    }
+
+    &__decade-box {
+      display: block;
+      width: 100%;
+      user-select: none;
+
+      &-years {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 86px);
+        grid-column-gap: 10px;
+        cursor: default;
+      }
+
+      &-year {
+        display: flex;
+        width: 75px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+
+        &-inner-box {
+          display: flex;
+          width: 70px;
+          height: 32px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+          transition: all 0.2s linear;
+
+          &--today {
+            background-color: getmapvalue($config, 'item::today::background', $color-surface-04);
+            color: getmapvalue($config, 'item::today::color', $color-base-03k);
+          }
+
+          &--active {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            cursor: pointer;
+          }
+
+          &:not(&--active):hover {
+            // hover effect only in not selected days
+            background-color: getmapvalue($config, 'item::hover::background', $color-emphasis-01);
+            color: getmapvalue($config, 'item::hover::color', $color-emphasis-05);
+            cursor: pointer;
+          }
+
+          &--disabled {
+            color: getmapvalue($config, 'item::disabled::color', $color-base-02);
+            pointer-events: none;
+          }
+
+          &--in-range-last-year-decade {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+          }
+
+          &--in-range-grow-left {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::before {
+              position: absolute;
+              left: -13px;
+              width: 16px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+
+          &--in-range-grow-right {
+            background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            color: getmapvalue($config, 'item::active::color', $color-surface-01k);
+            position: relative;
+
+            &::after {
+              position: absolute;
+              right: -13px;
+              width: 16px;
+              content: '';
+              height: 32px;
+              background-color: getmapvalue($config, 'item::active::background', $color-emphasis-03k);
+            }
+          }
+        }
+      }
+    }
+
+    &__goto-today {
+      cursor: pointer;
+
+      @include font-body-medium-bold();
+    }
+  }
+}

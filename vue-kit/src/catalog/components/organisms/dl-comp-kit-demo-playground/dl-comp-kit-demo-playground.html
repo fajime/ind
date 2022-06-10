@@ -1,0 +1,33 @@
+<div class="dl-comp-kit-demo-playground">
+  <div class="dl-comp-kit-demo-playground__left">
+    <div class="dl-comp-kit-demo-playground__left-top">
+      <div class="dl-comp-kit-demo-playground__controls-inputs">        
+        <template v-for="input in allInputs">
+          <dl-comp-kit-demo-playground-input
+            :configuration="input"
+            @update:modelValue="$emit('update:modelValue', $event)"
+            v-if="input.type !== 'hidden'"
+            v-model="input.value"
+          >
+          </dl-comp-kit-demo-playground-input>
+        </template>
+      </div>
+    </div>
+    <div class="dl-comp-kit-demo-playground__left-bottom">
+      <div class="dl-comp-kit-demo-playground__output-controls">
+        <span>Salida:</span>
+        <div @click="clearOutput">
+          <dl-ui-icon
+            :class="{ 'dl-comp-kit-demo-playground__output-controls-icon--hide': outputEmpty}"
+            class="dl-ui-icon dl-comp-kit-demo-playground__output-controls-icon"
+            id="dl-ids-icon-close-no-circle-outlined"
+          ></dl-ui-icon>
+        </div>
+      </div>
+      <div class="dl-comp-kit-demo-playground__output" ref="output"></div>
+    </div>
+  </div>
+  <div class="dl-comp-kit-demo-playground__right">
+    <slot></slot>
+  </div>
+</div>

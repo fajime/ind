@@ -1,0 +1,34 @@
+@import '../mixins/switch';
+
+// configuration map
+$config: (
+  'width': 300px,
+  'height': 40px,
+  'background': rgb(190, 108, 245),
+  'label::color': rgb(228, 81, 105),
+  'ball::margin': -10px,
+  'ball::color': lightgray,
+  'active::label::color': rgb(228, 81, 105),
+  'active::background': rgb(224, 28, 60),
+  'active::ball::color': rgb(158, 158, 158),
+  'active::hover::background': rgb(179, 20, 20),
+  'hover::background': rgb(189, 23, 51),
+  'disabled::label::color': rgb(235, 189, 196),
+  'disabled::background': rgb(206, 122, 136),
+  'disabled::ball::color': rgb(206, 204, 204),
+  'disabled::active::label::color': rgb(253, 104, 129),
+  'disabled::active::background': rgb(160, 36, 56),
+  'disabled::active::ball::color': rgb(92, 27, 27)
+);
+
+.custom-switch {
+  @include switch-style-config($config);
+}
+
+.demo__dl-ui-switch {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
