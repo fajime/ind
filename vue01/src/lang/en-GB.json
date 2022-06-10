@@ -1,0 +1,374 @@
+{
+  "appName": "Cyberrange",
+  "appNameSimple": "Hacking Game",
+  "appDescription": "FEINDEF - Hacking Game",
+  "settings": {
+    "title": "Settings",
+    "lang": {
+      "english": "English",
+      "spanish": "Español",
+      "title": "Language"
+    },
+    "catalog": "Catalog Id",
+    "save": "Save",
+    "conect": "Connect",
+    "mission": "Mission Id",
+    "conecting": "Loading",
+    "connected": "Connected",
+    "disconnected": "Disconnect",
+    "disconnecting": "Disconnecting"
+  },
+  "login": {
+    "action": "Login",
+    "error": {
+      "email": {
+        "format": "Email format not valid.",
+        "required": "Email is required."
+      },
+      "notAvailable": "Service not available. Please try again later.",
+      "notCorrect": "The credentials are incorrect. Try again or contact with technical assistance.",
+      "pass": {
+        "required": "Password is required."
+      },
+      "user": {
+        "required": "User is required."
+      }
+    },
+    "forgotPass": "Forgot password?",
+    "pass": "Pass",
+    "remember": "Remember me",
+    "user": "User",
+    "demoInstance": "Demo instance"
+  },
+  "landing": {
+    "monitoring": {
+      "title": "Monitoring",
+      "subtitle": "Mission Viewer",
+      "body": "Display missions and create your custom layouts",
+      "action": "Monitoring"
+    },
+    "planning": {
+      "title": "Planning",
+      "subtitle": "Mission planner",
+      "body": "Plan and manage missions",
+      "action": "Plan"
+    }
+  },
+  "missions": {
+    "title": "Load mission",
+    "table": {
+      "field": {
+        "name": "Name",
+        "type": "Mission Type",
+        "desc": "Description",
+        "author": "Author",
+        "date": "Date",
+        "status": "Status",
+        "scope": "Scope",
+        "coordinates": "Coordinates",
+        "instance": "Instances",
+        "tags": "Tags",
+        "actions": "Actions",
+        "dateCreation": "Create Date",
+        "dateUpdate": "Update Date",
+        "address": "Address"
+      },
+      "status": {
+        "started": "Started",
+        "running": "Running",
+        "stopped": "Stopped"
+      }
+    },
+    "actions": {
+      "launch": "Start mission",
+      "join": "Join",
+      "newInstance": "New instance"
+    }
+  },
+  "disclaimer": "Version: {0}",
+  "menubar": {
+    "buttons": {
+      "viewer": "Viewer",
+      "planner": "Planner",
+      "home": "Landing page"
+    }
+  },
+  "viewerToolbar": {
+    "title": "Layout",
+    "load": "Load",
+    "save": "Save",
+    "maps": "Maps",
+    "dashboards": "Dashboards",
+    "teams": "Teams",
+    "points": "points"
+  },
+  "serviceManager": {
+    "title": "Service Manager",
+    "table": {
+      "header": {
+        "service": "Service",
+        "date": "Time",
+        "actions": "Actions",
+        "icon": "Icon",
+        "address": "Address",
+        "entities": "Entities",
+        "group": "Group"
+      }
+    },
+    "service": {
+      "actions": {
+        "stop": "Stop",
+        "restart": "Restart",
+        "clone": "Clone"
+      }
+    },
+    "status": "Status"
+  },
+  "mapCyber": {
+    "title": "Cyber Map"
+  },
+  "cysa": {
+    "title": "CYSA",
+    "tab": {
+      "summary": "Summary",
+      "coas": "COAS",
+      "mission": "Mission",
+      "dra": "DRA"
+    },
+    "control": {
+      "status": "Status",
+      "coas": "COAS"
+    },
+    "summary": {
+      "overallMissionRisk": "Overall Mission Risk",
+      "dimensions": "Dimensions"
+    },
+    "popup": {
+      "risk": {
+        "title": "Risk scoring",
+        "table": {
+          "id": "Id",
+          "threat": "Threat",
+          "score": "Risk score",
+          "likelihood": "Likelihood",
+          "ciaImpact": "CIA Impact",
+          "affected": "Affected asset",
+          "source": "Source"
+        }
+      }
+    },
+    "dra": {
+      "cisRiskLevel": "CIS Risk Level",
+      "detectedCisThreats": "DETECTED CIS THREATS",
+      "attackPath": "Attack route"
+    },
+    "coas": {
+      "title": "Proposed CoAs",
+      "detail": {
+        "actionType": "Action type",
+        "escalationRisk": "Escalation risk",
+        "minimumEfficacy": "Minimum efficacy",
+        "acceptableRiskThreshold": "Acceptable risk threshold",
+        "counterpartRisk": "Counterpart risk",
+        "enemyCoAsId": "Enemy CoA Id",
+        "enemyCoAsName": "Enemy CoA Name",
+        "armedAttack": "Armed attack",
+        "useOfForce": "Use ff force",
+        "violationNonIntervention": "Violation non intervention",
+        "completnessDegree": "Completness degree",
+        "similarityDegree": "Similarity degree",
+        "previousEnforedCoASimilarityDegree": "\nPrev. enforced CoA similarity degree",
+        "technicalResourcesCost": "Technical resources cost",
+        "forcesCost": "Forces cost",
+        "reserveForcesCost": "Reserve forces cost",
+        "avenuesOfWithdrawal": "Avenues of withdrawal",
+        "environmentIntensity": "Environment intensity",
+        "operationalTime": "Operational time",
+        "personnelAdequacy": "Personnel adequacy",
+        "resourcesAdequacyDegree": "Resources adequacy degree",
+        "type": "Type",
+        "acceptability": "Acceptability",
+        "actionConsideration": "Action consideration",
+        "completness": "Completeness",
+        "exclusivity": "Exclusivity",
+        "feasibility": "Suitability",
+        "coasCl": "CoA CL",
+        "scores": "Scores",
+        "enemyCoARisk": "Enemy CoA risk",
+        "actOfAggression": "Act of aggression",
+        "isRoEConsistent": "RoE consistent",
+        "mandatoryFieldsCompleted": "Mandatory fields completed",
+        "suitability": "Suitability"
+      },
+      "technical": {
+        "isCriticalActuatorMissing": " Critical actuator missing",
+        "efficacy": "Efficacy"
+      }
+    },
+    "coasCL": {
+      "coaClId": "CoA Id",
+      "coaClName": "CoA CL Name"
+    },
+    "score": "Score"
+  },
+  "combatCloud": {
+    "title": "Combat Cloud Event Viewer",
+    "table": {
+      "header": {
+        "service": "Service",
+        "date": "Time",
+        "protection": "Protection",
+        "target": "Target",
+        "source": "Source",
+        "subject": "Subject",
+        "type": "Type"
+      }
+    }
+  },
+  "timeline": {
+    "title": "Timeline",
+    "toolbarName": "Timeline"
+  },
+  "universe": {
+    "title": "Universe"
+  },
+  "map3D": {
+    "title": "3D Map"
+  },
+  "map2D": {
+    "title": "2D Map"
+  },
+  "loadLayout": {
+    "cancel": "Cancel",
+    "load": "Load",
+    "title": "Load layout config",
+    "desc": "Select a previously saved configuration or a pre-set one and press the \"Load\" button to set it as the current window layout.",
+    "success": "Configuration loaded successfully.",
+    "error": "Configuration loading failed. \nPlease try again later.",
+    "select": "Select a configuration"
+  },
+  "saveLayout": {
+    "title": "Save layout config",
+    "desc": "Save current layout settings. Name this configuration and press the \"Save\" button to save it. You can load it at any time.",
+    "cancel": "Cancel",
+    "save": "Save",
+    "configName": "Layout name",
+    "success": "Configuration saved successfully",
+    "error": "Failed to save settings. \nPlease try again later."
+  },
+  "layout": {
+    "config": {
+      "allSame": "All items at same size",
+      "all": "All items",
+      "onlyMaps": "Only maps",
+      "onlyDash": "Only dashboards"
+    },
+    "gridtem": {
+      "close": "Close",
+      "fullSize": "Full size",
+      "minimize": "Minimize"
+    },
+    "gridItem": {
+      "minimize": "Minimize",
+      "fullSize": "Full size",
+      "close": "Close"
+    }
+  },
+  "shortcuts": {
+    "title": "Quick access"
+  },
+  "error": {
+    "type": {
+      "missions": "Failed to load mission list. Try again later.",
+      "connect": "Mission loading failed. \nTry again later.",
+      "applyAcction": "Error executing suggested action",
+      "missionPaused": "The mission is on pause. When it reactivates it will see itself in motion."
+    },
+    "disconnect": "Failed to exit mission"
+  },
+  "powerGrid": {
+    "title": "Powergrid"
+  },
+  "powergrid": {
+    "title": "Powergrid",
+    "general": "General",
+    "panels": "Panels"
+  },
+  "demoControl": {
+    "title": "Demo control",
+    "suggested": "Suggested Actions",
+    "mission": "Mission",
+    "apply": "Apply action",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connection": "Connection",
+    "error": {
+      "start": "Error sending \"START\" command to mission",
+      "pause": "Failed to send \"PAUSE\" command to mission",
+      "stop": "Error sending \"STOP\" command to mission"
+    },
+    "missionTime": "Mission time",
+    "queues": "Queues",
+    "hylabs": "HyLabs",
+    "events": "Events",
+    "entities": "Entities",
+    "server": "Server",
+    "links": "Cyber",
+    "cysa": "CYSA",
+    "actionExecuted": "Action executed",
+    "actionExecutedDesc": "The order for the execution of the suggested action has been sent. \nYou will be able to see the result of this action shortly.",
+    "closeModal": "Close"
+  },
+  "serverStatus": {
+    "INITIALIZED": "Initialized",
+    "MISSIONLOADED": "Ready",
+    "RUNNING": "Running",
+    "PAUSED": "Paused",
+    "undefined": "No mission"
+  },
+  "queueStatus": {
+    "OK": "Connected",
+    "KO": "Connection error",
+    "DISCONNECT": "Not connected",
+    "undefined": "Connecting..."
+  },
+  "viewerSide": {
+    "title": "Mission entities",
+    "emptyTree": "There are no entities for this mission yet"
+  },
+  "universemanager": {
+    "connection": {
+      "KO": "Failed to connect to the real-time data source"
+    }
+  },
+  "entitiiesTree": {
+    "side": "Side",
+    "model": "Model",
+    "loadType": "Load",
+    "type": "Type",
+    "id": "Id",
+    "sensorType": "Sensor type",
+    "coordinates": "Coordinates",
+    "latitude": "Lat.",
+    "longitude": "Long.",
+    "height": "Height",
+    "altitude": "Alt.",
+    "rotation": "Rotation"
+  },
+  "race": {
+    "title": "Ranking"
+  },
+  "scoring": {
+    "title": "Scoring"
+  },
+  "scoringtable": {
+    "header": {
+      "challenge": "Challenge"
+    }
+  },
+  "data": {
+    "retrieving": {
+      "error": "Error receiving user ranking data"
+    }
+  }
+}

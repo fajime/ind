@@ -1,0 +1,15 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-range/mixins/range';
+
+$config-range: (
+  'track::background-color': $color-3,
+  'track::color': $color-4,
+  'thumb::background-color': $color-1,
+  'thumb::radius': 8px,
+  'thumb::size': 16px,
+  'thumb::border-width': 4px,
+  'thumb::border-color': $color-4,
+);
+
+.dl-hl-range {
+  @include range-style-config($config-range);
+}

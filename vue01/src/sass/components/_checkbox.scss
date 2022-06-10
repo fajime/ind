@@ -1,0 +1,35 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-checkbox/mixins/checkbox';
+
+$config-checkbox: (
+  'size': 1.8rem,
+  'background-color': transparent,
+  'border': 1px solid $color-22,
+  'border-radius': 4px,
+  'active::background-color': $color-9,
+  'active::border': 1px solid rgba(0, 0, 0, 0.05),
+  'active::color': $color-6,
+  'disable::opacity': 0.5,
+);
+
+.dl-hl-checkbox {
+  @include checkbox-style-config($config-checkbox);
+
+  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
+}
+
+$config-checkbox-alt: (
+  'size': 1.8rem,
+  'background-color': transparent,
+  'border': 1px solid $color-22,
+  'border-radius': 4px,
+  'active::background-color': $color-8,
+  'active::border': 1px solid rgba(0, 0, 0, 0.05),
+  'active::color': $color-6,
+  'disable::opacity': 0.5,
+);
+
+.dl-hl-checkbox--alt {
+  @include checkbox-style-config($config-checkbox-alt);
+
+  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
+}

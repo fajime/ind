@@ -1,0 +1,36 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-radio/mixins/radio';
+
+$config-radio: (
+  'width': 16px,
+  'border-color': $color-3,
+  'active::item-background': $color-4,
+  'active::item-color': $color-4,
+  'hover::item-background': $color-4,
+  'hover::item-color': $color-4,
+  'hover::nh-item-color': $color-4, // Border (hover)
+  'focus::shadow-color': $color-4, // Border outer pinstripe (focus)
+  'focus::item-color': $color-4 // Border (focus)
+);
+
+.dl-hl-radio {
+  @include radio-style-config($config-radio);
+
+  .dl-ui-radio__box {
+    border-width: 1px;
+    transition-duration: 0.15s;
+  }
+
+  .dl-ui-radio__box:not(.dl-ui-radio--disabled).dl-ui-radio--focus {
+    border-width: 5px;
+    box-shadow: none;
+  }
+
+  .dl-ui-radio--highlight {
+    border-width: 5px;
+    box-shadow: none;
+  }
+
+  .dl-ui-radio--highlight > .dl-ui-radio__icon {
+    height: 6px;
+  }
+}

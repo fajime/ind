@@ -1,0 +1,62 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-select/mixins/select';
+
+//TODO: Temp config. Come back to this when updated/finalised in KIT
+$config-select: (
+  'height': 36px,
+  'background': $color-2,
+  'border-color': $color-22,
+  'label-color': $color-6,
+  'focus::shadow-color': transparent,
+  'focus::border-color': $color-22,
+  'clear::color': $color-6,
+  'trigger::color': $color-6,
+  'list::background': $color-2,
+  'list::color': $color-6,
+  'hover::item-background': $color-22,
+  'hover::item-color': $color-6,
+  'active::item-background': $color-1,
+  'active::item-color': $color-6,
+);
+
+.dl-hl-select {
+  @include select-style-config($config-select);
+
+  .dl-ui-select__container {
+    border-radius: 4px;
+  }
+
+  .dl-ui-select__inputtext {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .dl-ui-select__panel {
+    z-index: 4;
+  }
+
+  .dl-ui-select__items {
+    padding: 0;
+
+    .dl-ui-select__item {
+      padding: 0.5rem 1.5rem;
+      border-top: 1px solid $color-22;
+      border-left: 2px solid transparent;
+
+      &:not(.dl-ui-select--highlight):not(.dl-ui-select--disabled):hover {
+        border-left: 2px solid $color-8;
+      }
+    }
+  }
+
+  .dl-ui-select__panel .dl-ui-select__items .dl-ui-select__item.dl-ui-select--highlight {
+    border-left: 2px solid $color-9;
+  }
+
+  // Validation: States
+  &--error > .dl-ui-select__container:not(.dl-ui-select--disabled) {
+    border-color: $color-10;
+  }
+
+  &--warning > .dl-ui-select__container:not(.dl-ui-select--disabled) {
+    border-color: $color-12;
+  }
+}

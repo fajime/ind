@@ -1,0 +1,133 @@
+
+@charset 'utf-8';
+
+@import '~@indra-dl/dl-fmwk-ui-layout/src/layout/reset';
+
+//* Components KIT: Imported components will be styled separately:
+@import 'sass/components/index';
+
+/*
+Below, example of responsive base font-size
+ORDER MATTERS (This is desktop-first, for mobile-first, order would be inverted and min-width used in mixin)
+*/
+
+html {
+  /*
+  This defines 1 rem to 10px, 10 is 62.5% of default's 16px.
+  This way, by using rems, all layout sizes will be dependant on this base font-size
+  (and responsive when altered by media queries)
+  body, below, sets main size to 1.6rem, for instance
+  */
+  font-size: 62.5%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-6;
+}
+
+#app {
+  font-family: $font-default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $color-1;
+}
+
+.app_wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 1em;
+  background: $color-1;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  z-index: 1;
+  position: relative;
+}
+
+.router_view {
+  flex: 1;
+}
+
+// Remove Firefox autofill colours
+input {
+  filter: none;
+}
+
+// Remove Webkit autofill colours
+input:-webkit-autofill,
+input:-internal-autofill-selected,
+input:-internal-autofill-previewed {
+  background-color: $color-1 !important;
+  -webkit-text-fill-color: $color-6 !important;
+  -webkit-box-shadow: 0 0 0 30px $color-1 inset !important;
+}
+
+input[type="text"],
+input[type="password"] {
+  color: $color-6;
+  font-size: 1.4rem;
+  width: 100%;
+  height: 3.6rem;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid $color-22;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.15s linear;
+
+  &::placeholder {
+    color: $color-3;
+  }
+
+  &:focus {
+    background-color: $color-1;
+  }
+}
+
+.--input-success {
+  border-bottom: $color-9 !important;
+}
+
+.--input-error {
+  border-bottom: $color-10 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-22;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-29;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $color-3;
+}

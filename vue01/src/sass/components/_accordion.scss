@@ -1,0 +1,75 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/molecules/dl-ui-accordion/mixins/accordion';
+
+$config: (
+  'header::background-color': $color-2,
+  'header::hover::background-color': $color-2,
+  'header::chevron::color': $color-3,
+  'header::active::border-bottom': $color-2,
+  'content::background-color':  $color-2
+);
+
+.dl-hl-accordion {
+  color: $color-0;
+  margin-bottom: 8px;
+
+  @include accordion-style-config($config);
+
+  > .dl-ui-accordion__title {
+    height: 40px;
+    border-radius: 1px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    transition: all 0.2s ease-in-out;
+    padding: 0 1rem;
+
+    &::after {
+      content: "\2716";
+      font-size: 14px;
+      margin-left: 0;
+      margin-right: 0;
+      transform: rotate(45deg);
+      color: $color-6;
+    }
+  }
+
+  > .dl-ui-accordion__content {
+    border-radius: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    box-shadow: inset 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+
+    aside {
+      margin: 0 16px;
+      padding: 24px 0;
+    }
+
+    &--open {
+      //TODO: There is a background colour set on this that looks weird when not full height
+      #{--height}: 500px;
+
+      > * + * {
+        border-top: 1px solid $color-6;
+      }
+    }
+  }
+
+  > .dl-ui-accordion__input {
+    display: none;
+
+    &:checked {
+      + .dl-ui-accordion__title {
+        border-bottom: getmapvalue($config, 'header::active::border-bottom', 1px solid $dl-ui-yellow-solar); //TODO: Not sure why this is here. Maybe remove?
+
+        /*
+          Why don't we rotate '45deg' ?
+          It takes longer to rotate 180deg and completes AFTER the '.dl-ui-accordion__content' closes/opens.
+          The transition time set on #36 is too long for a 45deg rotation and produces a visually 'buggy' behaviour.
+        */
+        &::after {
+          transform: rotate(180deg);
+          color: $color-3;
+        }
+      }
+    }
+  }
+}

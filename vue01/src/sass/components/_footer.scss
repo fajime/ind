@@ -1,0 +1,23 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/molecules/dl-ui-footer/mixins/footer';
+
+$config: (
+  'height': 2.2rem,
+  'right::image-margin': 0.7rem,
+  'right::accent-width': 10px
+);
+
+.dl-hl-footer {
+  z-index: 1;
+  box-shadow: $box-shadow-up;
+
+  @include footer-style-config($config);
+
+  &__container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1rem;
+    align-items: center;
+    font-size: 10px;
+  }
+}

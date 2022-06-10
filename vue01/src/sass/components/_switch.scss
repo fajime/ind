@@ -1,0 +1,16 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-switch/mixins/switch';
+
+$config-switch: (
+  'width': 3.2rem,
+  'height': 1.6rem,
+  'background-color': $color-3,
+  'ball::margin': 0.3rem,
+  'ball::color': $color-1,
+  'active::background-color': $color-4,
+  'active::ball::color': $color-1,
+  'disable::opacity': 0.5
+);
+
+.dl-hl-switch {
+  @include switch-style-config($config-switch);
+}

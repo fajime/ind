@@ -1,0 +1,14 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/molecules/dl-ui-snack/mixins/snack';
+
+$config-select: (
+  'font-size': 14px,
+  'success::color': $color-16,
+  'error::color': $color-10,
+  'warning::color': $color-15,
+  'default::color': $color-2,
+  'close::size': 20px
+);
+
+.dl-hl-snack {
+  @include snack-style-config($config-select);
+}

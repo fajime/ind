@@ -1,0 +1,8 @@
+@import '~@indra-dl/dl-fmwk-vue-comp-kit/src/components/atoms/dl-ui-toggle-button/mixins/toggle-button';
+
+$config-toggle-button: (
+);
+
+.dl-hl-toggle-button {
+  @include toggle-button-style-config($config-toggle-button);
+}

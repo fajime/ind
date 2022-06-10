@@ -1,0 +1,370 @@
+{
+  "appName": "Cyberrange",
+  "appNameSimple": "Hacking Game",
+  "appDescription": "FEINDEF - Hacking Game",
+  "settings": {
+    "title": "Configuración",
+    "lang": {
+      "english": "English",
+      "spanish": "Español",
+      "title": "Idioma"
+    },
+    "catalog": "Catálogo Id",
+    "save": "Guardar",
+    "conect": "Conectar",
+    "mission": "Misión Id",
+    "conecting": "Cargando",
+    "connected": "Conectado",
+    "disconnected": "Desconectar",
+    "disconnecting": "Desconectando"
+  },
+  "login": {
+    "action": "Login",
+    "error": {
+      "email": {
+        "format": "El formato de email no es correcto.",
+        "required": "El campo email es obligatorio."
+      },
+      "notAvailable": "Servicio no disponible. Por favor inténtelo de nuevo más tarde.",
+      "notCorrect": "las credenciales no son correctas. Inténtelo de nuevo o póngase en contacto con las asistencia ténica.",
+      "pass": {
+        "required": "La contraseña es obligatoria."
+      },
+      "user": {
+        "required": "El usuario es obligatorio."
+      }
+    },
+    "forgotPass": "No recuerdo mi constraseña",
+    "pass": "Contraseña",
+    "remember": "Recuérdame",
+    "user": "Usuario",
+    "demoInstance": "Instancia de demo"
+  },
+  "landing": {
+    "monitoring": {
+      "title": "Monitorización",
+      "subtitle": "Visualizador de misiones",
+      "body": "Visualiza una misión pudiendo configurar los componentes",
+      "action": "Visualizar"
+    },
+    "planning": {
+      "title": "Planificación",
+      "subtitle": "Planificador de misiones",
+      "body": "Planifica y gestiona misiones",
+      "action": "Planificar"
+    }
+  },
+  "missions": {
+    "title": "Cargar misión existente",
+    "table": {
+      "field": {
+        "name": "Nombre",
+        "type": "Tipo de misión",
+        "desc": "Descripcción",
+        "author": "Autor",
+        "date": "Fecha",
+        "status": "Estado",
+        "scope": "Ámbito",
+        "coordinates": "Coordenadas",
+        "tags": "Etiquetas",
+        "instance": "Instancias",
+        "actions": "Acciones",
+        "dateCreation": "Fecha creación",
+        "dateUpdate": "Fecha actualización",
+        "address": "Dirección"
+      },
+      "status": {
+        "started": "Activa",
+        "running": "En ejecución",
+        "stopped": "Detenida"
+      }
+    },
+    "actions": {
+      "launch": "Empezar misión",
+      "join": "Unirse",
+      "newInstance": "Nueva instancia"
+    }
+  },
+  "disclaimer": "Versión: {0}",
+  "menubar": {
+    "buttons": {
+      "viewer": "Visor",
+      "planner": "Planificador",
+      "home": "Inicio"
+    }
+  },
+  "viewerToolbar": {
+    "title": "Diseño",
+    "load": "Cargar",
+    "save": "Guardar",
+    "maps": "Mapas",
+    "dashboards": "Cuadros de Mando",
+    "teams": "Equipos",
+    "points": "puntos"
+  },
+  "serviceManager": {
+    "title": "Gestor de Servicios",
+    "table": {
+      "header": {
+        "service": "Servicio",
+        "date": "Fecha",
+        "actions": "Acciones",
+        "icon": "Icono",
+        "address": "Dirección",
+        "entities": "Entidades",
+        "group": "Grupo"
+      }
+    },
+    "service": {
+      "actions": {
+        "stop": "Detener",
+        "restart": "Reiniciar",
+        "clone": "Clonar"
+      }
+    },
+    "status": "Estado"
+  },
+  "mapCyber": {
+    "title": "Mapa Cyber"
+  },
+  "cysa": {
+    "title": "CYSA",
+    "tab": {
+      "summary": "Resumen",
+      "coas": "COAS",
+      "mission": "Misión",
+      "dra": "DRA"
+    },
+    "control": {
+      "status": "Estado",
+      "coas": "COAS"
+    },
+    "summary": {
+      "overallMissionRisk": "Riesgo General",
+      "dimensions": "Dimensiones"
+    },
+    "popup": {
+      "risk": {
+        "title": "Ranking de riesgos",
+        "table": {
+          "id": "Id",
+          "threat": "Amenaza",
+          "score": "Puntuación de riesgo",
+          "likelihood": "Probabilidad",
+          "ciaImpact": "Impacto CIA",
+          "affected": "Elementos afectados",
+          "source": "Origen"
+        }
+      }
+    },
+    "dra": {
+      "cisRiskLevel": "Nivel de riesgo CIS",
+      "detectedCisThreats": "Amenazas CIS detectadas",
+      "attackPath": "Ruta de ataque"
+    },
+    "coas": {
+      "title": "CoAs propuestas",
+      "detail": {
+        "actionType": "Tipo de acción",
+        "escalationRisk": "Riesgo de escalada",
+        "minimumEfficacy": "Eficacia mínima",
+        "acceptableRiskThreshold": "\nUmbral de riesgo aceptable",
+        "counterpartRisk": "Riesgo de contraparte",
+        "enemyCoAsId": "Id de CoA enemiga",
+        "enemyCoAsName": "Nombre CoA enemiga",
+        "enemyCoARisk": "Riesgo CoA enemiga",
+        "actOfAggression": "Acto de agresión",
+        "armedAttack": "Ataque armado",
+        "useOfForce": "Uso de la fuerza",
+        "violationNonIntervention": "Violación no intervención",
+        "isRoEConsistent": "RoE consistente",
+        "completnessDegree": "Grado de cumplimiento",
+        "mandatoryFieldsCompleted": "Campos obligatorios completados",
+        "similarityDegree": "Grado de similitud",
+        "previousEnforedCoASimilarityDegree": "\nGrado de similitud de CoA ejecución previa",
+        "technicalResourcesCost": "Coste de recursos técnicos",
+        "forcesCost": "Coste efectivo",
+        "reserveForcesCost": "Coste efectivo de reserva",
+        "avenuesOfWithdrawal": "¿Llegadas de retiradas?",
+        "environmentIntensity": "Intesnsidad ambiental",
+        "operationalTime": "Tiempo operativo",
+        "personnelAdequacy": "Adecuación del personal",
+        "resourcesAdequacyDegree": "Grado de adecuación de recursos",
+        "type": "Tipo",
+        "acceptability": "Aceptabilidad",
+        "actionConsideration": "\nConsideración de acción",
+        "completness": "Cumplimiento",
+        "exclusivity": "Exclusividad",
+        "feasibility": "Idoneidad",
+        "coasCl": "CoA CL",
+        "scores": "Puntuaciones",
+        "suitability": "Idoneidad"
+      },
+      "technical": {
+        "isCriticalActuatorMissing": "\nFalta el actuador crítico",
+        "efficacy": "Eficacia"
+      }
+    },
+    "coasCL": {
+      "coaClId": "CoA Id",
+      "coaClName": "CoA CL Nombre"
+    },
+    "score": "Puntuación"
+  },
+  "combatCloud": {
+    "title": "Eventos Nube de Combate",
+    "table": {
+      "header": {
+        "service": "Servicio",
+        "date": "Fecha",
+        "protection": "Protección",
+        "target": "Destino",
+        "source": "Origen",
+        "subject": "Asunto",
+        "type": "Tipo"
+      }
+    }
+  },
+  "timeline": {
+    "title": "Línea de tiempo",
+    "toolbarName": "Línea de tiempo"
+  },
+  "universe": {
+    "title": "Universo"
+  },
+  "map3D": {
+    "title": "Mapa 3D"
+  },
+  "map2D": {
+    "title": "Mapa 2D"
+  },
+  "loadLayout": {
+    "cancel": "Cancelar",
+    "load": "Cargar",
+    "title": "Cargar configuración de diseño",
+    "desc": "Selecciona una configuración guardada anteriormente o una pre-establecida y pulsa el botón \"Cargar\" para establecerla como diseño actual de ventanas.",
+    "success": "Configuración cargada con exito.",
+    "error": "Error al cargar la configuración. Por favor, inténtelo de nuevo más tarde.",
+    "select": "Selecciona un configuración"
+  },
+  "saveLayout": {
+    "title": "Guardar configuración de diseño",
+    "desc": "\nGuarda la configuración de ventanas actual. Pon un nombre a esta configutación y pulsa el botón \"Guardar\" para registrarla. Podrás recuperarla en cualquier momento.",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "configName": "Nobre del diseño",
+    "success": "Configuración guardada correctamente",
+    "error": "Error al guardar la configuración. Por favor, inténtelo de nuevo más tarde."
+  },
+  "layout": {
+    "config": {
+      "allSame": "Todos los elementos a igual tamaño",
+      "all": "Todos los elementos",
+      "onlyMaps": "Solo mapas",
+      "onlyDash": "Solo cuadros de mando"
+    },
+    "gridItem": {
+      "close": "Cerrar",
+      "fullSize": "Maximizar",
+      "minimize": "Minimizar"
+    }
+  },
+  "shortcuts": {
+    "title": "Accesos rápidos"
+  },
+  "error": {
+    "type": {
+      "missions": "Fallo al cargar las misiones. Inténtalo de nuevo más tarde.",
+      "connect": "Error al cargar la misión. Inténtalo de nuevo más tarde.",
+      "applyAcction": "Error al ejecutar la acción sugerida",
+      "missionPaused": "La misisón está en pausa. Cuando se reactive se verá en movimiento."
+    },
+    "disconnect": "Error al salir de la missión"
+  },
+  "powerGrid": {
+    "title": "Planta energética"
+  },
+  "powergrid": {
+    "title": "\nRed eléctrica",
+    "general": "General",
+    "panels": "Paneles disponibles"
+  },
+  "demoControl": {
+    "title": "Controlador de la demo",
+    "mission": "Misión",
+    "suggested": "Acciones sugeridas",
+    "apply": "Ejecucar acción",
+    "connect": "Conectar",
+    "disconnect": "Desconectar",
+    "connection": "Conexión",
+    "error": {
+      "start": "Error al enviar el comando \"START\" a la misión",
+      "pause": "Error al enviar el comando \"PAUSE\" a la misión",
+      "stop": "Error al enviar el comando \"STOP\" a la misión"
+    },
+    "missionTime": "Tiempo de misión",
+    "queues": "Colas",
+    "hylabs": "HyLabs",
+    "events": "Eventos",
+    "entities": "Entidades",
+    "server": "Servidor",
+    "links": "Ciber",
+    "cysa": "CYSA",
+    "actionExecuted": "Acción ejecutada",
+    "actionExecutedDesc": "Se ha enviado la orden para la ejecución de la acción sugerida. En breve podrá ver el resultado de dicha acción.",
+    "closeModal": "Cerrar"
+  },
+  "serverStatus": {
+    "INITIALIZED": "Inicializado",
+    "MISSIONLOADED": "Preparado",
+    "RUNNING": "En ejecución",
+    "PAUSED": "Detenido",
+    "undefined": "Sin mission"
+  },
+  "queueStatus": {
+    "OK": "Conectado\n",
+    "KO": "Error de conexión",
+    "DISCONNECT": "Desconectado",
+    "undefined": "Conectando..."
+  },
+  "viewerSide": {
+    "title": "Entidades en la misión",
+    "emptyTree": "No existen todavía entidades para esta misión"
+  },
+  "universemanager": {
+    "connection": {
+      "KO": "Error al conectar con la fuente de datos en tiempo real"
+    }
+  },
+  "entitiiesTree": {
+    "side": "Bando",
+    "model": "Modelo",
+    "loadType": "Carga",
+    "type": "Tipo",
+    "id": "Id",
+    "sensorType": "Tipo de sensor",
+    "coordinates": "Coordenadas",
+    "latitude": "Lat.",
+    "longitude": "Long.",
+    "height": "Altura",
+    "altitude": "Alt.",
+    "rotation": "Rotación"
+  },
+  "race": {
+    "title": "Ranking"
+  },
+  "scoring": {
+    "title": "Puntuaciones"
+  },
+  "scoringtable": {
+    "header": {
+      "challenge": "Ejercicio",
+      "team": "Equipo"
+    }
+  },
+  "data": {
+    "retrieving": {
+      "error": "Error al recibir los datos del ranking de usuarios"
+    }
+  }
+}
