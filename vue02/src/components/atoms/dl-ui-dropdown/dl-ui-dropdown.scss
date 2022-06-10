@@ -1,0 +1,61 @@
+@import 'mixins/dropdown';
+
+.dl-ui-dropdown {
+  @include dropdown-style-config(());
+
+  &--extra-small {
+    $extra-small: (
+      'height': 22px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include dropdown-style-config($extra-small);
+  }
+
+  &--small {
+    $small: (
+      'height': 28px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    );
+
+    @include dropdown-style-config($small);
+  }
+
+  &--medium {
+    $default: (
+      'height': 32px,
+      'icon::width': $icon-width-small,
+      'icon::height': $icon-height-small,
+      'icon::padding': $icon-padding-small
+    ); // height: 32px
+
+    @include dropdown-style-config($default);
+  }
+
+  &--large {
+    $large: (
+      'height': 40px,
+      'trigger-icon::width': $icon-width-small,
+      'trigger-icon::height': $icon-height-small,
+      'trigger-icon::padding': $icon-padding-small
+    );
+
+    @include dropdown-style-config($large);
+
+    .dl-ui-dropdown {
+      @include font-body-medium-regular();
+    }
+
+    .dl-ui-dropdown__label {
+      @include font-body-medium-regular();
+    }
+
+    .dl-ui-dropdown__help {
+      @include font-body-small-regular();
+    }
+  }
+}

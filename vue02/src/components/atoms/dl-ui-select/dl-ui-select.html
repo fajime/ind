@@ -1,0 +1,37 @@
+<div :class="containerClass" class="dl-ui-select" ref="root">
+  <div class="dl-ui-select__label" v-if="label">{{ label }}</div>
+  <dl-ui-dropdown
+    :class="`${classSize.dropdown} ${modelValue ? 'dl-ui-dropdown--highlight': ''}`"
+    :tabindex="tabindex"
+    @blur="handleBlur"
+    @change="handleChange"
+    @click="$refs.dropdown.onClick($event)"
+    @keydown.space="$refs.dropdown.handleSpace($event)"
+    @press:enter="$refs.dropdown.hide()"
+    ref="dropdown"
+    v-model="modelValue"
+  >
+    <div class="dl-ui-select__box">
+      <dl-ui-icon :id="iconLeftSelected" class="dl-ui-select__box-icon--left dl-ui-icon--small" v-if="iconLeftSelected"> </dl-ui-icon>
+      <div @click="$refs.dropdown.onClick($event)" class="dl-ui-select__box-text">{{ optionSelected }}</div>
+      <dl-ui-icon :id="iconRightSelected" class="dl-ui-select__box-icon--right dl-ui-icon--small" v-if="iconRightSelected"></dl-ui-icon>
+      <button @click="handleClear" class="dl-ui-select__clear-button" v-if="showClear && modelValue">
+        <dl-ui-icon class="dl-ui-icon--small dl-ui-select__clear-icon" id="dl-ids-icon-close-no-circle-outlined" />
+      </button>
+    </div>
+    <template #wrapper>
+      <dl-ui-listbox
+        :class="classSize.listbox"
+        :multiple="false"
+        :options="options"
+        :tabindex="-1"
+        @mounted="listboxMounted"
+        @update:modelValue="handleInput"
+        class="dl-ui-listbox"
+        ref="list"
+        v-model="valued"
+      />
+    </template>
+  </dl-ui-dropdown>
+  <div class="dl-ui-select__help" v-if="help">{{ help }}</div>
+</div>

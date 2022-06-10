@@ -1,0 +1,13 @@
+<nav :class="{'dl-ui-menu--vertical': direction === 'vertical'}" class="dl-ui-menu">
+  <ul :class="{'dl-ui-menu__list--vertical': direction === 'vertical'}" class="dl-ui-menu__list">
+    <dl-ui-menu-root-item
+      :config="item"
+      :index="index"
+      :itemOpenTo="childOpenTo"
+      :key="index"
+      :sense="sense"
+      @itemClicked="onItemClicked"
+      v-for="(item, index) in config"
+    />
+  </ul>
+</nav>

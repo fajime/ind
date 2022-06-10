@@ -1,0 +1,5 @@
+<button @click="onClick($event)" class="dl-ui-action-button" ref="button">
+  <dl-ui-icon class="dl-ui-action-button__icon dl-ui-animation-rotating" id="dl-ids-icon-loading-filled" v-if="loading"></dl-ui-icon>
+  <dl-ui-icon :id="icon" class="dl-ui-action-button__icon dl-ui-action-button__icon--normal" v-if="!loading"></dl-ui-icon>
+  <dl-ui-icon :id="iconFilled" class="dl-ui-action-button__icon dl-ui-action-button__icon--filled" v-if="!loading"></dl-ui-icon>
+</button>

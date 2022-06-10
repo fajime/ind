@@ -1,0 +1,22 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-radio__wrapper">
+    <div :key="index" class="demo__dl-ui-radio__item" v-for="(item, index) in itemsMock">
+      <theComponent
+        :class="playground.style.value"
+        :disabled="item.disabled"
+        :id="`state${index+1}`"
+        :initValue="item.value"
+        :ref="setDemoRefs"
+        @change="notifyComponentEvent('change', $event)"
+        @click="notifyComponentEvent('click', $event)"
+        @focus="notifyComponentEvent('focus', $event)"
+        @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+        name="state"
+        v-bind="generatedProps"
+        v-model="playground.value.value"
+      >
+        {{item.label}}
+      </theComponent>
+    </div>
+  </div>
+</dl-comp-kit-demo-template>

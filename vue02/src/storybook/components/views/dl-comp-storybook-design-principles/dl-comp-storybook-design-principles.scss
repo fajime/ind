@@ -1,0 +1,42 @@
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+
+.dl-comp-storybook-design-principles {
+  &__content {
+    padding: 0 96px;
+    background:
+      linear-gradient(
+        to bottom,
+        $color-action-primary-active 88px,
+        $color-action-tertiary-focus 88px
+      );
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    .dl-comp-storybook-card {
+      flex: 0 0 290px;
+      margin: 0 32px 32px 0;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+  }
+
+  &__icon {
+    text-align: left;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include font-body-large-bold();
+  }
+}

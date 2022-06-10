@@ -1,0 +1,35 @@
+@import '../mixins/color-picker';
+
+$custom: (
+  'height': 30px,
+  'padding': 8px,
+  'border': 2px dot red,
+  'border-radius': 7px,
+  'background-color': #4e7ba8,
+  'range::height': 10px,
+  'range::border-radius': 2px,
+  'thumb::width': 16px,
+  'thumb::height': 16px,
+  'thumb::margin-top': -3.5px,
+  'thumb::border': 1px solid rgb(18, 10, 236),
+  'thumb::border-radius': 50%,
+  'selected-box::size': 36px,
+  'selected-box::border-radius': 2px
+);
+
+.custom-color-picker {
+  @include color-picker-style-config($custom);
+}
+
+.dl-ui-button {
+  margin-bottom: 8px;
+}
+
+.demo__dl-ui-color-picker__wrapper {
+  align-items: flex-start;
+  margin: 20px;
+  justify-content: flex-start;
+  align-self: flex-start;
+  justify-self: flex-start;
+  margin-right: auto;
+}

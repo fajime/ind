@@ -1,0 +1,25 @@
+<div class="dl-comp-storybook-breadcrumb-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-breadcrumb-use__uso">
+        <div class="dl-comp-storybook-breadcrumb-use__uso-group">
+          <h4 class="dl-comp-storybook-breadcrumb-use__uso-group-title">Breadcrumb principal</h4>
+          <div class="dl-comp-storybook-breadcrumb-use__uso-group-description" v-html="component.description"></div>
+
+          <div class="dl-comp-storybook-breadcrumb-use__uso-group-primary">
+            <dl-ui-breadcrumb class="dl-ui-breadcrumb dl-comp-storybook-breadcrumb-use__uso-breadcrumb--primary"> </dl-ui-breadcrumb>
+            <p>
+              <span class="dl-comp-storybook-breadcrumb-use__uso-group-subtitle"> Breadcrumb: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-breadcrumb__wrapper">
+        <theComponent :class="playground.style.value" :ref="setDemoRefs"> </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

@@ -1,0 +1,61 @@
+<div class="dl-comp-storybook-snack-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-snack-use__uso">
+        <div class="dl-comp-storybook-snack-use__uso-group">
+          <h4 class="dl-comp-storybook-snack-use__uso-group-title">Snack principal</h4>
+          <div class="dl-comp-storybook-snack-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-snack-use__uso-group-primary">
+            <dl-ui-snack
+              :show="true"
+              class="dl-ui-snack dl-comp-storybook-snack-use__uso-snack--primary"
+              position="relative"
+              type="default"
+            >
+            </dl-ui-snack>
+            <p>
+              <span class="dl-comp-storybook-snack-use__uso-group-subtitle"> Snack Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-snack-use__uso-group-primary">
+            <dl-ui-snack :show="true" class="dl-ui-snack dl-comp-storybook-snack-use__uso-snack--primary" position="relative" type="warn">
+            </dl-ui-snack>
+            <p>
+              <span class="dl-comp-storybook-snack-use__uso-group-subtitle"> Snack Warning: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-snack-use__uso-group-primary">
+            <dl-ui-snack :show="true" class="dl-ui-snack dl-comp-storybook-snack-use__uso-snack--primary" position="relative" type="error">
+            </dl-ui-snack>
+            <p>
+              <span class="dl-comp-storybook-snack-use__uso-group-subtitle"> Snack Error: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-snack-use__uso-group-primary">
+            <dl-ui-snack :show="true" class="dl-ui-snack dl-comp-storybook-snack-use__uso-snack--primary" position="relative" type="ok">
+            </dl-ui-snack>
+            <p>
+              <span class="dl-comp-storybook-snack-use__uso-group-subtitle"> Snack Success: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-snack__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @closed="notifyComponentEvent('closed', $event)"
+          v-bind="generatedProps"
+        >
+          >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

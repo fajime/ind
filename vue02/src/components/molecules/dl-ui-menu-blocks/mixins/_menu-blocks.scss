@@ -1,0 +1,143 @@
+@mixin menu-blocks-style-config($config) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: default;
+
+  @include font-body-small-regular();
+
+  &__main {
+    height: 32px;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 2px;
+    color: $color-base-contrast;
+    background: $color-emphasis-03k;
+  }
+
+  &__main-entry {
+    flex: 1 1 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s linear;
+
+    &-icon {
+      width: 12px;
+      height: 12px;
+      padding: 0;
+      fill: $color-base-contrast;
+      transition: all 0.2s linear;
+    }
+
+    &-text {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      > svg {
+        fill: $color-base-contrast;
+      }
+
+      background: $color-emphasis-04;
+      color: $color-base-contrast;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    height: fit-content;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    padding: 16px 24px;
+    background-color: $color-surface-01k;
+    border: 1px solid $color-emphasis-01;
+    z-index: 3;
+    box-shadow: $shadow-medium;
+
+    &-wrapper {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__level-1 {
+    flex: 0 0 auto;
+    width: 198px;
+    display: flex;
+    flex-direction: column;
+    margin: 6px 9px;
+    padding: 10px 8px;
+    border: 1px solid $color-base-01;
+    background-color: $color-surface-01k;
+
+    &-title {
+      height: 18px;
+      color: $color-base-03k;
+      display: flex;
+      align-items: center;
+
+      @include font-body-small-bold();
+
+      line-height: 18px;
+    }
+
+    &-link {
+      height: 18px;
+      color: $color-base-02;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      @include font-link-small();
+
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
+
+  &__level-2 {
+    padding-left: 16px;
+
+    &-title {
+      height: 18px;
+      color: $color-base-03k;
+      display: flex;
+      align-items: center;
+
+      @include font-body-small-bold();
+
+      line-height: 18px;
+    }
+
+    &-link {
+      height: 18px;
+      color: $color-base-02;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      @include font-link-small();
+
+      font-size: 10px;
+      line-height: 18px;
+    }
+  }
+}

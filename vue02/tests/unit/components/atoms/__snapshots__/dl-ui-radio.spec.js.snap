@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-radio renders correctly 1`] = `
+<div
+  class="dl-ui-radio"
+>
+  <div
+    class="dl-ui-radio__container"
+  >
+    <div
+      aria-checked="false"
+      class="dl-ui-radio__box"
+      role="radio"
+    >
+      <div
+        class="hidden-accessible"
+      >
+        <input
+          id="random-id"
+          type="radio"
+        />
+      </div>
+      <div
+        class="dl-ui-radio__icon"
+      />
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

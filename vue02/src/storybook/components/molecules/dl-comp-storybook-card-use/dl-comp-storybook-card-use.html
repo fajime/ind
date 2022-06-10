@@ -1,0 +1,52 @@
+<div class="dl-comp-storybook-card-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-card-use__uso">
+        <div class="dl-comp-storybook-card-use__uso-group">
+          <h4 class="dl-comp-storybook-card-use__uso-group-title">Card principal</h4>
+          <div class="dl-comp-storybook-card-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-card-use__uso-group-primary">
+            <dl-ui-card class="dl-ui-card dl-comp-storybook-card-use__uso-card--primary" title="Title">
+              <div slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+            </dl-ui-card>
+            <p>
+              <span class="dl-comp-storybook-card-use__uso-group-subtitle"> Card Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-card-use__uso-group-primary">
+            <dl-ui-card class="dl-ui-card--small dl-comp-storybook-card-use__uso-card--primary" title="Title">
+              <div slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+            </dl-ui-card>
+            <p>
+              <span class="dl-comp-storybook-card-use__uso-group-subtitle"> Card Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-card-use__uso-group-primary">
+            <dl-ui-card class="dl-ui-card--large dl-comp-storybook-card-use__uso-card--primary" title="Title">
+              <div slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+            </dl-ui-card>
+            <p>
+              <span class="dl-comp-storybook-card-use__uso-group-subtitle"> Card Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-card__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @buttonClicked="notifyComponentEvent('buttonClicked', $event)"
+          @iconButtonClicked="notifyComponentEvent('iconButtonClicked', $event)"
+          v-bind="generatedProps"
+        >
+          <div slot="content">{{ playground.slots[0].value}}</div>
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

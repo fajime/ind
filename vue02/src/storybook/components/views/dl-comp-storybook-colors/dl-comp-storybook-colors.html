@@ -1,0 +1,77 @@
+<div class="dl-comp-storybook-colors">
+  <main>
+    <div class="dl-comp-storybook-colors__content">
+      <div class="dl-comp-storybook-colors__title">Color</div>
+      <!-- Tabs -->
+      <dl-ui-tabs class="dl-comp-storybook-colors__tabs">
+        <!-- Tab: Color -->
+        <dl-ui-tab
+          :key="`dl-comp-storybook-colors-${tabIndex}`"
+          :selected="tab.selected"
+          :title="tab.title"
+          v-for="(tab, tabIndex) in tabs"
+        >
+          <!--  Color Swathes -->
+          <div class="dl-comp-storybook-colors__swatch" v-if="tab.swatch.length > 0">
+            <!-- Description -->
+            <div class="dl-comp-storybook-colors__swatch-description">
+              <p>{{ tab.description }}</p>
+            </div>
+            <!-- Swatch Category -->
+
+            <template v-for="(swatch, swatchIndex) in tab.swatch">
+              <!-- COLOR GROUP -->
+              <div
+                :key="`dl-comp-storybook-colors-${tabIndex}${swatchIndex}`"
+                class="dl-comp-storybook-colors__swatch-group"
+                v-if="swatch.group"
+              >
+                <!-- Layout: Danger-->
+                <div
+                  :key="`dl-comp-storybook-colors-${tabIndex}${swatchIndex}${groupIndex}`"
+                  class="dl-comp-storybook-colors__swatch-group-item"
+                  v-for="(groupItem, groupIndex) in swatch.group"
+                >
+                  <!-- Swatch Category -->
+                  <div class="dl-comp-storybook-colors__swatch-category">
+                    <div class="dl-comp-storybook-colors__swatch-title">{{ groupItem.title }}</div>
+                    <!-- Swatch Chart -->
+                    <div class="dl-comp-storybook-colors__swatch-chart">
+                      <!-- Swatch Chart Item -->
+                      <div
+                        :key="`dl-comp-storybook-colors-${tabIndex}${swatchIndex}${groupIndex}${colorIndex}`"
+                        class="dl-comp-storybook-colors__swatch-chart-item"
+                        v-for="(color, colorIndex) in groupItem.colors"
+                      >
+                        <div :class="color.className" class="dl-comp-storybook-colors__swatch-chart-item-preview" />
+                        <div class="dl-comp-storybook-colors__swatch-chart-item-name">{{ color.colorName }}</div>
+                        <div class="dl-comp-storybook-colors__swatch-chart-item-value">{{ color.colorValue }}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- COLOR -->
+              <div :key="`dl-comp-storybook-colors-${tabIndex}${swatchIndex}`" class="dl-comp-storybook-colors__swatch-category" v-else>
+                <div class="dl-comp-storybook-colors__swatch-title">{{ swatch.title }}</div>
+                <!-- Swatch Chart -->
+                <div class="dl-comp-storybook-colors__swatch-chart">
+                  <!-- Swatch Chart Item -->
+                  <div
+                    :key="`dl-comp-storybook-colors-${tabIndex}${swatchIndex}${colorIndex}`"
+                    class="dl-comp-storybook-colors__swatch-chart-item"
+                    v-for="(color, colorIndex) in swatch.colors"
+                  >
+                    <div :class="color.className" class="dl-comp-storybook-colors__swatch-chart-item-preview" />
+                    <div class="dl-comp-storybook-colors__swatch-chart-item-name">{{ color.colorName }}</div>
+                    <div class="dl-comp-storybook-colors__swatch-chart-item-value">{{ color.colorValue }}</div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </dl-ui-tab>
+      </dl-ui-tabs>
+    </div>
+  </main>
+</div>

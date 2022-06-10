@@ -1,0 +1,99 @@
+@use 'sass:math';
+
+@import '../../../atoms/dl-ui-step/mixins/step';
+@import '../../../atoms/dl-ui-progress-bar/mixins/progress-bar';
+
+@mixin stepper-transition($delay, $duration ) {
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-property: all; //color, background-color, visibility, fill, stroke;
+  transition-timing-function: cubic-bezier(0.61, 0, 0.39, 1);
+}
+
+@mixin stepper-style-config($config) {
+  flex-basis: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+
+  .dl-ui-stepper__markers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+    //$transition-duration: getmapvalue($config, 'marker::transition-duration', 100ms);
+    //$transition-delay: getmapvalue($config, 'marker::transition-delay', 300ms);
+    $step-duration: getmapvalue($config, 'marker::transition-duration', 50ms);
+    //$bar-duration: 100;
+    //$del: 0;
+    //$bardel: $step-duration;
+
+    .dl-ui-stepper__marker {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      $configStep: (
+        'size': getmapvalue($config, 'marker::size', 42px)
+      );
+
+      .dl-ui-step {
+        @include step-style-config($configStep);
+
+        .dl-ui-step__content {
+          --step-delay: 0ms;
+
+          @include stepper-transition(var(--step-delay), $step-duration);
+
+          .dl-ui-step__marker-dot {
+            transition: inherit;
+
+            .dl-ui-step__marker-dot-outer,
+            .dl-ui-step__marker-dot-inner {
+              transition: inherit;
+            }
+          }
+
+          .dl-ui-step__marker-icon,
+          .dl-ui-step__marker-numeric {
+            transition: inherit;
+          }
+        } // fin content
+
+        .dl-ui-step__label {
+          --step-delay: 0ms;
+
+          @include stepper-transition(var(--step-delay), $step-duration);
+        }
+      } // fin step
+    }
+  }
+
+  > .dl-ui-stepper__progress-wrapper {
+    width: 100%;
+    position: absolute;
+    $val1: math.div(getmapvalue($config, 'marker::size', 42px), 2);
+    $val2: math.div(getmapvalue($config, 'bar::height', 1px), 2);
+
+    padding: calc(#{$val1} - #{$val2});
+
+    > .dl-ui-stepper__progress-bar {
+      --pbar-config-duration: #{getmapvalue($config, 'bar::transition-duration', 300ms)};
+      --bar-duration: 0ms;
+      $configProgress: (
+        'height': getmapvalue($config, 'bar::height', 1px),
+        'bar::color': getmapvalue($config, 'bar::color', $color-surface-contrast),
+        'background::color': getmapvalue($config, 'bar::background', $color-surface-06),
+        'transition-delay': getmapvalue($config, 'bar::transition-delay', 100ms),
+        'transition-duration': var(--bar-duration),
+        'transition-timing-function': getmapvalue($config, 'bar::transition-timing-function', linear),
+        'background::border-radius': getmapvalue($config, 'bar::border-radius', 0),
+        'bar::border-radius': getmapvalue($config, 'bar::border-radius', 0)
+      );
+
+      @include progress-bar-style-config($configProgress);
+    }
+  }
+}

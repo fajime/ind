@@ -1,0 +1,90 @@
+<div class="dl-comp-storybook-select-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-select-use__uso">
+        <div class="dl-comp-storybook-select-use__uso-group">
+          <h4 class="dl-comp-storybook-select-use__uso-group-title">Select principal</h4>
+          <div class="dl-comp-storybook-select-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-select-use__uso-group-primary">
+            <dl-ui-select
+              class="dl-ui-select dl-comp-storybook-select-use__uso-select--primary"
+              help="help text"
+              label="Paises"
+              placeholder="Select a country"
+            >
+            </dl-ui-select>
+            <p>
+              <span class="dl-comp-storybook-select-use__uso-group-subtitle"> Select Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-select-use__uso-group-primary">
+            <dl-ui-select
+              class="dl-ui-select--extra-small dl-comp-storybook-select-use__uso-select--primary"
+              help="help text"
+              label="Paises"
+              placeholder="Select a country"
+            >
+            </dl-ui-select>
+            <p>
+              <span class="dl-comp-storybook-select-use__uso-group-subtitle"> Select Extra Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-select-use__uso-group-primary">
+            <dl-ui-select
+              class="dl-ui-select--small dl-comp-storybook-select-use__uso-select--primary"
+              help="help text"
+              label="Paises"
+              placeholder="Select a country"
+            >
+            </dl-ui-select>
+            <p>
+              <span class="dl-comp-storybook-select-use__uso-group-subtitle"> Select Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-select-use__uso-group-primary">
+            <dl-ui-select
+              class="dl-ui-select--medium dl-comp-storybook-select-use__uso-select--primary"
+              help="help text"
+              label="Paises"
+              placeholder="Select a country"
+            >
+            </dl-ui-select>
+            <p>
+              <span class="dl-comp-storybook-select-use__uso-group-subtitle"> Select Medium: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-select-use__uso-group-primary">
+            <dl-ui-select
+              class="dl-ui-select--large dl-comp-storybook-select-use__uso-select--primary"
+              help="help text"
+              label="Paises"
+              placeholder="Select a country"
+            >
+            </dl-ui-select>
+            <p>
+              <span class="dl-comp-storybook-select-use__uso-group-subtitle"> Select Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-select__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @change="notifyComponentEvent('change', $event)"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

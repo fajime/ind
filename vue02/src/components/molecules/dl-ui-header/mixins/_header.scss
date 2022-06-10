@@ -1,0 +1,50 @@
+@mixin header-style-config($config) {
+  height: getmapvalue($config, 'height', 30px);
+  display: flex;
+  background-color: getmapvalue($config, 'background', $color-surface-03);
+  transition: all 0.2s linear;
+  justify-content: space-between;
+  position: relative;
+
+  .dl-ui-header__left {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-left: getmapvalue($config, 'margin', 85px);
+    height: getmapvalue($config, 'height', 30px);
+    z-index: 1;
+
+    > * {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    &-version {
+      padding-left: 8px;
+      height: getmapvalue($config, 'height', 30px);
+    }
+  }
+
+  .dl-ui-header__middle {
+    position: absolute;
+    height: getmapvalue($config, 'height', 30px);
+    width: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dl-ui-header__right {
+    z-index: 1;
+    flex: 1 1 auto;
+    align-self: center;
+    text-align: right;
+    margin-right: getmapvalue($config, 'margin', 85px);
+    margin-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

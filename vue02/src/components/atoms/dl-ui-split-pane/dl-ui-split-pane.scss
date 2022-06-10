@@ -1,0 +1,7 @@
+@import 'mixins/split-pane';
+
+.dl-ui-split-pane {
+  $default: ();
+
+  @include split-pane-style-config($default);
+}

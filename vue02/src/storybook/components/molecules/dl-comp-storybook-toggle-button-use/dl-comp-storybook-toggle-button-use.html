@@ -1,0 +1,34 @@
+<div class="dl-comp-storybook-toggle-button-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-toggle-button-use__uso">
+        <div class="dl-comp-storybook-toggle-button-use__uso-group">
+          <h4 class="dl-comp-storybook-toggle-button-use__uso-group-title">Toggle Button principal</h4>
+          <div class="dl-comp-storybook-toggle-button-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-toggle-button-use__uso-group-primary">
+            <dl-ui-toggle-button class="dl-ui-toggle-button dl-comp-storybook-toggle-button-use__uso-toggle-button--primary">
+              Button Text
+            </dl-ui-toggle-button>
+            <p>
+              <span class="dl-comp-storybook-toggle-button-use__uso-group-subtitle"> Toggle Button: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-toggle-button__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+          {{ playground.slots[0].value}}
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

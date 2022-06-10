@@ -1,0 +1,30 @@
+<div class="dl-comp-storybook-accordion-list-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-accordion-list-use__uso">
+        <div class="dl-comp-storybook-accordion-list-use__uso-group">
+          <h4 class="dl-comp-storybook-accordion-list-use__uso-group-title">Accordion List principal</h4>
+          <div class="dl-comp-storybook-accordion-list-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-accordion-list-use__uso-group-primary">
+            <dl-ui-accordion-list
+              :accordions="playground.props[2].value"
+              class="dl-ui-accordion-list dl-comp-storybook-accordion-list-use__uso-accordion-list--primary"
+            >
+            </dl-ui-accordion-list>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-accordion-list__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @toggle="notifyComponentEvent('toggle', $event)"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

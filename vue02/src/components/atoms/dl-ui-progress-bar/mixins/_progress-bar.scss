@@ -1,0 +1,25 @@
+@mixin progress-bar-style-config($config) {
+  height: getmapvalue($config, 'height', 4px);
+  background-color: getmapvalue($config, 'background::color', $color-surface-04);
+  overflow: hidden;
+  border-radius: getmapvalue($config, 'background::border-radius', 3px);
+
+  &,
+  &::before {
+    width: 100%;
+    transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+    transition-delay: getmapvalue($config, 'transition-delay', 0s);
+    transition-property: all;
+    transition-timing-function: getmapvalue($config, 'transition-timing-function', cubic-bezier(0.61, 0, 0.39, 1));
+  }
+
+  &::before {
+    content: '';
+    height: getmapvalue($config, 'height', 4px);
+    background-color: getmapvalue($config, 'bar::color', $color-emphasis-03k);
+    border-radius: getmapvalue($config, 'bar::border-radius', 3px);
+    display: flex;
+    pointer-events: none;
+    transform: translate(calc(-100% + var(--progress-value)), 0);
+  }
+}

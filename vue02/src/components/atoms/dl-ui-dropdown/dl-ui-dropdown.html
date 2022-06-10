@@ -1,0 +1,37 @@
+<div
+  :class="{ 
+      overlayVisible, 
+      'dl-ui-dropdown--empty'     : empty,
+      'dl-ui-dropdown--active'    : overlayVisible,
+      'dl-ui-dropdown--error'     : error,
+      'dl-ui-dropdown--disabled'  : disabled }"
+  @blur="handleBlur"
+  @keydown.down="handleChange($event,1)"
+  @keydown.enter="$emit('press:enter')"
+  @keydown.up="handleChange($event,-1)"
+  class="dl-ui-dropdown"
+  ref="dropdown"
+>
+  <div :class="containerClass" class="dl-ui-dropdown__container" ref="container">
+    <div @click="handleClickBox" class="dl-ui-dropdown__box">
+      <div class="dl-ui-dropdown__box-slot" ref="trigger">
+        <slot />
+      </div>
+
+      <div @click="onClick($event)" class="dl-ui-dropdown__trigger-button">
+        <dl-ui-icon
+          :class="{'dl-ui-dropdown__trigger-icon--open':overlayVisible}"
+          class="dl-ui-dropdown__trigger-icon"
+          id="dl-ids-icon-arrows-down-single-no_circle-outlined"
+        />
+      </div>
+    </div>
+    <transition name="dl-ui-transition-fade">
+      <div class="dl-ui-dropdown__panel" ref="overlay" v-if="overlayVisible">
+        <div ref="itemsWrapper">
+          <slot name="wrapper" />
+        </div>
+      </div>
+    </transition>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+@import '../mixins/calendar';
+
+$custom: (
+  'button::color': blue,
+  'button::background-color': lightblue,
+  'button::background-color::hover': rgb(104, 166, 196),
+  'button::background-color::active': rgb(118, 178, 234),
+  'now-indicator-color': orange
+);
+
+.demo__dl-ui-calendar {
+  width: 80%;
+}
+
+.custom-calendar {
+  @include calendar-style-config($custom);
+}

@@ -1,0 +1,27 @@
+@import '../mixins/input';
+
+$config: (
+  'background': rgb(248, 195, 239),
+  'height': 3rem,
+  'border': 3px solid rgb(122, 52, 52),
+  'color': rgb(58, 58, 58),
+  'help::color': rgb(209, 209, 209),
+  'help::background': rgb(214, 68, 0),
+  'help::margin-top': 4px,
+  'help::padding': 4px 8px,
+  'icon::color': rgb(67, 67, 90),
+  'icon::size': 20px,
+  'label::size': 1rem,
+  'focus::border': 3px solid $color-emphasis-02,
+  'focus::icon': blue
+);
+
+.demo__dl-ui-input {
+  &__wrapper {
+    width: 250px;
+  }
+}
+
+.custom-input {
+  @include input-style-config($config);
+}

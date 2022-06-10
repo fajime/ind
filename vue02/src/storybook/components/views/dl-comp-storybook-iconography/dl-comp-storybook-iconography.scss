@@ -1,0 +1,130 @@
+@import '@/storybook/sass/mixins';
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+
+$border-style: 1px solid $color-surface-06;
+
+.dl-comp-storybook-iconography {
+  &__cards {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 130px;
+      margin-bottom: 32px;
+    }
+
+    &-input {
+      display: flex;
+      position: relative;
+
+      &-icon {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        right: -28px;
+        padding: 5px;
+        background-color: $color-action-primary-default;
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+    }
+
+    &-switch {
+      display: flex;
+
+      &-title {
+        margin-right: 5px;
+
+        @include font-body-medium-regular();
+      }
+    }
+
+    &-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    &-title {
+      color: $color-action-primary-default;
+      margin-bottom: 15px;
+
+      @include font-body-medium-regular();
+    }
+  }
+
+  &-resources {
+    @include article();
+
+    background: $color-surface-03;
+
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 29px;
+
+      @include font-h4();
+    }
+
+    &__header {
+      @include header();
+
+      h6 {
+        color: $color-base-highlight-03k;
+      }
+    }
+
+    &__header-icon {
+      @include config-icon(48px, 48px);
+    }
+
+    &__action {
+      @include action();
+      @include link();
+
+      a {
+        color: $color-action-primary-default;
+      }
+    }
+  }
+
+  &-main,
+  &-resources {
+    padding: 72px 95px 80px 94px;
+  }
+
+  article {
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    h2 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 24px;
+
+      @include font-h2();
+    }
+
+    p {
+      color: $color-base-02;
+
+      @include font-body-medium-regular();
+    }
+  }
+
+  .layout-card-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .dl-comp-storybook-card {
+      flex: 0 0 130px;
+      height: 92px;
+      margin: 0 32px 32px 0;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+  }
+}

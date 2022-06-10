@@ -1,0 +1,21 @@
+<div>
+  <div v-html="intro"></div>
+  <div class="dl-comp-kit-demo-use__subtitle">HTML</div>
+  <div class="dl-comp-kit-demo-use__code">
+    <pre v-highlight>
+            <code class="html" v-text="HTML"></code>
+        </pre>
+  </div>
+  <div class="dl-comp-kit-demo-use__subtitle">JavaScript</div>
+  <div class="dl-comp-kit-demo-use__code">
+    <pre v-highlight>
+            <code class="javascript" v-text="JS"></code>
+        </pre>
+  </div>
+  <div class="dl-comp-kit-demo-use__subtitle" v-if="component.scss && component.scss.length">SCSS</div>
+  <div class="dl-comp-kit-demo-use__code" v-if="component.scss && component.scss.length">
+    <pre v-highlight>
+            <code class="scss" v-text="SCSS"></code>
+        </pre>
+  </div>
+</div>

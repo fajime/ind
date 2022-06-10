@@ -1,0 +1,28 @@
+@import '../mixins/avatar';
+
+$config: (
+  'height': 140px,
+  'width': 140px,
+  'border': 8px solid $color-status-success-01,
+  'color': $color-status-success-01,
+  'border-radius': 50%,
+  'background': $color-status-success-02k,
+  'icon::height': 60px,
+  'icon::width': 60px,
+  'icon::padding': 3px,
+  'font-size': 70px
+);
+
+.demo__dl-ui-avatar {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.custom-avatar {
+  font-weight: 700;
+
+  @include avatar-style-config($config);
+}

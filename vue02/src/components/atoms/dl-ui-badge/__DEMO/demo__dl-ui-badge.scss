@@ -1,0 +1,56 @@
+@import '../mixins/badge';
+@import '../../dl-ui-avatar/mixins/avatar';
+
+// configuration map
+$config: (
+  'padding': 6px 2px,
+  'border':  2px solid white,
+  'background-color': $color-status-danger-02k,
+  'font-size': 12px,
+  'width': 16px,
+  'height': 16px,
+  'point::width': 16px,
+  'point::height': 16px
+);
+
+$config-avatar: (
+  'height': 64px,
+  'width': 64px,
+  'border': none,
+  'color': $color-status-success-01,
+  'border-radius': 50%,
+  'background': $color-status-success-02k,
+  'icon::height': 32px,
+  'icon::width': 32px,
+  'icon::padding': 3px,
+  'font-size': 24x
+);
+
+.demo__dl-ui-badge__wrapper {
+  width: 80%;
+
+  hr {
+    margin: 30px 0;
+    border-top: 1px solid#6666;
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+}
+
+.demo__dl-ui-badge-sep {
+  width: 30px;
+}
+
+.custom-badge {
+  @include badge-style-config($config);
+}
+
+.demo__dl-ui-avatar-custom {
+  @include avatar-style-config($config-avatar);
+}

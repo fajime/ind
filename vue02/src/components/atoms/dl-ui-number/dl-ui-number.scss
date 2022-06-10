@@ -1,0 +1,34 @@
+@import 'mixins/number';
+@import '../dl-ui-input/mixins/commons';
+
+.dl-ui-number {
+  $default: ();
+
+  @include number-style-config($default);
+
+  .dl-ui-number__label {
+    @include font-caption();
+  }
+
+  input {
+    @include font-body-small-regular();
+  }
+
+  &.dl-ui-number--extra-small {
+    @include number-style-config($extra-small);
+  }
+
+  &.dl-ui-number--small {
+    @include number-style-config($small);
+  }
+
+  &.dl-ui-number--medium {
+    $default: ();
+
+    @include number-style-config($default);
+  }
+
+  &.dl-ui-number--large {
+    @include number-style-config($large);
+  }
+}

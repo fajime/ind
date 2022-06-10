@@ -1,0 +1,7 @@
+@import 'mixins/checkbox';
+
+.dl-ui-checkbox {
+  $default: ();
+
+  @include checkbox-style-config($default);
+}

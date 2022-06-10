@@ -1,0 +1,9 @@
+@mixin avatar-group-style-config($config) {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .dl-ui-avatar {
+    border: getmapvalue($config, 'border', 2px solid $color-surface-01k);
+    margin-right: getmapvalue($config, 'space', -14px);
+  }
+}

@@ -1,0 +1,44 @@
+<div class="dl-comp-storybook-menu">
+  <div>
+    <img alt="logo" class="dl-comp-storybook-menu__logo" src="~@/storybook/assets/img/logo.png" />
+  </div>
+  <div class="dl-comp-storybook-menu__list">
+    <ul>
+      <li :key="`item-${index}`" class="dl-comp-storybook-menu__list-item" v-for="(menuItem, index) in menuData">
+        <!-- Link -->
+        <a
+          :class="{'dl-comp-storybook-menu__item--active': menuItem.active}"
+          :href="menuItem.path"
+          @click.prevent="selectMenu(index)"
+          class="dl-comp-storybook-menu__link dl-comp-storybook-menu__item"
+        >
+          <span :class="{'dl-comp-storybook-menu__link--active': menuItem.active}"> {{ menuItem.title }} </span>
+        </a>
+        <span @click="toggleSubMenu(index)" class="dl-comp-storybook-menu__child" v-if="menuItem.children">
+          <dl-ui-icon
+            :class="{'dl-comp-storybook-menu__child--expanded': menuItem.expanded}"
+            class="dl-ui-icon dl-comp-storybook-menu__child-icon"
+            id="dl-ids-icon-arrows-down-single-no_circle-filled"
+          />
+        </span>
+        <ul class="dl-comp-storybook-menu__submenu" v-if="menuItem.children && menuItem.expanded">
+          <li
+            :key="`dl-comp-storybook-menu-${index}${childIndex}`"
+            class="dl-comp-storybook-menu__submenu-item"
+            v-for="(childItem, childIndex) in menuItem.children"
+          >
+            <!-- Link -->
+            <a
+              :class="{'dl-comp-storybook-menu__submenu-link--active': childItem.active}"
+              :href="childItem.path"
+              @click.prevent="selectMenu(index, childIndex)"
+              class="dl-comp-storybook-menu__submenu-link"
+            >
+              {{ childItem.title }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

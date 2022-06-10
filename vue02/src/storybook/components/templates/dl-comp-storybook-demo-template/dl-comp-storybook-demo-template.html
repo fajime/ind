@@ -1,0 +1,96 @@
+<div class="dl-comp-storybook-demo-template">
+  <div class="dl-comp-storybook-demo-template__title">{{component.titleName}}</div>
+  <dl-ui-tabs class="dl-comp-storybook-demo-template__tabs">
+    <!-- Tab: Uso -->
+    <dl-ui-tab :selected="true" title="Uso">
+      <slot name="uso"></slot>
+    </dl-ui-tab>
+    <!-- Tab: Estilo -->
+    <dl-ui-tab :selected="false" title="Estilo">
+      <!--------------------------------------------------------------------->
+      <!-- CSS-->
+      <dl-comp-kit-storybook-demo-section v-if="component.scss && component.scss.length > 0">
+        <div>
+          El componente utiliza un mixin de SCSS denominado
+          <span class="demo__md--syntax">{{component.nameScssMixin}}</span> el cual permite personalizar el aspecto del componente. Para
+          ello es necesario generar un mapa de SCSS y pasarselo al mixin. Los parametros que admite el mixin son:
+        </div>
+        <dl-comp-kit-storybook-demo-table
+          :columnKeys="['name','default', 'desc']"
+          :headers="['Nombre','Valor por defecto', 'Descripción']"
+          :rows="component.scss"
+          class="dl-comp-kit-storybook-demo-table--columns-3"
+        ></dl-comp-kit-storybook-demo-table>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+    </dl-ui-tab>
+    <!-- Tab: Codigo -->
+    <dl-ui-tab :selected="false" title="Codigo">
+      <!-- PLAYGROUND-->
+      <dl-comp-kit-storybook-demo-section title="Playground" v-if="playground">
+        <dl-comp-kit-storybook-demo-playground :inputs="playground" ref="playground">
+          <slot name="playground"></slot>
+        </dl-comp-kit-storybook-demo-playground>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+      <!-- USE-->
+      <dl-comp-kit-storybook-demo-section title="Uso" v-if="component.nameJS">
+        <dl-comp-kit-storybook-demo-use :component="component" />
+      </dl-comp-kit-storybook-demo-section>
+
+      <!--------------------------------------------------------------------->
+      <!-- PROPERTIES-->
+      <dl-comp-kit-storybook-demo-section title="Propiedades" v-if="component.props && Object.keys(component.props).length > 0">
+        <dl-comp-kit-storybook-demo-table
+          :columnKeys="['name','type','default','desc']"
+          :headers="['Nombre','Tipo','Valor por defecto','Descripción']"
+          :rows="component.props"
+          class="dl-comp-kit-storybook-demo-table--columns-4"
+        ></dl-comp-kit-storybook-demo-table>
+      </dl-comp-kit-storybook-demo-section>
+
+      <!--------------------------------------------------------------------->
+      <!-- EVENTS-->
+      <dl-comp-kit-storybook-demo-section title="Eventos" v-if="component.events && component.events.length > 0">
+        <dl-comp-kit-storybook-demo-table
+          :columnKeys="['name','condition','payload']"
+          :headers="['Nombre','Condición de disparo','Payload']"
+          :rows="component.events"
+          class="dl-comp-kit-storybook-demo-table--columns-3"
+        ></dl-comp-kit-storybook-demo-table>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+      <!-- SLOTS-->
+      <dl-comp-kit-storybook-demo-section title="Slots" v-if="component.slots && component.slots.length > 0">
+        <dl-comp-kit-storybook-demo-table
+          :columnKeys="['name','usage']"
+          :headers="['Nombre','Uso']"
+          :rows="component.slots"
+          class="dl-comp-kit-storybook-demo-table--columns-2"
+        >
+        </dl-comp-kit-storybook-demo-table>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+      <!-- CSS-->
+      <dl-comp-kit-storybook-demo-section title="SCSS" v-if="component.scss && component.scss.length > 0">
+        <div>
+          El componente utiliza un mixin de SCSS denominado
+          <span class="demo__md--syntax">{{component.nameScssMixin}}</span> el cual permite personalizar el aspecto del componente. Para
+          ello es necesario generar un mapa de SCSS y pasarselo al mixin. Los parametros que admite el mixin son:
+        </div>
+        <dl-comp-kit-storybook-demo-table
+          :columnKeys="['name','default', 'desc']"
+          :headers="['Nombre','Valor por defecto', 'Descripción']"
+          :rows="component.scss"
+          class="dl-comp-kit-storybook-demo-table--columns-3"
+        ></dl-comp-kit-storybook-demo-table>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+      <!-- NOTES-->
+      <dl-comp-kit-storybook-demo-section title="Notes" v-if="component.notes">
+        <div v-highlight v-html="component.notes"></div>
+      </dl-comp-kit-storybook-demo-section>
+      <!--------------------------------------------------------------------->
+    </dl-ui-tab>
+  </dl-ui-tabs>
+</div>

@@ -1,0 +1,246 @@
+@import '@/storybook/sass/mixins';
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+
+$border-style: 1px solid $color-surface-06;
+
+.dl-comp-storybook-typography {
+  &-resources {
+    @include article();
+
+    background: $color-surface-03;
+
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 29px;
+
+      @include font-h4();
+    }
+
+    &__header {
+      @include header();
+
+      h6 {
+        color: $color-base-highlight-03k;
+      }
+    }
+
+    &__header-icon {
+      @include config-icon(48px, 48px);
+    }
+
+    &__action {
+      @include action();
+      @include link();
+
+      a {
+        color: $color-action-primary-default;
+      }
+    }
+  }
+
+  &-main,
+  &-resources {
+    padding: 72px 95px 80px 94px;
+  }
+
+  article {
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    h2 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 24px;
+
+      @include font-h2();
+    }
+
+    p {
+      color: $color-base-02;
+
+      @include font-body-medium-regular();
+    }
+  }
+
+  &__family {
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 24px;
+
+      @include font-h4();
+    }
+
+    .sample {
+      color: $color-action-tertiary-default;
+      font-family: Roboto, Arial, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 88px;
+      line-height: 90px;
+    }
+
+    h6 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 8px;
+
+      @include font-h6();
+    }
+
+    .description {
+      color: $color-base-02;
+
+      @include font-body-medium-regular();
+    }
+  }
+
+  &__sizes {
+    h4 {
+      color: $color-base-highlight-03k;
+      margin-bottom: 40px;
+
+      @include font-h4();
+    }
+
+    .preview-fonts {
+      @include preview-fonts();
+
+      > div:not(.preview-fonts__col-3) {
+        @include section-preview-fonts();
+      }
+
+      &__jumbo {
+        @include font-jumbo();
+      }
+
+      &__h1 {
+        @include font-h1();
+      }
+
+      &__h2 {
+        @include font-h2();
+      }
+
+      &__h3 {
+        @include font-h3();
+      }
+
+      &__h4 {
+        @include font-h4();
+      }
+
+      &__h5 {
+        @include font-h5();
+      }
+
+      &__h6 {
+        @include font-h6();
+      }
+
+      &__subtitle {
+        &-large {
+          @include font-subtitle-large();
+        }
+
+        &-small {
+          @include font-subtitle-small();
+        }
+      }
+
+      &__col-3 {
+        display: flex;
+        justify-content: space-between;
+
+        &-row-1-cell,
+        &-row-2-cell,
+        &-row-3-cell {
+          @include row-cell();
+        }
+
+        &-row-1-cell {
+          &:nth-of-type(1) {
+            @include font-body(large, light);
+          }
+
+          &:nth-of-type(2) {
+            @include font-body(large, regular);
+          }
+
+          &:nth-of-type(3) {
+            border-right: 0;
+
+            @include font-body(large, bold);
+          }
+        }
+
+        &-row-2-cell {
+          &:nth-of-type(1) {
+            @include font-body(medium, light);
+          }
+
+          &:nth-of-type(2) {
+            @include font-body(medium, regular);
+          }
+
+          &:nth-of-type(3) {
+            border-right: 0;
+
+            @include font-body(medium, bold);
+          }
+        }
+
+        &-row-3-cell {
+          &:nth-of-type(1) {
+            @include font-body(small, light);
+          }
+
+          &:nth-of-type(2) {
+            @include font-body(small, regular);
+          }
+
+          &:nth-of-type(3) {
+            border-right: 0;
+
+            @include font-body(small, bold);
+          }
+        }
+      }
+
+      &__button {
+        &-large {
+          @include font-button-large();
+        }
+
+        &-medium {
+          @include font-button-medium();
+        }
+
+        &-small {
+          @include font-button-small();
+        }
+      }
+
+      &__link {
+        &-large {
+          @include font-link-large();
+        }
+
+        &-medium {
+          @include font-link-medium();
+        }
+
+        &-small {
+          @include font-link-small();
+        }
+      }
+
+      &__overline {
+        @include font-overline();
+      }
+
+      &__caption {
+        @include font-caption();
+      }
+    }
+  }
+}

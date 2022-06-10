@@ -1,0 +1,5 @@
+@import 'mixins/header';
+
+.dl-ui-header {
+  @include header-style-config(());
+}

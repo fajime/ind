@@ -1,0 +1,48 @@
+@import 'vendor/code-pretify/tomorrow-night-blue';
+
+// stylelint-disable no-descending-specificity
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  &__title {
+    flex: 1 1 auto;
+    padding-top: 1rem;
+    color: $color-action-primary-default;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  &__md--bold {
+    font-weight: bold;
+  }
+
+  &__md--italic {
+    font-style: italic;
+  }
+
+  &__md--syntax {
+    background-color: $color-status-danger-01;
+    color: $color-status-danger-03;
+    white-space: pre;
+    border-radius: 4px;
+    padding: 0 4px;
+
+    @include font-body-medium-regular();
+
+    &::before,
+    &::after {
+      content: ' ';
+      letter-spacing: -1px;
+    }
+  }
+}
+
+// stylelint-enable no-descending-specificity

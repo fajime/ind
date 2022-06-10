@@ -1,0 +1,7 @@
+@import 'mixins/progress-bar';
+
+.dl-ui-progress-bar {
+  $default: ();
+
+  @include progress-bar-style-config($default);
+}

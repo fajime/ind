@@ -1,0 +1,100 @@
+.dl-comp-kit-how-to {
+  &__make-name,
+  &__make-type {
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+    > label {
+      width: 200px;
+    }
+  }
+
+  &__folder-structure {
+    margin: 1rem;
+  }
+
+  &__folder-structure-0 {
+    margin: 0.3rem 1rem;
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__folder-structure-1 {
+    margin: 0.3rem 2.5rem;
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__folder-structure-2 {
+    margin: 0.3rem 4rem;
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__folder-structure-3 {
+    margin: 0.3rem 5.5rem;
+    display: flex;
+    align-items: center;
+
+    > * {
+      margin-right: 0.3rem;
+    }
+  }
+
+  &__tooltipText {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
+    background-color: $color-action-primary-active;
+    color: $color-surface-01k;
+    text-align: center;
+    border-radius: 6px;
+    z-index: 1;
+    padding: 0.4rem 1.2rem;
+    top: 110%;
+    width: 250px;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      bottom: 100%;
+      left: 20px;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $color-action-primary-active transparent;
+    }
+  }
+
+  &__hasTooltip {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    > span {
+      margin-left: 0.3rem;
+    }
+
+    &:hover {
+      > .dl-comp-kit-how-to__tooltipText {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

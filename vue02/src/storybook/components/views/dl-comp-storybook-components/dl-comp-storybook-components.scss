@@ -1,0 +1,254 @@
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+@import '~@/components/molecules/dl-ui-tabs/mixins/tabs';
+
+$border-style: 1px solid $color-surface-05;
+
+@mixin config-icon($width, $height) {
+  $config-icon: (
+    'height': $height,
+    'width': $width
+  );
+
+  @include icon-style-config($config-icon);
+
+  &--right {
+    align-self: flex-end;
+  }
+}
+
+@mixin font($size) {
+  font-family: Roboto-medium, sans-serif;
+  font-size: $size;
+  margin-bottom: 2rem;
+}
+
+@mixin article() {
+  overflow: visible;
+  padding: 88px 96px;
+
+  &__title--primary {
+    @include font(32px);
+  }
+}
+
+@mixin header() {
+  display: flex;
+  flex-direction: column;
+  color: $color-surface-06;
+  margin-bottom: 0.5rem;
+
+  .icon {
+    @include config-icon(48px, 48px);
+  }
+}
+
+@mixin action() {
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 33px;
+}
+
+@mixin link() {
+  a {
+    float: left;
+    position: relative;
+    padding-right: 14px;
+    font-size: 14px;
+    text-decoration: none;
+
+    &::after {
+      content: '\276F';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $color-emphasis-01;
+    }
+
+    &:empty {
+      float: right;
+      width: 32px;
+      height: 32px;
+      border-radius: 100em;
+
+      &::after {
+        right: unset;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+.dl-comp-storybook-components {
+  &__checkbox {
+    display: flex;
+    margin-bottom: 0.5rem;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+
+    &-label {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__accordion {
+    height: 100px;
+    border: $border-style;
+    margin-bottom: 0.2rem;
+  }
+
+  &__number {
+    margin-bottom: 0.2rem;
+  }
+
+  &__breadcrumb {
+    .dl-ui-breadcrumb {
+      padding: 0;
+    }
+  }
+
+  &__button {
+    max-width: 100px;
+  }
+
+  &__dropdown {
+    max-width: 200px;
+  }
+
+  &__input {
+    max-width: 180px;
+  }
+
+  &__img {
+    max-width: 250px;
+    width: 250px;
+  }
+
+  &__progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-text {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__menu-blocks {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__tabs {
+    margin-bottom: 0.2rem;
+    $default: ();
+
+    @include tabs-style-config($default);
+  }
+
+  &__snack {
+    margin-top: 1rem;
+  }
+
+  &__radio {
+    display: flex;
+    margin-bottom: 0.5rem;
+    margin-left: 1.5rem;
+    align-items: center;
+
+    &-label {
+      margin-left: 0.5rem;
+
+      @include font-body-large-regular();
+    }
+  }
+
+  &-header {
+    padding: 0 96px;
+    background:
+      linear-gradient(
+        to bottom,
+        $color-action-primary-active 88px,
+        $color-action-tertiary-focus 88px
+      );
+
+    &__action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h6 {
+        color: $color-base-02;
+      }
+
+      a {
+        &::after {
+          background: $color-action-primary-active;
+          width: 32px;
+          height: 32px;
+          border-radius: 50px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &-header,
+  &-documentation {
+    &__header {
+      @include header();
+    }
+
+    &__header-icon {
+      @include config-icon(48px, 48px);
+    }
+
+    &__action {
+      @include action();
+      @include link();
+    }
+  }
+
+  &-documentation {
+    @include article();
+
+    background-color: $color-surface-04;
+
+    &__header {
+      h6 {
+        color: $color-base-highlight-03k;
+      }
+    }
+
+    &__action {
+      a {
+        color: $color-action-primary-default;
+
+        &::after {
+          color: $color-action-primary-default;
+        }
+      }
+    }
+  }
+
+  .layout-card-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .dl-comp-storybook-card {
+      flex: 0 0 290px;
+      margin: 0 32px 32px 0;
+      position: relative;
+      overflow: hidden;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+  }
+}

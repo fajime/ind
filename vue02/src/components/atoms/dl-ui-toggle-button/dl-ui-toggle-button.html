@@ -1,0 +1,18 @@
+<button
+  :class="{
+    'dl-ui-toggle-button--active': modelValue, 
+    'dl-ui-toggle-button--slot': !emptySlot, 
+    'dl-ui-toggle-button--notslot': emptySlot
+  }"
+  :disabled="disabled"
+  class="dl-ui-toggle-button"
+  ref="toggleButton"
+  v-on:click="raiseEvent(!modelValue)"
+>
+  <dl-ui-icon :id="icon" class="dl-ui-checkbox__icon" v-if="modelValue && icon" />
+  <dl-ui-icon :id="iconActive" class="dl-ui-checkbox__icon" v-if="!modelValue && iconActive" />
+  <div class="dl-ui-toggle-button__slot">
+    <slot></slot>
+  </div>
+  <input :disabled="disabled" :id="randomId" type="checkbox" v-bind:checked="modelValue" v-on:input="raiseEvent($event.target.checked)" />
+</button>

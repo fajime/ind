@@ -1,0 +1,20 @@
+.dl-comp-kit-storybook-demo-playground-input {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  height: 32px;
+
+  input,
+  select {
+    border: 1px solid $color-surface-06;
+    border-radius: 4px;
+    height: 32px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    color: $color-action-tertiary-hover;
+
+    @include font-body-small-regular();
+  }
+}

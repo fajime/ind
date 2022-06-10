@@ -1,0 +1,29 @@
+@import '~highlight.js/styles/an-old-hope.css';
+
+.dl-comp-kit-demo-use {
+  display: flex;
+  flex: 1 1 auto;
+
+  &__subtitle {
+    padding: 1rem 0 0.2rem 0;
+    margin-left: 1rem;
+    font-size: larger;
+
+    @include font-body-medium-regular();
+
+    font-size: var(--subtitle-large-font-size);
+  }
+
+  &__code {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0 1.5em;
+    max-width: 70vw;
+
+    > pre > code {
+      border-radius: 3px;
+      padding: 1rem;
+    }
+  }
+}

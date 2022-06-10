@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-breadcrumb renders correctly 1`] = `
+<nav
+  class="dl-ui-breadcrumb"
+>
+  <ul
+    class="dl-ui-breadcrumb__bar"
+  >
+    
+    <li
+      class="dl-ui-breadcrumb__item"
+    >
+      <div
+        class="dl-ui-icon dl-ui-breadcrumb__icon"
+      >
+        <svg>
+          <!--v-if-->
+          <!--v-if-->
+          <use
+            xlink:href="#dl-ids-icon-home-filled"
+          />
+        </svg>
+      </div>
+    </li>
+    <li
+      class="dl-ui-breadcrumb__item"
+    >
+      
+      <span
+        class="dl-ui-breadcrumb__separator"
+      >
+        /
+      </span>
+      <span
+        class="dl-ui-breadcrumb__item-label"
+      >
+        Page A
+      </span>
+      
+    </li>
+    <li
+      class="dl-ui-breadcrumb__item"
+    >
+      
+      <span
+        class="dl-ui-breadcrumb__separator"
+      >
+        /
+      </span>
+      <span
+        class="dl-ui-breadcrumb__item-label"
+      >
+        Page B
+      </span>
+      
+    </li>
+    <li
+      class="dl-ui-breadcrumb__item--disabled dl-ui-breadcrumb__item"
+    >
+      
+      <span
+        class="dl-ui-breadcrumb__separator"
+      >
+        /
+      </span>
+      <span
+        class="dl-ui-breadcrumb__item-label"
+      >
+        Page C
+      </span>
+      
+    </li>
+    
+  </ul>
+</nav>
+`;

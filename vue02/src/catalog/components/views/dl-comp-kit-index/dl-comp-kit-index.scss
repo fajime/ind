@@ -1,0 +1,141 @@
+.dl-comp-kit-index {
+  $root-node: &;
+
+  overflow: hidden;
+  display: flex;
+  flex-flow: row;
+  flex: 1 1 auto;
+  color: $color-base-03k;
+  flex-wrap: nowrap;
+
+  &__sidebar {
+    background-color: $color-surface-04;
+    color: $color-base-highlight-01;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1.5rem 1rem 0 1rem;
+    width: 240px;
+  }
+
+  &__filter {
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+
+    &-input {
+      border: none;
+      border-bottom: 1px solid $color-action-tertiary-default;
+      padding: 0.5rem;
+      text-align: right;
+      width: 100%;
+
+      &:focus {
+        border-bottom: 1px solid $color-base-highlight-03k;
+        outline: none;
+      }
+
+      &--error,
+      &--error:focus {
+        border-bottom: 1px solid $color-status-danger-02k;
+        color: $color-surface-04;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    max-height: initial;
+
+    > #{$root-node}__list {
+      height: 100%;
+      max-height: 100%;
+      overflow: auto;
+      padding: 1rem 0;
+    }
+  }
+
+  &__bitbucket {
+    flex: 0 0 auto;
+    align-items: baseline;
+    display: flex;
+    justify-content: center;
+
+    @include font-body-small-regular();
+
+    > a {
+      text-decoration: none;
+      align-items: baseline;
+      display: flex;
+    }
+
+    &-icon {
+      display: inline-block;
+      vertical-align: middle;
+      height: 0.6em;
+      fill: $color-action-primary-default;
+    }
+  }
+
+  &__viewer {
+    flex: 10 10 auto;
+    overflow: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: $color-surface-02;
+  }
+
+  &__list {
+    flex-grow: 1;
+
+    & & {
+      display: none;
+    }
+
+    .dl-ui-icon {
+      fill: currentColor;
+      margin-right: 0.3rem;
+      pointer-events: none;
+    }
+  }
+
+  &__branch {
+    align-items: center;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: $color-action-tertiary-default;
+    display: flex;
+    padding: 0.3rem 0;
+
+    &:hover {
+      color: $color-action-primary-active;
+      text-decoration-line: underline;
+      text-decoration-color: $color-action-primary-hover;
+    }
+
+    &--active {
+      & + #{$root-node}__list {
+        display: block;
+      }
+    }
+  }
+
+  &__leaf {
+    align-items: center;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: $color-action-tertiary-default;
+    display: flex;
+    padding: 0.3rem 0;
+
+    &:hover,
+    &--active {
+      color: $color-action-primary-active;
+      text-decoration-line: underline;
+      text-decoration-color: $color-action-primary-hover;
+    }
+  }
+}

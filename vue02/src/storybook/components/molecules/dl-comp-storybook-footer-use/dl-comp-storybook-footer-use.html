@@ -1,0 +1,22 @@
+<div class="dl-comp-storybook-footer-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-footer-use__uso">
+        <div class="dl-comp-storybook-footer-use__uso-group">
+          <h4 class="dl-comp-storybook-footer-use__uso-group-title">Footer principal</h4>
+          <div class="dl-comp-storybook-footer-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-footer-use__uso-group-primary">
+            <dl-ui-footer class="dl-ui-footer dl-comp-storybook-footer-use__uso-footer--primary"> </dl-ui-footer>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-footer__wrapper">
+        <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps">
+          {{ playground.slots[0].value}}
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

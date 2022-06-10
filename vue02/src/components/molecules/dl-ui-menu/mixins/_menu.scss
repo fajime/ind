@@ -1,0 +1,69 @@
+@mixin menu-style-config($config) {
+  position: relative;
+  width: 100%;
+  display: flex;
+  height: getmapvalue($config, 'height', 40px);
+  background-color: getmapvalue($config, 'background', $color-surface-03);
+  align-items: center;
+  user-select: none;
+  transition: all 0.2s linear;
+
+  .dl-ui-menu__list {
+    display: flex;
+    flex: 1 1 auto;
+
+    &--vertical {
+      flex-direction: column;
+    }
+  }
+
+  .dl-ui-menu-root-item {
+    position: relative;
+    cursor: pointer;
+    min-width: getmapvalue($config, 'item::min-width', 95px);
+    height: getmapvalue($config, 'item::height', 40px);
+    color: getmapvalue($config, 'item::color', $color-action-secondary-default);
+    fill: getmapvalue($config, 'item::color', $color-action-secondary-default);
+    background-color: getmapvalue($config, 'item::background', transparent);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 0 8px;
+    transition: all 0.2s linear;
+
+    @include font-button-medium();
+
+    .dl-ui-menu-root-item__wrapper {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    .dl-ui-menu-root-item__label {
+      margin: 0 5px;
+    }
+
+    &:hover {
+      color: getmapvalue($config, 'item::hover::color', $color-action-secondary-hover);
+      fill: getmapvalue($config, 'item::hover::color', $color-action-secondary-hover);
+      background-color: getmapvalue($config, 'item::hover::background', transparent);
+    }
+
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+      color: getmapvalue($config, 'item::disabled::color', $color-action-secondary-disabled);
+      fill: getmapvalue($config, 'item::disabled::color', $color-action-secondary-disabled);
+      background-color: getmapvalue($config, 'item::disabled::background', transparent);
+    }
+  }
+
+  &--vertical {
+    width: fit-content !important;
+    height: 100% !important;
+  }
+}

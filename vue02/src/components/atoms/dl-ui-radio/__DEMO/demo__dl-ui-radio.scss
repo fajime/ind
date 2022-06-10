@@ -1,0 +1,32 @@
+@import '../dl-ui-radio';
+
+$config: (
+  'width': 45px,
+  'border-color': red,
+  'item-background::active': blue,
+  'item-color::active': lightblue,
+  'item-background::hover': orange,
+  'item-color::hover': purple,
+  'nh-item-color::hover': green,
+  'shadow-color::focus': violet,
+  'item-color::focus': yellow
+);
+
+.demo__dl-ui-radio {
+  &__wrapper {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+}
+
+.custom-radio {
+  @include radio-style-config($config);
+}

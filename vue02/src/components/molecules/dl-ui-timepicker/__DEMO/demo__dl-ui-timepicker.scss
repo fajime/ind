@@ -1,0 +1,26 @@
+@import '../mixins/timepicker';
+@import '../../../atoms//dl-ui-input/mixins/input';
+
+$config: (
+  'box::background': rgb(221, 221, 221),
+  'box::width': 320px,
+  'box::height': 10em,
+  'box::border': 3px dotted rgb(117, 0, 0),
+  'box::border-radius': 8px,
+  'navigation::icons::size': 20px,
+  'box::hours::font-size': 20px,
+  'box::hours::color': rgba(0, 0, 0, 0) 0%,
+  'item::disabled::color': darkgray,
+  'disable::opacity': 0.3
+);
+
+.demo__dl-ui-timepicker {
+  &__wrapper {
+    display: block;
+    width: 350px;
+  }
+}
+
+.custom-timepicker {
+  @include timepicker-style-config($config);
+}

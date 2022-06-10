@@ -1,0 +1,9 @@
+@import 'mixins/avatar-group';
+
+.dl-ui-avatar-group {
+  $default: (
+    'border': 2px solid $color-surface-02
+  );
+
+  @include avatar-group-style-config($default);
+}

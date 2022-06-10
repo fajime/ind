@@ -1,0 +1,55 @@
+.dl-comp-storybook-button-use {
+  &__uso {
+    padding: 3rem;
+
+    &-button {
+      &--primary {
+        margin-right: 2rem;
+        max-width: 180px;
+      }
+
+      &--secondary {
+        margin-right: 2rem;
+        max-width: 180px;
+      }
+
+      &--tertiary {
+        margin-right: 2rem;
+        max-width: 180px;
+      }
+
+      &--link {
+        margin-right: 2rem;
+        max-width: 180px;
+      }
+    }
+
+    &-group {
+      &-title {
+        margin-top: 1rem;
+        color: $color-action-primary-default;
+
+        @include font-h4();
+      }
+
+      &-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      &-subtitle {
+        @include font-body-medium-bold();
+      }
+
+      &-primary,
+      &-secondary,
+      &-tertiary,
+      &-link {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

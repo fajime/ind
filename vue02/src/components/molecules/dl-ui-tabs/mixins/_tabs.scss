@@ -1,0 +1,395 @@
+/* stylelint-disable no-descending-specificity */
+@mixin tabs-style-config($config) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > nav {
+    display: flex;
+    width: 100%;
+    background-color: getmapvalue($config, 'background', transparent);
+    align-items: flex-end;
+    flex: 1 1 auto;
+
+    .dl-ui-tabs__options {
+      padding: getmapvalue($config, 'tab::padding', 8px 16px);
+      align-items: center;
+      align-self: center;
+    }
+
+    > ul {
+      display: flex;
+      list-style-type: none;
+      position: relative;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .dl-ui-tabs__tab {
+        flex: 1;
+
+        &__box {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: getmapvalue($config, 'tab::cursor', pointer);
+          color: getmapvalue($config, 'tab::color', $color-base-03k);
+          padding: getmapvalue($config, 'tab::padding', 8px 16px);
+          transition: all 0.2s linear;
+          position: relative;
+          border: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+
+          &__content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: getmapvalue($config, 'content::height', 24px);
+          }
+
+          &__right {
+            height: 60%;
+            position: absolute;
+            right: 0;
+            bottom: 20%;
+            z-index: 10;
+          }
+
+          &__text {
+            margin: getmapvalue($config, 'tab::text::margin', 0 10px);
+            margin-top: 2px;
+            user-select: none;
+            white-space: nowrap;
+          }
+
+          &__icon {
+            fill: getmapvalue($config, 'tab::icon::color', $color-base-highlight-02);
+            transition: all 0.2s linear;
+          }
+        }
+
+        &--active > .dl-ui-tabs__tab__box {
+          color: getmapvalue($config, 'tab::color::active', $color-base-03k);
+
+          .dl-ui-tabs__tab__box {
+            &__text {
+              font-weight: bold;
+            }
+
+            &__icon {
+              fill:
+                getmapvalue(
+                  $config,
+                  'tab::icon::color::active',
+                  $color-base-highlight-02
+                );
+            }
+          }
+        }
+
+        &:hover:not(.dl-ui-tabs__tab--active) {
+          color: getmapvalue($config, 'tab::color::hover', $color-surface-04);
+
+          .dl-ui-tabs__tab__box {
+            &__text {
+              font-weight: bold;
+            }
+
+            &__icon {
+              fill:
+                getmapvalue(
+                  $config,
+                  'tab::icon::color::hover',
+                  $color-base-highlight-02
+                );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dl-ui-tabs--default {
+    border-bottom:
+      getmapvalue(
+        $config,
+        'border-bottom',
+        2px solid $color-surface-06
+      );
+
+    li.dl-ui-tabs__tab {
+      background-color: getmapvalue($config, 'tab::background', transparent);
+
+      .dl-ui-tabs__tab {
+        &__box {
+          margin-bottom: -2px;
+          border-top-left-radius: getmapvalue($config, 'tab::radius', 8px);
+          border-top-right-radius: getmapvalue($config, 'tab::radius', 8px);
+
+          &__bottom {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+          }
+        }
+      }
+
+      &--active {
+        .dl-ui-tabs__tab {
+          &__box {
+            background-color:
+              getmapvalue(
+                $config,
+                'tab::background::active',
+                $color-surface-01k
+              );
+            border-bottom:
+              getmapvalue(
+                $config,
+                'tab::border-bottom::active',
+                1px solid $color-emphasis-04
+              );
+
+            &__bottom {
+              border-bottom:
+                getmapvalue(
+                  $config,
+                  'tab::border-bottom::active',
+                  1px solid $color-surface-06
+                );
+            }
+          }
+        }
+      }
+
+      &:hover {
+        .dl-ui-tabs__tab__box {
+          background-color:
+            getmapvalue(
+              $config,
+              'tab::background::hover',
+              transparent
+            );
+          border-bottom:
+            getmapvalue(
+              $config,
+              'tab::border-bottom::active',
+              1px solid $color-emphasis-04
+            );
+
+          &__bottom {
+            border-bottom:
+              getmapvalue(
+                $config,
+                'tab::border-bottom::active',
+                1px solid $color-surface-06
+              );
+          }
+        }
+      }
+
+      &:focus {
+        .dl-ui-tabs__tab__box {
+          background-color:
+            getmapvalue(
+              $config,
+              'tab::background::active',
+              transparent
+            );
+          border: getmapvalue($config, 'tab::border::focus', 1px solid $color-emphasis-03k);
+
+          &__bottom {
+            border-bottom:
+              getmapvalue(
+                $config,
+                'tab::border-bottom::active',
+                2px solid $color-surface-06
+              );
+          }
+        }
+      }
+    }
+
+    .dl-ui-tabs__tab__sep {
+      display: none;
+    }
+  }
+
+  /** window mode tab */
+  .dl-ui-tabs--window {
+    padding: 0 19px;
+
+    .dl-ui-tabs__tab {
+      .dl-ui-tabs__tab__box {
+        transition: none;
+        background: getmapvalue($config, 'tab::background', transparent);
+
+        &__right {
+          border-right: 2px solid #111;
+        }
+      }
+
+      &--active {
+        z-index: 2;
+      }
+
+      &:hover:not(.dl-ui-tabs__tab--active) {
+        &::before,
+        &::after {
+          background: getmapvalue($config, 'tab::background::hover', $color-surface-04);
+        }
+
+        .dl-ui-tabs__tab__box {
+          color: getmapvalue($config, 'tab::color::hover', $color-base-03k);
+          transition: none;
+          z-index: 1;
+          background-color:
+            getmapvalue(
+              $config,
+              'tab::background::hover',
+              $color-surface-04
+            );
+        }
+      }
+    }
+
+    li.dl-ui-tabs__tab::before {
+      position: absolute;
+      left: -19px;
+      width: 19px;
+      height: 24px;
+      bottom: 0;
+      content: '';
+      mask: url("data:image/svg+xml; utf8, <svg width='19' height='24' viewBox='0 0 19 24' xmlns='http://www.w3.org/2000/svg'><path d='M0 24C10.3586 23.72 18.6732 15.3575 18.8937 4.99743L19 0V24H0Z'  fill='black'/></svg>");
+      background: getmapvalue($config, 'tab::background', transparent);
+      display: block;
+      z-index: 1;
+    }
+
+    li.dl-ui-tabs__tab::after {
+      position: absolute;
+      right: -19px;
+      width: 19px;
+      height: 24px;
+      bottom: 0;
+      content: '';
+      mask: url("data:image/svg+xml; utf8, <svg width='19' height='24' viewBox='0 0 19 24' xmlns='http://www.w3.org/2000/svg'><path d='M19 24C8.64137 23.72 0.326756 15.3575 0.106329 4.99743L0 0V24H19Z' fill='black'/></svg>");
+      background: getmapvalue($config, 'tab::background', transparent);
+      display: block;
+      z-index: 1;
+    }
+
+    li.dl-ui-tabs__tab--active::after,
+    li.dl-ui-tabs__tab--active::before {
+      background: getmapvalue($config, 'tab::background::active', $color-surface-01k);
+    }
+
+    li.dl-ui-tabs__tab {
+      position: relative;
+
+      .dl-ui-tabs__tab__box {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+
+    li.dl-ui-tabs__tab--active {
+      pointer-events: none;
+
+      .dl-ui-tabs__tab__box:hover,
+      .dl-ui-tabs__tab__box {
+        background-color:
+          getmapvalue(
+            $config,
+            'tab::background::active',
+            $color-surface-01k
+          );
+      }
+    }
+
+    .dl-ui-tabs__tab__sep {
+      background-color: transparent;
+      z-index: 2;
+      width: getmapvalue($config, 'tab::separate::width', 2px);
+      height: getmapvalue($config, 'tab::separate::height', 26px);
+      margin-bottom: 3px;
+      border-radius: 1px;
+
+      &--visible {
+        background-color: getmapvalue($config, 'tab::separate::color', $color-base-highlight-02);
+      }
+    }
+  } /** end mode window */
+
+  &--extra-small,
+  &--small {
+    .dl-ui-tabs--window {
+      padding: 0 10px;
+
+      li.dl-ui-tabs__tab::before {
+        left: -10px;
+        width: 10px;
+        height: 14px;
+        mask: url("data:image/svg+xml; utf8, <svg width='10' height='14' viewBox='0 0 19 24' xmlns='http://www.w3.org/2000/svg'><path d='M0 24C10.3586 23.72 18.6732 15.3575 18.8937 4.99743L19 0V24H0Z'  fill='black'/></svg>");
+      }
+
+      li.dl-ui-tabs__tab::after {
+        right: -10px;
+        width: 10px;
+        height: 14px;
+        mask: url("data:image/svg+xml; utf8, <svg width='10' height='14' viewBox='0 0 19 24' xmlns='http://www.w3.org/2000/svg'><path d='M19 24C8.64137 23.72 0.326756 15.3575 0.106329 4.99743L0 0V24H19Z' fill='black'/></svg>");
+      }
+    }
+  }
+
+  .dl-ui-tabs__tool-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    fill: $color-base-highlight-03k;
+    pointer-events: all;
+  }
+
+  &__options {
+    .dl-ui-tabs__tool-button {
+      border-radius: 100%;
+
+      &:hover {
+        background:
+          getmapvalue(
+            $config,
+            'background::tool::hover',
+            $color-base-highlight-01
+          );
+      }
+    }
+  }
+
+  .dl-ui-tabs--strech {
+    flex: 2 1 auto;
+    overflow: hidden;
+  }
+
+  .dl-ui-tabs__content {
+    display: flex;
+    width: 100%;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 10px;
+    background-color: $color-surface-01k;
+    overflow: auto;
+  }
+
+  .dl-ui-tab__content {
+    width: 100%;
+    transition: all 0.2s linear;
+
+    &--inactive {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div :class="{'dl-ui-listbox--focused': focused}" class="dl-ui-listbox" ref="root">
+  <div class="dl-ui-listbox__container" ref="container">
+    <dl-ui-scrollpanel :scrollHeight="scrollHeight" :scrollTop="scrollTop">
+      <ListView
+        :options="options"
+        :tabindex="tabindex"
+        @change="onOptionSelect"
+        @focused="handleFocused"
+        @loaded="loaded"
+        ref="listview"
+        v-model="modelValue"
+        v-slot="{option}"
+      >
+        <RowItem :multiple="multiple" :option="option" :selected="isSelected(option)" class="dl-ui-rowitem" />
+      </ListView>
+    </dl-ui-scrollpanel>
+  </div>
+</div>

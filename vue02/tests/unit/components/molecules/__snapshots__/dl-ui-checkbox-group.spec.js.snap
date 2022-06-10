@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-checkbox-group renders correctly 1`] = `
+<div
+  class="dl-ui-checkbox-group"
+>
+  <div
+    class="dl-ui-checkbox-group__parent"
+  >
+    <div
+      class="dl-ui-checkbox dl-ui-checkbox-group__checkbox"
+    >
+      <span
+        class="dl-ui-checkbox__box"
+      >
+        <div
+          class="dl-ui-icon dl-ui-checkbox__icon"
+        >
+          <svg>
+            <!--v-if-->
+            <!--v-if-->
+            <use
+              xlink:href="#dl-ids-icon-ok-no_circle-filled"
+            />
+          </svg>
+        </div>
+        <input
+          id="random-id"
+          name=""
+          tabindex="0"
+          type="checkbox"
+        />
+      </span>
+      <!--v-if-->
+    </div>
+    <i
+      class="dl-ui-checkbox-group__item-arrow"
+    />
+    <label
+      for="random-id"
+    >
+      
+      
+    </label>
+  </div>
+  <ul
+    class="dl-ui-checkbox-group__list"
+  >
+    <!-- Sub-list item -->
+    
+    
+  </ul>
+</div>
+`;

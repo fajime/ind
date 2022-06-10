@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-checkbox renders correctly 1`] = `
+<div
+  class="dl-ui-checkbox"
+>
+  <span
+    class="dl-ui-checkbox__box"
+  >
+    <div
+      class="dl-ui-icon dl-ui-checkbox__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-ok-no_circle-filled"
+        />
+      </svg>
+    </div>
+    <input
+      id="random-id"
+      name=""
+      tabindex="0"
+      type="checkbox"
+    />
+  </span>
+  <!--v-if-->
+</div>
+`;

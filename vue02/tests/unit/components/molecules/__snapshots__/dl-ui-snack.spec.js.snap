@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-snack renders correctly 1`] = `
+<transition-stub>
+  <!--v-if-->
+</transition-stub>
+`;

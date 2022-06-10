@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-dropdown renders correctly 1`] = `
+<div
+  class="dl-ui-dropdown dl-ui-dropdown--empty"
+>
+  <div
+    class="dl-ui-dropdown__container"
+  >
+    <div
+      class="dl-ui-dropdown__box"
+    >
+      <div
+        class="dl-ui-dropdown__box-slot"
+      >
+        
+        
+      </div>
+      <div
+        class="dl-ui-dropdown__trigger-button"
+      >
+        <dl-ui-icon-stub
+          class="dl-ui-dropdown__trigger-icon"
+          id="dl-ids-icon-arrows-down-single-no_circle-outlined"
+        />
+      </div>
+    </div>
+    <transition-stub>
+      <!--v-if-->
+    </transition-stub>
+  </div>
+</div>
+`;

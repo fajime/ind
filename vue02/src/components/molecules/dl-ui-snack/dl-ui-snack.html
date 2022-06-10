@@ -1,0 +1,20 @@
+<transition name="dl-ui-transition-fade">
+  <div :style="`--dynamic-position: ${position}`" class="dl-ui-snack" v-if="visible">
+    <div :class="{ 'dl-ui-snack__wrapper--show-icon': showIcon}" :role="type" class="dl-ui-snack__wrapper">
+      <div class="dl-ui-snack__icon" v-if="showIcon">
+        <dl-ui-icon :id="getIcon()" class="dl-ui-icon--small" />
+      </div>
+      <div class="dl-ui-snack__content">
+        <div class="dl-ui-snack__text" v-if="text">
+          <span :key="index" v-for="(line, index) in textArray">{{ line }}</span>
+        </div>
+        <slot v-else></slot>
+      </div>
+      <button @click="close" class="dl-ui-snack__close-btn" type="button">
+        <span class="dl-ui-snack__close-btn-content">
+          <dl-ui-icon class="dl-ui-icon--small dl-ui-snack__close-icon" id="dl-ids-icon-close-no-circle-outlined" />
+        </span>
+      </button>
+    </div>
+  </div>
+</transition>

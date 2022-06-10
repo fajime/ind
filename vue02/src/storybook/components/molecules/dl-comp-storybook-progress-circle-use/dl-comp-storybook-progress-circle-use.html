@@ -1,0 +1,33 @@
+<div class="dl-comp-storybook-progress-circle-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-progress-circle-use__uso">
+        <div class="dl-comp-storybook-progress-circle-use__uso-group">
+          <h4 class="dl-comp-storybook-progress-circle-use__uso-group-title">Progress Circle principal</h4>
+          <div class="dl-comp-storybook-progress-circle-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-progress-circle-use__uso-group-primary">
+            <dl-ui-progress-circle
+              :max="100"
+              :min="0"
+              :value="60"
+              class="dl-ui-progress-circle dl-comp-storybook-progress-circle-use__uso-progress-circle--default"
+            >
+              60%
+            </dl-ui-progress-circle>
+            <p>
+              <span class="dl-comp-storybook-progress-circle-use__uso-group-subtitle"> Progress Circle: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-progress-circle__wrapper">
+        <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps">
+          {{playground.slots[0].value}}
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

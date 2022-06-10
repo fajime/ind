@@ -1,0 +1,16 @@
+@import '../mixins/tree';
+
+$configGroup: (
+);
+
+.custom-tree {
+  @include tree-style-config($configGroup);
+}
+
+.demo__dl-ui-tree__wrapper {
+  width: 100%;
+  padding: 15px;
+  height: 300px;
+  display: flex;
+  overflow: auto;
+}

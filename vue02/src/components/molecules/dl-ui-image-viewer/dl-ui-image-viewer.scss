@@ -1,0 +1,7 @@
+@import 'mixins/image-viewer';
+
+.dl-ui-image-viewer {
+  $default: ();
+
+  @include image-viewer-style-config($default);
+}

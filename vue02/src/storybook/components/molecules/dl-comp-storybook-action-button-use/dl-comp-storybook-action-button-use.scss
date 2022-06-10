@@ -1,0 +1,66 @@
+@import '~@/components/atoms/dl-ui-action-button/mixins/action-button';
+
+$config: (
+  'height': 30px,
+  'width': 30px,
+  'border': 2px $color-action-tertiary-default,
+  'border-radius': 10px,
+  'background': $color-action-primary-focus,
+  'hover::icon::color': $color-action-primary-hover,
+  'focus::icon::background': $color-action-secondary-active,
+  'active::border': 5px $color-action-primary-focus,
+  'active::icon::color': $color-action-primary-focus,
+  'disable::button::background': transparent,
+  'loading::icon::color': $color-action-primary-disabled
+);
+
+.dl-comp-storybook-action-button-use {
+  &__uso {
+    padding: 3rem;
+
+    &-button {
+      &--default {
+        margin-right: 2rem;
+      }
+
+      &--small {
+        margin-right: 2rem;
+      }
+
+      &--large {
+        margin-right: 2rem;
+      }
+
+      &--custom {
+        margin-right: 2rem;
+
+        @include action-button-style-config($config);
+      }
+    }
+
+    &-group {
+      &-title {
+        margin-top: 1rem;
+        color: $color-action-primary-default;
+
+        @include font-h4();
+      }
+
+      &-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      &-subtitle {
+        @include font-body-medium-bold();
+      }
+
+      &-primary {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

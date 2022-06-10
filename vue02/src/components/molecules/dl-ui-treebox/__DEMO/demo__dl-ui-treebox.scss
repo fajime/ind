@@ -1,0 +1,43 @@
+@import '../dl-ui-treebox';
+
+$color-accent-light: #f36;
+$color-accent-dark: #ba265d;
+$color-green: #84c3ae;
+
+$config: (
+  'width': 350px,
+  'background': $color-accent-dark,
+  'color': white,
+  'box-shadow': none,
+  'item::background': transparent,
+  'item::color': $color-status-info-02k,
+  'item::height': 50px,
+  'active::item::background': $color-accent-dark,
+  'active::item::color': lightblue,
+  'disabled::item::color': darkgrey,
+  'hover::item::background': $color-green,
+  'item::icon::size': 40px,
+  'item::border-radius': 32px,
+  'item::padding': 0 16px,
+  'item::margin': 4px 0,
+  'focus::item::color': $color-status-info-02k,
+  'focus::item::border': 1px solid $color-status-info-02k,
+  'hover::item::color': $color-status-info-01,
+  'border-radius': 32px,
+  'border': 2px solid $color-status-info-02k,
+  'padding': 16px 16px,
+);
+
+.demo__dl-ui-treebox {
+  &__wrapper {
+    width: 300px;
+  }
+}
+
+.custom-treebox {
+  @include treebox-style-config($config);
+
+  .dl-ui-treebox__container {
+    @include treebox-style-config($config);
+  }
+}

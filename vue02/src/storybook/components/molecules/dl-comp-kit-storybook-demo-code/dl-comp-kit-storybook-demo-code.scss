@@ -1,0 +1,55 @@
+.dl-comp-kit-storybook-demo-code {
+  &__subtitle {
+    color: $color-action-primary-default;
+
+    @include font-body-medium-bold();
+  }
+
+  &__html {
+    color: $color-base-contrast;
+
+    &--elem {
+      color: $color-action-primary-default;
+    }
+
+    &--str {
+      color: $color-status-danger-02k;
+    }
+  }
+
+  &__js {
+    color: $color-status-danger-02k;
+
+    &--str {
+      color: $color-action-primary-default;
+    }
+  }
+
+  &__scss {
+    color: $color-status-danger-02k;
+
+    &--str {
+      color: $color-action-primary-default;
+    }
+
+    &--variable {
+      color: $color-status-danger-02k;
+    }
+
+    &--braces {
+      color: $color-action-primary-default;
+    }
+  }
+
+  &__html,
+  &__js,
+  &__scss {
+    border-radius: 3px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: $color-base-03k;
+    max-width: 70vw;
+
+    @include font-body-large-regular();
+  }
+}

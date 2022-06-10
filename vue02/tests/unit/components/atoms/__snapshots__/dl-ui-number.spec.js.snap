@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-number renders correctly 1`] = `
+<div
+  class="dl-ui-number"
+>
+  <div
+    class="dl-ui-number__container"
+  >
+    <!--v-if-->
+    <div
+      class="dl-ui-number__group"
+    >
+      <input
+        type="number"
+      />
+      <span
+        class="dl-ui-number__controls"
+      >
+        <button
+          class="dl-ui-number__controls-button"
+        >
+          <div
+            class="dl-ui-icon dl-ui-number__controls-button-icon"
+          >
+            <svg>
+              <!--v-if-->
+              <!--v-if-->
+              <use
+                xlink:href="#dl-ids-icon-arrows-up-single-no_circle-outlined"
+              />
+            </svg>
+          </div>
+        </button>
+        <button
+          class="dl-ui-number__controls-button"
+        >
+          <div
+            class="dl-ui-icon dl-ui-number__controls-button-icon"
+          >
+            <svg>
+              <!--v-if-->
+              <!--v-if-->
+              <use
+                xlink:href="#dl-ids-icon-arrows-down-single-no_circle-outlined"
+              />
+            </svg>
+          </div>
+        </button>
+      </span>
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;

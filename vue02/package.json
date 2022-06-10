@@ -1,0 +1,83 @@
+{
+  "name": "@sigle/dl-pj-sigle-vue",
+  "version": "3.2.6",
+  "private": false,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "serve": "rimraf -rf ./node_modules/.cache/vue-loader && vue-cli-service serve --port 8080 --copy",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit --no-cache",
+    "test:unit-only": "vue-cli-service test:unit --no-cache",
+    "test:debug": "node --inspect-brk ./node_modules/@vue/cli-service/bin/vue-cli-service.js test:unit --no-cache --watch --runInBand",
+    "lint": "eslint . --fix --format stylish && stylelint ./src/**/*.{css,scss,vue,html} --fix",
+    "lint:js": "eslint . --format stylish",
+    "lint:css": "stylelint ./src/**/*.{css,scss,vue,html}",
+    "build:dev": "vue-cli-service build --mode development",
+    "make-readme": "node_modules/.bin/istanbul-badges-readme",
+    "postinstall": "node ./script/postinstall.js",
+    "publishNexus": ". ./script/publishNexus.sh"
+  },
+  "dependencies": {
+    "@sigle/dl-pj-sigle-layout": "^2.0.2",
+    "@fullcalendar/core": "^5.10.1",
+    "@fullcalendar/daygrid": "^5.10.1",
+    "@fullcalendar/interaction": "^5.10.1",
+    "@fullcalendar/list": "^5.10.1",
+    "@fullcalendar/timegrid": "^5.10.1",
+    "@fullcalendar/vue3": "^5.10.1",
+    "core-js": "^3.6.5",
+    "istanbul-badges-readme": "^1.8.1",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-i18n": "^9.2.0-beta.26",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-strict-vue": "^1.0.0",
+    "eslint-plugin-vue": "^7.20.0",
+    "lint-staged": "^12.1.7",
+    "postcss-html": "^1.3.0",
+    "postcss-scss": "^4.0.3",
+    "prettier": "^2.2.1",
+    "prettier-plugin-organize-attributes": "^0.0.4",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^14.2.0",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-webpack-plugin": "^2.3.2",
+    "typescript": "~3.9.3",
+    "vue-eslint-parser": "^7.11.0",
+    "vue-jest": "^5.0.0-0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --fix"
+    ],
+    "*.{vue,html,css,scss}": [
+      "stylelint --fix"
+    ],
+    "*.{html,json,jsonc}": [
+      "prettier --write"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+@import '../mixins/range';
+
+// configuration map
+$config: (
+  'track::background': $color-emphasis-03k,
+  'track::height': 60px,
+  'track::border-width': 5px,
+  'track::border-color': $color-action-tertiary-default,
+  'thumb::background': $color-surface-02,
+  'thumb::radius': 3px,
+  'thumb::size': 40px,
+  'thumb::border-width': 3px,
+  'thumb::border-color': $color-surface-04,
+  'disable::opacity': 0.3
+);
+
+.custom-range {
+  @include range-style-config($config);
+}
+
+.demo__dl-ui-range {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

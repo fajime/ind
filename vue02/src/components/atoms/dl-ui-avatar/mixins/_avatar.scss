@@ -1,0 +1,68 @@
+@mixin avatar-style-config($config) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: getmapvalue($config, 'height', 32px);
+  width: getmapvalue($config, 'width', 32px);
+  outline: getmapvalue($config, 'outline', 0);
+  transition: all 0.2s linear;
+  background-color: getmapvalue($config, 'background', $color-surface-04);
+  border: getmapvalue($config, 'border', none);
+  font-size: getmapvalue($config, 'font-size', 14px);
+  overflow: hidden;
+  color: getmapvalue($config, 'color', $color-base-highlight-01);
+  fill: getmapvalue($config, 'color', $color-base-highlight-01);
+
+  &__letter {
+    user-select: none;
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  &__image {
+    -webkit-font-smoothing: antialiased;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &--circle {
+    border-radius: 100%;
+  }
+
+  &:not(.dl-ui-avatar--circle) {
+    border-radius: getmapvalue($config, 'border-radius', 4px);
+  }
+
+  &--small {
+    .dl-ui-avatar__icon {
+      width: 16px;
+      height: 16px;
+      padding: 1px;
+    }
+  }
+
+  &--large {
+    .dl-ui-avatar__icon {
+      width: 40px;
+      height: 40px;
+      padding: 4px;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    fill: inherit;
+    transition: all 0.2s linear;
+  }
+
+  &:not(.dl-ui-avatar--small):not(.dl-ui-avatar--medium):not(.dl-ui-avatar--large) {
+    .dl-ui-avatar__icon {
+      height: getmapvalue($config, 'icon::height', 16px);
+      width: getmapvalue($config, 'icon::width', 16px);
+      padding: getmapvalue($config, 'icon::padding', 1px);
+    }
+  }
+}

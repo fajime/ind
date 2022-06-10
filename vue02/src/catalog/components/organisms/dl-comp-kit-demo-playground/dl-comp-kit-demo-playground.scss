@@ -1,0 +1,110 @@
+.dl-comp-kit-demo-playground {
+  border: 1px solid $color-action-tertiary-hover;
+  border-radius: 3px;
+  display: flex;
+  flex: 1 1 auto;
+
+  &__left {
+    display: flex;
+    flex: 0 0 auto;
+    border-right: 1px solid $color-action-tertiary-hover;
+    flex-direction: column;
+
+    &-top {
+      display: flex;
+      flex: 0 1 auto;
+      border-bottom: 1px solid $color-action-tertiary-hover;
+    }
+
+    &-bottom {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      padding: 0.3rem;
+      border-bottom-left-radius: 3px;
+      width: 200px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-surface-01k;
+  }
+
+  &__controls-inputs {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 8px 6px;
+  }
+
+  &__output {
+    background-color: $color-surface-01k;
+    border: 1px solid $color-action-primary-active;
+    height: 8rem;
+    overflow: auto;
+
+    @include font-body-small-regular();
+
+    &:empty {
+      background: $color-surface-04;
+    }
+
+    > pre {
+      flex: 1 1 auto;
+    }
+
+    &-item {
+      border-bottom: 1px solid $color-action-tertiary-hover;
+      padding: 2px;
+
+      &-time {
+        color: $color-base-02;
+      }
+
+      &-name {
+        color: $color-status-info-03;
+        margin-bottom: 1px;
+
+        @include font-body-small-bold();
+      }
+
+      &-arrow {
+        color: $color-status-success-02k;
+        margin: 0 4px;
+
+        @include font-body-large-bold();
+      }
+
+      &-value {
+        color: $color-status-info-03;
+        padding: 1px 4px;
+
+        &-name {
+          @include font-body-small-bold();
+        }
+      }
+    }
+  }
+
+  &__output-controls {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+  }
+
+  &__output-controls-icon {
+    fill: $color-action-primary-active;
+    opacity: 1;
+    transition: all 0.5s ease;
+    cursor: pointer;
+
+    &--hide {
+      opacity: 0;
+    }
+  }
+}

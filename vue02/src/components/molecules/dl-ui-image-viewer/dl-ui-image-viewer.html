@@ -1,0 +1,47 @@
+<div class="dl-ui-image-viewer">
+  <div
+    :class="{'dl-ui-image-viewer__container--active': showControls}"
+    @mouseenter="onMouseInContainer"
+    @mouseleave="onMouseOutContainer"
+    class="dl-ui-image-viewer__container"
+  >
+    <div
+      :style="{backgroundColor: backgroundColor}"
+      @DOMMouseScroll="onMouseWheel"
+      @mousedown="onMouseDown"
+      @mousemove="onMouseMove"
+      @mouseout="onMouseOut"
+      @mouseup="onMouseUp"
+      @mousewheel="onMouseWheel"
+      @touchend="onTouchEnd"
+      @touchmove="onTouchMove"
+      @touchstart="onTouchStart"
+      class="dl-ui-image-viewer__zoomer"
+    >
+      <div :style="wrapperStyle" class="dl-ui-image-viewer__zoomer-wrapper">
+        <slot></slot>
+      </div>
+    </div>
+    <div class="dl-ui-image-viewer__controls">
+      <dl-ui-action-button
+        @clicked="zoomIn()"
+        class="dl-ui-action-button"
+        icon="dl-ids-icon-zoom-in-no_document-outlined"
+      ></dl-ui-action-button>
+      <dl-ui-action-button
+        @clicked="zoomOut()"
+        class="dl-ui-action-button"
+        icon="dl-ids-icon-zoom-out-no_document-outlined"
+      ></dl-ui-action-button>
+      <dl-ui-action-button
+        @clicked="reset()"
+        class="dl-ui-action-button"
+        icon="dl-ids-icon-expand_and_retract-no_expand-4-outlined"
+      ></dl-ui-action-button>
+    </div>
+    <div class="dl-ui-image-viewer__preview" ref="preview" v-show="showPreview">
+      <slot></slot>
+      <div :style="previewStyle" class="dl-ui-image-viewer__preview-region"></div>
+    </div>
+  </div>
+</div>

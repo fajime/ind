@@ -1,0 +1,45 @@
+@import 'mixins/icon';
+
+.dl-ui-icon {
+  $default: (
+    'height': $icon-height-medium,
+    'width': $icon-width-medium,
+    'padding': $icon-padding-medium,
+    'size': 18px
+  );
+
+  @include icon-style-config($default);
+}
+
+.dl-ui-icon--small {
+  $small: (
+    'height': $icon-height-small,
+    'width': $icon-width-small,
+    'padding': $icon-padding-small,
+    'size': 12px
+  );
+
+  @include icon-style-config($small);
+}
+
+.dl-ui-icon--medium {
+  $default: (
+    'height': $icon-height-medium,
+    'width': $icon-width-medium,
+    'padding': $icon-padding-medium,
+    'size': 18px
+  );
+
+  @include icon-style-config($default);
+}
+
+.dl-ui-icon--large {
+  $large: (
+    'height': $icon-height-large,
+    'width': $icon-width-large,
+    'padding': $icon-padding-large,
+    'size': 32px
+  );
+
+  @include icon-style-config($large);
+}

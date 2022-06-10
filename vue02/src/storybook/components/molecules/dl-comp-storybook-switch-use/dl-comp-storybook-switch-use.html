@@ -1,0 +1,40 @@
+<div class="dl-comp-storybook-switch-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-switch-use__uso">
+        <div class="dl-comp-storybook-switch-use__uso-group">
+          <h4 class="dl-comp-storybook-switch-use__uso-group-title">Switch principal</h4>
+          <div class="dl-comp-storybook-switch-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-switch-use__uso-group-primary">
+            <dl-ui-switch :modelValue="false" class="dl-ui-switch dl-comp-storybook-switch-use__uso-switch--default" icon="dl-ui-icon-user">
+            </dl-ui-switch>
+            <p>
+              <span class="dl-comp-storybook-switch-use__uso-group-subtitle"> Switch Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-switch-use__uso-group-primary">
+            <dl-ui-switch :modelValue="true" class="dl-ui-switch dl-comp-storybook-switch-use__uso-switch--checked" icon="dl-ui-icon-user">
+            </dl-ui-switch>
+            <p>
+              <span class="dl-comp-storybook-switch-use__uso-group-subtitle"> Switch on: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-switch__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

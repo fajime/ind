@@ -1,0 +1,42 @@
+<div
+  :class="{'dl-comp-kit-demo-playground-input--big': ['text','number', 'select'].includes(configuration.type),
+  'dl-comp-kit-demo-playground-input--switch':configuration.type==='checkbox'}"
+  class="dl-comp-kit-demo-playground-input"
+>
+  <dl-ui-input
+    :label="configuration.label"
+    :placeholder="configuration.placeholder"
+    @update:modelValue="$emit('update:modelValue', $event)"
+    class="dl-ui-input"
+    v-bind:modelValue="modelValue"
+    v-if="configuration.type==='text'"
+  >
+  </dl-ui-input>
+  <dl-ui-number
+    :label="configuration.label"
+    :max="configuration.max ? configuration.max: 999999999"
+    :min="configuration.min ? configuration.min: -999999999"
+    :placeholder="configuration.placeholder"
+    @update:modelValue="$emit('update:modelValue', Number($event))"
+    class="dl-ui-number"
+    v-bind:modelValue="Number(modelValue)"
+    v-if="configuration.type==='number'"
+  >
+  </dl-ui-number>
+  <dl-ui-switch
+    :label="configuration.label"
+    :labelOnRight="true"
+    @update:modelValue="$emit('update:modelValue', $event)"
+    class="dl-ui-switch"
+    v-bind:modelValue="modelValue"
+    v-if="configuration.type==='checkbox'"
+  />
+  <dl-ui-select
+    :label="configuration.label"
+    :options="configuration.options"
+    @update:modelValue="$emit('update:modelValue', $event)"
+    class="dl-ui-select"
+    v-bind:modelValue="modelValue"
+    v-if="configuration.type==='select'"
+  />
+</div>

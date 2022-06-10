@@ -1,0 +1,83 @@
+@import '~highlight.js/styles/an-old-hope.css';
+
+.dl-comp-storybook-menu {
+  width: 321px;
+  height: 900px;
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &__logo {
+    margin-left: 10px;
+    width: 200px;
+  }
+
+  &__list {
+    padding: 0 40px;
+
+    &-item {
+      position: relative;
+    }
+  }
+
+  &__item {
+    padding: 10px 8px;
+    display: block;
+
+    @include font-body-medium-regular();
+
+    &--active {
+      background-color: $color-emphasis-03k;
+    }
+  }
+
+  &__submenu {
+    background-color: $color-surface-01k;
+    vertical-align: center;
+    padding: 10px 15px;
+
+    &-item {
+      padding: 10px 8px;
+
+      @include font-body-medium-regular();
+    }
+
+    &-link {
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: capitalize;
+
+      &--active {
+        color: $color-base-highlight-02;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 14px;
+
+    &--active {
+      color: $color-action-primary-default;
+
+      @include font-body-medium-bold();
+    }
+  }
+
+  &__child {
+    position: absolute;
+    left: 210px;
+    top: 10px;
+    display: block;
+    width: 100%;
+
+    &-icon {
+      height: 20px;
+      cursor: pointer;
+    }
+
+    &--expanded {
+      transform: rotate(180deg);
+    }
+  }
+}

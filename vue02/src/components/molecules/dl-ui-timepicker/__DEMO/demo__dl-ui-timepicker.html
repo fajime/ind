@@ -1,0 +1,15 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-timepicker__wrapper">
+    <div>
+      <theComponent
+        :class="playground.style.value"
+        :ref="setDemoRefs"
+        @selected="notifyComponentEvent('selected', $event)"
+        @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+        v-bind="generatedProps"
+        v-model="playground.value.value"
+      >
+      </theComponent>
+    </div>
+  </div>
+</dl-comp-kit-demo-template>

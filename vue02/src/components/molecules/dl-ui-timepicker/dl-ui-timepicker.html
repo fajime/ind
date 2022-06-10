@@ -1,0 +1,36 @@
+<div class="dl-ui-timepicker">
+  <div class="dl-ui-timepicker__box" ref="box">
+    <div class="dl-ui-timepicker__box-hours">
+      <span @click="hourSelected(contextTextHour)" @mousedown="longMouseDownStart(increaseHour)" @mouseup="longMouseDownStop">
+        <dl-ui-icon id="dl-ids-icon-arrows-up-single-no_circle-outlined" />
+      </span>
+      <ul
+        :class="{'dl-ui-timepicker__box-item-time--disabled': isDisabledHour()}"
+        class="dl-ui-timepicker__box-list dl-ui-timepicker__box-list-hours"
+      >
+        <li class="dl-ui-timepicker__box-item dl-ui-timepicker__box-item-hours">{{formatHour(hourTimeReference) }}</li>
+      </ul>
+      <span @click="hourSelected(hourTimeReference)" @mousedown="longMouseDownStart(decreaseHour)" @mouseup="longMouseDownStop">
+        <dl-ui-icon id="dl-ids-icon-arrows-down-single-no_circle-outlined" />
+      </span>
+    </div>
+    <div class="dl-ui-timepicker__box-separator">{{timeSeparator}}</div>
+    <div class="dl-ui-timepicker__box-minutes">
+      <span @click="hourSelected(hourTimeReference)" @mousedown="longMouseDownStart(increaseMinute)" @mouseup="longMouseDownStop">
+        <dl-ui-icon id="dl-ids-icon-arrows-up-single-no_circle-outlined" />
+      </span>
+      <ul
+        :class="{'dl-ui-timepicker__box-item-time--disabled': isDisabledHour(hourTimeReference)}"
+        class="dl-ui-timepicker__box-list dl-ui-timepicker__box-list-minutes"
+      >
+        <li @click="minuteSelected(minuteTimeReference)" class="dl-ui-timepicker__box-item dl-ui-timepicker__box-item-minutes">
+          {{ formatNumber(minuteTimeReference) }}
+        </li>
+      </ul>
+      <span @click="minuteSelected(minuteTimeReference)" @mousedown="longMouseDownStart(decreaseMinute)" @mouseup="longMouseDownStop">
+        <dl-ui-icon id="dl-ids-icon-arrows-down-single-no_circle-outlined" />
+      </span>
+    </div>
+    <div class="dl-ui-timepicker__box-separator" v-if="timeFormat==='12hour'">{{formatHourType(hourTimeReference)}}</div>
+  </div>
+</div>

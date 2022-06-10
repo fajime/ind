@@ -1,0 +1,14 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-snack__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @closed="notifyComponentEvent('closed', $event)"
+      v-bind="generatedProps"
+      ><span class="demo__dl-ui-snack__content"
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua.
+        <a href="#">Ver más</a></span
+      >
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

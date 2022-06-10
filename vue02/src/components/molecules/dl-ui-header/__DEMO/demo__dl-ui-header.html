@@ -1,0 +1,18 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-header__wrapper">
+    <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps">
+      <template v-slot:logo>
+        <div v-html="playground.slots[0].value"></div>
+      </template>
+      <template v-slot:version>
+        <div v-html="playground.slots[1].value"></div>
+      </template>
+      <template v-slot:middle>
+        <div v-html="playground.slots[2].value"></div>
+      </template>
+      <template v-slot:content>
+        <div v-html="playground.slots[3].value"></div>
+      </template>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

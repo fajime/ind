@@ -1,0 +1,138 @@
+@mixin snack-style-config($config) {
+  -webkit-box-align: center;
+  margin-bottom: 16px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  color: getmapvalue($config, 'color', $color-base-03k);
+  left: 8px;
+  pointer-events: none;
+  right: 8px;
+  z-index: 1000;
+  position: var(--dynamic-position);
+  max-width: getmapvalue($config, 'max-width', 500px);
+
+  @include font-body-medium-regular();
+
+  .dl-ui-snack__wrapper {
+    align-items: stretch;
+    border-radius: 4px;
+    display: flex;
+    margin: 0 auto;
+    pointer-events: auto;
+    min-width: 100%;
+    border: getmapvalue($config, 'border', 2px solid);
+    opacity: getmapvalue($config, 'opacity', 1);
+    box-shadow: $shadow-hight;
+    justify-content: space-between;
+
+    .dl-ui-snack__icon {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+    }
+
+    &[role='default'] {
+      .dl-ui-snack__icon {
+        background-color: getmapvalue($config, 'info::color', $color-status-info-01);
+        fill: getmapvalue($config, 'info::icon::color', $color-status-info-03);
+      }
+
+      background-color: getmapvalue($config, 'info::color', $color-status-info-01);
+      border-color: getmapvalue($config, 'info::color', $color-status-info-02k);
+    }
+
+    &[role='info'] {
+      .dl-ui-snack__icon {
+        background-color: getmapvalue($config, 'info::color', $color-status-info-01);
+        fill: getmapvalue($config, 'info::icon::color', $color-status-info-03);
+      }
+
+      background-color: getmapvalue($config, 'info::color', $color-status-info-01);
+      border-color: getmapvalue($config, 'info::color', $color-status-info-02k);
+    }
+
+    &[role='warn'] {
+      .dl-ui-snack__icon {
+        background-color: getmapvalue($config, 'warning::color', $color-status-warning-01);
+        fill: getmapvalue($config, 'info::icon::color', $color-status-warning-03);
+      }
+
+      background-color: getmapvalue($config, 'warning::color', $color-status-warning-01);
+      border-color: getmapvalue($config, 'warning::color', $color-status-warning-02k);
+    }
+
+    &[role='error'] {
+      .dl-ui-snack__icon {
+        background-color: getmapvalue($config, 'error::color', $color-status-danger-01);
+        fill: getmapvalue($config, 'info::icon::color', $color-status-danger-03);
+      }
+
+      background-color: getmapvalue($config, 'error::color', $color-status-danger-01);
+      border-color: getmapvalue($config, 'error::color', $color-status-danger-02k);
+    }
+
+    &[role='ok'] {
+      .dl-ui-snack__icon {
+        background-color: getmapvalue($config, 'success::color', $color-status-success-01);
+        fill: getmapvalue($config, 'info::icon::color', $color-status-success-03);
+      }
+
+      background-color: getmapvalue($config, 'success::color', $color-status-success-01);
+      border-color: getmapvalue($config, 'success::color', $color-status-success-02k);
+    }
+
+    &--show-icon {
+      &[role='default'],
+      &[role='info'],
+      &[role='warn'],
+      &[role='error'],
+      &[role='ok'] {
+        background: getmapvalue($config, 'background', $color-surface-01k);
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
+      min-width: 70%;
+    }
+  }
+
+  .dl-ui-snack__content {
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: getmapvalue($config, 'content::padding', 10px 8px);
+    width: 100%;
+  }
+
+  .dl-ui-snack__text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 20px;
+    width: 100%;
+  }
+
+  .dl-ui-snack__close-btn {
+    padding: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    outline: 0;
+    border-style: none;
+    align-self: flex-start;
+  }
+
+  .dl-ui-snack__close-icon {
+    transition: all 0.2s linear, visibility 0s;
+    vertical-align: middle;
+    fill: $color-base-03k;
+    color: $color-base-03k;
+
+    @include font-body-large-bold();
+  }
+}

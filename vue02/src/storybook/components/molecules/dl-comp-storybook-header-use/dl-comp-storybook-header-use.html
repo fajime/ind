@@ -1,0 +1,34 @@
+<div class="dl-comp-storybook-header-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-header-use__uso">
+        <div class="dl-comp-storybook-header-use__uso-group">
+          <h4 class="dl-comp-storybook-header-use__uso-group-title">Header principal</h4>
+          <div class="dl-comp-storybook-header-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-header-use__uso-group-primary">
+            <dl-ui-header class="dl-ui-header dl-comp-storybook-header-use__uso-header--primary">
+              <template slot="version">
+                <div v-html="playground.slots[0].value"></div>
+              </template>
+              <template slot="session">
+                <div v-html="playground.slots[1].value"></div>
+              </template>
+            </dl-ui-header>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-header__wrapper">
+        <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps">
+          <template slot="version">
+            <div v-html="playground.slots[0].value"></div>
+          </template>
+          <template slot="session">
+            <div v-html="playground.slots[1].value"></div>
+          </template>
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

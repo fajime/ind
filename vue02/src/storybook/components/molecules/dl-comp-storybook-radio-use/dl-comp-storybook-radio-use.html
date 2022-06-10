@@ -1,0 +1,50 @@
+<div class="dl-comp-storybook-radio-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-radio-use__uso">
+        <div class="dl-comp-storybook-radio-use__uso-group">
+          <h4 class="dl-comp-storybook-radio-use__uso-group-title">Radio principal</h4>
+          <div class="dl-comp-storybook-radio-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-radio-use__uso-group-primary">
+            <dl-ui-radio :checked="true" class="dl-ui-radio dl-comp-storybook-radio-use__uso-radio--default" value="Radio Default">
+            </dl-ui-radio>
+            <p>
+              <span class="dl-comp-storybook-radio-use__uso-group-subtitle"> Radio Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-radio-use__uso-group-primary">
+            <dl-ui-radio :disabled="true" class="dl-ui-radio dl-comp-storybook-radio-use__uso-radio--disabled" value="Radio Disabled">
+            </dl-ui-radio>
+            <p>
+              <span class="dl-comp-storybook-radio-use__uso-group-subtitle"> Radio Disabled: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-radio__wrapper">
+        <div :key="index" class="demo__dl-ui-radio__item" v-for="(item, index) in itemsMock">
+          <theComponent
+            :class="playground.style.value"
+            :disabled="item.disabled"
+            :id="`state${index+1}`"
+            :initValue="item.value"
+            :ref="setDemoRefs"
+            @change="notifyComponentEvent('change', $event)"
+            @click="notifyComponentEvent('click', $event)"
+            @focus="notifyComponentEvent('focus', $event)"
+            @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+            name="state"
+            v-bind="generatedProps"
+            v-model="playground.value.value"
+          >
+            {{item.label}}
+          </theComponent>
+        </div>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

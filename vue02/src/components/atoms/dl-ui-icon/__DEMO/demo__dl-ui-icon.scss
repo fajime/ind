@@ -1,0 +1,19 @@
+@import '../mixins/icon';
+
+// configuration map
+$config: (
+  'height': 80px,
+  'width': 80px
+);
+
+.custom-icon {
+  @include icon-style-config($config);
+
+  fill: red;
+}
+
+.demo__dl-ui-icon {
+  &__wrapper {
+    fill: $color-action-primary-default;
+  }
+}

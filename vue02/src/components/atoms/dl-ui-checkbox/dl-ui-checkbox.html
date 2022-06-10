@@ -1,0 +1,18 @@
+<div :class="containerClass" class="dl-ui-checkbox">
+  <span class="dl-ui-checkbox__box">
+    <dl-ui-icon :id="iconShown" class="dl-ui-checkbox__icon" />
+    <input
+      :checked="modelValue"
+      :id="randomId"
+      :name="name"
+      :tabindex="tabindex"
+      @blur="onBlur"
+      @focus="onFocus($event)"
+      @input="onChangeValue($event)"
+      type="checkbox"
+    />
+  </span>
+  <label :for="randomId" class="dl-ui-checkbox__label" v-if="hasLabelSlot">
+    <slot></slot>
+  </label>
+</div>

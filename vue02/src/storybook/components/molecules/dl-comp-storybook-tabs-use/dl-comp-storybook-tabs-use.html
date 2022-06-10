@@ -1,0 +1,33 @@
+<div class="dl-comp-storybook-tabs-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-tabs-use__uso">
+        <div class="dl-comp-storybook-tabs-use__uso-group">
+          <h4 class="dl-comp-storybook-tabs-use__uso-group-title">Tabs principal</h4>
+          <div class="dl-comp-storybook-tabs-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-tabs-use__uso-group-primary">
+            <dl-ui-tabs class="dl-ui-tabs dl-comp-storybook-tabs-use__uso-tabs--primary">
+              <DlUiTab icon="dl-ids-icon-calendar-default-filled" title="Titulo 1"> Aqui va el contenido de la pestaña 1 </DlUiTab>
+              <DlUiTab title="Titulo 2"> Aqui va el contenido de la pestaña 2 </DlUiTab>
+              <DlUiTab icon="dl-ids-icon-user-single-outlined" title="Titulo 3"> Aqui va el contenido de la pestaña 3 </DlUiTab>
+            </dl-ui-tabs>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-tabs__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @tab-selected="notifyComponentEvent('tab-selected', $event)"
+          v-bind="generatedProps"
+        >
+          <DlUiTab icon="dl-ids-icon-calendar-default-filled" title="Titulo 1"> Aqui va el contenido de la pestaña 1 </DlUiTab>
+          <DlUiTab title="Titulo 2"> Aqui va el contenido de la pestaña 2 </DlUiTab>
+          <DlUiTab icon="dl-ids-icon-user-single-outlined" title="Titulo 3"> Aqui va el contenido de la pestaña 3 </DlUiTab>
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

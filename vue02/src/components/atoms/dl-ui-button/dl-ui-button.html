@@ -1,0 +1,6 @@
+<button @click="onClick" class="dl-ui-button" ref="button">
+  <dl-ui-icon class="dl-ui-button--icon dl-ui-animation-rotating" id="dl-ids-icon-loading-outlined" v-if="loading"> </dl-ui-icon>
+  <dl-ui-icon :id="leftIcon" class="dl-ui-button--icon" v-if="leftIcon && !loading"></dl-ui-icon>
+  <div class="dl-ui-button--slot"><slot></slot></div>
+  <dl-ui-icon :id="rightIcon" class="dl-ui-button--icon" v-if="rightIcon && !loading"></dl-ui-icon>
+</button>

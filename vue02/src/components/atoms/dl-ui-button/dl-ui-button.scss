@@ -1,0 +1,150 @@
+@import 'mixins/button';
+
+.dl-ui-button {
+  $size-extraSmall: (
+    'height': 22px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-small: (
+    'height': 28px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-medium: (
+    'height': 32px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small
+  );
+  $size-large: (
+    'height': 40px,
+    'icon::width': $icon-width-medium,
+    'icon::height': $icon-height-medium,
+    'icon::padding': $icon-padding-medium
+  );
+
+  $type-primary: (
+    'border': 2px solid $color-action-primary-default,
+    'background': $color-action-primary-default,
+    'border-radius': 4px,
+    'color': $color-action-primary-contrast,
+    'hover::background': $color-action-primary-hover,
+    'hover::color': $color-action-primary-contrast,
+    'hover::border':2px solid $color-action-primary-hover,
+    'active::background': $color-action-primary-active,
+    'active::color': $color-action-primary-contrast,
+    'active::border': 2px solid $color-action-primary-active,
+    'loading::background': $color-action-primary-active,
+    'loading::color': $color-action-primary-contrast,
+    'loading::border': 2px solid $color-action-primary-active,
+    'focus::background': $color-action-primary-default,
+    'focus::color': $color-action-primary-contrast,
+    'focus::border': 2px solid $color-action-primary-active,
+    'disabled::background': $color-action-primary-disabled,
+    'disabled::color': $color-action-primary-contrast
+  );
+
+  $type-secondary: (
+    'border': 2px solid $color-action-secondary-default,
+    'background': $color-action-secondary-contrast,
+    'border-radius': 4px,
+    'color': $color-action-secondary-default,
+    'hover::background': $color-action-secondary-contrast,
+    'hover::color': $color-action-secondary-hover,
+    'hover::border': 2px solid $color-action-secondary-hover,
+    'active::background': $color-action-secondary-contrast,
+    'active::color': $color-action-secondary-active,
+    'active::border': 2px solid $color-action-secondary-active,
+    'loading::background': $color-action-secondary-contrast,
+    'loading::color': $color-action-secondary-active,
+    'loading::border': 2px solid $color-action-secondary-active,
+    'focus::background': $color-action-secondary-focus,
+    'focus::color': $color-action-secondary-default,
+    'focus::border': 2px solid $color-action-secondary-default,
+    'disabled::background': $color-action-secondary-contrast,
+    'disabled::color': $color-action-secondary-disabled,
+    'disabled::border': 2px solid $color-action-secondary-disabled,
+  );
+
+  $type-tertiary: (
+    'border': 2px solid $color-action-tertiary-default,
+    'background': $color-action-tertiary-default,
+    'border-radius': 4px,
+    'color': $color-action-tertiary-contrast,
+    'hover::background': $color-action-tertiary-hover,
+    'hover::color': $color-action-tertiary-contrast,
+    'hover::border': 2px solid $color-action-tertiary-hover,
+    'active::background': $color-action-tertiary-active,
+    'active::color': $color-action-tertiary-contrast,
+    'active::border': 2px solid $color-action-tertiary-active,
+    'loading::background': $color-action-tertiary-active,
+    'loading::color': $color-action-tertiary-contrast,
+    'loading::border': 2px solid $color-action-tertiary-active,
+    'focus::background': $color-action-tertiary-default,
+    'focus::color': $color-action-tertiary-contrast,
+    'focus::border': 2px solid $color-action-tertiary-active,
+    'disabled::background': $color-action-tertiary-focus,
+    'disabled::color': $color-action-tertiary-hover,
+    'disabled::border': 2px solid $color-action-secondary-disabled
+  );
+
+  $type-link: (
+    'border': 2px solid transparent,
+    'background': transparent,
+    'border-radius': 4px,
+    'color': $color-action-secondary-default,
+    'hover::background': transparent,
+    'hover::color': $color-action-secondary-hover,
+    'hover::border': 2px solid transparent,
+    'active::background': transparent,
+    'active::color': $color-action-secondary-active,
+    'active::border': 2px solid transparent,
+    'loading::background': transparent,
+    'loading::color': $color-action-secondary-active,
+    'loading::border': 2px solid transparent,
+    'focus::background': transparent,
+    'focus::color': $color-action-secondary-active,
+    'focus::border': 2px solid $color-action-secondary-default,
+    'disabled::background': transparent,
+    'disabled::color': $color-action-secondary-disabled,
+    'disabled::border': 2px solid transparent
+  );
+
+  $sizes: (
+    'extra-small': $size-extraSmall,
+    'small': $size-small,
+    'medium': $size-medium,
+    'large': $size-large
+  );
+  $types: (
+    'primary': $type-primary,
+    'secondary': $type-secondary,
+    'tertiary': $type-tertiary,
+    'link': $type-link
+  );
+
+  @include button-style-config(map-merge($type-primary, $size-medium));
+
+  // generate all button styles dynamically
+  @each $typeName, $typeValue in $types {
+    @each $sizeName, $sizeValue in $sizes {
+      &--#{$typeName}-#{$sizeName} {
+        @include button-style-config(map-merge($typeValue, $sizeValue));
+
+        @if $sizeName == 'extra-small' or $sizeName == 'small' {
+          @include font-button-small();
+        }
+
+        @else if $sizeName == 'large' {
+          @include font-button-large();
+        }
+      }
+    }
+    &--#{$typeName} {
+      @include button-style-config(map-merge($typeValue, $size-medium));
+    }
+  }
+}

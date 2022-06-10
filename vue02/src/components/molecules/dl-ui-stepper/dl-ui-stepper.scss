@@ -1,0 +1,9 @@
+@import 'mixins/stepper';
+
+.dl-ui-stepper {
+  --num-steps: 0;
+  --curr-step: 0;
+  $default: ();
+
+  @include stepper-style-config($default);
+}

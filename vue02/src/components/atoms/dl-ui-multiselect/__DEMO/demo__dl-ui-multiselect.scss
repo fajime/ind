@@ -1,0 +1,103 @@
+@import '../mixins/multiselect';
+@import '../../dl-ui-dropdown/mixins/dropdown';
+@import '../../dl-ui-listbox/mixins/listbox';
+@import '../../dl-ui-checkbox/mixins/checkbox';
+
+$color-accent-light: #f36;
+$color-accent-dark: #ba265d;
+$color-green: #84c3ae;
+
+$config: (
+  'width': 100%,
+  'background': $color-action-secondary-contrast,
+  'label::color': $color-action-tertiary-default,
+  'label::padding': 8px 10px,
+  'label::font': normal bold normal 15px / 0.5 $body-medium-regular-font-family,
+  'text::color': $color-status-info-02k,
+  'icon::color': $color-status-info-02k,
+  'icon::width': 22px,
+  'icon::height': 22px,
+  'icon::padding': 2px,
+  'clear-icon::width': 20px,
+  'clear-icon::height': 20px,
+  'clear-icon::padding': 0,
+  'help::color': $color-status-info-02k,
+  'help::padding': 4px 10px,
+  'help::align': right,
+  'help::font': normal normal normal 10px / 0.4 $body-medium-regular-font-family,
+  'focus::item::color': $color-status-info-02k
+);
+
+$config-dropdown: (
+  'background': $color-action-secondary-contrast,
+  'background::highlight': $color-action-secondary-default,
+  'border': 2px solid,
+  'border-color': $color-status-info-02k,
+  'icon::width': 20px,
+  'icon::height': 20px,
+  'border-radius': 16px,
+  'trigger-icon::color': $color-status-info-02k
+);
+
+$config-listbox: (
+  'border-radius': 32px,
+  'border': 2px solid $color-status-info-02k,
+  'padding': 16px 10px,
+  'item::border-radius': 32px,
+  'item::padding': 0 16px,
+  'item::margin': 8px 0,
+);
+
+$config-checkbox: (
+  'size': 24px,
+  'background': transparent,
+  'border': 2px solid transparent,
+  'hover::background':$color-status-info-02k,
+  'disable::background':transparent,
+  'disable::border': transparent,
+  'checked::background': transparent,
+  'checked::border': 2px solid transparent,
+  'checked::color': $color-status-info-02k,
+);
+
+.demo__dl-ui-multiselect {
+  &__wrapper {
+    width: 300px;
+  }
+}
+
+.custom-multiselect {
+  .dl-ui-dropdown {
+    @include dropdown-style-config($config-dropdown);
+  }
+
+  .dl-ui-listbox {
+    @include listbox-style-config($config-listbox);
+  }
+
+  .dl-ui-checkbox {
+    pointer-events: none;
+
+    @include checkbox-style-config($config-checkbox);
+  }
+
+  @include multiselect-style-config($config);
+
+  .dl-ui-scrollbar {
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-action-secondary-contrast;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-status-info-02k;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: $color-action-secondary-default;
+    }
+  }
+}

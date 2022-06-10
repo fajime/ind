@@ -1,0 +1,17 @@
+@import '../mixins/header';
+
+$config: (
+  'height': 60px,
+  'background': rgb(155, 255, 172),
+  'margin': 20px
+);
+
+.demo__dl-ui-header {
+  &__wrapper {
+    width: 100%;
+  }
+}
+
+.custom-header {
+  @include header-style-config($config);
+}

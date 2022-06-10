@@ -1,0 +1,36 @@
+@import 'mixins/input';
+@import 'mixins/commons';
+
+.dl-ui-input {
+  $default: ();
+
+  @include input-style-config($default);
+
+  .dl-ui-input__label {
+    @include font-caption();
+  }
+
+  input {
+    @include font-body-small-regular();
+  }
+
+  .dl-ui-input__help {
+    @include font-caption();
+  }
+}
+
+.dl-ui-input--extra-small {
+  @include input-style-config($extra-small);
+}
+
+.dl-ui-input--small {
+  @include input-style-config($small);
+}
+
+.dl-ui-input--medium {
+  @include input-style-config($medium);
+}
+
+.dl-ui-input--large {
+  @include input-style-config($large);
+}

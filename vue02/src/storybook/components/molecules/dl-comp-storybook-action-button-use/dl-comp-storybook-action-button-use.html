@@ -1,0 +1,67 @@
+<div class="dl-comp-storybook-action-button-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-action-button-use__uso">
+        <div class="dl-comp-storybook-action-button-use__uso-group">
+          <h4 class="dl-comp-storybook-action-button-use__uso-group-title">Botón principal</h4>
+          <div class="dl-comp-storybook-action-button-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-action-button-use__uso-group-primary">
+            <dl-ui-action-button
+              class="dl-ui-action-button dl-comp-storybook-action-button-use__uso-button--default"
+              icon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-action-button>
+            <p>
+              <span class="dl-comp-storybook-action-button-use__uso-group-subtitle"> Botón Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-action-button-use__uso-group-primary">
+            <dl-ui-action-button
+              class="dl-ui-action-button--small dl-comp-storybook-action-button-use__uso-button--small"
+              icon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-action-button>
+            <p>
+              <span class="dl-comp-storybook-action-button-use__uso-group-subtitle"> Botón Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-action-button-use__uso-group-primary">
+            <dl-ui-action-button
+              class="dl-ui-action-button--large dl-comp-storybook-action-button-use__uso-button--large"
+              icon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-action-button>
+            <p>
+              <span class="dl-comp-storybook-action-button-use__uso-group-subtitle"> Botón Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-action-button-use__uso-group-primary">
+            <dl-ui-action-button
+              class="dl-ui-action-button--custom dl-comp-storybook-action-button-use__uso-button--custom"
+              icon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-action-button>
+            <p>
+              <span class="dl-comp-storybook-action-button-use__uso-group-subtitle"> Botón Custom: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-action-button__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @clicked="notifyComponentEvent('clicked', $event)"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

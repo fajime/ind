@@ -1,0 +1,26 @@
+@mixin accordion-list-style-config($config) {
+  width: getmapvalue($config, 'width', 100%);
+  overflow: hidden;
+  border: getmapvalue($config, 'border', 0 solid);
+  border-radius: getmapvalue($config, 'border-radius', 0);
+  padding: getmapvalue($config, 'padding', 0);
+  background-color:
+    getmapvalue(
+      $config,
+      'background',
+      $color-surface-01k
+    );
+
+  .dl-ui-accordion-list__parent {
+    &--disabled {
+      background-color:
+        getmapvalue(
+          $config,
+          'disable::background',
+          $color-action-primary-disabled
+        );
+      opacity: getmapvalue($config, 'disable::opacity', 0.6);
+      pointer-events: none;
+    }
+  }
+}

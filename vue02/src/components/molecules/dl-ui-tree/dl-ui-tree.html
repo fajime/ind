@@ -1,0 +1,12 @@
+<ul class="dl-ui-tree">
+  <li :key="index" class="dl-ui-tree__root-node" v-for="(item, ind) in config">
+    <dl-ui-tree-node
+      :config="item"
+      :index="ind"
+      :isActive="childActiveIndex===ind"
+      :level="level+1"
+      :nodeActiveConfig="getChildrenNodeActiveIndex(ind)"
+      @itemClicked="onItemClicked"
+    />
+  </li>
+</ul>

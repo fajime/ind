@@ -1,0 +1,5 @@
+<div :class="{ 'dl-ui-avatar--circle': shapeValue === 'circle'}" class="dl-ui-avatar" v-if="show">
+  <img :src="source" class="dl-ui-avatar__image" v-if="type === 'image'" />
+  <dl-ui-icon :id="source" class="dl-ui-avatar__icon" v-if="type === 'icon'"></dl-ui-icon>
+  <div class="dl-ui-avatar__letter" v-if="type === 'letter'">{{ letters }}</div>
+</div>

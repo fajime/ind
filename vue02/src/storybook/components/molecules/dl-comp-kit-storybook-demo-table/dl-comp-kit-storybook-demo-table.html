@@ -1,0 +1,18 @@
+<div class="dl-comp-kit-storybook-demo-table">
+  <table>
+    <thead>
+      <tr>
+        <th :key="`header-${index}`" v-for="(label, index) in headers">{{label}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template :key="`rowArray-${index}`" v-for="(row, index) in rowArray">
+        <tr>
+          <td :key="`columnKey-${index}`" v-for="(columnKey, index) in columnKeys">
+            <span v-html="row[columnKey]"></span>
+          </td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</div>

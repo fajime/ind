@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-input renders correctly 1`] = `
+<div
+  class="dl-ui-input"
+>
+  <div
+    class="dl-ui-input__container"
+  >
+    <!--v-if-->
+    <div
+      class="dl-ui-input__group"
+    >
+      <!--v-if-->
+      <input
+        maxlength="1000"
+        type="text"
+      />
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+  </div>
+</div>
+`;

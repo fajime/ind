@@ -1,0 +1,13 @@
+@mixin icon-style-config($config) {
+  align-items: center;
+  display: inline-flex;
+  height: getmapvalue($config, 'height', 24px);
+  width: getmapvalue($config, 'width', 24px);
+  padding: getmapvalue($config, 'padding', 3px);
+
+  > svg {
+    height: inherit;
+    width: inherit;
+    padding: 0 !important;
+  }
+}

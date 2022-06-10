@@ -1,0 +1,46 @@
+@mixin footer-style-config($config) {
+  $height-value: getmapvalue($config, 'height', 32px);
+
+  height: $height-value;
+  display: flex;
+  flex: 0 0 auto;
+  color: getmapvalue($config, 'color', $color-base-03k);
+  transition: all 0.2s linear;
+
+  > .dl-ui-footer__left {
+    flex: 1 1 auto;
+    background-color: getmapvalue($config, 'left::background', $color-surface-03);
+    transition: all 0.2s linear;
+    display: flex;
+    align-items: center;
+    height: $height-value;
+    padding-left: getmapvalue($config, 'left::padding-left', 12px);
+  }
+
+  > .dl-ui-footer__right {
+    display: flex;
+    transition: all 0.2s linear;
+    align-items: center;
+    background: getmapvalue($config, 'right::background', $color-action-primary-default);
+    height: $height-value;
+    flex: 0 0 auto;
+    width: 333px;
+
+    > .dl-ui-footer__img {
+      flex: 0 0 auto;
+      background-image: getmapvalue($config, 'right::image-url', url('~../../../assets/img/indra.png'));
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: getmapvalue($config, 'right::image::position', right);
+      transition: all 0.2s linear;
+      height: $height-value;
+      width: 100%;
+    }
+
+    &--accent {
+      background-color: getmapvalue($config, 'right::accent::background', #fbbb21);
+      flex: 0 0 getmapvalue($config, 'right::accent::width', 4px);
+      transition: all 0.2s linear;
+    }
+  }
+}

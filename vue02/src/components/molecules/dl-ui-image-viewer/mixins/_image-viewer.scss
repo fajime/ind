@@ -1,0 +1,118 @@
+@mixin image-viewer-style-config($config) {
+  height: 100%;
+  width: 100%;
+
+  .dl-ui-image-viewer__container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    user-select: none;
+
+    .dl-ui-image-viewer__zoomer {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background: getmapvalue($config, 'background', $color-surface-01k);
+      border: getmapvalue($config, 'border', 1px solid $color-surface-06);
+      border-radius: getmapvalue($config, 'border-radius', 3px);
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+    }
+
+    .dl-ui-image-viewer__zoomer-wrapper {
+      transform-origin: 50% 50%;
+      width: 100%;
+      height: 100%;
+
+      > * {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        vertical-align: top;
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+      }
+    }
+
+    .dl-ui-image-viewer__controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-user-drag: none;
+      -moz-user-drag: none;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px;
+      width: 120px;
+    }
+
+    .dl-ui-image-viewer__preview {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 25%;
+      width: 25%;
+      background:
+        getmapvalue(
+          $config,
+          'preview::background',
+          $color-surface-01k
+        );
+      border:
+        getmapvalue(
+          $config,
+          'preview::border',
+          1px solid $color-action-primary-active
+        );
+      border-radius: getmapvalue($config, 'preview::border-radius', 2px);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      margin: 6px;
+
+      > * {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        vertical-align: top;
+        -webkit-user-drag: none;
+        -moz-user-drag: none;
+      }
+    }
+
+    .dl-ui-image-viewer__preview-region {
+      position: absolute;
+      background:
+        getmapvalue(
+          $config,
+          'preview::region::background',
+          rgba(230, 90, 90, 0.3)
+        );
+      border:
+        getmapvalue(
+          $config,
+          'preview::region::border',
+          1px solid $color-action-primary-active
+        );
+      border-radius: getmapvalue($config, 'preview::region:border-radius', 2px);
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+
+  .dl-ui-image-viewer__container--active {
+    .dl-ui-image-viewer__preview {
+      opacity: 0.9;
+    }
+
+    .dl-ui-image-viewer__controls {
+      opacity: 1;
+    }
+  }
+}

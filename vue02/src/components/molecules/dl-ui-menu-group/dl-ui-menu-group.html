@@ -1,0 +1,15 @@
+<ul :style="computedStyle" class="dl-ui-menu-group" ref="group">
+  <template :key="index" v-for="(item, index) in config">
+    <component
+      :childPosition="childPosition"
+      :config="item"
+      :index="index"
+      :level="level"
+      :ref="setItemRef"
+      :sense="sense"
+      @branchOpened="closeOthers"
+      @itemClicked="onItemClicked"
+      v-bind:is="item.separator?'dl-ui-menu-item-separator':'dl-ui-menu-item'"
+    />
+  </template>
+</ul>

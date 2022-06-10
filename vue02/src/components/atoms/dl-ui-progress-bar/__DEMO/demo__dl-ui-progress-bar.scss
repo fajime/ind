@@ -1,0 +1,21 @@
+@import '../mixins/progress-bar';
+
+// configuration map
+$config: (
+  'height': 30px,
+  'background::color': lightgreen,
+  'background::border-radius': 15px,
+  'bar::color': green,
+  'bar::border-radius': 15px,
+  'transition-duration': 1.5s
+);
+
+.custom-progress-bar {
+  @include progress-bar-style-config($config);
+}
+
+.demo__dl-ui-progress-bar {
+  &__wrapper {
+    width: 100%;
+  }
+}

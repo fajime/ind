@@ -1,0 +1,14 @@
+<div class="dl-comp-kit-storybook-demo-code">
+  <div class="dl-comp-kit-storybook-demo-code__subtitle">HTML</div>
+  <div class="dl-comp-kit-storybook-demo-code__html" ref="html">
+    <slot name="html"></slot>
+  </div>
+  <div class="dl-comp-kit-storybook-demo-code__subtitle">JAVASCRIPT</div>
+  <div class="dl-comp-kit-storybook-demo-code__js" ref="js">
+    <slot name="js"></slot>
+  </div>
+  <div class="dl-comp-kit-storybook-demo-code__subtitle" v-if="showSCSS">SCSS</div>
+  <div class="dl-comp-kit-storybook-demo-code__scss" ref="scss" v-if="showSCSS">
+    <slot name="scss"></slot>
+  </div>
+</div>

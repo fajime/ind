@@ -1,0 +1,43 @@
+@import '../mixins/split-panes';
+@import '../../../atoms/dl-ui-split-pane/mixins/split-pane';
+
+$config: (
+  'splitter::background': #a8a7ad,
+  'splitter::color': #966caf,
+  'splitter::hover::color': #e25cdb,
+  'splitter::gutter': 30px,
+  'splitter::margin': -7px,
+  'splitter::width': 15px,
+  'splitter::height': 60px
+);
+
+$configPane: (
+  'background': #e9e5fd,
+  'header::background': #6248e4,
+  'header::color': $color-action-secondary-contrast,
+  'header::border-radius': 20px,
+  'header::height': 40px
+);
+
+.demo__dl-ui-split-panes {
+  &__wrapper {
+    width: 100%;
+    height: 420px;
+    padding: 2rem;
+    background-color: $color-surface-03;
+  }
+}
+
+.custom-split-panes {
+  @include split-panes-style-config($config);
+
+  .dl-ui-split-pane {
+    padding: 10px;
+
+    @include split-pane-style-config($configPane);
+
+    .dl-ui-split-pane__header {
+      @include font-subtitle-small();
+    }
+  }
+}

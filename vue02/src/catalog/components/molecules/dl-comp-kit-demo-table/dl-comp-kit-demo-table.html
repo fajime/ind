@@ -1,0 +1,18 @@
+<div class="dl-comp-kit-demo-table">
+  <table>
+    <thead>
+      <tr>
+        <th v-for="label in headers">{{label}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <template v-for="row in rowArray">
+        <tr>
+          <td v-for="(columnKey, index) in columnKeys">
+            <span :class="{'demo__md--syntax': index === 0}" class="demo__content-properties--name" v-html="row[columnKey]"></span>
+          </td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</div>

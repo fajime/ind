@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-range renders correctly 1`] = `
+<input
+  class="dl-ui-range"
+  id="random-id"
+  max="100"
+  min="0"
+  step="1"
+  style="--progress-value: 0px;"
+  type="range"
+/>
+`;

@@ -1,0 +1,12 @@
+<Transition @enter="onEnter" name="dl-ui-transition-fade">
+  <dl-ui-menu-group
+    :config="config"
+    :sense="showSense"
+    @itemClicked="onItemClicked"
+    class="dl-ui-context-menu"
+    ref="container"
+    v-dl-ui-closable="closeByEvent"
+    v-if="visible"
+  >
+  </dl-ui-menu-group>
+</Transition>

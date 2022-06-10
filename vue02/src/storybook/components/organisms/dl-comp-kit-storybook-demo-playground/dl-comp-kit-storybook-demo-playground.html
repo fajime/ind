@@ -1,0 +1,33 @@
+<div class="dl-comp-kit-storybook-demo-playground">
+  <div class="dl-comp-kit-storybook-demo-playground__left">
+    <div class="dl-comp-kit-storybook-demo-playground__left-top">
+      <div class="dl-comp-kit-storybook-demo-playground__controls-inputs">
+        <template v-for="(input, index) in allInputs">
+          <dl-comp-kit-demo-playground-input
+            :configuration="input"
+            :key="`controls-inputs-${index}`"
+            v-if="input.type !== 'hidden'"
+            v-model="input.value"
+          >
+          </dl-comp-kit-demo-playground-input>
+        </template>
+      </div>
+    </div>
+    <div class="dl-comp-kit-storybook-demo-playground__left-bottom">
+      <div class="dl-comp-kit-storybook-demo-playground__output-controls">
+        <span>Salida:</span>
+        <div @click="clearOutput">
+          <dl-ui-icon
+            :class="{ 'dl-comp-kit-storybook-demo-playground__output-controls-icon--hide': outputEmpty}"
+            class="dl-ui-icon dl-comp-kit-storybook-demo-playground__output-controls-icon"
+            id="cross"
+          ></dl-ui-icon>
+        </div>
+      </div>
+      <pre class="dl-comp-kit-storybook-demo-playground__output" ref="output"></pre>
+    </div>
+  </div>
+  <div class="dl-comp-kit-storybook-demo-playground__right">
+    <slot></slot>
+  </div>
+</div>

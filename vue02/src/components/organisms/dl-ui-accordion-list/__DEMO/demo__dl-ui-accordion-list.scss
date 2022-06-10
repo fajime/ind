@@ -1,0 +1,18 @@
+@import '../mixins/accordion-list';
+
+$config: (
+  'padding': 2%,
+  'border': 1px dotted $color-status-info-02k,
+  'border-radius': 4px,
+  'background': $color-status-info-01,
+  'disable::opacity': 0.3
+);
+
+.demo__dl-ui-accordion-list__wrapper {
+  width: 50%;
+  margin: 20px;
+}
+
+.custom-accordion-list {
+  @include accordion-list-style-config($config);
+}

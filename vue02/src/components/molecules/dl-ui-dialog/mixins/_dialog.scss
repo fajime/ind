@@ -1,0 +1,87 @@
+@mixin dialog-style-config($config) {
+  z-index: getmapvalue($config, 'z-index', 9);
+
+  .dl-ui-dialog__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: getmapvalue($config, 'backdrop::z-index', 99);
+
+    &--modal {
+      background-color: getmapvalue($config, 'backdrop::background', rgba(black, 0.25));
+    }
+  }
+
+  .dl-ui-dialog__content {
+    width: getmapvalue($config, 'width', 80%);
+    position: fixed;
+    top: 20vh;
+    left: 10%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    border: none;
+    box-shadow: getmapvalue($config, 'box-shadow', 0 2px 8px rgba(black, 0.25));
+    z-index: getmapvalue($config, 'content::z-index', 100);
+    background-color: getmapvalue($config, 'background', $color-surface-02);
+
+    &--centered {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--fit-to-content {
+      width: fit-content;
+    }
+
+    .dl-ui-dialog__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px 12px 16px;
+      background-color: getmapvalue($config, 'header::background', $color-surface-04);
+
+      .dl-ui-dialog__title {
+        color: getmapvalue($config, 'header::color', $color-base-03k);
+
+        @include font-body-large-regular;
+      }
+
+      .dl-ui-action-button {
+        background-color: transparent;
+        border: none;
+
+        .dl-ui-icon:hover {
+          fill: getmapvalue($config, 'header::color', $color-base-03k);
+        }
+      }
+    }
+
+    .dl-ui-dialog__body {
+      color: getmapvalue($config, 'body::color', $color-base-03k);
+      padding: 16px;
+
+      p:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .dl-ui-dialog__footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px;
+
+      .dl-ui-button:not(:last-of-type) {
+        margin-right: 10px;
+      }
+
+      &--buttons {
+        display: flex;
+      }
+    }
+  }
+}

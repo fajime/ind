@@ -1,0 +1,39 @@
+@import '../mixins/button';
+
+$config: (
+  'height': 8rem,
+  'font-family': $body-medium-regular-font-family,
+  'padding': 0.2rem,
+  'border': 2px pink,
+  'border-radius': 1rem,
+  'background': red,
+  'color': rgb(58, 42, 45),
+  'box-shadow': 5px 10px rgb(99, 145, 101),
+  'hover::background': rgb(251, 212, 255),
+  'hover::border': 5px solid rgb(55, 15, 73),
+  'hover::color': rgb(141, 67, 131),
+  'active::background': rgb(190, 231, 194),
+  'active::border': 5px dotted rgb(146, 252, 113),
+  'active::color': rgb(22, 88, 47),
+  'loading::background': yellow,
+  'loading::color': rgb(98, 148, 240),
+  'loading::border': 1px solid rgb(190, 214, 101),
+  'focus::background': rgb(57, 115, 201),
+  'focus::color': blue,
+  'focus::border': 1px dotted rgb(10, 43, 114) (114, 10, 10),
+  'disabled::background': rgb(175, 165, 165),
+  'disabled::color': rgb(95, 95, 95) (104, 104, 104),
+  'disabled::border': 0
+);
+
+.demo__dl-ui-button {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.custom-button {
+  @include button-style-config($config);
+}

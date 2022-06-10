@@ -1,0 +1,31 @@
+<div class="dl-comp-storybook-menu-blocks-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-menu-blocks-use__uso">
+        <div class="dl-comp-storybook-menu-blocks-use__uso-group">
+          <h4 class="dl-comp-storybook-menu-blocks-use__uso-group-title">Menu Blocks principal</h4>
+          <div class="dl-comp-storybook-menu-blocks-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-menu-blocks-use__uso-group-primary">
+            <dl-ui-menu-blocks
+              :config="playground.props[0].value"
+              class="dl-ui-menu-blocks dl-comp-storybook-menu-blocks-use__uso-menu-blocks--primary"
+            >
+            </dl-ui-menu-blocks>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-menu-blocks__wrapper">
+        <theComponent
+          :ref="setDemoRefs"
+          @linkEntryClicked="notifyComponentEvent('linkEntryClicked', $event)"
+          @mainEntryClicked="notifyComponentEvent('mainEntryClicked', $event)"
+          class="dl-ui-menu-blocks"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

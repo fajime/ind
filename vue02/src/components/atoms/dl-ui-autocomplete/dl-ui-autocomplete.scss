@@ -1,0 +1,76 @@
+@import 'mixins/autocomplete';
+
+.dl-ui-autocomplete {
+  @include autocomplete-style-config(());
+}
+
+.dl-ui-autocomplete--extra-small {
+  $extra-small: (
+    'height': 22px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small,
+    'clear-icon::width': $icon-width-small,
+    'clear-icon::height': $icon-height-small,
+    'clear-icon::padding': $icon-padding-small,
+  );
+
+  @include autocomplete-style-config($extra-small);
+}
+
+.dl-ui-autocomplete--small {
+  $small: (
+    'height': 28px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small,
+    'clear-icon::width': $icon-width-small,
+    'clear-icon::height': $icon-height-small,
+    'clear-icon::padding': $icon-padding-small,
+  );
+
+  @include autocomplete-style-config($small);
+}
+
+.dl-ui-autocomplete--medium {
+  $default: (
+    'height': 32px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small,
+    'clear-icon::width': $icon-width-small,
+    'clear-icon::height': $icon-height-small,
+    'clear-icon::padding': $icon-padding-small,
+  ); // height: 32px
+
+  @include autocomplete-style-config($default);
+}
+
+.dl-ui-autocomplete--large {
+  $large: (
+    'height': 40px,
+    'icon::width': $icon-width-small,
+    'icon::height': $icon-height-small,
+    'icon::padding': $icon-padding-small,
+    'clear-icon::width': $icon-width-small,
+    'clear-icon::height': $icon-height-small,
+    'clear-icon::padding': $icon-padding-small,
+    'trigger-icon::width': $icon-width-small,
+    'trigger-icon::height': $icon-height-small,
+    'trigger-icon::padding': $icon-padding-small
+  );
+
+  @include autocomplete-style-config($large);
+
+  .dl-ui-autocomplete__container {
+    @include font-body-medium-regular();
+  }
+
+  .dl-ui-autocomplete__label {
+    @include font-body-medium-regular();
+  }
+
+  .dl-ui-autocomplete__help {
+    @include font-body-small-regular();
+  }
+}

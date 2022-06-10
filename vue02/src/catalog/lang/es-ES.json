@@ -1,0 +1,63 @@
+{
+  "subtitle": "Kit de componentes",
+  "appName": "",
+  "appNameSimple": "",
+  "catalog": {
+    "components": "Componentes",
+    "atoms": "Atomos",
+    "molecules": "Moléculas",
+    "organisms": "Organismos"
+  },
+  "config": {
+    "lang": {
+      "english": "English",
+      "spanish": "Español"
+    }
+  },
+  "demo": {
+    "title": "Nombre del producto Digital",
+    "loginError": ["username o password incorrecto.", "Inténtelo de nuevo."],
+    "buttons": {
+      "cancel": "Cancelar",
+      "send": "Enviar"
+    },
+    "bigForm": {
+      "summary": "Resumen",
+      "service_type": "Tipo de Servicio",
+      "terminal": "Terminal",
+      "phase": "Fase",
+      "services": "Servicios",
+      "general": "Generales",
+      "type": "Tipo",
+      "dangerous_goods": "Mercancias peligrosas",
+      "reference": "Referencia",
+      "container_no": "Nº de contenedor",
+      "container_num": "Num. Contenedor...",
+      "label": "Label",
+      "label_helper": "Solo puede contener letras y números",
+      "license_placeholder": "Matricula (opcional)",
+      "description": "Descripción",
+      "dimensions": "Dimensiones",
+      "goods": "Mercancías",
+      "slot": "Slot",
+      "incoming-date": "Fecha de Entrada",
+      "shipment-date": "Fecha de Salida",
+      "preferred-schedule": {
+        "label": "Preferencia de horario",
+        "morning": "Mañana",
+        "afternoon": "Tarde",
+        "evening": "Noche"
+      },
+      "transport": "Transporte",
+      "vehicle_registration_number": "Matrícula del vehiculo",
+      "trailer_registration_number": "Matrícula del remolque",
+      "vehicle_brand": "Marca del vehículo",
+      "trailer_brand": "Marca del remolque",
+      "associated_company": "Empresa asociada",
+      "company_name": "Nombre sociedad",
+      "name": "Nombre",
+      "dni_nie": "DNI o NIE",
+      "pm_authorized": "Habilitado PM"
+    }
+  }
+}

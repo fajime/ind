@@ -1,0 +1,7 @@
+@import 'mixins/checkbox-group';
+
+.dl-ui-checkbox-group {
+  $default: ();
+
+  @include checkbox-group-style-config($default, $default);
+}

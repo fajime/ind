@@ -1,0 +1,62 @@
+<div class="dl-comp-storybook-landing">
+  <dl-comp-storybook-header :description="header.description" :number="header.number" :subtitle="header.subtitle" :title="header.title" />
+  <main>
+    <article class="dl-comp-storybook-landing-header">
+      <div class="layout-card-group">
+        <dl-comp-storybook-card
+          :key="`dl-comp-storybook-card-header-${index}`"
+          v-for="({ icon : { type, align }, header, body, action: { text, link } }, index) in cards.header"
+        >
+          <div class="dl-comp-storybook-landing-header__header">
+            <dl-ui-icon
+              :class="['dl-comp-storybook-landing-header__header-icon', `dl-comp-storybook-landing-header__header-icon--${align}`]"
+              :id="type"
+            />
+            <h6>{{ header }}</h6>
+          </div>
+          <div class="dl-comp-storybook-landing-header__body">
+            <span class="body-medium-regular">{{ body }}</span>
+          </div>
+          <div class="dl-comp-storybook-landing-header__action">
+            <h6>{{ text }}</h6>
+            <a :href="link || '#'" />
+          </div>
+        </dl-comp-storybook-card>
+      </div>
+    </article>
+    <article class="dl-comp-storybook-landing-documentation">
+      <div>
+        <div class="dl-comp-storybook-landing-documentation__title--primary">Documentación</div>
+        <div class="layout-card-group">
+          <dl-comp-storybook-card
+            :key="`dl-comp-storybook-card-documentation-${index}`"
+            v-for="({ icon : { type, align }, header, body, action: { text, link } }, index) in cards.documentation"
+          >
+            <div class="dl-comp-storybook-landing-documentation__header">
+              <dl-ui-icon
+                :class="['dl-comp-storybook-landing-documentation__header-icon', `dl-comp-storybook-landing-documentation__header-icon--${align}`]"
+                :id="type"
+              />
+              <h6>{{ header }}</h6>
+            </div>
+            <div class="dl-comp-storybook-landing-documentation__body">
+              <span class="body-medium-regular">{{ body }}</span>
+            </div>
+            <div class="dl-comp-storybook-landing-documentation__action">
+              <a :href="link || '#'">{{ text }}</a>
+            </div>
+          </dl-comp-storybook-card>
+        </div>
+      </div>
+    </article>
+    <article class="dl-comp-storybook-landing-actualizaciones">
+      <div class="dl-comp-storybook-landing-actualizaciones__content">
+        <div class="dl-comp-storybook-landing-actualizaciones__title--primary">Actualizaciones</div>
+        <div class="layout-card-group">
+          <!-- Componente actualizaciones (tabla) -->
+          <dl-comp-storybook-updates :updates-data="updateData" />
+        </div>
+      </div>
+    </article>
+  </main>
+</div>

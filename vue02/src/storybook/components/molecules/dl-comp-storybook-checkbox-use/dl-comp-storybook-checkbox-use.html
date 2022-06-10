@@ -1,0 +1,75 @@
+<div class="dl-comp-storybook-checkbox-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-checkbox-use__uso">
+        <div class="dl-comp-storybook-checkbox-use__uso-group">
+          <h4 class="dl-comp-storybook-checkbox-use__uso-group-title">Checkbox principal</h4>
+          <div class="dl-comp-storybook-checkbox-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-checkbox-use__uso-group-primary">
+            <dl-ui-checkbox :modelValue="false" class="dl-ui-checkbox dl-comp-storybook-checkbox-use__uso-checkbox--default" label="label">
+            </dl-ui-checkbox>
+            <p>
+              <span class="dl-comp-storybook-checkbox-use__uso-group-subtitle"> Checkbox Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-checkbox-use__uso-group-primary">
+            <dl-ui-checkbox
+              :modelValue="true"
+              class="dl-ui-checkbox dl-comp-storybook-checkbox-use__uso-checkbox--checked"
+              icon="dl-ids-icon-check-select"
+              label="label"
+            >
+            </dl-ui-checkbox>
+            <p>
+              <span class="dl-comp-storybook-checkbox-use__uso-group-subtitle"> Checkbox Checked: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-checkbox-use__uso-group-primary">
+            <dl-ui-checkbox
+              :indeterminate="true"
+              :modelValue="true"
+              class="dl-ui-checkbox dl-comp-storybook-checkbox-use__uso-checkbox--indeterminate"
+              icon="dl-ids-icon-check-indet"
+              label="label"
+            >
+            </dl-ui-checkbox>
+            <p>
+              <span class="dl-comp-storybook-checkbox-use__uso-group-subtitle"> Checkbox Indeterminate: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-checkbox-use__uso-group-primary">
+            <dl-ui-checkbox
+              :disabled="true"
+              :indeterminate="false"
+              :modelValue="true"
+              class="dl-ui-checkbox dl-comp-storybook-checkbox-use__uso-checkbox--disabled"
+              label="label"
+            >
+            </dl-ui-checkbox>
+            <p>
+              <span class="dl-comp-storybook-checkbox-use__uso-group-subtitle"> Checkbox Disabled: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-checkbox__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @focus="notifyComponentEvent('focus', $event)"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+          {{ playground.slots[0].value}}
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

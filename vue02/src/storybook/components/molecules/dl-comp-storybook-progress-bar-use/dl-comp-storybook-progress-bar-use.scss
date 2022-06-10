@@ -1,0 +1,37 @@
+.dl-comp-storybook-progress-bar-use {
+  &__uso {
+    padding: 3rem;
+
+    &-progress-bar {
+      &--default {
+        margin-right: 2rem;
+        max-width: 150px;
+      }
+    }
+
+    &-group {
+      &-title {
+        margin-top: 1rem;
+        color: $color-action-primary-default;
+
+        @include font-h4();
+      }
+
+      &-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      &-subtitle {
+        @include font-body-medium-bold();
+      }
+
+      &-primary {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

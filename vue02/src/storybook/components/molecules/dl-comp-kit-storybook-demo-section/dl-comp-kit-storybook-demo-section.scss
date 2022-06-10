@@ -1,0 +1,43 @@
+.dl-comp-kit-storybook-demo-section {
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+
+  &-header {
+    flex: 1 1 auto;
+    display: flex;
+
+    h6 {
+      color: $color-action-primary-default;
+
+      @include font-h6();
+    }
+  }
+
+  &-body {
+    padding-top: 0.5rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+
+    p {
+      line-height: 1.2rem;
+      padding-top: 0.2rem;
+    }
+
+    > div > ul,
+    > div > ol {
+      padding-left: 2rem;
+
+      li {
+        line-height: 1.2rem;
+        padding: 0.2rem 0;
+
+        &::before {
+          content: '• ';
+          color: $color-action-primary-default;
+        }
+      }
+    }
+  }
+}

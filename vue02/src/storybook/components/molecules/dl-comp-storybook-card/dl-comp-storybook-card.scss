@@ -1,0 +1,10 @@
+.dl-comp-storybook-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 290px;
+  padding: 1rem;
+  background-color: $color-surface-01k;
+  border-radius: 4px;
+  box-shadow: $shadow-medium;
+}

@@ -1,0 +1,18 @@
+<li :class="{'dl-ui-menu-root-item--disabled': config.disabled}" class="dl-ui-menu-root-item" ref="item" v-dl-ui-closable="close">
+  <div @click="onRootClick" class="dl-ui-menu-root-item__wrapper">
+    <dl-ui-icon :id="config.leftIcon" class="dl-ui-icon--small" v-if="config.leftIcon" />
+    <span class="dl-ui-menu-root-item__label">{{ config.label }}</span>
+    <dl-ui-icon :id="config.rightIcon" class="dl-ui-icon--small" v-if="config.rightIcon" />
+  </div>
+  <transition name="dl-ui-transition-fade">
+    <dl-ui-menu-group
+      :config="config.children"
+      :offset="childPosition"
+      :sense="sense"
+      @childItemClicked="onItemGroupClicked"
+      @itemClicked="onItemGroupClicked"
+      class="dl-ui-menu-root-item__group"
+      v-if="showChildren && hasChildren"
+    />
+  </transition>
+</li>

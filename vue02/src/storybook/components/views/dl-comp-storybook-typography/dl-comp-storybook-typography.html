@@ -1,0 +1,80 @@
+<div class="dl-comp-storybook-typography">
+  <main class="dl-comp-storybook-typography-main">
+    <article class="dl-comp-storybook-typography__title">
+      <h2>Tipografía</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </article>
+    <article class="dl-comp-storybook-typography__family">
+      <h4>Familia</h4>
+      <p class="sample">Aa</p>
+      <h6>Roboto</h6>
+      <p class="description">
+        Roboto es una tipografía open-sourced conocida por su doble naturaleza. Tiene un esqueleto mecánico y las formas son, en su mayoría,
+        geométricas. Al mismo tiempo, la fuente presenta curvas amables y abiertas. Mientras que algunos tipos de letra distorsionan sus
+        formas para forzar un ritmo rígido, Roboto permite que las letras se acomoden a su anchura natural; así se consigue un ritmo de
+        lectura más natural y cómodo.
+      </p>
+    </article>
+    <article class="dl-comp-storybook-typography__sizes">
+      <h4>Tamaños</h4>
+      <div class="preview-fonts">
+        <div class="preview-fonts__jumbo">Jumbo / 96 - 100 / Bold</div>
+        <div class="preview-fonts__h1">H1 / 60 - 64 / Bold</div>
+        <div class="preview-fonts__h2">H2 / 48 - 52 / Bold</div>
+        <div class="preview-fonts__h3">H3 / 34 - 38 / Bold</div>
+        <div class="preview-fonts__h4">H4 / 24 - 28 / Bold</div>
+        <div class="preview-fonts__h5">H5 / 20 - 24 / Bold</div>
+        <div class="preview-fonts__h6">H6 / 20 - 24 / Regular</div>
+        <div class="preview-fonts__subtitle-large">Subtitle Large / 16 - 20 / Bold</div>
+        <div class="preview-fonts__subtitle-small">Subtitle Small / 14 - 18 / Bold</div>
+        <div class="preview-fonts__col-3">
+          <div class="preview-fonts__col-3-row-1-cell">Body Large / 16 - 20 / Light</div>
+          <div class="preview-fonts__col-3-row-1-cell">Body Large / 16 - 20 / Regular</div>
+          <div class="preview-fonts__col-3-row-1-cell">Body Large / 16 - 20 / Bold</div>
+        </div>
+        <div class="preview-fonts__col-3">
+          <div class="preview-fonts__col-3-row-2-cell">Body Medium / 14 - 20 / Light</div>
+          <div class="preview-fonts__col-3-row-2-cell">Body Medium / 14 - 20 / Regular</div>
+          <div class="preview-fonts__col-3-row-2-cell">Body Medium / 14 - 20 / Bold</div>
+        </div>
+        <div class="preview-fonts__col-3">
+          <div class="preview-fonts__col-3-row-3-cell">Body Small / 12 - 14 / Light</div>
+          <div class="preview-fonts__col-3-row-3-cell">Body Small / 12 - 14 / Regular</div>
+          <div class="preview-fonts__col-3-row-3-cell">Body Small / 12 - 14 / Bold</div>
+        </div>
+        <div class="preview-fonts__button-large">Button Large / 16 - 20 / Medium</div>
+        <div class="preview-fonts__button-medium">Button Large / 16 - 20 / Medium</div>
+        <div class="preview-fonts__button-small">Button Small / 12 - 14 / Medium</div>
+        <div class="preview-fonts__link-large">Link Large / 16 - 20 / Regular</div>
+        <div class="preview-fonts__link-medium">Link Medium / 14 - 18 / Regular</div>
+        <div class="preview-fonts__link-small">Link Small / 12 - 14 / Regular</div>
+        <div class="preview-fonts__overline">OVERLINE / 10 - 12 / Regular</div>
+        <div class="preview-fonts__caption">Caption / 10 - 12 / Regular</div>
+      </div>
+    </article>
+  </main>
+  <div class="dl-comp-storybook-typography-resources">
+    <h4>Recursos</h4>
+    <dl-comp-storybook-card
+      :key="`dl-comp-storybook-card-resources-${index}`"
+      v-for="({ icon : { type, align }, header, body, action: { text, link } }, index) in resources"
+    >
+      <div class="dl-comp-storybook-typography-resources__header">
+        <dl-ui-icon
+          :class="['dl-comp-storybook-typography-resources__header-icon', `dl-comp-storybook-typography-resources__header-icon--${align}`]"
+          :id="type"
+        />
+        <h6>{{ header }}</h6>
+      </div>
+      <div class="dl-comp-storybook-typography-resources__body">
+        <span class="body-medium-regular">{{ body }}</span>
+      </div>
+      <div class="dl-comp-storybook-typography-resources__action">
+        <a :href="link || '#'">{{ text }}</a>
+      </div>
+    </dl-comp-storybook-card>
+  </div>
+</div>

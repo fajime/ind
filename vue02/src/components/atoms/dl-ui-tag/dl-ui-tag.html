@@ -1,0 +1,7 @@
+<div :class="containerClass" @click="tagSelected" class="dl-ui-tag">
+  <dl-ui-icon :id="icon" class="dl-ui-tag__icon" v-if="icon"> </dl-ui-icon>
+  <span class="dl-ui-tag__text">{{text}}</span>
+  <div @click.stop="closeTag" class="dl-ui-tag__close" v-if="closeButton">
+    <dl-ui-icon class="dl-ui-tag__close" id="dl-ids-icon-close-no-circle-outlined"> </dl-ui-icon>
+  </div>
+</div>

@@ -1,0 +1,161 @@
+@mixin checkbox-style-config($config) {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  $size: getmapvalue($config, 'size', 20px);
+  $padding: getmapvalue($config, 'padding', 2px);
+
+  height: $size;
+
+  .dl-ui-checkbox__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(#{$size} - (2 * #{$padding}));
+    height: calc(#{$size} - (2 * #{$padding}));
+    background-color: getmapvalue($config, 'background', $color-surface-01k);
+    border: getmapvalue($config, 'border', 1px solid $color-surface-06);
+    border-radius: getmapvalue($config, 'border-radius', 1px);
+    position: relative;
+    transition: all 0.2s linear;
+
+    > input {
+      opacity: 0;
+      width: calc(#{$size} - (2 * #{$padding}));
+      height: calc(#{$size} - (2 * #{$padding}));
+      position: absolute;
+      cursor: pointer;
+    }
+  }
+
+  .dl-ui-checkbox__icon {
+    width: calc(#{$size} - (2 * #{$padding}) - 4px);
+    height: calc(#{$size} - (2 * #{$padding}) - 4px);
+    padding: 0;
+    position: absolute;
+    fill: transparent;
+    transition: fill 0.2s linear;
+  }
+
+  .dl-ui-checkbox__label {
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 0;
+    color: $color-base-03k;
+    transition: all 0.2s linear;
+
+    @include font-body-medium-regular();
+  }
+
+  &:hover {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'hover::background', $color-surface-03);
+      border: getmapvalue($config, 'hover::border', 1px solid $color-base-highlight-02);
+    }
+  }
+
+  &.dl-ui-checkbox--focus {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'focus::background', transparent);
+      border: getmapvalue($config, 'focus::border', 1px solid $color-surface-06);
+
+      &::before {
+        content: '';
+        position: absolute;
+        border-radius: 1px;
+        border: getmapvalue($config, 'focus::border::outlined', 1px solid $color-action-primary-default);
+        width: $size;
+        height: $size;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &.dl-ui-checkbox--disabled {
+    pointer-events: none !important;
+
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'disable::background', $color-surface-03);
+      border: getmapvalue($config, 'disable::border', 1px solid $color-action-primary-disabled);
+    }
+
+    > .dl-ui-checkbox__label {
+      color: $color-base-01;
+      pointer-events: none;
+    }
+  }
+
+  &.dl-ui-checkbox--checked {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'checked::background', $color-surface-01k);
+      border: getmapvalue($config, 'checked::border', 1px solid $color-action-primary-active);
+    }
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'checked::color', $color-action-primary-active);
+    }
+  }
+
+  &.dl-ui-checkbox--indet {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'indet::background', $color-surface-01k);
+      border: getmapvalue($config, 'indet::border', 1px solid $color-action-primary-active);
+    }
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'indet::color', $color-action-primary-active);
+    }
+  }
+
+  &.dl-ui-checkbox--checked.dl-ui-checkbox--disabled,
+  &.dl-ui-checkbox--indet.dl-ui-checkbox--disabled {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'disable::background', $color-surface-03);
+      border: getmapvalue($config, 'disable::border', 1px solid $color-action-primary-disabled);
+    }
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'disable::color', $color-action-primary-disabled !important);
+    }
+  }
+
+  &.dl-ui-checkbox--checked.dl-ui-checkbox--focus,
+  &.dl-ui-checkbox--indet.dl-ui-checkbox--focus {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'checked::focus::background', $color-surface-01k);
+      border: getmapvalue($config, 'checked::focus::border', 1px solid $color-action-primary-active);
+
+      &::before {
+        border: getmapvalue($config, 'checked::focus::outlined::border', 1px solid $color-action-primary-default);
+      }
+    }
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'checked::focus::color', $color-action-primary-active);
+    }
+  }
+
+  &.dl-ui-checkbox--checked:hover,
+  &.dl-ui-checkbox--indet:hover {
+    > .dl-ui-checkbox__box {
+      background-color: getmapvalue($config, 'checked::hover::background', $color-action-primary-focus);
+      border: getmapvalue($config, 'checked::hover::border', 1px solid $color-action-primary-hover);
+    }
+
+    .dl-ui-checkbox__icon {
+      fill: getmapvalue($config, 'checked::hover::color', $color-action-primary-hover);
+    }
+  }
+
+  &.dl-ui-checkbox--label-left {
+    flex-direction: row-reverse;
+
+    > .dl-ui-checkbox__label {
+      padding-left: 0;
+      padding-right: 8px;
+    }
+  }
+}

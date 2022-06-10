@@ -1,0 +1,12 @@
+<input
+  :disabled="disabled"
+  :id="randomId"
+  :max="max"
+  :min="min"
+  :step="step"
+  :style="`--progress-value: ${result}px`"
+  :value="modelValue"
+  @input="raiseEvent($event.target.value)"
+  class="dl-ui-range"
+  type="range"
+/>

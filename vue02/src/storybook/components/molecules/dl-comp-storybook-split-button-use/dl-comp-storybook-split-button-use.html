@@ -1,0 +1,63 @@
+<div class="dl-comp-storybook-split-button-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-split-button-use__uso">
+        <div class="dl-comp-storybook-split-button-use__uso-group">
+          <h4 class="dl-comp-storybook-split-button-use__uso-group-title">Split Button principal</h4>
+          <div class="dl-comp-storybook-split-button-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-split-button-use__uso-group-primary">
+            <dl-ui-split-button
+              actionButtonIcon="dl-ids-icon-arrows-down-single-no_circle-outlined"
+              class="dl-ui-split-button dl-comp-storybook-split-button-use__uso-split-button--primary"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              textoBoton="Aceptar"
+            >
+            </dl-ui-split-button>
+            <p>
+              <span class="dl-comp-storybook-split-button-use__uso-group-subtitle"> Split Button Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-split-button-use__uso-group-primary">
+            <dl-ui-split-button
+              actionButtonIcon="dl-ids-icon-arrows-down-single-no_circle-outlined"
+              class="dl-ui-split-button--small dl-comp-storybook-split-button-use__uso-split-button--primary"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              textoBoton="Aceptar"
+            >
+            </dl-ui-split-button>
+            <p>
+              <span class="dl-comp-storybook-split-button-use__uso-group-subtitle"> Split Button Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-split-button-use__uso-group-primary">
+            <dl-ui-split-button
+              actionButtonIcon="dl-ids-icon-arrows-down-single-no_circle-outlined"
+              class="dl-ui-split-button--large dl-comp-storybook-split-button-use__uso-split-button--primary"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              textoBoton="Aceptar"
+            >
+            </dl-ui-split-button>
+            <p>
+              <span class="dl-comp-storybook-split-button-use__uso-group-subtitle"> Split Button Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-split-button__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @clicked="notifyComponentEvent('clicked', $event)"
+          @input="notifyComponentEvent('input', $event)"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

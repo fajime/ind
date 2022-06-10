@@ -1,0 +1,96 @@
+<div class="dl-ui-datepicker" ref="datepicker">
+  <dl-ui-input
+    :error="internalError || error"
+    :placeholder="placeholder"
+    @focus="onFocus"
+    @update:modelValue="validateDateInput"
+    class="dl-ui-input"
+    ref="input"
+    rightIcon="dl-ids-icon-calendar-default-filled"
+    v-bind="$props"
+    v-model="textInputValue"
+  />
+  <transition name="dl-ui-transition-fade">
+    <div class="dl-ui-datepicker__overlay" ref="overlay" v-if="showOverlay">
+      <div class="dl-ui-datepicker__overlay-header">
+        <div @click="contextClicked()" class="dl-ui-datepicker__context">{{ contextText}}</div>
+        <div class="dl-ui-datepicker__context-navigation">
+          <div @click="navigationButtonClicked('left')" class="dl-ui-datepicker__context-navigation-button">
+            <dl-ui-icon id="dl-ids-icon-arrows-left-single-no_circle-outlined"></dl-ui-icon>
+          </div>
+          <div @click="navigationButtonClicked('right')" class="dl-ui-datepicker__context-navigation-button">
+            <dl-ui-icon id="dl-ids-icon-arrows-right-single-no_circle-outlined"></dl-ui-icon>
+          </div>
+        </div>
+      </div>
+      <div class="dl-ui-datepicker__overlay-body">
+        <div class="dl-ui-datepicker__month-box" v-show="viewType === 'days'">
+          <div class="dl-ui-datepicker__month-box-weekDays">
+            <div :key="index" class="dl-ui-datepicker__month-box-weekDay" v-for="(weekDay, index) in weekDays">{{weekDay}}</div>
+          </div>
+          <div class="dl-ui-datepicker__month-box-days">
+            <div :key="index" class="dl-ui-datepicker__month-box-day" v-for="(day,index) in daysInMonthBoxReferenced">
+              <div
+                :class="{'dl-ui-datepicker__month-box-day-inner-box--disabled': isDisableDay(day, true),
+                          'dl-ui-datepicker__month-box-day-inner-box--active': isSelectedDay(day),
+                          'dl-ui-datepicker__month-box-day-inner-box--active-multiple': isSelectedDay(day) && selectionMode === 'multiple',
+                          'dl-ui-datepicker__month-box-day-inner-box--today': isTodayDay(day),
+                          'dl-ui-datepicker__month-box-day-inner-box--in-range-grow-left': isInRangeGrowLeftDay(day),
+                          'dl-ui-datepicker__month-box-day-inner-box--in-range-grow-right': isInRangeGrowRightDay(day)
+                                }"
+                :data-date="dateToString(day)"
+                :data-in-range="`${isInRangeDay(day)}`"
+                @click="daySelected(day)"
+                class="dl-ui-datepicker__month-box-day-inner-box"
+              >
+                {{day.getDate()}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dl-ui-datepicker__year-box" v-show="viewType === 'months'">
+          <div class="dl-ui-datepicker__year-box-months">
+            <div :key="monthIndex" class="dl-ui-datepicker__year-box-month" v-for="(month, monthIndex) in monthsInYearBoxReferenced">
+              <div
+                :class="{'dl-ui-datepicker__year-box-month-inner-box--disabled': isDisableMonth(month),
+                                 'dl-ui-datepicker__year-box-month-inner-box--active': isSelectedMonth(month),
+                                 'dl-ui-datepicker__year-box-month-inner-box--today': isTodayMonth(month),
+                                 'dl-ui-datepicker__year-box-month-inner-box--in-range-grow-left': isInRangeGrowLeftMonth(month),
+                                 'dl-ui-datepicker__year-box-month-inner-box--in-range-grow-right': isInRangeGrowRightMonth(month) 
+                                }"
+                :data-month="dateToString(month)"
+                @click="monthSelected(monthIndex)"
+                class="dl-ui-datepicker__year-box-month-inner-box"
+              >
+                {{months[monthIndex]}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dl-ui-datepicker__decade-box" v-show="viewType === 'years'">
+          <div class="dl-ui-datepicker__decade-box-years">
+            <div :key="yearIndex" class="dl-ui-datepicker__decade-box-year" v-for="(year, yearIndex) in yearsInDecadeBoxReferenced">
+              <div
+                :class="{'dl-ui-datepicker__decade-box-year-inner-box--disabled': isDisableYear(year),
+                                 'dl-ui-datepicker__decade-box-year-inner-box--active': isSelectedYear(year),
+                                 'dl-ui-datepicker__decade-box-year-inner-box--today': isTodayYear(year),
+                                 'dl-ui-datepicker__decade-box-year-inner-box--in-range-last-year-decade': isInRangeYear(year),
+                                 'dl-ui-datepicker__decade-box-year-inner-box--in-range-grow-left': isInRangeGrowLeftYear(year),
+                                 'dl-ui-datepicker__decade-box-year-inner-box--in-range-grow-right': isInRangeGrowRightYear(year)
+                                }"
+                :data-month="dateToString(year)"
+                @click="yearSelected(year)"
+                class="dl-ui-datepicker__decade-box-year-inner-box"
+              >
+                {{year.getFullYear()}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div :class="{'dl-ui-datepicker__overlay-footer--visible': showGoToToday }" class="dl-ui-datepicker__overlay-footer">
+        <div @click="goToToday" class="dl-ui-datepicker__goto-today">{{lang.goToToday}}</div>
+      </div>
+    </div>
+  </transition>
+</div>

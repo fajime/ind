@@ -1,0 +1,89 @@
+.dl-comp-kit-storybook-demo-table {
+  padding-top: 1rem;
+
+  table {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    border: 1px solid $color-surface-06;
+    border-radius: 4px;
+  }
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    white-space: pre-wrap;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background: $color-surface-04;
+    text-align: center;
+    color: $color-base-highlight-03k;
+
+    @include font-body-medium-bold();
+  }
+
+  th:first-child {
+    border: 0;
+    border-top-left-radius: 4px;
+  }
+
+  th:last-child {
+    border: 0;
+    border-top-right-radius: 4px;
+  }
+
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid $color-surface-03;
+    text-align: center;
+    color: $color-base-03k;
+  }
+
+  &--columns-1 {
+    > table {
+      grid-template-columns: minmax(2500px, 1fr);
+    }
+  }
+
+  &--columns-2 {
+    > table {
+      grid-template-columns:
+        minmax(120px, 1fr)
+        minmax(180px, 2fr);
+    }
+  }
+
+  &--columns-3 {
+    > table {
+      grid-template-columns:
+        minmax(120px, 1fr)
+        minmax(180px, 2fr)
+        minmax(180px, 2fr);
+    }
+  }
+
+  &--columns-4 {
+    > table {
+      grid-template-columns:
+        minmax(160px, 0.4fr)
+        minmax(80px, 0.3fr)
+        minmax(100px, 0.3fr)
+        minmax(150px, 1.2fr);
+
+      td:nth-child(3) {
+        line-break: anywhere;
+      }
+    }
+  }
+}

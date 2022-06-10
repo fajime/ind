@@ -1,0 +1,54 @@
+<div class="dl-comp-storybook-iconography">
+  <main class="dl-comp-storybook-iconography-main">
+    <article class="dl-comp-storybook-iconography__title">
+      <h2>Iconografía</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </article>
+    <article class="dl-comp-storybook-iconography__cards">
+      <div class="dl-comp-storybook-iconography__cards-header">
+        <div class="dl-comp-storybook-iconography__cards-input">
+          <dl-ui-input :value="searchValue" @input="searchIcons" class="dl-ui-input" placeholder="Search..."></dl-ui-input>
+          <div class="dl-comp-storybook-iconography__cards-input-icon">
+            <dl-ui-icon class="dl-ui-icon" id="dl-ui-icon-search"></dl-ui-icon>
+          </div>
+        </div>
+        <div class="dl-comp-storybook-iconography__cards-switch">
+          <span class="dl-comp-storybook-iconography__cards-switch-title">Filled</span>
+          <dl-ui-switch :value="filled" @input="toggleFilled" class="dl-ui-switch"></dl-ui-switch>
+        </div>
+      </div>
+      <div class="layout-card-group">
+        <dl-comp-storybook-card :key="`dl-comp-storybook-iconography__cards-${index}`" v-for="( { type, name }, index) in icons">
+          <div class="dl-comp-storybook-iconography__cards-title">{{ name }}</div>
+          <div>
+            <dl-ui-icon :id="type" class="dl-comp-storybook-iconography__cards-icon" />
+          </div>
+        </dl-comp-storybook-card>
+      </div>
+    </article>
+  </main>
+  <div class="dl-comp-storybook-iconography-resources">
+    <h4>Recursos</h4>
+    <dl-comp-storybook-card
+      :key="`dl-comp-storybook-card-resources-${index}`"
+      v-for="({ icon : { type, align }, header, body, action: { text, link } }, index) in resources"
+    >
+      <div class="dl-comp-storybook-iconography-resources__header">
+        <dl-ui-icon
+          :class="['dl-comp-storybook-iconography-resources__header-icon', `dl-comp-storybook-iconography-resources__header-icon--${align}`]"
+          :id="type"
+        />
+        <h6>{{ header }}</h6>
+      </div>
+      <div class="dl-comp-storybook-iconography-resources__body">
+        <span class="body-medium-regular">{{ body }}</span>
+      </div>
+      <div class="dl-comp-storybook-iconography-resources__action">
+        <a :href="link || '#'">{{ text }}</a>
+      </div>
+    </dl-comp-storybook-card>
+  </div>
+</div>

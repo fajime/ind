@@ -1,0 +1,14 @@
+<div class="dl-comp-storybook-design-principles">
+  <dl-comp-storybook-header :description="header.description" :number="header.number" :subtitle="header.subtitle" :title="header.title" />
+  <main class="dl-comp-storybook-design-principles__content">
+    <div class="dl-comp-storybook-design-principles__cards">
+      <dl-comp-storybook-card :key="`dl-comp-storybook-card-${index}`" v-for="({ icon, header, content }, index) in cards">
+        <div class="dl-comp-storybook-design-principles__header">
+          <dl-ui-icon :id="icon" class="dl-comp-storybook-design-principles__icon" />
+          <h6 class="dl-comp-storybook-design-principles__title">{{ header }}</h6>
+        </div>
+        <div class="dl-comp-storybook-design-principles__body">{{ content }}</div>
+      </dl-comp-storybook-card>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,23 @@
+<div style="padding: 20px; min-height: 500px;">
+  <button class="dl-ui-button dl-ui-button--primary-large" ref="button" v-dl-ui-ripple="'#9994'">
+    <dl-ui-icon class="dl-ui-button--icon" id="dl-ids-icon-user-single-outlined"></dl-ui-icon>
+    <slot></slot>
+  </button>
+  <br />
+  <button class="dl-ui-button dl-ui-button--secondary-large" ref="button" v-dl-ui-ripple="color">
+    <div style="position: relative; font-weight: bold; pointer-events: none;">
+      <slot></slot>
+    </div>
+  </button>
+  <br />
+
+  <div v-dl-ui-ripple="color">
+    <DlUiScrollpanel style="padding: 10px; cursor: default; user-select: none;">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+      ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+      only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+      with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+      PageMaker including versions of Lorem Ipsum
+    </DlUiScrollpanel>
+  </div>
+</div>

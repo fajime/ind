@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-card renders correctly 1`] = `
+<div
+  class="dl-ui-card"
+>
+  <transition-stub>
+    <!--v-if-->
+  </transition-stub>
+  <div
+    class="dl-ui-card__header"
+  >
+    <transition-stub>
+      <!--v-if-->
+    </transition-stub>
+    <div
+      class="dl-ui-card__title-alt dl-ui-card__title"
+    >
+      Title
+    </div>
+    <div
+      class="dl-ui-card__icons"
+    >
+      
+      
+    </div>
+  </div>
+  <div
+    class="dl-ui-card__body"
+  >
+    <div
+      class="dl-ui-card__content"
+    >
+      
+      
+    </div>
+  </div>
+  <transition-stub>
+    <!--v-if-->
+  </transition-stub>
+</div>
+`;

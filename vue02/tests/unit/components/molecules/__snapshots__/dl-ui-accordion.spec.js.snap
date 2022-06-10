@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-accordion renders correctly 1`] = `
+<div
+  class="dl-ui-accordion--hidden dl-ui-accordion"
+>
+  <input
+    class="dl-ui-accordion__input"
+    id="random-id"
+    type="checkbox"
+  />
+  <label
+    class="dl-ui-accordion__header"
+    for="random-id"
+  >
+    <!--v-if-->
+    <div
+      class="dl-ui-accordion__text"
+    >
+      <div
+        class="dl-ui-accordion--highlight dl-ui-accordion__text-title"
+      >
+        Título
+      </div>
+      <div
+        class="dl-ui-accordion___text-description"
+      >
+        Descripción
+      </div>
+    </div>
+    <div
+      class="dl-ui-icon dl-ui-accordion__trigger-icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-arrows-down-single-no_circle-outlined"
+        />
+      </svg>
+    </div>
+  </label>
+  <div
+    class="dl-ui-accordion__box--initial0 dl-ui-accordion__box"
+    style="--accordion-max-height: 0px;"
+  >
+    <div
+      class="dl-ui-accordion__content"
+    >
+      
+      Lorem ipsum
+      
+    </div>
+  </div>
+</div>
+`;

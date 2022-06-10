@@ -1,0 +1,45 @@
+<div class="dl-ui-tabs" ref="root">
+  <nav
+    :class="{
+    'dl-ui-tabs--default': getMode() === 'default',
+    'dl-ui-tabs--window': getMode() === 'window',
+  }"
+  >
+    <transition-group name="dl-ui-transition-fade" tag="ul">
+      <template v-for="(tab, visibleIndex) in alltabs">
+        <li
+          :class="{ 'dl-ui-tabs__tab--active': tab.index === tabActive }"
+          :tabindex="0"
+          class="dl-ui-tabs__tab"
+          v-bind:[keyAttribute]="`tab-${visibleIndex}`"
+        >
+          <dl-ui-tab-default
+            :activeIndex="tabActive"
+            :classSize="classSize"
+            :closable="tab.closable"
+            :index="visibleIndex"
+            :tab="tab"
+            @clear="handleClear"
+            @select="selectTab(tab.index)"
+          ></dl-ui-tab-default>
+        </li>
+        <li
+          :class="{ 'dl-ui-tabs__tab__sep--visible': hasSeparator(tab.index,visibleIndex)}"
+          class="dl-ui-tabs__tab__sep"
+          v-bind:[keyAttribute]="`sep-${visibleIndex}`"
+        ></li>
+      </template>
+      <div class="dl-ui-tabs__options" key="tab-options">
+        <li>
+          <button @click="$emit('tab-add', tabs.length)" class="dl-ui-tabs__tool-button" v-if="allowAdd">
+            <dl-ui-icon class="dl-ui-icon--small dl-ui-tabs__add-icon" id="dl-ids-icon-add-no_circle-outlined" />
+          </button>
+        </li>
+      </div>
+      <li class="dl-ui-tabs--strech" key="tab-strech"></li>
+    </transition-group>
+  </nav>
+  <div class="dl-ui-tabs__content dl-ui-scrollbar">
+    <slot></slot>
+  </div>
+</div>

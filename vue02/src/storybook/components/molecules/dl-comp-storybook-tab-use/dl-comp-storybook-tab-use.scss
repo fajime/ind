@@ -1,0 +1,19 @@
+.dl-comp-storybook-tab-use {
+  &__uso {
+    padding: 3rem;
+
+    &-group {
+      &-title {
+        margin-top: 1rem;
+        color: $color-action-primary-default;
+
+        @include font-h4();
+      }
+
+      &-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="dl-ui-color-picker" v-show="inLine">
+  <div class="dl-ui-color-picker__container">
+    <div :style="dimensionsCanvasContainer" class="dl-ui-color-picker__container-box">
+      <canvas
+        :height="size"
+        :width="size"
+        @mousedown.stop="mousedown"
+        @mousemove.stop="mousemove"
+        @mouseup.stop="mouseup"
+        class="dl-ui-color-picker__color-block"
+        ref="colorBlock"
+      >
+      </canvas>
+      <!-- hidden canvas, but needed to take correspondent color click on range colorRange -->
+      <canvas :height="size" class="dl-ui-color-picker__color-strip" ref="colorStrip" width="2"></canvas>
+    </div>
+    <div class="dl-ui-color-picker__slider-container">
+      <input
+        @input="onInputColorRange"
+        class="dl-ui-color-picker__slider"
+        max="359"
+        min="0"
+        ref="colorRange"
+        step="1"
+        type="range"
+        value="359"
+      />
+    </div>
+    <div class="dl-ui-color-picker__slider-container">
+      <input
+        @input="onInputAlphaRange"
+        class="dl-ui-color-picker__slider-transp"
+        max="1"
+        min="0"
+        ref="alphaRange"
+        step="0.01"
+        type="range"
+        value="1"
+      />
+    </div>
+  </div>
+
+  <div class="dl-ui-color-picker__selected">
+    <div class="dl-ui-color-picker__selected-text">{{lang.colorSelected}}</div>
+    <div class="dl-ui-color-picker__selected-box" ref="colorBox"></div>
+    <div class="dl-ui-color-picker__selected-subtitle" ref="colorLabel">{{labelText}}</div>
+  </div>
+</div>

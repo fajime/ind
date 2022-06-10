@@ -1,0 +1,28 @@
+@import 'mixins/card';
+
+.dl-ui-card {
+  $default: ();
+
+  &--small {
+    $small: ();
+
+    @include card-style-config($small);
+    @include font-body-small-regular();
+  }
+
+  &--medium {
+    @include card-style-config($default);
+  }
+
+  &--large {
+    $large: (
+      'icon::size': 24px
+    );
+
+    @include card-style-config($large);
+    @include font-body-large-regular();
+  }
+
+  @include card-style-config($default);
+  @include font-body-medium-regular();
+}

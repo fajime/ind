@@ -1,0 +1,13 @@
+.storybook {
+  display: flex;
+  background-color: $color-surface-01k;
+  height: 100%;
+  width: 100vw;
+
+  &__content-wrapper {
+    overflow: auto;
+    flex-grow: 1;
+    background-color: $color-surface-01k;
+    width: 100%;
+  }
+}

@@ -1,0 +1,68 @@
+<div class="dl-comp-storybook-textarea-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-textarea-use__uso">
+        <div class="dl-comp-storybook-textarea-use__uso-group">
+          <h4 class="dl-comp-storybook-textarea-use__uso-group-title">Textarea principal</h4>
+          <div class="dl-comp-storybook-textarea-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-textarea-use__uso-group-primary">
+            <dl-ui-textarea class="dl-ui-textarea dl-comp-storybook-textarea-use__uso-textarea--primary" placeholder="placeholder">
+            </dl-ui-textarea>
+            <p>
+              <span class="dl-comp-storybook-textarea-use__uso-group-subtitle"> Textarea Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-textarea-use__uso-group-primary">
+            <dl-ui-textarea
+              class="dl-ui-textarea--extra-small dl-comp-storybook-textarea-use__uso-textarea--primary"
+              placeholder="placeholder"
+            >
+            </dl-ui-textarea>
+            <p>
+              <span class="dl-comp-storybook-textarea-use__uso-group-subtitle"> Textarea Extra Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-textarea-use__uso-group-primary">
+            <dl-ui-textarea class="dl-ui-textarea--small dl-comp-storybook-textarea-use__uso-textarea--primary" placeholder="placeholder">
+            </dl-ui-textarea>
+            <p>
+              <span class="dl-comp-storybook-textarea-use__uso-group-subtitle"> Textarea Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-textarea-use__uso-group-primary">
+            <dl-ui-textarea class="dl-ui-textarea--medium dl-comp-storybook-textarea-use__uso-textarea--primary" placeholder="placeholder">
+            </dl-ui-textarea>
+            <p>
+              <span class="dl-comp-storybook-textarea-use__uso-group-subtitle"> Textarea Medium: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-textarea-use__uso-group-primary">
+            <dl-ui-textarea class="dl-ui-textarea--large dl-comp-storybook-textarea-use__uso-textarea--primary" placeholder="placeholder">
+            </dl-ui-textarea>
+            <p>
+              <span class="dl-comp-storybook-textarea-use__uso-group-subtitle"> Textarea Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-textarea__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @error="notifyComponentEvent('error', $event)"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

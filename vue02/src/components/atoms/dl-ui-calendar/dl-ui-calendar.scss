@@ -1,0 +1,10 @@
+@import 'mixins/calendar';
+
+// https://fullcalendar.io/docs/css-customization
+.dl-ui-calendar {
+
+  $config: (
+  );
+
+  @include calendar-style-config($config);
+}

@@ -1,0 +1,71 @@
+@import '@/storybook/sass/mixins';
+@import '@/storybook/sass/typography';
+@import '~@/components/atoms/dl-ui-icon/mixins/icon';
+
+.dl-comp-storybook-foundations {
+  &-header {
+    padding: 0 96px;
+    background:
+      linear-gradient(
+        to bottom,
+        $color-action-primary-active 88px,
+        $color-action-tertiary-focus 88px
+      );
+
+    &__action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h6 {
+        color: $color-base-02;
+      }
+
+      a {
+        &::after {
+          background: $color-surface-02;
+          width: 32px;
+          height: 32px;
+          border-radius: 50px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &-actualizaciones {
+    @include article();
+  }
+
+  &-header,
+  &-actualizaciones {
+    &__header {
+      @include header();
+    }
+
+    &__header-icon {
+      @include config-icon(48px, 48px);
+    }
+
+    &__action {
+      @include action();
+      @include link();
+    }
+  }
+
+  .layout-card-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .dl-comp-storybook-card {
+      flex: 0 0 290px;
+      margin: 0 32px 32px 0;
+      position: relative;
+      z-index: 100;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+  }
+}

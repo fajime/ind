@@ -1,0 +1,22 @@
+@import '../mixins/tag';
+
+// configuration map
+$config: (
+  'height': 30px,
+  'padding': 8px,
+  'border': 2px dot red,
+  'border-radius': 4px,
+  'background': #123456,
+  'text::color': #fdcab3,
+  'height::closeButton': 25px,
+  'icon::size': 20px,
+  'icon::color': #4589a2,
+  'icon::margin-right': 6px,
+  'close::size': 15px,
+  'close::color': #62d5a2,
+  'close::margin-right': 6px
+);
+
+.custom-tag {
+  @include tag-style-config($config);
+}

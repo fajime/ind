@@ -1,0 +1,53 @@
+<div class="dl-comp-storybook-tooltip-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-tooltip-use__uso">
+        <div class="dl-comp-storybook-tooltip-use__uso-group">
+          <h4 class="dl-comp-storybook-tooltip-use__uso-group-title">Tooltip principal</h4>
+          <div class="dl-comp-storybook-tooltip-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-tooltip-use__uso-group-primary">
+            <dl-ui-button class="dl-ui-button dl-comp-storybook-tooltip-use__uso-tooltip--primary">
+              <dl-ui-tooltip class="dl-ui-tooltip" position="top" text="Hover me!"> Hover me! </dl-ui-tooltip>
+            </dl-ui-button>
+            <p>
+              <span class="dl-comp-storybook-tooltip-use__uso-group-subtitle"> Tooltip Top: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-tooltip-use__uso-group-primary">
+            <dl-ui-button class="dl-ui-button dl-comp-storybook-tooltip-use__uso-tooltip--primary">
+              <dl-ui-tooltip class="dl-ui-tooltip" position="bottom" text="Hover me!"> Hover me! </dl-ui-tooltip>
+            </dl-ui-button>
+            <p>
+              <span class="dl-comp-storybook-tooltip-use__uso-group-subtitle"> Tooltip Bottom: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-tooltip-use__uso-group-primary">
+            <dl-ui-button class="dl-ui-button dl-comp-storybook-tooltip-use__uso-tooltip--primary">
+              <dl-ui-tooltip class="dl-ui-tooltip" position="left" text="Hover me!"> Hover me! </dl-ui-tooltip>
+            </dl-ui-button>
+            <p>
+              <span class="dl-comp-storybook-tooltip-use__uso-group-subtitle"> Tooltip Left: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-tooltip-use__uso-group-primary">
+            <dl-ui-button class="dl-ui-button dl-comp-storybook-tooltip-use__uso-tooltip--primary">
+              <dl-ui-tooltip class="dl-ui-tooltip" position="right" text="Hover me!"> Hover me! </dl-ui-tooltip>
+            </dl-ui-button>
+            <p>
+              <span class="dl-comp-storybook-tooltip-use__uso-group-subtitle"> Tooltip Right: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-tooltip__wrapper">
+        <theComponent :ref="setDemoRefs" class="dl-ui-button" v-bind="generatedProps"> Hover me! </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

@@ -1,0 +1,199 @@
+$extra-small: (
+  'height': 22px,
+  'padding': 0 10px,
+  'margin': 3px 0 5px 0,
+  'help::margin-top': 5px,
+  'label::top': -15px
+);
+$small: (
+  'height': 28px,
+  'padding': 0 10px,
+  'margin': 4px 0 6px 0,
+  'help::margin-top': 6px,
+  'label::top': -16px
+);
+$medium: (
+);
+
+$large: (
+  'height': 40px
+);
+
+@mixin input-label($config, $name) {
+  // position: absolute;
+  color: getmapvalue($config, 'label::color', $color-base-highlight-02);
+  transition: all 0.2s linear;
+  height: 12px;
+  // top: getmapvalue($config, 'label::top', -20px);
+
+  @include font-caption();
+
+  label {
+    transition: inherit;
+  }
+
+  .#{$name}__label-required {
+    transition: inherit;
+    padding-left: 5px;
+    font-weight: bold;
+  }
+}
+
+@mixin input-help($config) {
+  // position: absolute;
+  margin-top: getmapvalue($config, 'help::margin-top', 10px);
+  color: getmapvalue($config, 'help::color', $color-base-highlight-02);
+  transition: all 0.2s linear;
+
+  @include font-caption();
+}
+
+@mixin input-template($config, $name) {
+  $root-node: &;
+
+  .#{$name}__container {
+    position: relative;
+    width: getmapvalue($config, 'width', 100%);
+
+    //  .#{$root-node}__label {
+    .#{$name}__label {
+      @include input-label($config, $name);
+    }
+
+    .#{$name}__help {
+      @include input-help($config);
+    }
+
+    .#{$name}__group {
+      // position: relative;
+      border: getmapvalue($config, 'border', 1px solid $color-surface-06);
+      background: getmapvalue($config, 'background', $color-surface-01k);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: getmapvalue($config, 'height', 32px);
+      margin: getmapvalue($config, 'margin', 8px 0 10px 0);
+      padding: getmapvalue($config, 'padding', 0 18px);
+      transition: all 0.2s linear;
+
+      .dl-ui-icon {
+        min-width: getmapvalue($config, 'icon::size', 16px);
+        fill: getmapvalue($config, 'icon::color', $color-base-highlight-02);
+
+        &.#{$name}__iconLeft {
+          margin-right: 10px;
+        }
+      }
+
+      input {
+        width: 100%;
+        color: getmapvalue($config, 'color', $color-base-highlight-02);
+        background-color: transparent;
+        //margin: getmapvalue($config, 'margin', 10px 0);
+
+        @include font-body-small-regular();
+
+        // &:placeholder-shown {
+        //   border: 2px solid #686de0;
+        // }
+        &::placeholder {
+          color: $color-base-highlight-01;
+        }
+      }
+    }
+
+    /*
+      state
+    */
+
+    &.#{$name}--focus {
+      .#{$name}__group {
+        border: 1px solid $color-emphasis-03k;
+        //background: $color-surface-01k;
+
+        input {
+          color: $color-base-highlight-03k;
+        }
+
+        // .dl-ui-password__icon:not(.dl-ui-password__controls-button--disabled) {
+        //   svg {
+        //     fill: $color-base-highlight-02;
+        //   }
+        // }
+
+        .dl-ui-icon {
+          fill: $color-base-highlight-03k;
+        }
+      }
+    }
+    &.#{$name}--error {
+      .#{$name}__label {
+        color: $color-base-highlight-02;
+      }
+
+      .#{$name}__group {
+        border: 1px solid $color-status-danger-02k;
+
+        .dl-ui-icon {
+          fill: $color-status-danger-02k;
+        }
+
+        input {
+          color: $color-status-danger-02k;
+        }
+      }
+
+      .#{$name}__help {
+        color: $color-status-danger-02k;
+      }
+    }
+    &.#{$name}--disabled {
+      .#{$name}__label,
+      .#{$name}__help {
+        color: $color-surface-06;
+      }
+
+      .#{$name}__group {
+        border: 1px solid $color-surface-06;
+        background: $color-surface-03;
+
+        input {
+          color: $color-surface-06;
+
+          &::placeholder {
+            color: $color-surface-06;
+          }
+        }
+
+        .dl-ui-icon {
+          fill: $color-surface-06;
+          cursor: default;
+        }
+      }
+    }
+    &.#{$name}--readonly {
+
+      .#{$name}__group {
+        background-color: var(--color-surface-03);
+      }
+    }
+  }
+
+  &.#{$name}--large {
+    .#{$name}__container {
+      .#{$name}__label {
+        @include font-body-medium-regular();
+      }
+
+      input {
+        @include font-body-medium-regular();
+      }
+
+      .#{$name}__help {
+        @include font-body-small-regular();
+      }
+    }
+  }
+}

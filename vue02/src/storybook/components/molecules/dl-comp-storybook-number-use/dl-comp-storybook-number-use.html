@@ -1,0 +1,80 @@
+<div class="dl-comp-storybook-number-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-number-use__uso">
+        <div class="dl-comp-storybook-number-use__uso-group">
+          <h4 class="dl-comp-storybook-number-use__uso-group-title">Number principal</h4>
+          <div class="dl-comp-storybook-number-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-number-use__uso-group-primary">
+            <dl-ui-number class="dl-ui-number dl-comp-storybook-number-use__uso-number--primary" help="help text" placeholder="placeholder">
+            </dl-ui-number>
+            <p>
+              <span class="dl-comp-storybook-number-use__uso-group-subtitle"> Number Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-number-use__uso-group-primary">
+            <dl-ui-number
+              class="dl-ui-number--extra-small dl-comp-storybook-number-use__uso-number--primary"
+              help="help text"
+              placeholder="placeholder"
+            >
+            </dl-ui-number>
+            <p>
+              <span class="dl-comp-storybook-number-use__uso-group-subtitle"> Number Extra Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-number-use__uso-group-primary">
+            <dl-ui-number
+              class="dl-ui-number--small dl-comp-storybook-number-use__uso-number--primary"
+              help="help text"
+              placeholder="placeholder"
+            >
+            </dl-ui-number>
+            <p>
+              <span class="dl-comp-storybook-number-use__uso-group-subtitle"> Number Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-number-use__uso-group-primary">
+            <dl-ui-number
+              class="dl-ui-number--medium dl-comp-storybook-number-use__uso-number--primary"
+              help="help text"
+              placeholder="placeholder"
+            >
+            </dl-ui-number>
+            <p>
+              <span class="dl-comp-storybook-number-use__uso-group-subtitle"> Number Medium: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-number-use__uso-group-primary">
+            <dl-ui-number
+              class="dl-ui-number--large dl-comp-storybook-number-use__uso-number--primary"
+              help="help text"
+              placeholder="placeholder"
+            >
+            </dl-ui-number>
+            <p>
+              <span class="dl-comp-storybook-number-use__uso-group-subtitle"> Number Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-number__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

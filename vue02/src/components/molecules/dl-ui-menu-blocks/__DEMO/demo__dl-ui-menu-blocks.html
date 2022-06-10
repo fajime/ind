@@ -1,0 +1,12 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-menu-blocks__wrapper">
+    <theComponent
+      :ref="setDemoRefs"
+      @linkEntryClicked="notifyComponentEvent('linkEntryClicked', $event)"
+      @mainEntryClicked="notifyComponentEvent('mainEntryClicked', $event)"
+      class="dl-ui-menu-blocks"
+      v-bind="generatedProps"
+    >
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

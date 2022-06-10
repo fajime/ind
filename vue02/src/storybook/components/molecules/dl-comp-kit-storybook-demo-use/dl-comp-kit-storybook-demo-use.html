@@ -1,0 +1,16 @@
+<div class="dl-comp-kit-storybook-demo-use">
+  <div class="dl-comp-kit-storybook-demo-use__description">
+    Para poder utilizar este componente es necesario realizar su importación en el componente VUE donde se desee utilizar y añadir su
+    etiqueta en el template HTML, con los manejadores de eventos y las propiedades deseadas
+    <template v-if="component.nameScssDefaultClass">
+      y si se desea modificar las propiedades de CSS generando una nueva clase a partir de su mixin. En caso de no querer modificar su
+      aspecto se debe utilzar la clase denominada
+      <span class="demo__md--syntax">{{component.nameScssDefaultClass}}</span>
+    </template>
+  </div>
+  <dl-comp-kit-storybook-demo-code>
+    <template v-slot:html> {{ HTML }} </template>
+    <template v-slot:js> {{ JS }} </template>
+    <template v-slot:scss> {{ SCSS }} </template>
+  </dl-comp-kit-storybook-demo-code>
+</div>

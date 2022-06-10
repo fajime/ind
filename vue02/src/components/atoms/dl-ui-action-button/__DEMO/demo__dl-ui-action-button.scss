@@ -1,0 +1,29 @@
+@import '../mixins/action-button';
+
+$config: (
+  'height': 30px,
+  'width': 30px,
+  'border': 2px solid $color-action-tertiary-default,
+  'border-radius': 50%,
+  'background': lightgrey,
+  'color': grey,
+  'hover::background': green,
+  'hover::color': #fff,
+  'focus::background': $color-surface-04,
+  'active::border': 5px $color-action-tertiary-hover,
+  'active::color': $color-action-tertiary-default,
+  'disable::color': $color-status-warning-02k,
+  'loading::color': $color-status-info-02k
+);
+
+.demo__dl-ui-action-button {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.custom-action-button {
+  @include action-button-style-config($config);
+}

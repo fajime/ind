@@ -1,0 +1,141 @@
+@import '../../../atoms/dl-ui-button/mixins/button';
+@import '../../../atoms/dl-ui-action-button/mixins/action-button';
+
+@mixin split-button-style-config($config) {
+  $root-node: &;
+
+  border: getmapvalue($config, 'border', 0);
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+  box-shadow: getmapvalue($config, 'box-shadow', none);
+  height: getmapvalue($config, 'height', 32px);
+  color: getmapvalue($config, 'color', $color-action-secondary-contrast);
+  fill: getmapvalue($config, 'color', $color-action-secondary-contrast);
+  cursor: pointer;
+  position: relative;
+  display: getmapvalue($config, 'display', flex);
+  flex-wrap: wrap;
+  align-items: center;
+  outline: getmapvalue($config, 'outline', 0);
+  width: 100%;
+  text-align: center;
+  transition: all 0.2s linear;
+
+  @include font-button-medium();
+
+  &:focus {
+    background-color:
+      getmapvalue(
+        $config,
+        'background-color::active',
+        $color-action-primary-default
+      );
+    color:
+      getmapvalue(
+        $config,
+        'active::color',
+        $color-action-secondary-contrast
+      );
+  }
+
+  &--disabled {
+    background-color:
+      getmapvalue(
+        $config,
+        'background-color::disable',
+        $color-action-secondary-disabled
+      );
+    color:
+      getmapvalue(
+        $config,
+        'color::disable',
+        $color-action-secondary-contrast
+      );
+    pointer-events: none;
+  }
+
+  &__text {
+    order: 1;
+    width: 100%;
+  }
+
+  &:not(&--icon) &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: getmapvalue($config, 'text::margin', 0);
+  }
+
+  .dl-ui-split-button__icon {
+    align-items: center;
+    width: getmapvalue($config, 'icon::size', 11.5px);
+    height: getmapvalue($config, 'icon::size', 11.5px);
+    margin: getmapvalue($config, 'icon::margin', 0 12px);
+  }
+
+  .dl-ui-split-button__display {
+    transform: rotate(180deg);
+  }
+
+  .dl-ui-split-button__buttons-container {
+    display: flex;
+  }
+
+  .dl-ui-split-button__listbox {
+    position: absolute;
+    width: 175px;
+  }
+
+  .dl-ui-split-button__button {
+    $type-primary: (
+      'border': 0,
+      'background': $color-action-secondary-default,
+      'border-radius': 4px 0 0 4px,
+      'color': $color-action-secondary-contrast,
+      'hover::background': $color-action-primary-hover,
+      'hover::color': $color-action-secondary-contrast,
+      'hover::border': 0,
+      'active::background': $color-action-primary-active,
+      'active::color': $color-action-secondary-contrast,
+      'active::border': 0,
+      'loading::background': $color-action-primary-active,
+      'loading::color': $color-action-secondary-contrast,
+      'loading::border': 0,
+      'focus::background': $color-action-secondary-default,
+      'focus::color': $color-action-secondary-contrast,
+      'focus::border': 0,
+      'disabled::background': $color-action-primary-disabled,
+      'disabled::color': $color-action-secondary-contrast,
+      'disabled::border': 0
+    );
+
+    @include button-style-config($type-primary);
+
+    height: getmapvalue($config, 'height', 32px);
+  }
+
+  .desplegableButton {
+    $type-primary: (
+      'background': $color-action-secondary-default,
+      'border-radius': 4px 0 0 4px
+    );
+
+    @include button-style-config($type-primary);
+  }
+
+  .dl-ui-split-button__action-button {
+    @include action-button-style-config(
+      (
+        'border-radius': 0 4px 4px 0
+      )
+    );
+
+    height: getmapvalue($config, 'height', 32px);
+    border: 1px solid $color-action-secondary-default;
+    background-color: $color-action-secondary-contrast;
+  }
+
+  .dl-ui-split-button__action-button:hover {
+    border: 1px solid $color-action-primary-hover;
+    background-color: $color-action-secondary-contrast;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="dl-ui-rating" ref="rating">
+  <span @click="onCancelClick" class="dl-ui-rating__cancel" v-if="showCancel">
+    <dl-ui-icon class="dl-ui-rating__icon" id="dl-ids-icon-void-outlined"></dl-ui-icon>
+  </span>
+  <span
+    :class="{'dl-ui-rating__star--active': (i <= modelValue)}"
+    :key="i"
+    @click="onStarClick($event, i)"
+    class="dl-ui-rating__star"
+    v-for="i in stars"
+  >
+    <dl-ui-icon class="dl-ui-rating__icon" id="dl-ids-icon-star"></dl-ui-icon>
+  </span>
+</div>

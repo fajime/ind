@@ -1,0 +1,23 @@
+<div :data-current="curr" :id="randomId" class="dl-ui-stepper">
+  <div class="dl-ui-stepper__progress-wrapper">
+    <dl-ui-progress-bar :max="stepsToPaint.length - 1" :value="curr" class="dl-ui-stepper__progress-bar"> </dl-ui-progress-bar>
+  </div>
+  <ol class="dl-ui-stepper__markers">
+    <li :key="idx" class="dl-ui-stepper__marker" v-for="(step, idx) in stepsToPaint">
+      <dl-ui-step
+        :clickable="step.clickable"
+        :complete="step.complete"
+        :current="step.current"
+        :disabled="step.disabled"
+        :iconComplete="step.iconComplete"
+        :iconPending="step.iconPending"
+        :index="idx"
+        :label="step.label"
+        :mode="step.mode"
+        :num="step.num"
+        :ref="`step${idx}`"
+        @clicked="onStepClicked"
+      ></dl-ui-step>
+    </li>
+  </ol>
+</div>

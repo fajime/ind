@@ -1,0 +1,114 @@
+@mixin action-button-style-config($config) {
+  $root-node: &;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: getmapvalue($config, 'height', 32px);
+  width: getmapvalue($config, 'width', 32px);
+  outline: getmapvalue($config, 'outline', 0);
+  box-shadow: getmapvalue($config, 'box-shadow', none);
+  cursor: pointer;
+  transition: all 0.2s linear;
+  background-color: getmapvalue($config, 'background', $color-action-primary-focus);
+  border: getmapvalue($config, 'border', 1px solid $color-action-primary-focus);
+  border-radius: getmapvalue($config, 'border-radius', 4px);
+
+  .dl-ui-action-button__icon {
+    align-items: center;
+    width: getmapvalue($config, 'icon::width', 16px);
+    height: getmapvalue($config, 'icon::height', 16px);
+    padding: getmapvalue($config, 'icon::padding', 1px);
+    fill: getmapvalue($config, 'color', $color-action-primary-default);
+
+    &.dl-ui-action-button__icon--normal {
+      display: flex;
+    }
+
+    &.dl-ui-action-button__icon--filled {
+      display: none;
+    }
+  }
+
+  &--disabled {
+    background-color: getmapvalue($config, 'disabled::background', transparent);
+    border: getmapvalue($config, 'disabled::border', 1px solid transparent);
+    pointer-events: none;
+
+    .dl-ui-action-button__icon {
+      fill: getmapvalue($config, 'disabled::color', $color-action-primary-disabled);
+
+      &.dl-ui-action-button__icon--normal {
+        display: flex;
+      }
+
+      &.dl-ui-action-button__icon--filled {
+        display: none;
+      }
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+    background-color: getmapvalue($config, 'loading::background', $color-action-primary-focus);
+    border: getmapvalue($config, 'loading::border', 1 px solid $color-action-primary-focus);
+
+    .dl-ui-action-button__icon {
+      fill: getmapvalue($config, 'loading::color', $color-action-primary-active);
+    }
+  }
+
+  &:hover {
+    background-color: getmapvalue($config, 'hover::background', $color-action-primary-focus);
+    border: getmapvalue($config, 'hover::border', 1 px solid $color-action-primary-focus);
+    padding: 2px;
+
+    .dl-ui-action-button__icon {
+      fill: getmapvalue($config, 'hover::color', $color-action-primary-hover);
+
+      &.dl-ui-action-button__icon--normal {
+        display: none;
+      }
+
+      &.dl-ui-action-button__icon--filled {
+        display: flex;
+      }
+    }
+  }
+
+  &:active {
+    background-color: getmapvalue($config, 'active::background', $color-action-primary-focus);
+    border: getmapvalue($config, 'active::border', 1px solid $color-action-primary-focus);
+
+    .dl-ui-action-button__icon {
+      fill: getmapvalue($config, 'active::color', $color-action-primary-active);
+
+      &.dl-ui-action-button__icon--normal {
+        display: none;
+      }
+
+      &.dl-ui-action-button__icon--filled {
+        display: flex;
+      }
+    }
+  }
+
+  &:not(&--loading):not(&--disabled):focus {
+    background-color: getmapvalue($config, 'focus::background', $color-action-primary-focus);
+    border: getmapvalue($config, 'focus::border', 1px solid $color-action-primary-active);
+
+    .dl-ui-action-button__icon {
+      fill: getmapvalue($config, 'focus::color', $color-action-primary-active);
+
+      &.dl-ui-action-button__icon--normal {
+        display: none;
+      }
+
+      &.dl-ui-action-button__icon--filled {
+        display: flex;
+      }
+    }
+  }
+}

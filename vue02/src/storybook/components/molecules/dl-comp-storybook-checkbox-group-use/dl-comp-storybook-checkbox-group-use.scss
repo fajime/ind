@@ -1,0 +1,36 @@
+.dl-comp-storybook-checkbox-group-use {
+  &__uso {
+    padding: 3rem;
+
+    &-checkbox-group {
+      &--primary {
+        margin-right: 2rem;
+      }
+    }
+
+    &-group {
+      &-title {
+        margin-top: 1rem;
+        color: $color-action-primary-default;
+
+        @include font-h4();
+      }
+
+      &-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      &-subtitle {
+        @include font-body-medium-bold();
+      }
+
+      &-primary {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

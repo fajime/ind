@@ -1,0 +1,73 @@
+<dl-comp-kit-demo-template :component="component" :playground="playground" ref="demo">
+  <div class="demo__dl-ui-accordion-list__wrapper">
+    <theComponent
+      :class="playground.style.value"
+      :ref="setDemoRefs"
+      @toggle="notifyComponentEvent('toggle', $event)"
+      v-bind="generatedProps"
+    >
+      <DlUiAccordion description="descripción" icon="dl-ids-icon-calendar-default-filled" title="Titulo 1">
+        <template #content
+          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem Ipsum</template
+        >
+      </DlUiAccordion>
+      <DlUiAccordion :show="true" description="" icon="dl-ids-icon-calendar-default-filled" title="Titulo 2">
+        <template #content
+          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem Ipsum</template
+        >
+      </DlUiAccordion>
+      <DlUiAccordion description="descripción" icon="dl-ids-icon-calendar-default-filled" title="Titulo 3">
+        <template #content
+          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem Ipsum</template
+        >
+      </DlUiAccordion>
+      <DlUiAccordion
+        :description="`descripción  ${show4}`"
+        icon="dl-ids-icon-calendar-default-filled"
+        max-height="800px"
+        title="Titulo 4"
+        v-model:show="show4"
+      >
+        <template #content
+          >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+          survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+          popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem Ipsum</template
+        >
+      </DlUiAccordion>
+      <DlUiAccordion :show="true" description="descripción" icon="dl-ids-icon-calendar-default-filled" max-height="800px" title="Titulo 5">
+        <template #content>
+          <DlUiScrollpanel style="padding: 10px;">
+            <span>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+              text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
+              and typesetting industry.
+              <br /><br />
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+              and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+              typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+              Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+              Ipsum
+            </span>
+          </DlUiScrollpanel>
+        </template>
+      </DlUiAccordion>
+    </theComponent>
+  </div>
+</dl-comp-kit-demo-template>

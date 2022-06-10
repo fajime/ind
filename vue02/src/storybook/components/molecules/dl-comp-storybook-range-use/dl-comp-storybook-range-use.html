@@ -1,0 +1,47 @@
+<div class="dl-comp-storybook-range-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-range-use__uso">
+        <div class="dl-comp-storybook-range-use__uso-group">
+          <h4 class="dl-comp-storybook-range-use__uso-group-title">Range principal</h4>
+          <div class="dl-comp-storybook-range-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-range-use__uso-group-primary">
+            <dl-ui-range :max="100" :min="0" :modelValue="60" :step="1" class="dl-ui-range dl-comp-storybook-range-use__uso-range--default">
+            </dl-ui-range>
+            <p>
+              <span class="dl-comp-storybook-range-use__uso-group-subtitle"> Range Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-range-use__uso-group-primary">
+            <dl-ui-range
+              :disabled="true"
+              :max="100"
+              :min="0"
+              :modelValue="30"
+              :step="1"
+              class="dl-ui-range dl-comp-storybook-range-use__uso-range--disabled"
+            >
+            </dl-ui-range>
+            <p>
+              <span class="dl-comp-storybook-range-use__uso-group-subtitle"> Range Disabled: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-range__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

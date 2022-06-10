@@ -1,0 +1,29 @@
+@import '../mixins/step';
+
+$config: (
+  'size': 			60px,
+  'marker::background': lightgreen,
+  'marker::border': solid  darkgreen 2px,
+  'marker::stroke-width': 6,
+  'marker::color': white,
+  'marker::complete::background': darkgreen,
+  'marker::complete::color': lightgreen,
+  'marker::disabled::color': rgb(211, 241, 211),
+  'marker::disabled::border::color': rgb(157, 199, 157),
+  'label::disabled::color': lightgreen,
+  'label::color': green,
+  'marker::current::background': orange,
+  'marker::current::border::color': rgb(255, 115, 0) ,
+  'marker::current::color': darkred,
+  'marker::focus::color': grey
+);
+
+.demo__dl-ui-step {
+  &__wrapper {
+    width: 250px;
+  }
+}
+
+.custom-step {
+  @include step-style-config($config);
+}

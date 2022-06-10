@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-progress-bar renders correctly 1`] = `
+<div
+  class="dl-ui-progress-bar"
+  style="--progress-value: 0%;"
+/>
+`;

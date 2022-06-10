@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-rating renders correctly 1`] = `
+<div
+  class="dl-ui-rating"
+>
+  <span
+    class="dl-ui-rating__cancel"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-void-outlined"
+        />
+      </svg>
+    </div>
+  </span>
+  
+  <span
+    class="dl-ui-rating__star"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-star"
+        />
+      </svg>
+    </div>
+  </span>
+  <span
+    class="dl-ui-rating__star"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-star"
+        />
+      </svg>
+    </div>
+  </span>
+  <span
+    class="dl-ui-rating__star"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-star"
+        />
+      </svg>
+    </div>
+  </span>
+  <span
+    class="dl-ui-rating__star"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-star"
+        />
+      </svg>
+    </div>
+  </span>
+  <span
+    class="dl-ui-rating__star"
+  >
+    <div
+      class="dl-ui-icon dl-ui-rating__icon"
+    >
+      <svg>
+        <!--v-if-->
+        <!--v-if-->
+        <use
+          xlink:href="#dl-ids-icon-star"
+        />
+      </svg>
+    </div>
+  </span>
+  
+</div>
+`;

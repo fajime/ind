@@ -1,0 +1,44 @@
+@import 'mixins/tabs';
+
+.dl-ui-tabs {
+  $default: (
+    'content::height': 24px,
+    'tab::padding': 12px 24px,
+  );
+
+  @include font-body-medium-regular();
+  @include tabs-style-config($default);
+}
+
+.dl-ui-tabs--extra-small {
+  $extra-small: (
+    'content::height': 16px,
+    'tab::padding': 3px 24px,
+    'tab::separate::width': 1px,
+    'tab::separate::height': 15px
+  );
+
+  @include tabs-style-config($extra-small);
+}
+
+.dl-ui-tabs--small {
+  $small: (
+    'content::height': 24px,
+    'tab::padding': 4px 24px,
+    'tab::separate::width': 1px,
+    'tab::separate::height': 18px
+  );
+
+  @include tabs-style-config($small);
+}
+
+.dl-ui-tabs--large {
+  $large: (
+    'content::height': 32px,
+    'tab::padding': 18px 24px,
+    'tab::separate::width': 2px,
+    'tab::separate::height': 36px
+  );
+
+  @include tabs-style-config($large);
+}

@@ -1,0 +1,38 @@
+<div class="dl-comp-storybook-accordion-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-accordion-use__uso">
+        <div class="dl-comp-storybook-accordion-use__uso-group">
+          <h4 class="dl-comp-storybook-accordion-use__uso-group-title">Accordion principal</h4>
+          <div class="dl-comp-storybook-accordion-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-accordion-use__uso-group-primary">
+            <dl-ui-accordion
+              :show="false"
+              class="dl-ui-accordion dl-comp-storybook-accordion-use__uso-accordion--default"
+              icon="dl-ids-icon-user-single-outlined"
+            >
+              <div slot="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </dl-ui-accordion>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-accordion__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @toggle="notifyComponentEvent('toggle', $event)"
+          v-bind="generatedProps"
+        >
+          <div slot="content">{{ playground.slots[0].value}}</div>
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

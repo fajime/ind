@@ -1,0 +1,66 @@
+{
+  "subtitle": "Components Kit",
+  "appName": "",
+  "appNameSimple": "",
+  "catalog": {
+    "components": "Components",
+    "atoms": "Atoms",
+    "molecules": "Molecules",
+    "organisms": "Organisms"
+  },
+  "config": {
+    "lang": {
+      "english": "English",
+      "spanish": "Español"
+    }
+  },
+  "demo": {
+    "title": "Digital Product Name",
+    "loginError": [
+      "You have entered an invalid username or password",
+      "Please try again."
+    ],
+    "buttons": {
+      "cancel": "Cancel",
+      "send": "Send"
+    },
+    "bigForm": {
+      "summary": "Summary",
+      "service_type": "Type of Service",
+      "terminal": "Terminal",
+      "phase": "Phase",
+      "services": "Services",
+      "general": "General",
+      "type": "Type",
+      "dangerous_goods": "Dangerous goods",
+      "reference": "Reference",
+      "container_no": "Nº Container",
+      "container_num": "Container Num....",
+      "label": "Label",
+      "label_helper": "Only allowed letters and numbers",
+      "license_placeholder": "License plate (optional)",
+      "description": "Description",
+      "dimensions": "Dimensions",
+      "goods": "Goods",
+      "slot": "Slot",
+      "incoming-date": "Incoming Date",
+      "shipment-date": "Shipment Date",
+      "preferred-schedule": {
+        "label": "Preferences",
+        "morning": "Morning schedule",
+        "afternoon": "Afternoon schedule",
+        "evening": "Evening hours"
+      },
+      "transport": "Transport",
+      "vehicle_registration_number": "Vehicle registration number",
+      "trailer_registration_number": "Trailer registration number",
+      "vehicle_brand": "Vehicle brand",
+      "trailer_brand": "Trailer brand",
+      "associated_company": "Associated company",
+      "company_name": "Company name",
+      "name": "Name",
+      "dni_nie": "DNI or NIE",
+      "pm_authorized": "PM Authorized"
+    }
+  }
+}

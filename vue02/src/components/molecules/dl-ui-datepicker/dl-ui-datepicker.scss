@@ -1,0 +1,7 @@
+@import 'mixins/datepicker';
+
+.dl-ui-datepicker {
+  $default: ();
+
+  @include datepicker-style-config($default);
+}

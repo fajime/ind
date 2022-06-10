@@ -1,0 +1,67 @@
+@mixin progress-circle-style-config($config) {
+  display: inline-block;
+  transition-property: all;
+  transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+  transition-timing-function: ease;
+  height: getmapvalue($config, 'size', 80px);
+  width: getmapvalue($config, 'size', 80px);
+
+  .dl-ui-progress-circle__circle {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .dl-ui-progress-circle__svg {
+    transform: rotate(-90deg);
+    height: 100%;
+    width: 100%;
+    transition-property: all;
+    transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+    transition-timing-function: ease;
+  }
+
+  .dl-ui-progress-circle__progress-base {
+    fill: getmapvalue($config, 'fill::color', none);
+    stroke: getmapvalue($config, 'background::color', $color-surface-04);
+    stroke-width: getmapvalue($config, 'background::bar::width', 6px);
+    transition-property: all;
+    transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+    transition-timing-function: ease;
+  }
+
+  .dl-ui-progress-circle__progress-fill {
+    --diameter:
+      calc(
+        #{getmapvalue($config, 'size', 80px)} - #{getmapvalue($config,'bar::width',6px)}
+      );
+    --circ-length: calc(3.14159265358979 * var(--diameter));
+    --percent: 0;
+    --percent-calc: calc((100 - var(--percent)) / 100);
+    --offset: calc(var(--circ-length) * var(--percent-calc));
+
+    fill: none;
+    stroke-linecap: round;
+    stroke: getmapvalue($config, 'bar::color', $color-emphasis-03k);
+    stroke-width: getmapvalue($config, 'bar::width', 6px);
+    stroke-dasharray: var(--circ-length);
+    stroke-dashoffset: var(--offset);
+    transition-property: all;
+    transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+    transition-timing-function: ease;
+  }
+
+  .dl-ui-progress-circle__inner-content {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 0.2s linear;
+    transition-property: all;
+    transition-duration: getmapvalue($config, 'transition-duration', 0.5s);
+    transition-timing-function: ease;
+    display: getmapvalue($config, 'content::display', block);
+  }
+}

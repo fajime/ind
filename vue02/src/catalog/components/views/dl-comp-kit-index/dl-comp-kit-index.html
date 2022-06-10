@@ -1,0 +1,57 @@
+<main class="dl-comp-kit-index">
+  <div class="dl-comp-kit-index__sidebar">
+    <div class="dl-comp-kit-index__filter">
+      <dl-ui-input :error="filteredItems.length === 0" class="dl-ui-input" label="Filtrar" v-model="search"> </dl-ui-input>
+    </div>
+    <nav class="dl-comp-kit-index__nav">
+      <h4>{{ $t('catalog.components') }}</h4>
+      <div v-if="!filteredItems.length">
+        <template v-for="item in search.length - 1">
+          <template v-if="search.length &lt; 5">🤔</template>
+          <template v-else>🤪</template>
+        </template>
+      </div>
+      <ol class="dl-comp-kit-index__list dl-ui-scrollbar">
+        <li class="dl-comp-kit-index__folder" v-for="branch in filteredItems">
+          <div
+            :class="{ 'dl-comp-kit-index__branch--active' : (branch.opened && search !== '') }"
+            :title="branch.name"
+            @click="toggleBranchStatus"
+            class="dl-comp-kit-index__branch"
+          >
+            <template v-if="branch.children">
+              <dl-ui-icon class="dl-ui-icon" id="icomoon-folder"></dl-ui-icon>
+            </template>
+            <template v-else>
+              <dl-ui-icon class="dl-ui-icon" id="icomoon-code"></dl-ui-icon>
+            </template>
+            {{ $t('catalog.' + branch.name) }}
+          </div>
+          <ol class="dl-comp-kit-index__list">
+            <li v-for="leaf in branch.children">
+              <router-link
+                :title="leaf.name"
+                :to="leaf.path"
+                class="dl-comp-kit-index__leaf"
+                exact-active-class="dl-comp-kit-index__leaf--active"
+              >
+                <dl-ui-icon class="dl-ui-icon" id="icomoon-code"></dl-ui-icon>
+                {{ leaf.name }}
+              </router-link>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+    <div class="dl-comp-kit-index__bitbucket">
+      <dl-ui-button @clicked="goToBitbucket" class="dl-ui-button--link" rightIcon="icomoon-bitbucket">bitbucket </dl-ui-button>
+    </div>
+  </div>
+  <section class="dl-comp-kit-index__viewer dl-ui-scrollbar" ref="section">
+    <router-view v-slot="{ Component }">
+      <transition name="dl-ui-transition-fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </section>
+</main>

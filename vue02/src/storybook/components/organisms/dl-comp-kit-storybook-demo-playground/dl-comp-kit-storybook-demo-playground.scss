@@ -1,0 +1,99 @@
+.dl-comp-kit-storybook-demo-playground {
+  border: 1px solid $color-surface-05;
+  border-radius: 3px;
+  display: flex;
+  flex: 1 1 auto;
+
+  &__left {
+    display: flex;
+    flex: 0 0 auto;
+    border-right: 1px solid $color-surface-05;
+    flex-direction: column;
+    padding: 16px;
+
+    &-top {
+      display: flex;
+      flex: 1 1 auto;
+    }
+
+    &-bottom {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      padding: 0.3rem;
+      border-bottom-left-radius: 3px;
+      max-width: 280px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__controls-labels {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3px;
+    text-transform: capitalize;
+    color: $color-action-tertiary-default;
+
+    @include font-body-medium-regular();
+
+    > div {
+      flex: 1 1 27px;
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &__controls-inputs {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3px;
+  }
+
+  &__output {
+    background-color: $color-surface-01k;
+    border: 1px solid $color-emphasis-03k;
+    height: 8rem;
+    overflow: auto;
+    font-size: 0.7rem;
+    line-height: 16px;
+    border-radius: 4px;
+    padding: 13px;
+
+    &:empty {
+      background-color: $color-surface-01k;
+    }
+
+    > pre {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__output-controls {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: space-between;
+  }
+
+  &__output-controls-icon {
+    fill: $color-action-primary-active;
+    opacity: 1;
+    height: 16px;
+    width: 16px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+
+    &--hide {
+      opacity: 0;
+    }
+  }
+}

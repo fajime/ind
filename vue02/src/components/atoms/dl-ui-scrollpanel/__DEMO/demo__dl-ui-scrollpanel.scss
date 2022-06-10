@@ -1,0 +1,36 @@
+@import '../dl-ui-scrollpanel';
+
+$color-accent-light: #f36;
+$color-accent-dark: #ba265d;
+$color-green: #84c3ae;
+
+$config: (
+  'width': 350px,
+  'background': $color-accent-dark,
+  'color': white,
+  'border': 2px dotted gray,
+  'border-radius': 10px,
+  'box-shadow': none,
+  'padding': 1rem,
+  'item::padding': 0.4rem,
+  'item::background': transparent,
+  'item::color': white,
+  'item::border-radius': 3px,
+  'item::height': 50px,
+  'active::item::background': $color-accent-dark,
+  'active::item::color': lightblue,
+  'disabled::item::color': darkgrey,
+  'hover::item::background': $color-green,
+  'hover::item::color': #123456,
+  'item::icon::size': 40px
+);
+
+.demo__dl-ui-scrollpanel {
+  &__wrapper {
+    width: 300px;
+  }
+}
+
+.custom-scrollanel {
+  // no data
+}

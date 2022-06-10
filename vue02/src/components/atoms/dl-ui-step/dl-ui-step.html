@@ -1,0 +1,21 @@
+<button
+  :class="[`dl-ui-step-${mode}`, stateClass]"
+  :disabled="disabled"
+  @blur="onBlur"
+  @click="onClick($event)"
+  @focus="onFocus"
+  class="dl-ui-step"
+  ref="btn"
+>
+  <div :class="[contentClass]" class="dl-ui-step__content">
+    <svg class="dl-ui-step__marker-dot" viewBox="0 0 100 100" v-if="isDotFlavour">
+      <circle class="dl-ui-step__marker-dot-outer" cx="50" cy="50"></circle>
+      <circle class="dl-ui-step__marker-dot-inner" cx="50" cy="50"></circle>
+    </svg>
+
+    <dl-ui-icon :id="icon" class="dl-ui-step__marker-icon" v-if="isIconFlavour"></dl-ui-icon>
+
+    <div class="dl-ui-step__marker-numeric" v-if="isNumericFlavour">{{num}}</div>
+  </div>
+  <div class="dl-ui-step__label">{{label}}</div>
+</button>

@@ -1,0 +1,33 @@
+@import '../mixins/menu-group';
+
+$configGroup: (
+  'background': rgb(33, 71, 116),
+  'padding': 12px,
+  'min-width': 240px,
+  'border': 2px dotted #4562a4,
+  'box-shadow': 5px 5px 15px 5px #ff8080,
+  'item::color': rgb(14, 9, 37),
+  'item::background': orange,
+  'item::height': 30px,
+  'item::padding': 16px,
+  'item::hover::color': rgb(211, 211, 211),
+  'item::hover::background': rgb(87, 0, 0),
+  'item::disabled::color': rgb(199, 199, 199),
+  'item::disabled::background': rgb(0, 61, 102),
+  'separator::height': 10px,
+  'separator::background': rgb(206, 166, 93),
+  'separator::line::height': 5px,
+  'separator::line::border': 2px dotted #4562a4
+);
+
+.custom-menu-group {
+  @include menu-group-style-config($configGroup);
+}
+
+.demo__dl-ui-menu-group__wrapper {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}

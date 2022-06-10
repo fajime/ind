@@ -1,0 +1,7 @@
+<div class="dl-ui-icon">
+  <svg>
+    <title v-if="title">{{ title }}</title>
+    <desc v-if="description">{{ description }}</desc>
+    <use :xlink:href="`#${id}`"></use>
+  </svg>
+</div>

@@ -1,0 +1,31 @@
+<div class="dl-comp-storybook-stepper-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-stepper-use__uso">
+        <div class="dl-comp-storybook-stepper-use__uso-group">
+          <h4 class="dl-comp-storybook-stepper-use__uso-group-title">Stepper principal</h4>
+          <div class="dl-comp-storybook-stepper-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-stepper-use__uso-group-primary">
+            <dl-ui-stepper
+              :startPointCompleted="true"
+              :steps="4"
+              :value="1"
+              class="dl-ui-stepper dl-comp-storybook-stepper-use__uso-stepper--primary"
+            >
+            </dl-ui-stepper>
+            <p>
+              <span class="dl-comp-storybook-stepper-use__uso-group-subtitle"> Stepper: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-stepper__wrapper">
+        <theComponent :class="playground.style.value" :ref="setDemoRefs" v-bind="generatedProps" v-model="playground.value.value">
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

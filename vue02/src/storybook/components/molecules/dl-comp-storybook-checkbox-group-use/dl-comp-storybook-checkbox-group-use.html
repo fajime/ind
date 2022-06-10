@@ -1,0 +1,35 @@
+<div class="dl-comp-storybook-checkbox-group-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-checkbox-group-use__uso">
+        <div class="dl-comp-storybook-checkbox-group-use__uso-group">
+          <h4 class="dl-comp-storybook-checkbox-group-use__uso-group-title">Checkbox Group principal</h4>
+          <div class="dl-comp-storybook-checkbox-group-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-checkbox-group-use__uso-group-primary">
+            <dl-ui-checkbox-group
+              :checkboxes="playground.props[0].value"
+              class="dl-ui-checkbox-group dl-comp-storybook-checkbox-group-use__uso-checkbox-group--primary"
+            >
+              <template v-slot:parent> {{ playground.slots[0].value}} </template>
+              <template v-for="(item, index) in playground.props[0].value" v-slot:[`child-${index}`]> {{item.slot}} </template>
+            </dl-ui-checkbox-group>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-checkbox-group__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @group="notifyComponentEvent('group', $event)"
+          @input="notifyComponentEvent('input', $event)"
+          v-bind="generatedProps"
+        >
+          <template v-slot:parent> {{ playground.slots[0].value}} </template>
+          <template v-for="(item, index) in playground.props[0].value" v-slot:[`child-${index}`]> {{item.slot}} </template>
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

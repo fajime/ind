@@ -1,0 +1,18 @@
+<div class="dl-ui-progress-circle" ref="container">
+  <div class="dl-ui-progress-circle__circle">
+    <svg class="dl-ui-progress-circle__svg" viewbox="0 0 10 10">
+      <circle class="dl-ui-progress-circle__progress-base" cx="50%" cy="50%" r="46%"></circle>
+      <circle
+        :style="`--percent: ${percentValue}`"
+        class="dl-ui-progress-circle__progress-fill"
+        cx="50%"
+        cy="50%"
+        r="46%"
+        ref="circle"
+      ></circle>
+    </svg>
+    <div class="dl-ui-progress-circle__inner-content">
+      <slot> </slot>
+    </div>
+  </div>
+</div>

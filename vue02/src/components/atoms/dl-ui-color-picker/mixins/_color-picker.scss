@@ -1,0 +1,204 @@
+@mixin track($config) {
+  height: getmapvalue($config, 'range::height', 8px);
+  border-radius: getmapvalue($config, 'range::border-radius', 4px);
+  animation-delay: 0.2s;
+}
+
+@mixin thumb-webkit($config) {
+  cursor: pointer;
+  appearance: none;
+  margin-top: getmapvalue($config, 'thumb::margin-top', -8.5px);
+  width: getmapvalue($config, 'thumb::width', 12px);
+  height: getmapvalue($config, 'thumb::height', 24px);
+  border: getmapvalue($config, 'thumb::border', 3px solid #fff);
+  border-radius: getmapvalue($config, 'thumb::border-radius', 8px);
+}
+
+@mixin thumb-mozilla($config) {
+  cursor: pointer;
+  width: getmapvalue($config, 'thumb::width', 6px);
+  height: getmapvalue($config, 'thumb::height', 18px);
+  border: getmapvalue($config, 'thumb::border', 3px solid #fff);
+  border-radius: getmapvalue($config, 'thumb::border-radius', 6px);
+}
+
+// Color picker
+@mixin color-picker-style-config($config) {
+  //TODO: revisit
+  position: absolute;
+  z-index: 100;
+  background-color: #fff;
+  border: dotted grey 1px;
+  padding: 10px;
+  // TODO: end revisit
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include font-subtitle-large();
+
+  input[type='range'] {
+    background-color: transparent;
+
+    &::-webkit-slider-runnable-track { @include track($config); }
+    &::-moz-range-track { @include track($config); }
+    &::-webkit-slider-thumb { @include thumb-webkit($config); }
+    &::-moz-range-thumb { @include thumb-mozilla($config); }
+
+    // Color range slider
+    &.dl-ui-color-picker__slider {
+      // This declaration has to be set seperately for Webkit browsers
+      &::-webkit-slider-runnable-track {
+        background-image:
+          linear-gradient(
+            270deg,
+            #f00 0%,
+            #e100e1 15%,
+            #0000e1 32%,
+            #00ffe1 49%,
+            #0f0 66%,
+            #ff0 83%,
+            #f00 100%
+          );
+      }
+
+      // This declaration has to be set seperately for Mozilla browsers
+      &::-moz-range-track {
+        background-image:
+          linear-gradient(
+            270deg,
+            #f00 0%,
+            #e100e1 15%,
+            #0000e1 32%,
+            #00ffe1 49%,
+            #0f0 66%,
+            #ff0 83%,
+            #f00 100%
+          );
+      }
+
+      // This declaration has to be set seperately for Webkit browsers
+      &::-webkit-slider-thumb {
+        background: var(--thumb-color, #fff);
+      }
+
+      // This declaration has to be set seperately for Mozilla browsers
+      &::-moz-range-thumb {
+        background: var(--thumb-color, #fff);
+      }
+    }
+
+    // Color range opacity slider
+    &.dl-ui-color-picker__slider-transp {
+      // This declaration has to be set seperately for Webkit browsers
+      &::-webkit-slider-runnable-track {
+        background-image:
+          linear-gradient(
+            to right,
+            var(--alpha-g1, hsla(0deg, 100%, 50%, 0)),
+            var(--alpha-g2, hsla(0deg, 100%, 50%, 1))
+          );
+      }
+
+      // This declaration has to be set seperately for Mozilla browsers
+      &::-moz-range-track {
+        background-image:
+          linear-gradient(
+            to right,
+            var(--alpha-g1, hsla(0deg, 100%, 50%, 0)),
+            var(--alpha-g2, hsla(0deg, 100%, 50%, 1))
+          );
+      }
+
+      // This declaration has to be set seperately for Webkit browsers
+      &::-webkit-slider-thumb {
+        background: var(--thumb-alpha, #fff);
+      }
+
+      // This declaration has to be set seperately for Mozilla browsers
+      &::-moz-range-thumb {
+        background: var(--thumb-alpha, #fff);
+      }
+    }
+  }
+
+  .dl-ui-color-picker__container {
+    display: flex;
+    padding: getmapvalue($config, 'padding', 16px);
+    background-color: getmapvalue($config, 'background-color', #323130);
+    border-radius: getmapvalue($config, 'border-radius', 4px);
+  }
+
+  .dl-ui-color-picker__container-box {
+    margin-right: 16px;
+  }
+
+  .dl-ui-color-picker__color-block {
+    cursor: crosshair;
+    border-radius: getmapvalue($config, 'border-radius', 4px);
+  }
+
+  .dl-ui-color-picker__color-strip {
+    display: none;
+  }
+
+  .dl-ui-color-picker__slider {
+    width: var(--size); // has to be the same as canvas height
+    height: getmapvalue($config, 'range::height', 8px);
+    transform: rotate(90deg) translate(-11px, -12px);
+    transform-origin: left;
+  }
+
+  .dl-ui-color-picker__slider-transp {
+    width: var(--size); // has to be the same as canvas height
+    height: getmapvalue($config, 'range::height', 8px);
+    transform: rotate(90deg) translate(-11px, -12px);
+    transform-origin: left;
+  }
+
+  .dl-ui-color-picker__slider-container {
+    max-width: getmapvalue($config, 'container::max-width', 24px);
+  }
+
+  .dl-ui-color-picker__slider-container + .dl-ui-color-picker__slider-container {
+    margin-left: 5px;
+  }
+
+  .dl-ui-color-picker__selected {
+    display: flex;
+    margin-top: 5px;
+  }
+
+  .dl-ui-color-picker__selected-text {
+    @include font-subtitle-large();
+  }
+
+  .dl-ui-color-picker__selected-box {
+    margin-left: 16px;
+    width: getmapvalue($config, 'selected-box::size', 24px);
+    height: getmapvalue($config, 'selected-box::size', 24px);
+    border-radius: getmapvalue($config, 'selected-box::border-radius', 4.57px);
+  }
+
+  .dl-ui-color-picker__selected-subtitle {
+    display: none;
+
+    @include font-body-medium-regular();
+  }
+
+  #color-input {
+    display: none;
+  }
+
+  #color-input:checked ~ #color-picker {
+    opacity: 1;
+  }
+
+  canvas:hover {
+    cursor: crosshair;
+  }
+}
+
+.status {
+  display: none;
+}

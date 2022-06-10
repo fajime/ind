@@ -1,0 +1,10 @@
+@import 'mixins/step';
+
+.dl-ui-step {
+  $default: (
+    'width': 42px,
+    'height': 42px
+  );
+
+  @include step-style-config($default);
+}

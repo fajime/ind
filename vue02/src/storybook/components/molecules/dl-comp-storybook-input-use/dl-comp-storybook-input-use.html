@@ -1,0 +1,96 @@
+<div class="dl-comp-storybook-input-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-input-use__uso">
+        <div class="dl-comp-storybook-input-use__uso-group">
+          <h4 class="dl-comp-storybook-input-use__uso-group-title">Input principal</h4>
+          <div class="dl-comp-storybook-input-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-input-use__uso-group-primary">
+            <dl-ui-input
+              class="dl-ui-input dl-comp-storybook-input-use__uso-input--primary"
+              help="help text"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              placeholder="placeholder"
+              rightIcon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-input>
+            <p>
+              <span class="dl-comp-storybook-input-use__uso-group-subtitle"> Input Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-input-use__uso-group-primary">
+            <dl-ui-input
+              class="dl-ui-input--extra-small dl-comp-storybook-input-use__uso-input--primary"
+              help="help text"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              placeholder="placeholder"
+              rightIcon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-input>
+            <p>
+              <span class="dl-comp-storybook-input-use__uso-group-subtitle"> Input Extra Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-input-use__uso-group-primary">
+            <dl-ui-input
+              class="dl-ui-input--small dl-comp-storybook-input-use__uso-input--primary"
+              help="help text"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              placeholder="placeholder"
+              rightIcon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-input>
+            <p>
+              <span class="dl-comp-storybook-input-use__uso-group-subtitle"> Input Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-input-use__uso-group-primary">
+            <dl-ui-input
+              class="dl-ui-input--medium dl-comp-storybook-input-use__uso-input--primary"
+              help="help text"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              placeholder="placeholder"
+              rightIcon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-input>
+            <p>
+              <span class="dl-comp-storybook-input-use__uso-group-subtitle"> Input Medium: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-input-use__uso-group-primary">
+            <dl-ui-input
+              class="dl-ui-input--large dl-comp-storybook-input-use__uso-input--primary"
+              help="help text"
+              leftIcon="dl-ids-icon-user-single-outlined"
+              placeholder="placeholder"
+              rightIcon="dl-ids-icon-user-single-outlined"
+            >
+            </dl-ui-input>
+            <p>
+              <span class="dl-comp-storybook-input-use__uso-group-subtitle"> Input Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-input__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @blur="notifyComponentEvent('blur', $event)"
+          @focus="notifyComponentEvent('focus', $event)"
+          @update:modelValue="notifyComponentEvent('update:modelValue', $event)"
+          v-bind="generatedProps"
+          v-model="playground.value.value"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

@@ -1,0 +1,101 @@
+@mixin listbox-style-config($config) {
+  .dl-ui-listbox__container {
+    border-radius: getmapvalue($config, 'border-radius', 3px);
+    border: getmapvalue($config, 'border', 1px solid $color-emphasis-01);
+    user-select: none;
+    width: getmapvalue($config, 'width', 100%);
+    box-shadow: $shadow-low-bottom;
+    padding: getmapvalue($config, 'padding', 6px 8px);
+  }
+
+  &--focused > &__container {
+    border: 1px solid $color-emphasis-01;
+  }
+
+  .dl-ui-rowitem__option-right-icon,
+  .dl-ui-rowitem__option-left-icon {
+    height: getmapvalue($config, 'icon::height', 16px);
+    width: getmapvalue($config, 'icon::width', 16px);
+    padding: getmapvalue($config, 'icon::padding', 1);
+  }
+
+  .dl-ui-list__items {
+    padding-right: 8px;
+  }
+
+  .dl-ui-list__item {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    border: 1px solid transparent;
+    padding: getmapvalue($config, 'item::padding', 0 8px);
+    border-radius: getmapvalue($config, 'item::border-radius', 4px);
+    color: getmapvalue($config, 'item::color', $color-base-02);
+    fill: getmapvalue($config, 'item::color', $color-base-02);
+    min-height: getmapvalue($config, 'item::height', 32px);
+    margin: getmapvalue($config, 'item::margin', 0);
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      fill: getmapvalue($config, 'item::color', $color-emphasis-04);
+      background: getmapvalue($config, 'focus::item::background', $color-emphasis-01);
+    }
+
+    &--disabled {
+      pointer-events: none;
+      cursor: initial;
+      color: getmapvalue($config, 'disabled::item::color', $color-base-01);
+    }
+
+    &:focus {
+      background: transparent;
+      font-weight: bold;
+      border: getmapvalue($config, 'focus::item::border', 1px solid transparent);
+    }
+
+    &:focus:hover {
+      background: getmapvalue($config, 'focus::item::background', $color-emphasis-01);
+    }
+
+    &:focus:not(.dl-ui-list__item--highlight) {
+      .dl-ui-rowitem__option {
+        color: getmapvalue($config, 'focus::item::color', $color-emphasis-05);
+        fill: getmapvalue($config, 'focus::item::color', $color-emphasis-05);
+
+        .dl-ui-rowitem__box-text {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .dl-ui-list__item--highlight {
+    border: 1px solid transparent;
+    color: getmapvalue($config, 'item::color-highlight', $color-base-contrast);
+    fill: getmapvalue($config, 'item::color-highlight', $color-base-contrast);
+    background: getmapvalue($config, 'selected::item::background', $color-emphasis-04);
+    font-weight: bold;
+
+    &:active {
+      color: getmapvalue($config, 'item::color', $color-base-contrast);
+    }
+
+    &:focus {
+      background: getmapvalue($config, 'selected::item::background', $color-emphasis-04);
+    }
+
+    &:hover {
+      color: getmapvalue($config, 'item::color', $color-emphasis-04);
+      fill: getmapvalue($config, 'item::color', $color-emphasis-04);
+    }
+
+    &:focus:hover {
+      color: getmapvalue($config, 'focus::item::color', $color-base-contrast);
+      fill: getmapvalue($config, 'focus::item::color', $color-base-contrast);
+      background: getmapvalue($config, 'selected::item::background', $color-emphasis-04);
+    }
+  }
+}

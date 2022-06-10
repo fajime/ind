@@ -1,0 +1,36 @@
+<div class="dl-comp-storybook-datagrid-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-datagrid-use__uso">
+        <div class="dl-comp-storybook-datagrid-use__uso-group">
+          <h4 class="dl-comp-storybook-datagrid-use__uso-group-title">Datagrid principal</h4>
+          <div class="dl-comp-storybook-datagrid-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-datagrid-use__uso-group-primary">
+            <dl-ui-datagrid :data="playground.props[0].value" class="dl-ui-datagrid dl-comp-storybook-datagrid-use__uso-datagrid--primary">
+            </dl-ui-datagrid>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-datagrid__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @exporting="notifyComponentEvent('exporting', $event)"
+          @onChangePage="notifyComponentEvent('onChangePage', $event)"
+          @onChangePageSize="notifyComponentEvent('onChangePageSize', $event)"
+          @onCopyClipboard="notifyComponentEvent('onCopyClipboard', $event)"
+          @onDataFilter="notifyComponentEvent('onDataFilter', $event)"
+          @onDrop="notifyComponentEvent('onDrop', $event)"
+          @onOrderColumn="notifyComponentEvent('onOrderColumn', $event)"
+          @onSelectedRow="notifyComponentEvent('onSelectedRow', $event)"
+          @onToggleColumn="notifyComponentEvent('onToggleColumn', $event)"
+          @tableupdated="notifyComponentEvent('tableupdated', $event)"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

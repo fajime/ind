@@ -1,0 +1,523 @@
+/**
+ * Create modifiers for `dl-ui-datagrid`.
+ *
+ * @param {config} $config Map that set common properties of the datagrid:
+ *                      - height
+ *                      - width
+ */
+@import '../../../atoms/dl-ui-input/mixins/input';
+@import '../../../atoms/dl-ui-select/mixins/select';
+@import '../../../atoms/dl-ui-button/mixins/button';
+
+$stickyshadow: 0 0 3px 1px #ddd;
+
+$inputconfigfilter: (
+  'background': inherit,
+  'height': 22px,
+  'color': inherit
+);
+
+$inputconfigcell: (
+  'background': inherit,
+  'height': 22px,
+  'color': inherit,
+  'border': none,
+  'focus::border': none
+);
+
+$selectconfig: (
+  'height': 14px,
+  'border': none,
+  'focus::border': none
+);
+
+$pagebuttonconfig: (
+  'height': 100%,
+  'padding': 0,
+  'icon::margin': 0,
+  'icon::size': 12px,
+  'background': transparent,
+  'color': $color-action-tertiary-default,
+  'hover::background': transparent,
+  'hover::color': $color-action-tertiary-default,
+  'focus::background': transparent,
+  'focus::color': $color-action-tertiary-default,
+  'active::background': transparent,
+  'active::color': $color-action-tertiary-default
+);
+$paginationbuttonconfig: (
+  'height': 100%,
+  'padding': 0,
+  'icon::margin': 0,
+  'icon::size': 16px,
+  'background': transparent,
+  'color': $color-base-highlight-02,
+  'hover::background': transparent,
+  'hover::color': $color-base-highlight-02,
+  'focus::background': transparent,
+  'focus::color': $color-base-highlight-02,
+  'active::background': transparent,
+  'active::color': $color-base-highlight-02
+);
+// ScrollBar mixin
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  // Track
+  &::-webkit-scrollbar-track {
+    background: $color-surface-04;
+    border-radius: 2px;
+  }
+
+  // Thumb
+  &::-webkit-scrollbar-thumb {
+    background: $color-surface-06;
+    border-radius: 2px;
+  }
+
+  // Firefox
+  scrollbar-width: 6px;
+  scrollbar-color: $color-surface-06 $color-surface-04; //thumb and track
+}
+
+@mixin text-align() {
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-left {
+    text-align: left;
+  }
+
+  &.text-right {
+    text-align: right;
+  }
+}
+
+@mixin cell() {
+  user-select: none;
+
+  @include text-align();
+}
+
+@mixin datagrid-style-config($config) {
+  // Will change for 100%, dev purposes
+  height: getmapvalue($config, 'height', 400px);
+  // Will change for 100%, dev purposes
+  width: getmapvalue($config, 'width', 950px);
+  box-sizing: border-box;
+  overflow: auto;
+  border: 1px solid $color-surface-06;
+  border-radius: 3px;
+
+  @include scrollBar;
+
+  &__table-wrapper {
+    overflow: auto;
+    max-height: 100%;
+    width: 100%;
+
+    @include scrollBar;
+  }
+
+  &__table {
+    border-collapse: collapse;
+    // 100% or auto, diferente comportamiento
+    width: 100%;
+    box-sizing: border-box;
+    table-layout: fixed;
+    font-size: 12px;
+
+    th.sticky-col,
+    td.sticky-col {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+
+      &:nth-child(2) {
+        // TODO Must select last of class!
+        &::after {
+          content: '';
+          position: absolute;
+          right: -1px;
+          bottom: 0;
+          width: 0;
+          height: 100%;
+          box-shadow: $stickyshadow;
+        }
+      }
+    }
+  }
+
+  &__thead {
+    &-tr {
+      height: 32px;
+
+      &-main {
+        &:not(.sticky-header) {
+          border-bottom: 1px solid $color-surface-06;
+        }
+      }
+
+      &-filter {
+        border-bottom: 1px solid $color-surface-06; //TODO: revisar, antes  $color-surface-04;
+
+        th {
+          box-sizing: border-box;
+          overflow: hidden;
+          background-color: $color-surface-01k;
+        }
+      }
+
+      &-main.sticky-header {
+        th {
+          position: sticky !important;
+          top: 0;
+          z-index: 2;
+
+          &::after,
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+          }
+
+          &::after {
+            bottom: -1px;
+            border-bottom: 1px solid $color-surface-06;
+          }
+
+          &.sticky-col {
+            z-index: 3;
+          }
+        }
+      }
+
+      &-filter.sticky-header {
+        th {
+          position: sticky !important;
+          top: 32px;
+          z-index: 2;
+
+          &::after,
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+          }
+
+          &::after {
+            bottom: -1px;
+            border-bottom: 1px solid $color-surface-06;
+          }
+
+          &.sticky-col {
+            z-index: 3;
+          }
+        }
+      }
+
+      &-main--resize:hover {
+        th {
+          border-right: 1px solid $color-surface-06;
+        }
+      }
+    }
+
+    &-th {
+      background-color: $color-surface-04;
+      border-right: 1px solid $color-surface-05; // TODO: revisar, a OJO
+      text-align: center;
+
+      &.selector {
+        width: 32px;
+      }
+
+      &-text {
+        width: 100%;
+        color: $color-base-03k;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      &-input {
+        padding: 5px 10px;
+
+        @include input-style-config($inputconfigfilter);
+
+        .dl-ui-input__group input {
+          text-align: center;
+        }
+      }
+
+      &-button {
+        @include button-style-config($pagebuttonconfig);
+      }
+
+      &-container {
+        padding: 2px 5px;
+        display: flex;
+        justify-content: left;
+
+        span {
+          @include font-body-small-bold();
+        }
+      }
+
+      &.drag-drop {
+        cursor: move;
+      }
+
+      &.sticky-col,
+      &.selector {
+        background-color: $color-emphasis-01;
+        border-right: 1px solid $color-emphasis-01;
+      }
+
+      &.sticky-col:active {
+        cursor: not-allowed;
+      }
+
+      @include cell();
+    }
+  }
+
+  &__tbody {
+    &-tr {
+      height: 24px;
+      border-bottom: 1px solid $color-surface-04;
+
+      &.selected,
+      &:hover {
+        background-color: $color-emphasis-01;
+      }
+
+      &:nth-child(even):not(:hover):not(.selected):not(.dl-ui-datagrid__footer) {
+        background-color: $color-surface-03;
+
+        td span.dl-ui-datagrid__tbody-td-text {
+          color: $color-surface-contrast;
+        }
+      }
+
+      &.dl-ui-datagrid__footer {
+        border-bottom: none;
+
+        td {
+          background-color: $color-surface-04;
+          position: sticky;
+          bottom: 0;
+          z-index: 1;
+        }
+
+        &--func {
+          ::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            top: -1px;
+            border-top: 1px solid $color-surface-06;
+          }
+
+          td {
+            bottom: 24px;
+          }
+        }
+      }
+    }
+
+    &-td {
+      box-sizing: border-box;
+
+      @include cell();
+
+      &-container {
+        padding: 2px 5px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        span {
+          @include font-body-small-regular();
+        }
+      }
+
+      &-input {
+        @include input-style-config($inputconfigcell);
+
+        .dl-ui-input__group input {
+          text-align: inherit;
+        }
+      }
+
+      &-text {
+        color: $color-base-03k;
+        pointer-events: none;
+      }
+
+      &.cell-selected {
+        box-shadow: inset 0 0 2px $color-action-primary-active;
+      }
+
+      &.sticky-col,
+      &.selector {
+        background-color: $color-surface-03;
+      }
+    }
+
+    &-chk {
+      justify-content: center;
+    }
+  }
+
+  &__pagination {
+    width: 100%;
+    height: 28px;
+    border-top: 1px solid $color-surface-06;
+    display: flex;
+
+    &-left,
+    &-right {
+      width: 50%;
+      align-items: center;
+      display: flex;
+      height: 100%;
+      padding: 0 12px;
+    }
+
+    &-left {
+      justify-content: flex-start;
+    }
+
+    &-right {
+      justify-content: flex-end;
+    }
+
+    &-updated {
+      span {
+        @include font-button-small();
+
+        color: $color-action-tertiary-default;
+      }
+    }
+
+    &-lines {
+      margin-right: 12px;
+    }
+
+    &-select {
+      @include select-style-config($selectconfig);
+    }
+
+    &-displayed {
+      margin-right: 24px;
+
+      span {
+        @include font-body-small-regular();
+
+        color: $color-base-03k;
+      }
+    }
+
+    &-pages {
+      display: flex;
+      align-items: center;
+      height: 16px;
+
+      span {
+        @include font-button-small();
+
+        color: $color-base-03k;
+      }
+    }
+
+    &-button {
+      @include button-style-config($paginationbuttonconfig);
+
+      margin: 0 4px;
+    }
+  }
+
+  &__status {
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid $color-surface-06;
+    display: flex;
+
+    &-left,
+    &-right {
+      align-items: center;
+      display: flex;
+      height: 100%;
+    }
+
+    &-left {
+      flex: 0 0 auto;
+    }
+
+    &-right {
+      flex: 1 1 auto;
+      justify-content: end;
+      font-size: 12px;
+    }
+
+    &-hidden {
+      margin-right: 5px;
+
+      &-col {
+        cursor: pointer;
+        text-decoration: underline;
+        padding-right: 4px;
+      }
+    }
+
+    &-export {
+      display: flex;
+
+      .dl-ui-button {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  &__contextual-menu {
+    display: block;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    width: 120px;
+    height: 0;
+    background: $color-surface-01k;
+    left: 0;
+    top: 0;
+    transition: 0.2s linear;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+    background-color: $color-surface-03;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &-item {
+        @include font-body-small-regular();
+
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  .drag {
+    transition: 0.2s linear;
+    color: transparent;
+    box-shadow: $shadow-hight;
+  }
+}

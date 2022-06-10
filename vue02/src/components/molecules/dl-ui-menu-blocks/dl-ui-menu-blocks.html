@@ -1,0 +1,40 @@
+<nav class="dl-ui-menu-blocks" ref="menu" v-dl-ui-closable="close">
+  <ul class="dl-ui-menu-blocks__main">
+    <li :key="index" @click="mainEntryClicked(entry)" class="dl-ui-menu-blocks__main-entry" v-for="(entry, index) in config">
+      <dl-ui-icon :id="entry.icon" class="dl-ui-menu-blocks__main-entry-icon" v-if="entry.icon"></dl-ui-icon>
+      <span class="dl-ui-menu-blocks__main-entry-text"> {{ entry.text }}</span>
+    </li>
+  </ul>
+  <transition name="dl-ui-transition-fade">
+    <div :style="`max-height: ${contentMaxHeight}px;`" class="dl-ui-menu-blocks__content" ref="content" v-if="showContent && entrySelected">
+      <div class="dl-ui-menu-blocks__content-wrapper">
+        <div :key="`level1-${section.id}`" class="dl-ui-menu-blocks__level-1" v-for="(section, indexSection) in entrySelected.section">
+          <div class="dl-ui-menu-blocks__level-1-title">{{ section.title }}</div>
+          <div
+            :key="`level1-index-${indexLinkL1}`"
+            @click="linkEntryClicked(linkL1)"
+            class="dl-ui-menu-blocks__level-1-link"
+            v-for="(linkL1, indexLinkL1) in section.link"
+          >
+            {{ linkL1.text }}
+          </div>
+          <div
+            :key="`level2-${indexSubSection}`"
+            class="dl-ui-menu-blocks__level-2"
+            v-for="(subSection, indexSubSection) in section.subSection"
+          >
+            <div class="dl-ui-menu-blocks__level-2-title">{{ subSection.title }}</div>
+            <div
+              :key="`level2-link-${indexLinkL2}`"
+              @click="linkEntryClicked(linkL2)"
+              class="dl-ui-menu-blocks__level-2-link"
+              v-for="(linkL2, indexLinkL2) in subSection.link"
+            >
+              {{ linkL2.text }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</nav>

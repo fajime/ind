@@ -1,0 +1,74 @@
+@mixin breadcrumb-style-config($config) {
+  padding: getmapvalue($config, '', 0 12px);
+  display: flex;
+  align-items: center;
+
+  @include font-body-medium-regular();
+
+  .dl-ui-breadcrumb__bar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: getmapvalue($config, 'height', 32px);
+  }
+
+  .dl-ui-breadcrumb__item-label {
+    word-wrap: break-word;
+  }
+
+  .dl-ui-breadcrumb__item {
+    color: getmapvalue($config, 'color', $color-base-02);
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: getmapvalue($config, 'color::hover', $color-action-primary-hover);
+    }
+
+    &--active {
+      color: getmapvalue($config, 'color::active', $color-action-primary-active);
+
+      .dl-ui-breadcrumb__item-label {
+        @include font-link-medium();
+      }
+    }
+
+    &--disabled {
+      color: getmapvalue($config, 'color::disabled', $color-action-primary-disabled);
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  .dl-ui-breadcrumb__icon {
+    color: getmapvalue($config, 'icon::color', $color-action-tertiary-default);
+    height: $icon-height-medium;
+    width: $icon-width-medium;
+    padding: $icon-padding-medium;
+    cursor: pointer;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &:hover {
+      color: getmapvalue($config, 'icon::hover::color', $color-action-tertiary-hover);
+    }
+  }
+
+  .dl-ui-breadcrumb__separator {
+    margin: getmapvalue($config, 'separator::margin', 0 8px);
+    color: getmapvalue($config, 'separator::color', $color-base-01);
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../mixins/textarea';
+
+$config: (
+  'background': white,
+  'width': 300px,
+  'height': 130px,
+  'border': 3px solid blue,
+  'color': green,
+  'help::color': green,
+  'counter::color': green,
+  'label::size': 1rem,
+  'focus::border': 3px solid indigo
+);
+
+.custom-textarea {
+  @include textarea-style-config($config);
+}

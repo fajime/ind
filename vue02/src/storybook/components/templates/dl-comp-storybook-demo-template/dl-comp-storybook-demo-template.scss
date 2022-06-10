@@ -1,0 +1,23 @@
+@import '@/storybook/sass/typography';
+@import '~@/components/molecules/dl-ui-tabs/mixins/tabs';
+
+.dl-comp-storybook-demo-template {
+  padding: 4rem;
+
+  &__title {
+    margin-bottom: 1rem;
+    color: $color-action-primary-default;
+
+    @include font-h1();
+  }
+
+  &__tabs {
+    $default: ();
+
+    @include tabs-style-config($default);
+
+    .dl-ui-tab__content {
+      max-width: 100%;
+    }
+  }
+}

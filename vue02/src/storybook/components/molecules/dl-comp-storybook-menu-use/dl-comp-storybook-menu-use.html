@@ -1,0 +1,54 @@
+<div class="dl-comp-storybook-menu-use">
+  <dl-comp-storybook-demo-template :component="component" :playground="playground" ref="demo">
+    <template v-slot:uso>
+      <div class="dl-comp-storybook-menu-use__uso">
+        <div class="dl-comp-storybook-menu-use__uso-group">
+          <h4 class="dl-comp-storybook-menu-use__uso-group-title">Menu principal</h4>
+          <div class="dl-comp-storybook-menu-use__uso-group-description" v-html="component.description"></div>
+          <div class="dl-comp-storybook-menu-use__uso-group-primary">
+            <dl-ui-menu :menu="playground.props[0].value" class="dl-ui-menu dl-comp-storybook-menu-use__uso-menu--primary"> </dl-ui-menu>
+            <p>
+              <span class="dl-comp-storybook-menu-use__uso-group-subtitle"> Menu Default: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-menu-use__uso-group-primary">
+            <dl-ui-menu :menu="playground.props[0].value" class="dl-ui-menu--small dl-comp-storybook-menu-use__uso-menu--primary">
+            </dl-ui-menu>
+            <p>
+              <span class="dl-comp-storybook-menu-use__uso-group-subtitle"> Menu Small: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-menu-use__uso-group-primary">
+            <dl-ui-menu :menu="playground.props[0].value" class="dl-ui-menu--medium dl-comp-storybook-menu-use__uso-menu--primary">
+            </dl-ui-menu>
+            <p>
+              <span class="dl-comp-storybook-menu-use__uso-group-subtitle"> Menu Medium: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+          <div class="dl-comp-storybook-menu-use__uso-group-primary">
+            <dl-ui-menu :menu="playground.props[0].value" class="dl-ui-menu--large dl-comp-storybook-menu-use__uso-menu--primary">
+            </dl-ui-menu>
+            <p>
+              <span class="dl-comp-storybook-menu-use__uso-group-subtitle"> Menu Large: </span>
+              Este sistema cuenta con 3 tipos de botones: primario, secundario y link. Todos ellos se pueden presentar con icono o sin el.
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template v-slot:playground>
+      <div class="demo__dl-ui-menu__wrapper">
+        <theComponent
+          :class="playground.style.value"
+          :ref="setDemoRefs"
+          @entryClicked="notifyComponentEvent('entryClicked', $event)"
+          v-bind="generatedProps"
+        >
+        </theComponent>
+      </div>
+    </template>
+  </dl-comp-storybook-demo-template>
+</div>

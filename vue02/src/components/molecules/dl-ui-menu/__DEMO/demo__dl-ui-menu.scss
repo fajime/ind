@@ -1,0 +1,55 @@
+@import '../mixins/menu';
+@import '../../dl-ui-menu-group/mixins/menu-group';
+
+$configMenu: (
+  'background': orange,
+  'height': 80px,
+  'item::min-width': 70px,
+  'item::height': 60px,
+  'item::color': pink,
+  'item::background': #06242c,
+  'item::hover::color': red,
+  'item::hover::background': #c5cbcc,
+  'item::disabled::color': #8720af,
+  'item::disabled::background': #82a6d4
+);
+
+$configGroup: (
+  'background': rgb(33, 71, 116),
+  'padding': 12px,
+  'min-width': 250px,
+  'border': 2px dotted #4562a4,
+  'box-shadow': 5px 5px 15px 5px #ff8080,
+  'item::color': rgb(14, 9, 37),
+  'item::background': orange,
+  'item::height': 30px,
+  'item::padding': 16px,
+  'item::hover::color': rgb(211, 211, 211),
+  'item::hover::background': rgb(87, 0, 0),
+  'item::disabled::color': rgb(199, 199, 199),
+  'item::disabled::background': rgb(0, 61, 102),
+  'separator::height': 10px,
+  'separator::background': rgb(206, 166, 93),
+  'separator::line::height': 5px,
+  'separator::line::border': 2px dotted #4562a4
+);
+
+.custom-menu {
+  @include menu-style-config($configMenu);
+
+  .dl-ui-menu-root-item {
+    @include font-body-large-light();
+  }
+
+  .dl-ui-menu-group {
+    @include menu-group-style-config($configGroup);
+  }
+}
+
+.demo__dl-ui-menu__wrapper {
+  min-width: 600px;
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

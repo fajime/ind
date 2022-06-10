@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-icon renders correctly 1`] = `
+<div
+  class="dl-ui-icon"
+>
+  <svg>
+    <!--v-if-->
+    <!--v-if-->
+    <use
+      xlink:href="#dl-ids-icon-user-single-outlined"
+    />
+  </svg>
+</div>
+`;

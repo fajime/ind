@@ -1,0 +1,59 @@
+@import 'mixins/toggle-button';
+
+$size-extraSmall: (
+  'height': 22px,
+  'padding': 0 1px,
+  'icon::width': $icon-width-small,
+  'icon::height': $icon-height-small,
+  'icon::padding': $icon-padding-small
+);
+$size-small: (
+  'height': 28px,
+  'padding': 0 4px,
+  'icon::width': $icon-width-small,
+  'icon::height': $icon-height-small,
+  'icon::padding': $icon-padding-small
+);
+$size-medium: (
+  'height': 32px,
+  'padding': 0 6px,
+  'icon::width': $icon-width-small,
+  'icon::height': $icon-height-small,
+  'icon::padding': $icon-padding-small
+);
+$size-large: (
+  'height': 40px,
+  'padding': 0 10px,
+  'slot::padding': 0 16px,
+  'icon::width': $icon-width-small,
+  'icon::height': $icon-height-small,
+  'icon::padding': $icon-padding-small
+);
+
+$sizes: (
+  'extra-small': $size-extraSmall,
+  'small': $size-small,
+  'medium': $size-medium,
+  'large': $size-large
+);
+
+.dl-ui-toggle-button {
+  $default: ();
+
+  @include toggle-button-style-config($default);
+
+  // generate all toggle-button styles dynamically
+  @each $sizeName, $sizeValue in $sizes {
+    &-#{$sizeName} {
+      @include toggle-button-style-config($sizeValue);
+
+      @if $sizeName == 'extra-small' or $sizeName == 'small' {
+        @include font-button-small();
+      }
+
+      @else if $sizeName == 'large' {
+        @include font-button-large();
+      }
+    }
+  }
+}

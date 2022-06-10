@@ -1,0 +1,5 @@
+@import 'mixins/snack';
+
+.dl-ui-snack {
+  @include snack-style-config(());
+}

@@ -1,0 +1,208 @@
+<div class="dl-ui-datagrid">
+  <div class="dl-ui-datagrid__status" ref="status" v-if="hiddenCols.length || showExportButtons">
+    <!-- IF will have more conditions later -->
+    <div class="dl-ui-datagrid__status-left">
+      <span>Table status</span>
+    </div>
+    <div class="dl-ui-datagrid__status-right">
+      <div class="dl-ui-datagrid__status-hidden" v-if="hiddenCols.length">
+        <span>Hidden cols:</span>
+        <span
+          :key="`hidCol${index}`"
+          @click="toggleColumn($event, true, item.id)"
+          class="dl-ui-datagrid__status-hidden-col"
+          v-for="item, index in hiddenCols"
+        >
+          {{ item.name }}
+        </span>
+      </div>
+      <div class="dl-ui-datagrid__status-export" v-if="showExportButtons">
+        <dl-ui-button @clicked="doReset" class="dl-ui-button dl-ui-button--primary-extra-small" v-if="resetButton"> Reset </dl-ui-button>
+        <dl-ui-button @clicked="doRecover" class="dl-ui-button dl-ui-button--primary-extra-small" v-if="recoverButton">
+          Recover
+        </dl-ui-button>
+        <dl-ui-button @clicked="doSave" class="dl-ui-button dl-ui-button--primary-extra-small"> Save </dl-ui-button>
+        <dl-ui-button @clicked="doExport" class="dl-ui-button dl-ui-button--primary-extra-small"> Export </dl-ui-button>
+      </div>
+    </div>
+  </div>
+  <div class="dl-ui-datagrid__table-wrapper">
+    <table @keydown="onKeydownTable" class="dl-ui-datagrid__table" ref="table" tabindex="1">
+      <thead class="dl-ui-datagrid__thead">
+        <tr
+          :class="{'dl-ui-datagrid__thead-tr-main--resize' : resize, 'sticky-header': stickyHeader}"
+          class="dl-ui-datagrid__thead-tr dl-ui-datagrid__thead-tr-main"
+        >
+          <th class="dl-ui-datagrid__thead-th selector" v-if="showSelectionCheckbox">
+            <dl-ui-checkbox
+              @update:modelValue="onSelectedAllRows"
+              class="dl-ui-checkbox dl-ui-datagrid__tbody-chk"
+              v-model="allRowsSelected"
+            />
+          </th>
+          <th
+            :class="['dl-ui-datagrid__thead-th', {'drag-drop': dragDrop && !sticky}, {'sticky-col': sticky}]"
+            :data-column-id="id"
+            :data-id="index"
+            :draggable="dragDrop && !sticky"
+            :key="id"
+            @dragenter="onDragenter"
+            @dragleave="onDragleave"
+            @dragover="onDragover"
+            @dragstart="onDragstart"
+            @drop="onDrop"
+            v-dl-ui-tooltip="headerTooltip ? desc || text : ''"
+            v-for="({ text, id, textAlign, order, desc, sticky }, index) in iColumns"
+          >
+            <div class="dl-ui-datagrid__thead-th-container">
+              <span class="dl-ui-datagrid__thead-th-text">{{ text }}</span>
+              <dl-ui-button
+                :class="['dl-ui-datagrid__thead-th-button']"
+                :data-column-id="id"
+                :leftIcon="order === 'desc' ? 'dl-ids-icon-arrows-down-line-no_circle-outlined' : 'dl-ids-icon-arrows-up-line-no_circle-outlined'"
+                @clicked="onOrderColumn"
+                style="margin-right: 5px;"
+                v-if="sort && order"
+              >
+              </dl-ui-button>
+              <dl-ui-button
+                :data-column-id="id"
+                @clicked="toggleColumn($event, false, index)"
+                class="dl-ui-datagrid__thead-th-button"
+                leftIcon="dl-ids-icon-close-no-circle-outlined"
+                v-if="closable"
+              >
+              </dl-ui-button>
+            </div>
+          </th>
+        </tr>
+        <tr
+          :class="{'sticky-header': stickyHeader}"
+          class="dl-ui-datagrid__thead-tr dl-ui-datagrid__thead-tr-filter"
+          data-not-contextual="true"
+          v-if="filter"
+        >
+          <th v-if="showSelectionCheckbox"></th>
+          <th :data-column-filter-id="id" :key="`colFilter${id}`" class="dl-ui-datagrid__thead-th" v-for="{ id } in iColumns">
+            <dl-ui-input
+              @update:modelValue="onDataFilter($event, id)"
+              class="dl-ui-datagrid__thead-th-input dl-ui-input--large"
+              style="text-align: center;"
+              v-model="iFilter[id]"
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody class="dl-ui-datagrid__tbody">
+        <tr
+          :class="['dl-ui-datagrid__tbody-tr', selected ? 'selected' : '']"
+          :data-tr-body-id="trBodyIndex"
+          :key="`tr-body-${trBodyIndex}`"
+          v-for="{ data: trBody, selected, iId: trBodyIndex, editable }, index in getUpdatedData"
+        >
+          <td class="dl-ui-datagrid__tbody-td selector" v-if="showSelectionCheckbox">
+            <!-- REVIEW changed :value="selected" to v-model="getUpdatedData[index].selected" -->
+            <dl-ui-checkbox
+              @update:modelValue="onSelectedRowFromCheckbox"
+              class="dl-ui-checkbox dl-ui-datagrid__tbody-chk"
+              v-model="getUpdatedData[index].selected"
+            />
+          </td>
+          <td
+            :class="['dl-ui-datagrid__tbody-td', helper.calcTextAlign(iColumns[tdBodyIndex]), {'sticky-col': iColumns[tdBodyIndex].sticky}]"
+            :data-td-body-id="tdBodyIndex"
+            :data-tr-body-id="trBodyIndex"
+            :key="`tr-body-${trBodyIndex}-td-body-${tdBodyIndex}`"
+            @click="onSelectedRow"
+            @dblclick="onEnableEdition(trBodyIndex, tdBodyIndex)"
+            @mouseout="onContextualMenu"
+            @mouseover="onContextualMenu"
+            v-dl-ui-tooltip="cellTooltip ? makeTooltip(tdBody) : ''"
+            v-for="(tdBody, tdBodyIndex) in trBody"
+          >
+            <div class="dl-ui-datagrid__tbody-td-container">
+              <dl-ui-input
+                @update:modelValue="onCellInput"
+                class="dl-ui-datagrid__tbody-td-input dl-ui-input--large"
+                v-if="editable[tdBodyIndex]"
+                v-model="iDataComputed[trBodyIndex-1].data[tdBodyIndex]"
+              />
+              <!-- v-model="data.data[trBodyIndex-1][tdBodyIndex]" -->
+              <!-- v-model="iData[trBodyIndex-1].data[tdBodyIndex]" is also possible, so no v-model on prop-->
+              <span class="dl-ui-datagrid__tbody-td-text" v-else>{{ tdBody }}</span>
+            </div>
+          </td>
+        </tr>
+        <tr class="dl-ui-datagrid__tbody-tr dl-ui-datagrid__footer dl-ui-datagrid__footer--func" v-if="funcFooter">
+          <td class="dl-ui-datagrid__tbody-td sticky-col" v-if="showSelectionCheckbox">f()</td>
+          <td
+            :class="['dl-ui-datagrid__tbody-td', 'text-center', {'sticky-col': column.sticky}]"
+            :key="`iColFunc${index}`"
+            v-for="(column, index) in iColumns"
+          >
+            {{ column.footerData && column.footerData.title ? column.footerData.title : 'None' }}
+          </td>
+        </tr>
+        <tr class="dl-ui-datagrid__tbody-tr dl-ui-datagrid__footer dl-ui-datagrid__footer--res" v-if="funcFooter">
+          <td class="dl-ui-datagrid__tbody-td sticky-footer" v-if="showSelectionCheckbox">=</td>
+          <td
+            :class="['dl-ui-datagrid__tbody-td', 'text-center', 'sticky-footer', {'sticky-col': column.sticky}]"
+            :key="`iColRes${index}`"
+            v-for="(column, index) in iColumns"
+          >
+            {{ funcFooterValue(column, index) }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+    </table>
+  </div>
+  <div class="dl-ui-datagrid__pagination" ref="pagination" v-if="pagination">
+    <div class="dl-ui-datagrid__pagination-left">
+      <div class="dl-ui-datagrid__pagination-updated">
+        <span>Last update 10:23:56</span>
+      </div>
+    </div>
+    <div class="dl-ui-datagrid__pagination-right">
+      <div class="dl-ui-datagrid__pagination-lines">
+        <dl-ui-select
+          :options="pageSize"
+          @change="onChangePageSize"
+          class="dl-ui-select dl-ui-datagrid__pagination-select"
+          v-model="configPagination.pageSizeSelected"
+        />
+      </div>
+      <div class="dl-ui-datagrid__pagination-displayed">
+        <span>
+          Mostrando {{ configPagination.register.from }}-{{ configPagination.register.to }} de {{ configPagination.register.total }}
+        </span>
+      </div>
+      <div class="dl-ui-datagrid__pagination-pages">
+        <dl-ui-button
+          @clicked="onChangePage('first')"
+          class="dl-ui-datagrid__pagination-button"
+          leftIcon="dl-ids-icon-chevron-backward-small"
+        >
+        </dl-ui-button>
+        <dl-ui-button @clicked="onChangePage('prev')" class="dl-ui-datagrid__pagination-button" leftIcon="dl-ids-icon-chevron-left-small">
+        </dl-ui-button>
+        <span>{{ configPagination.page.from }}/{{ configPagination.page.to }}</span>
+        <dl-ui-button @clicked="onChangePage('next')" class="dl-ui-datagrid__pagination-button" leftIcon="dl-ids-icon-chevron-right-small">
+        </dl-ui-button>
+        <dl-ui-button
+          @clicked="onChangePage('last')"
+          class="dl-ui-datagrid__pagination-button"
+          leftIcon="dl-ids-icon-chevron-forward-small"
+        >
+        </dl-ui-button>
+      </div>
+    </div>
+  </div>
+  <div class="dl-ui-datagrid__contextual-menu" ref="contextual-menu">
+    <ul class="dl-ui-datagrid__contextual-menu-list">
+      <li class="dl-ui-datagrid__contextual-menu-list-item">
+        <slot>Default</slot>
+      </li>
+    </ul>
+  </div>
+</div>

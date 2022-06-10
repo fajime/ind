@@ -1,0 +1,90 @@
+.dl-comp-kit-demo-table {
+  padding-top: 1rem;
+
+  table {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    border: 1px solid $color-action-tertiary-default;
+    border-radius: 6px;
+  }
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    overflow: hidden;
+    white-space: pre-wrap;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+    background: $color-action-tertiary-default;
+    text-align: left;
+    color: $color-surface-01k;
+
+    @include font-body-small-regular();
+  }
+
+  th:first-child {
+    border: 0;
+    border-top-left-radius: 4px;
+  }
+
+  th:last-child {
+    border: 0;
+    border-top-right-radius: 4px;
+  }
+
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &--columns-1 {
+    > table {
+      grid-template-columns: minmax(2500px, 1fr);
+    }
+  }
+
+  &--columns-2 {
+    > table {
+      grid-template-columns:
+        minmax(120px, 1fr)
+        minmax(180px, 2fr);
+    }
+  }
+
+  &--columns-3 {
+    > table {
+      grid-template-columns:
+        minmax(120px, 2fr)
+        minmax(180px, 6fr)
+        minmax(180px, 6fr);
+    }
+  }
+
+  &--columns-4 {
+    > table {
+      grid-template-columns:
+        minmax(160px, 2fr)
+        minmax(80px, 2fr)
+        minmax(100px, 4fr)
+        minmax(150px, 6fr);
+
+      td:nth-child(3) {
+        line-break: anywhere;
+      }
+    }
+  }
+
+  tr:nth-child(even) td {
+    background: $color-action-tertiary-focus;
+  }
+}

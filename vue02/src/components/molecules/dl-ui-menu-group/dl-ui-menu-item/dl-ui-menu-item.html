@@ -1,0 +1,23 @@
+<li :class="{'dl-ui-menu-item--disabled': config.disabled}" class="dl-ui-menu-item">
+  <div @click="onClickItem" class="dl-ui-menu-item__content">
+    <div class="dl-ui-menu-item__content--left">
+      <dl-ui-icon :id="config.leftIcon" class="dl-ui-icon--small" v-if="config.leftIcon" />
+      <span class="dl-ui-menu-item__text">{{ config.label }}</span>
+      <dl-ui-icon :id="config.rightIcon" class="dl-ui-icon--small" v-if="config.rightIcon" />
+    </div>
+    <div class="dl-ui-menu-item__content--right" v-if="hasChildren">
+      <dl-ui-icon class="dl-ui-icon--small dl-ui-menu-item__chevron" id="dl-ids-icon-arrows-down-single-no_circle-outlined" />
+    </div>
+  </div>
+  <transition name="dl-ui-transition-fade">
+    <dl-ui-menu-group
+      :config="config.children"
+      :level="level + 1"
+      :offset="childPosition"
+      :sense="sense"
+      @itemClicked="onItemGroupClicked"
+      class="dl-ui-menu-root-item__group"
+      v-if="showChildren && hasChildren"
+    />
+  </transition>
+</li>

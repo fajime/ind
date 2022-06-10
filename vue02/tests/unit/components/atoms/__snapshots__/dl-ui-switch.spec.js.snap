@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dl-ui-switch renders correctly 1`] = `
+<div
+  class="dl-ui-switch"
+>
+  <!--v-if-->
+  <span
+    class="dl-ui-switch__span"
+  >
+    <input
+      id="random-id"
+      type="checkbox"
+    />
+  </span>
+</div>
+`;

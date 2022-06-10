@@ -1,0 +1,312 @@
+<div class="demo">
+  <header class="demo__title">
+    <h1>Ayuda</h1>
+  </header>
+  <div class="demo__content">
+    <dl-comp-kit-demo-section title="Consideraciones previas">
+      <div>
+        Para poder añadir un componente a este kit de componentes es necesario cumplir los siguientes requisitos:
+        <ul>
+          <li>El componente tiene que ser autocontenido. No se permiten componentes que no sean íntegros.</li>
+          <li>Si el componente contiene otros componentes hijos, estos deben estar incluidos también en este mismo kit.</li>
+          <li>Tiene que tener estilos personalizables tal y como a continuación se explica</li>
+          <li>No se permite lógica de aplicación dentro de un componente.</li>
+          <li>Todos los componentes tienen que tener sus test asociados y no pueden ser falseados</li>
+        </ul>
+      </div>
+    </dl-comp-kit-demo-section>
+    <dl-comp-kit-demo-section title="Generación de un componente">
+      <div>
+        Rellena los siguientes campos con el nombre del componente que deseas generar y con el tipo de componente y podrás ver los pasos :
+        <div>
+          <div class="dl-comp-kit-how-to__make-name">
+            <label for="name">Nombre del componente: </label>
+            <dl-ui-input id="name" v-model="componentName" />
+          </div>
+          <div class="dl-comp-kit-how-to__make-type">
+            <label for="type">Tipo de componente: </label>
+            <dl-ui-select
+              :options="[{ name : 'Átomo', value : 'atom' },{ name : 'Molécula', value : 'molecule' },{ name : 'Organismo', value : 'organism' }]"
+              id="type"
+              v-model="componentType"
+            >
+            </dl-ui-select>
+          </div>
+        </div>
+      </div>
+    </dl-comp-kit-demo-section>
+    <dl-comp-kit-demo-section title="Estructura del componente" v-if="componentNameNormalized">
+      <div>
+        Para generar un componente es necesario seguir una estructura de carpetas y una serie de reglas que a continuación se detallan:
+        <ol>
+          <li>Posicionarse en la carpeta <span class="demo__md--syntax">/src/components/{{componentType}}s</span></li>
+          <li>Crear una carpeta con el nombre <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}</span></li>
+          <li>
+            Dentro de la carpeta del componente generar la siguiente estructura:
+            <div class="dl-comp-kit-how-to__folder-structure">
+              <div class="dl-comp-kit-how-to__folder-structure-0">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Carpeta contenedora del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-folder" />
+                  <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Fichero punto de entrada del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">index.vue</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Tempalte HTML del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.html</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Parte JS del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Punto de entrada de generación de estilos</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.scss</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Carpeta contenedora de mixins de estilos</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-folder" />
+                  <span class="demo__md--syntax">mixins</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Mixin de generación de estilos dinámicos</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">_dl-ui-{{componentNameNormalized}}.scss</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">index.vue</span> contiene única y exclusivamente una referencia a los ficheros
+            <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.html</span>,
+            <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.js</span> y
+            <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.css</span>.
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.html</span> contiene el template HTML del
+            componente. El elemento raíz del template no debe llevar ninguna clase asociada puesto que será cuando se utilice el componente
+            cuando se asigne, de esta forma se posibilita su personalización
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.js</span> contiene la declaración del componente. Es
+            obligatorio declara el campo <span class="demo__md--syntax">name</span> del mismo con el valor
+            <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}</span>.
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">dl-ui-{{componentNameNormalized}}.scss</span> contiene al menos una clase denominada
+            <span class="demo__md--syntax">.dl-ui-{{componentNameNormalized}}</span>. Dentro de esta clase se realizará la llamada al mixin
+            incluido en el fichero <span class="demo__md--syntax">mixins/_dl-ui-{{componentNameNormalized}}.css</span>
+            pasándole un mapa de SCSS vacío para forzar la generación de los estilos con el diseño estandar.
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">mixins/_dl-ui-{{componentNameNormalized}}.scss</span> contiene la declaración de un
+            mixin, el cual recibe un parámetro mapa clave-valor denominado <span class="demo__md--syntax">$config</span>. El nombre del
+            mixin deberá ser <span class="demo__md--syntax">{{componentNameNormalized}}-style-config</span>. Dentro de este mixin se
+            declaran las clases y propiedades CSS que necesita el componente para visualizarse. Todo elemento que permite su personalización
+            deberá ser configurado de la siguiente forma
+            <span class="demo__md--syntax">propiedad-css: getMapValue($config, 'nombre-variable-mapa', valor-por-defecto);</span>, como por
+            ejemplo <span class="demo__md--syntax">padding: getMapValue($config, 'title::padding', 1rem);</span>.
+          </li>
+          <li>
+            El nombre de la variable que contiene el mixin se compone de un nombre descriptivo, dos signos dos puntos consecutivos y la
+            propiedad CSS que modifica. Ejemplos <span class="demo__md--syntax">title::height</span>,
+            <span class="demo__md--syntax">bar::background-color</span> o <span class="demo__md--syntax">header::font-size</span>.
+          </li>
+        </ol>
+      </div>
+    </dl-comp-kit-demo-section>
+    <dl-comp-kit-demo-section title="Estructura de la demo" v-if="componentNameNormalized">
+      <div>
+        Para generar la demo de un componente es neceasrio seguir una estructura de carpetas y una serie de reglas que a continuación se
+        detallan:
+        <ol>
+          <li>
+            Posicionarse en la carpeta
+            <span class="demo__md--syntax">/src/components/{{componentType}}s/dl-ui-{{componentNameNormalized}}</span>
+          </li>
+          <li>Crear una carpeta con el nombre <span class="demo__md--syntax">__DEMO</span></li>
+          <li>
+            Dentro de la carpeta del componente generar la siguiente estructura:
+            <div class="dl-comp-kit-how-to__folder-structure">
+              <div class="dl-comp-kit-how-to__folder-structure-1">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Carpeta contenedora de la demo del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-folder" />
+                  <span class="demo__md--syntax">__DEMO</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Fichero punto de entrada de la demo del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">index.vue</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Tempalte HTML de la demo del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.html</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Parte JS de la demo del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Estilos de la demo del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.scss</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-2">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Carpeta contenedora de ficheros de metadatos del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-folder" />
+                  <span class="demo__md--syntax">data</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con la descrición del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.desc.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con los eventos del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.events.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con las propiedades del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.properties.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con las propiedades SCSS dinámicas</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.scss.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con los slots del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.slots.js</span>
+                </div>
+              </div>
+              <div class="dl-comp-kit-how-to__folder-structure-3">
+                <div class="dl-comp-kit-how-to__hasTooltip">
+                  <span class="dl-comp-kit-how-to__tooltipText">Metadatos relacionados con datos de notas del componente</span>
+                  <dl-ui-icon class="dl-ui-icon" id="icomoon-code" />
+                  <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.notes.js</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">index.vue</span> contiene única y exclusivamente una referencia a los ficheros
+            <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.html</span>,
+            <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.js</span> y
+            <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.css</span>.
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.html</span> contiene el template HTML de la
+            demo de este componente. La construcción de la página de demo se ha automatizado para simplificar su uso. En el template HTML
+            basta con añadir el siguiente código.
+            <pre v-highlight="demoTemplate"><code class="html"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.js</span> contiene la declaración de los
+            elementos necesarios para poder visualizar la demo. Este componente demo debe importar los componentes
+            <span class="demo__md--syntax">dl-comp-kit-demo-template</span> y el componentes a testar. Además también es necesario importar
+            el mixin <span class="demo__md--syntax">'@/mixins/demoEvents'</span> para dotar a la demo de capacidades de detección de eventos
+            del componente. El campo <span class="demo__md--syntax">'data'</span> está formado por dos variables
+            <span class="demo__md--syntax">playground</span> y <span class="demo__md--syntax">component</span>.
+            <span class="demo__md--syntax">playground</span> es un objeto que alberga un array denominado
+            <span class="demo__md--syntax">labels</span> con el texto asociado a cada input del playground y otro array denominado
+            <span class="demo__md--syntax">inputs</span> que contiene una colección de valores de configuración de los inputs representados.
+            <span class="demo__md--syntax">component</span> es un objeto que contiene todos los objetos que representan las descripciones,
+            propiedades, eventos, slots, variables SCSS y demás configuraciónnecesaria para poder visualizar su contenido. Un ejemplo
+            completo de este fichero podría ser el siguiente:
+            <pre v-highlight="demoJS"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">demo__dl-ui-{{componentNameNormalized}}.scss</span> debe contener dos clases
+            declaradas, una denominada <span class="demo__md--syntax">.demo__{{componentNameNormalized}}__wrapper</span>
+            donde se ajusta el tamaño del wrapper del componente dentro del playground y otra
+            <span class="demo__md--syntax">.custom-dl-ui-{{componentNameNormalized}}</span> donde se invoca al mixin SCSS del componente y
+            se modifican los valores por defecto utilizando para ello un mapa calve-valor. Un ejemplo completo de este fichero podría ser el
+            siguiente:
+            <pre v-highlight="demoSCSS"><code class="scss"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.desc.js</span>
+            realiza una exportación de una cadena que es utilizada como resumen del componente. Un ejemplo completo de este fichero podría
+            ser el siguiente:
+            <pre v-highlight="demoDataDesc"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.events.js</span>
+            realiza una exportación de un array de objetos que contienen las propiedades de los eventos que dispara el componente. Un
+            ejemplo completo de este fichero podría ser el siguiente:
+            <pre v-highlight="demoDataEvents"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.properties.js</span>
+            realiza una exportación de un array de objetos que contienen las propiedades que expone el componente. Un ejemplo completo de
+            este fichero podría ser el siguiente:
+            <pre v-highlight="demoDataProperties"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.scss.js</span>
+            realiza una exportación de un array de objetos que contienen las variables SCSS que espera el mixin de personalización. Un
+            ejemplo completo de este fichero podría ser el siguiente:
+            <pre v-highlight="demoDataScss"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.slots.js</span>
+            realiza una exportación de un array de objetos que contienen la información realacionada con los slots que controla el
+            componente. Un ejemplo completo de este fichero podría ser el siguiente:
+            <pre v-highlight="demoDataSlots"><code class="js"></code></pre>
+          </li>
+          <li>
+            El fichero <span class="demo__md--syntax">data/demo__dl-ui-{{componentNameNormalized}}.notes.js</span>
+            realiza una exportación de una cadena que es utilizada como notas auxiliares del componente. Un ejemplo completo de este fichero
+            podría ser el siguiente:
+            <pre v-highlight="demoDataNotes"><code class="notas"></code></pre>
+          </li>
+        </ol>
+      </div>
+    </dl-comp-kit-demo-section>
+  </div>
+</div>
